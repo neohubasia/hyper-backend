@@ -1,0 +1,26 @@
+extends ../includes/ly-auth
+
+block content
+  form(action="/login" method="post")
+    img.logo(src="/images/auth/rengvo.jpg", alt="", srcset="")
+    div.title welcome you
+    div.sub-title BETA
+    div.fields
+      div.username
+        input.user-input(type="username" name="username" placeholder="username" autofocus autocomplete="off" required)
+      div.password
+        input.pass-input(type="password" name="password" placeholder="password" required)
+    button.signin-button(type="submit") Login
+    div.link
+      a(href="#") Forgot password? or 
+      a(href="#") Sign up
+    label#error-message
+  script.
+    const urlParams = new URLSearchParams(window.location.search);
+    const info = urlParams.get('info');
+
+    if(info) {
+      const errorMessage = document.getElementById("error-message");
+      errorMessage.innerText = info;
+      errorMessage.style.display = "block";
+    }

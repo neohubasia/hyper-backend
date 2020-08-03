@@ -1,0 +1,73 @@
+div.header
+  div.container-fluid
+    div.row
+      div.col-lg-12
+        div.float-left
+          div.hamburger.sidebar-toggle
+            span.line
+            span.line
+            span.line
+        div.float-right
+          ul
+            li.header-icon.dib
+              i.ti-bell
+              div.drop-down
+                div.dropdown-content-heading
+                  span.text-left Recent Notifications
+                div.dropdown-content-body
+                  ul
+                    li
+                      a(href="#")
+                        img.pull-left.m-r-10.avatar-img(src="assets/images/avatar/3.jpg" alt="")
+                        div.notification-content
+                          small.notification-timestamp.pull-right 02:34 PM
+                          div.notification-heading Mr. John
+                          div.notification-text 5 members joined today
+                    li.text-center
+                      a.more-link(href="#") See All
+            li.header-icon.dib
+              i.ti-email
+              div.drop-down
+                div.dropdown-content-heading
+                  span.text-left 2 New Messages
+                    a(href="email.html")
+                      i.ti-pencil-alt.pull-right
+                div.dropdown-content-body
+                  ul
+                    li.notification-unread
+                      a(href="#")
+                        img.pull-left.m-r-10.avatar-img(src="assets/images/avatar/1.jpg" alt="")
+                        div.notification-content
+                           small.notification-timestamp.pull-right 02:34 PM
+                           div.notification-heading Michael Qin
+                           div.notification-text Hi Teddy, Just wanted to let you ...
+                    li.text-center
+                      a.more-link(href="#") See All
+            li.header-icon.dib
+              i.ti-angle-down
+              div.drop-down.dropdown-profile
+                div.dropdown-content-heading
+                  span.text-left Upgrade Now
+                  p.trial-day 30 Days Trail
+                div.dropdown-content-body
+                  ul
+                    li 
+                      a(href="#") 
+                        i.ti-user
+                        span#username
+                    li 
+                      a(href="#") 
+                        i.ti-email
+                        span Inbox
+                    li 
+                      a(href="#") 
+                        i.ti-settings
+                        span Setting
+                    li 
+                      a(href="#")
+                        i.ti-lock
+                        span Lock Screen
+                    li 
+                      a(href="/logout") 
+                        i.ti-power-off
+                        span Logout
