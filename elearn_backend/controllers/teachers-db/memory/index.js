@@ -1,5 +1,4 @@
 let TEACHERS = require('../../../database/memory/teachers'); // DB
-let makeTeacher = require('../../../models/teacher/index'); // model
 let serialize = require('./serializer') // serializer custom to db
 
 let listTeachers = () => {
@@ -15,13 +14,13 @@ let findTeacher = (prop, val) => {
 }
 
 let addTeacher = (teacherInfo) => {
-  let teacher = makeTeacher(teacherInfo);
-  let newTeacher = {
-    serial: TEACHERS.length + 1,
-    class: teacher.getSubject(),
-    tenure: teacher.isTenure()
-  };
-  TEACHERS.push(newTeacher);
+  // let teacher = makeTeacher(teacherInfo);
+  // let newTeacher = {
+  //   serial: TEACHERS.length + 1,
+  //   class: teacher.getSubject(),
+  //   tenure: teacher.isTenure()
+  // };
+  TEACHERS.push(teacherInfo);
   return findTeacher('serial', newTeacher.serial);
 }
 

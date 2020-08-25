@@ -50,7 +50,7 @@ app.use(authRouter);
 app.use('/api', _jwt.checkToken ,apiRouter);
 
 // connect to jwt routes
-app.use('/dmhar', jwtRouter);
+app.use('/d-mar', jwtRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -81,7 +81,10 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({
+    "status": "ERR",
+    "message": err
+  })
 });
 
 module.exports = app;

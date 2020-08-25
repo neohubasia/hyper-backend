@@ -1,5 +1,4 @@
 let Student = require('../../../database/mongodb/models/student');
-let makeStudent = require('../../../models/student/index'); // model
 let serialize = require('./serializer'); // serializer custom to db
 
 let listStudents = () => {
@@ -23,14 +22,15 @@ let findStudentsBy = (prop, val) => {
 }
 
 let addStudent = (studentInfo) => {
-  let student = makeStudent(studentInfo)
-  let newStudent = {
-    name: student.getName(),
-    grade: student.getGrade(),
-    age: student.getAge(),
-    prefect: student.isPrefect()
-  }
-  return Student.create(newStudent)
+  console.log("studentInfo ", studentInfo);
+  // let student = makeStudent(studentInfo)
+  // let newStudent = {
+  //   name: student.getName(),
+  //   grade: student.getGrade(),
+  //   age: student.getAge(),
+  //   prefect: student.isPrefect()
+  // }
+  return Student.create(studentInfo)
     .then(serialize);
 }
 

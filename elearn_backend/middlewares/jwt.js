@@ -3,7 +3,6 @@ const config = require('../config');
 
 let checkToken = (req, res, next) => {
   // Express headers are auto converted to lowercase
-  console.log("Req header ", req.headers)
   let token = req.headers['x-access-token'] || req.headers['authorization']; 
   if (token) {
     if (token.startsWith('Bearer ')) {
@@ -14,7 +13,7 @@ let checkToken = (req, res, next) => {
       jwt.verify(token, config.jwt.SECRET, (err, decoded) => {
         if (err) {
           return res.json({
-            success: false,
+            status: "FAIL",
             message: 'Token is not valid'
           });
         } else {
@@ -24,14 +23,14 @@ let checkToken = (req, res, next) => {
       });
     } else {
       return res.json({
-        success: false,
+        status: "FAIL",
         message: 'Auth token is not supplied'
       });
     }
   }
   else {
     return res.json({
-      success: false,
+      status: "FAIL",
       message: 'Auth token is exactly required'
     });
   }

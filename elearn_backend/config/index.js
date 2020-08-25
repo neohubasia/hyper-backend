@@ -18,9 +18,9 @@ module.exports = {
     TEXT: '9E0HU8L48',
     HASH: 'SHA256',
     SECRET: 'C57B465081874C256CFD78D9EC226DCD111D03E08E21ABB8DCAF0CF7DA71D362',
-    issue: {
-      USERNAME: 'matinzarchiwin',
-      PASSWORD: 'BD:28-MAY-1994'
+    credential: {
+      USERNAME: 'N3O?U8L4B1S6E3K',
+      PASSWORD: '2OZ0.4U6.1S7.8D'
     }
   }
 }

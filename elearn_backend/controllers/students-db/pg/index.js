@@ -1,5 +1,4 @@
 let knex = require('../../../db/pg/knex');
-let makeStudent = require('../../../models/student/index'); // model
 
 let listStudents = () => {
   return knex.raw(`SELECT * FROM students;`).then(data => data.rows);
@@ -20,14 +19,14 @@ let findStudentsBy = (prop, val) => {
 }
 
 let addStudent = (studentInfo) => {
-  let student = makeStudent(studentInfo)
-  let newStudent = {
-    name: student.getName(),
-    grade: student.getGrade(),
-    age: student.getAge(),
-    prefect: student.isPrefect()
-  }
-  return knex('students').insert(newStudent).returning('*')
+  // let student = makeStudent(studentInfo)
+  // let newStudent = {
+  //   name: student.getName(),
+  //   grade: student.getGrade(),
+  //   age: student.getAge(),
+  //   prefect: student.isPrefect()
+  // }
+  return knex('students').insert(studentInfo).returning('*')
   .then(result => result[0]);
 }
 

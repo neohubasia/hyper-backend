@@ -9,46 +9,45 @@ class HandleGenerator {
     let username = req.body.username;
     let password = req.body.password;
     // For the given username fetch user from DB
-    let mockedUsername = config.jwt.issue.USERNAME;
-    let mockedPassword = config.jwt.issue.PASSWORD;
+    let mockedUsername = config.jwt.credential.USERNAME;
+    let mockedPassword = config.jwt.credential.PASSWORD;
 
     if (username && password) {
       if (username === mockedUsername && password === mockedPassword) {
         let token = jwt.sign({username: username},
-          config.jwt.SECRET,
-          { 
+          config.jwt.SECRET, { 
             expiresIn: '24h' // expires in 24 hours
           }
         );
         // return the JWT token for the future API calls
         res.json({
-          success: true,
+          status: "SUCCESS",
           message: 'Authentication successful!',
           token: token
         });
       } else {
-        res.send(403).json({
-          success: false,
+        res.json({
+          status: "FAIL",
           message: 'Incorrect username or password'
         });
       }
     } else {
-      res.send(400).json({
-        success: false,
+      res.json({
+        status: "FAIL",
         message: 'Authentication failed! Please check the request'
       });
     }
   }
   index (req, res) {
     res.json({
-      success: true,
+      status: "FAIL",
       message: 'Welcome JWT Token'
     });
   }
 }
 
 let handlers = new HandleGenerator();
-router.post('/htokebar', handlers.generateToken); // Routes & Handlers
+router.post('/u-bar', handlers.generateToken); // Routes & Handlers
   
 module.exports = router;
 

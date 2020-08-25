@@ -1,5 +1,4 @@
 let STUDENTS = require('../../../db/memory/students'); // DB
-let makeStudent = require('../../../models/student/index'); // model
 let serialize = require('./serializer'); // serializer custom to db
 
 let listStudents = () => {
@@ -20,14 +19,14 @@ let findStudentsBy = (prop, val) => {
 
 let addStudent = (studentInfo) => {
   let student = makeStudent(studentInfo)
-  let newStudent = {
-    serial: STUDENTS.length + 1,
-    year: student.getGrade(),
-    name: student.getName(),
-    age: student.getAge(),
-    prefect: student.isPrefect()
-  }
-  STUDENTS.push(newStudent)
+  // let newStudent = {
+  //   serial: STUDENTS.length + 1,
+  //   year: student.getGrade(),
+  //   name: student.getName(),
+  //   age: student.getAge(),
+  //   prefect: student.isPrefect()
+  // }
+  STUDENTS.push(studentInfo)
   return findStudent('serial', newStudent.serial)
 }
 
