@@ -22,7 +22,6 @@ let findStudentsBy = (prop, val) => {
 }
 
 let addStudent = (studentInfo) => {
-  console.log("studentInfo ", studentInfo);
   // let student = makeStudent(studentInfo)
   // let newStudent = {
   //   name: student.getName(),

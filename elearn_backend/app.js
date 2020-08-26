@@ -81,10 +81,12 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.json({
-    "status": "ERR",
-    "message": err
-  })
+ 
+  // res.json({
+  //   "status": "ERR",
+  //   "message": err
+  // })
+  res.sendFile('./views/404/index.html', { root: __dirname })
 });
 
 module.exports = app;
