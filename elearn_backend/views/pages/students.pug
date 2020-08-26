@@ -5,131 +5,64 @@ block content
     div.main
       div.container-fluid
         div.row
-          div.col-lg-8.p-r-0.title-margin-right
-            div.page-header
-              div.page-title
-                h1 Hello 
-                  span Welcome Here
-          div.col-lg-4.p-l-0.title-margin-left
+          div.col-md-12.title-margin-left
             div.page-header
               div.page-title
                 ol.breadcrumb
                   li.breadcrumb-item
-                    a(href="#") Dashboard
-                  li.breadcrumb-item.active Home
+                    a(href="/") Dashboard
+                  li.breadcrumb-item.active Student List
         div.col-md-12
-          table#example.ui.celled.table(style='width:100%')
+          table#example.table(style='width:100%')
             thead
               tr
+                th #
                 th Name
-                th Position
-                th Office
                 th Age
-                th Start date
-                th Salary
+                th Grade
+                th Active
+                th.actions
+                  a.btn.btn-sm.btn-success.list-action-text(href="#", role="button", title="Add")
+                    i.fa.fa-plus
             tbody
-              tr
-                td Tiger Nixon
-                td System Architect
-                td Edinburgh
-                td 61
-                td 2011/04/25
-                td $320,800
-              tr
-                td Garrett Winters
-                td Accountant
-                td Tokyo
-                td 63
-                td 2011/07/25
-                td $170,750
-              tr
-                td Ashton Cox
-                td Junior Technical Author
-                td San Francisco
-                td 66
-                td 2009/01/12
-                td $86,000
-              tr
-                td Cedric Kelly
-                td Senior Javascript Developer
-                td Edinburgh
-                td 22
-                td 2012/03/29
-                td $433,060
-              tr
-                td Airi Satou
-                td Accountant
-                td Tokyo
-                td 33
-                td 2008/11/28
-                td $162,700
-              tr
-                td Brielle Williamson
-                td Integration Specialist
-                td New York
-                td 61
-                td 2012/12/02
-                td $372,000
-              tr
-                td Herrod Chandler
-                td Sales Assistant
-                td San Francisco
-                td 59
-                td 2012/08/06
-                td $137,500
-              tr
-                td Rhona Davidson
-                td Integration Specialist
-                td Tokyo
-                td 55
-                td 2010/10/14
-                td $327,900
-              tr
-                td Colleen Hurst
-                td Javascript Developer
-                td San Francisco
-                td 39
-                td 2009/09/15
-                td $205,500
-              tr
-                td Sonya Frost
-                td Software Engineer
-                td Edinburgh
-                td 23
-                td 2008/12/13
-                td $103,600
-              tr
-                td Jena Gaines
-                td Office Manager
-                td London
-                td 30
-                td 2008/12/19
-                td $90,560
-              tr
-                td Quinn Flynn
-                td Support Lead
-                td Edinburgh
-                td 22
-                td 2013/03/03
-                td $342,000
-              tr
-                td Charde Marshall
-                td Regional Director
-                td San Francisco
-                td 36
-                td 2008/10/16
-                td $470,600
-              tr
-                td Haley Kennedy
-                td Senior Marketing Designer
-                td London
-                td 43
-                td 2012/12/18
-                td $313,500
 
-  
+
   script(src="/assets/js/lib/data-table/datatables.min.js")
   script.
     $(document).ready(function() {
-       $('#example').DataTable();
-    } );
+      $.fn.dataTable.ext.errMode = 'none';
+      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm m-1 btn-primary'; 
+      var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
+          console.log('DataTable Error: ', message);
+          alert('Read data is failed!');
+        }).DataTable({
+          "autoWidth": true,
+          "pagingType": "full_numbers",
+          "language": {
+            "searchPlaceholder": "Search",
+            "paginate": {
+              "previous": "<",
+              "next": ">"
+            }
+          },
+          "ajax": { 
+            "type": "Get",
+            "url": "./api/students/",
+            "headers": {"authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTU5ODQ2MDY2MSwiZXhwIjoxNTk4NTQ3MDYxfQ.Whhe_cWm9N4XkLlcGP6DZ5TxPP_vu2_4r4JBHID77Jc"},
+            "dataSrc": "",
+          },
+          "columns":  [
+            { "data": "id" },
+            { "data": "grade"},
+            { "data": "name" },
+            { "data": "age" },
+            { "data": "prefect" },
+            { "data": "actions", "className":"nowrap" }
+          ],
+          "columnDefs": [
+            { targets: 0, render: dataTableIndexRenderer() },
+            { targets: 4, render: dataTableNotiRenderer() },
+            { targets: 5, orderable: false, render: dataTableActionsRenderer("#", "1,1,1") }
+          ]
+      });
+    });
