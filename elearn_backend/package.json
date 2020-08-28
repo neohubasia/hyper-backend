@@ -1,7 +1,21 @@
 {
   "name": "elearn-backend",
+  "description": "Trend to general business solution",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Wai Phyo Naing",
+    "email": "waiphyoenaing.joy007@gmail.com"
+  },
+  "keywords": [
+    "itemplate",
+    "neohub"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waiphyo285/itemplate.git"
+  },
+  "bugs": "https://github.com/waiphyo285/itemplate/issues",
   "scripts": {
     "start": "nodemon ./bin/www",
     "dev": "nodemon ./drivers/webserver/server.js",

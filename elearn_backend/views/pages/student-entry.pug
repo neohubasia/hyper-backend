@@ -1,0 +1,75 @@
+extends ../includes/ly-main
+
+block content
+  div.content-wrap
+    div.main
+      div.container-fluid
+        div.row
+          div.col-md-12.title-margin-left
+            div.page-header
+              div.page-title
+                ol.breadcrumb
+                  li.breadcrumb-item
+                    a(href="/") Dashboard
+                  li.breadcrumb-item
+                    a(href=url.list) Student List
+                  li.breadcrumb-item.active
+                    span Student Entry
+        div.col-md-12
+          div.row
+            div.col-md-12.alert.alert-dismissible#alert(role='alert')
+              strong.alert-title#alertTitle
+              span#alertMessage
+              //- button.close(type='button', data-dismiss="alert" aria-label='Close')
+              //-   span(aria-hidden='true') &times;
+    
+          form.form-horizontal.card#entryForm(method='post', action=url.post)
+            input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
+
+            div.form-group.row
+              div.col-sm-6
+                label.control-label(for='name') Name
+                input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autofocus)
+
+              div.col-sm-6
+                label.control-label(for='age') Age
+                input.form-control.input-sm#age(type='text', name='age', value=data.age)
+
+            div.form-group.row
+              label.col-sm-2.control-label(for='grade') Grade
+              div.col-sm-10
+                input.form-control.input-sm#grade(type='text', name='grade', value=data.grade)
+            
+            div.form-group.row
+              label.col-sm-2.control-label(for='prefect') Prefect
+              div.col-sm-10
+                input.form-control.input-sm#prefect(type='text', name='prefect', value=data.prefect)
+
+            div.row.justify-content-md-center
+              a.btn.btn-default.btn-sm.m-1(href=url.list, role='button') Cancel
+              button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button') Save
+
+          form#postSuccessForm(method='GET', action=url.list)
+
+  script(src="/assets/js/lib/data-table/datatables.min.js")
+  script.
+    $(document).ready(function() {
+      $('#alert').hide();
+
+      var getFrm = $('#entryForm');
+      getFrm.submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+          type: getFrm.attr('method'),
+          url: getFrm.attr('action'),
+          data: getFrm.serialize(),
+          success: function (data) {
+            handleAlert(data);
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      });
+    });

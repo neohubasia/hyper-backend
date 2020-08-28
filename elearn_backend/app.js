@@ -10,7 +10,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true
 });
 
 const _jwt = require('./middlewares/jwt');

@@ -1,5 +1,6 @@
 let Student = require('../../../database/mongodb/models/student');
 let serialize = require('./serializer'); // serializer custom to db
+const { async } = require('validate.js');
 
 let listStudents = () => {
   return Student.find({})
@@ -14,6 +15,13 @@ let findStudent = (prop, val) => {
     .then(resp => {
       return serialize(resp[0])
     });
+
+  // this code is smarter but can't wait to serialize data
+  // return Student.find({[prop]: val}, (err, resp) => {
+  //   if(err) throw err;
+  //   console.log("Find ", resp);
+  //   return serialize(resp[0]);
+  // });
 }
 
 let findStudentsBy = (prop, val) => {

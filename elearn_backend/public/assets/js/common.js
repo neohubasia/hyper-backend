@@ -63,7 +63,7 @@
         '<a class="btn btn-sm btn-danger list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
       data-loading-text="Deleting..." data-id="' +
         id +
-        '" title="Delete"><i class="fa fa-times"></i></a>';
+        '" title="Delete"><i class="fa fa-times text-white"></i></a>';
       return html;
     };
   }
@@ -454,3 +454,25 @@
         }
       });
   });
+
+  function handleAlert(args) {
+    if (args.status == "SUCCESS") {
+      $("#alertTitle").html("Success: ");
+      $("#alertMessage").html("Save Successful.");
+      $("#alert").addClass("alert-success").show();
+
+      var postFrm = $('#postSuccessForm');
+      window.setTimeout(function(){
+        postFrm.submit();
+      }, 1 * 1000);
+    } 
+    else {
+      $("#alertTitle").html("Error: ");
+      $("#alertMessage").html("Save Unsuccessful.");
+      $("#alert").addClass("alert-danger").show();
+
+      window.setTimeout(function(){
+        $('#alert').hide();
+      }, 1 * 1500);
+    }
+  }

@@ -81,10 +81,10 @@
 .card {
   background: #ffffff;
   margin: 7.5px 0;
-  padding: 20px;
+  padding: 0.2in;
   border: 1px solid #EEE;
   border-radius: 3px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(20, 20, 20, 0.1);
 }
 .card-subtitle {
   font-size: 12px;
@@ -543,6 +543,9 @@ a.dt-button.active:not(.disabled) {
   border-color: #252525;
   color: #252525;
 }
+.btn {
+  cursor: pointer;
+}
 .btn-default {
   background: #878787;
   border-color: #878787;
@@ -920,7 +923,7 @@ a.dt-button.active:not(.disabled) {
 .main .page-header .breadcrumb li a {
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
-  display: block;
+  /* display: block; */
 }
 .dropdown-task .progress {
   height: 5px;
@@ -3082,29 +3085,33 @@ tbody tr td:last-child {
 }
 /*Aleart
 -------------*/
+
+.alert{
+  height: 0.4in;
+}
 .alert-primary {
-  background-color: #b3c0ff;
-  border-color: #b3c0ff;
+  background-color: #FFF;
+  border-color: #EEE;
   color: #5885fE;
 }
 .alert-success {
-  background-color: #71dd8a;
-  border-color: #71dd8a;
+  background-color: #FFF;
+  border-color: #EEE;
   color: #25A545;
 }
 .alert-warning {
-  background-color: #f5e0ac;
-  border-color: #f5e0ac;
+  background-color: #FFF;
+  border-color: #EEE;
   color: #E7B73A;
 }
 .alert-danger {
-  background-color: #efa2a9;
-  border-color: #efa2a9;
-  color: #dC3545;
+  background-color: #FFF;
+  border-color: #EEE;
+  color: #DC3545;
 }
 .alert-pink {
-  background-color: #f8e4fb;
-  border-color: #f8e4fb;
+  background-color: #FFF;
+  border-color: #EEE;
   color: #E6A6f6;
 }
 .alert-dismissable .close,

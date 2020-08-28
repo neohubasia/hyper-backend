@@ -22,16 +22,15 @@ block content
                 th Grade
                 th Active
                 th.actions
-                  a.btn.btn-sm.btn-success.list-action-text(href="#", role="button", title="Add")
-                    i.fa.fa-plus
+                  a.btn.btn-sm.btn-success.list-action-text(href=url.entry, role="button", title="Add")
+                    i.fa.fa-plus  New
             tbody
-
 
   script(src="/assets/js/lib/data-table/datatables.min.js")
   script.
     $(document).ready(function() {
       $.fn.dataTable.ext.errMode = 'none';
-      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm m-1 btn-primary'; 
+      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
           console.log('DataTable Error: ', message);
           alert('Read data is failed!');
@@ -48,21 +47,21 @@ block content
           "ajax": { 
             "type": "Get",
             "url": "./api/students/",
-            "headers": {"authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTU5ODQ2MDY2MSwiZXhwIjoxNTk4NTQ3MDYxfQ.Whhe_cWm9N4XkLlcGP6DZ5TxPP_vu2_4r4JBHID77Jc"},
+            "headers": {"authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTU5ODU4Mzc5NCwiZXhwIjoxNTk4NjcwMTk0fQ.dr0gbgTdmRaSEuwl7a_dRtkhuCQX1q_xpu5DC9Wf-7k"},
             "dataSrc": "",
           },
           "columns":  [
             { "data": "id" },
-            { "data": "grade"},
-            { "data": "name" },
+            { "data": "name"},
             { "data": "age" },
+            { "data": "grade" },
             { "data": "prefect" },
             { "data": "actions", "className":"nowrap" }
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 4, render: dataTableNotiRenderer() },
-            { targets: 5, orderable: false, render: dataTableActionsRenderer("#", "1,1,1") }
+            { targets: 4, orderable: false, render: dataTableNotiRenderer() },
+            { targets: 5, orderable: false, render: dataTableActionsRenderer("!{url.entry}", "1,1,1") }
           ]
       });
     });
