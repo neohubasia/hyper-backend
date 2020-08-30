@@ -12,6 +12,7 @@ block content
                   li.breadcrumb-item
                     a(href="/") Dashboard
                   li.breadcrumb-item.active Student List
+        include ./../includes/ly-delete
         div.col-md-12
           table#example.table(style='width:100%')
             thead
@@ -22,13 +23,14 @@ block content
                 th Grade
                 th Active
                 th.actions
-                  a.btn.btn-sm.btn-success.list-action-text(href=url.entry, role="button", title="Add")
+                  a.btn.btn-sm.btn-success.btn-rounded.list-action-text(href=url.entry, role="button", title="Add")
                     i.fa.fa-plus  New
             tbody
 
   script(src="/assets/js/lib/data-table/datatables.min.js")
   script.
     $(document).ready(function() {
+      var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTU5ODc3OTYxNSwiZXhwIjoxNTk4ODY2MDE1fQ.B3SpUrZyE3vkCJONB82F2f_wTKMXdZ02kdnP5vsGf9M";
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
@@ -47,8 +49,8 @@ block content
           "ajax": { 
             "type": "Get",
             "url": "./api/students/",
-            "headers": {"authorization": "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTU5ODU4Mzc5NCwiZXhwIjoxNTk4NjcwMTk0fQ.dr0gbgTdmRaSEuwl7a_dRtkhuCQX1q_xpu5DC9Wf-7k"},
-            "dataSrc": "",
+            "headers": {"authorization": "Bearer " + token},
+            "dataSrc": "data",
           },
           "columns":  [
             { "data": "id" },
@@ -63,5 +65,20 @@ block content
             { targets: 4, orderable: false, render: dataTableNotiRenderer() },
             { targets: 5, orderable: false, render: dataTableActionsRenderer("!{url.entry}", "1,1,1") }
           ]
+      });
+
+      $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        $(this).attr('data-id', id);
+        $(this).find('#dialogAccept').on('click', function(ev) {
+          var deleteUrl = './api/student/'+id;
+          handleDelete(deleteUrl, token, function() {
+            table.ajax.reload();
+          });
+        });
+      }).on('hide.bs.modal', function (event) {
+        $(this).attr('data-id', '');
+        $(this).find('#dialogAccept').off('click');
       });
     });

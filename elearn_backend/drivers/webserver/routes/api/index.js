@@ -10,8 +10,12 @@ const studentSchema = require('./../../../../models/student/student-schema');
 
 router
   .get('/students', students.index)
-  .get('/students/:id', students.show)
-  .post('/students', validateware(studentSchema), students.create);
+  .get('/student/:id', students.show)
+  .get('/student', students.showby)
+  .post('/student', validateware(studentSchema), students.create)
+  .post('/student/:id', validateware(studentSchema), students.update)
+  .delete('/student/:id', students.delete)
+  .delete('/students', students.deleteall);
 
 router
   .get('/teachers', teachers.index)

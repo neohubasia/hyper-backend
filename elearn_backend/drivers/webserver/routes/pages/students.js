@@ -45,20 +45,29 @@ router.get('/student/:id?',
 )
 .post('/student',
   (req, res, next) => {
-    let status = "FAIL"
-    req.body.prefect = true; // next dynamic ()
-    if (!req.body.id)
-      studentsDb.addStudent(req.body)
-      .then(result => {
-        if (result != null)
-          status = "SUCCESS"
-        res.json({ status: status, data: result });
-      })
-      .catch(error => {
-        console.log(`Error ${error}`);
-        res.json({ status: status, data: error });
-      });
-    // else update section coming soon
+    let db, status = "FAIL"; 
+
+    (req.body.prefect == "1") 
+      ? req.body.prefect = true
+      : req.body.prefect = false;
+
+    if (!req.body.id) { // insert data 
+      db = studentsDb.addStudent(req.body);
+    }
+    else { // update data
+      const id = req.body.id;
+      const {['id']: removed, ...data} = req.body;
+      db =  studentsDb.updateStudent(req.body.id, data);
+    }
+    db.then(result => {
+      if (result != null)
+        status = "SUCCESS"
+      res.json({ status: status, data: result });
+    })
+    .catch(error => {
+      console.log(`Error ${error}`);
+      res.json({ status: status, data: error });
+    });
   }
 );
 

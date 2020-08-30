@@ -1,6 +1,5 @@
 let Student = require('../../../database/mongodb/models/student');
 let serialize = require('./serializer'); // serializer custom to db
-const { async } = require('validate.js');
 
 let listStudents = () => {
   return Student.find({})
@@ -8,9 +7,8 @@ let listStudents = () => {
 }
 
 let findStudent = (prop, val) => {
-  if (prop === 'id') {
+  if (prop === 'id')
     prop = '_id'
-  }
   return Student.find({[prop]: val})
     .then(resp => {
       return serialize(resp[0])
@@ -25,6 +23,8 @@ let findStudent = (prop, val) => {
 }
 
 let findStudentsBy = (prop, val) => {
+  if (prop === 'id')
+    prop = '_id';
   return Student.find({[prop]: val})
     .then(serialize);
 }
@@ -41,17 +41,24 @@ let addStudent = (studentInfo) => {
     .then(serialize);
 }
 
+let updateStudent = (id,studentInfo) => {
+  return Student.findByIdAndUpdate(id, studentInfo)
+    .then(serialize);
+}
+
 let deleteStudent = (id) => {
   return Student.findByIdAndDelete(id)
     .then(resp => {
       return {
         id: resp._id.toString(),
-        status: 'success'
+        status: 'SUCCESS',
+        message: 'Delete Successful'
       }
     })
     .catch(err => {
-      return {
-        status: 'fail'
+      return { 
+        status: 'FAIL',
+        message: 'Delete Unsuccessful' 
       }
     })
 }
@@ -65,6 +72,7 @@ module.exports = {
   findStudent,
   findStudentsBy,
   addStudent,
+  updateStudent,
   deleteStudent,
   dropAll
 };

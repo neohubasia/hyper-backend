@@ -14,10 +14,10 @@ const expressSession = require('express-session')({
 });
 
 const _jwt = require('./middlewares/jwt');
+const _generate = require('./middlewares/generator');
 
 const authRouter = require('./drivers/webserver/routes/auth');
 const apiRouter = require('./drivers/webserver/routes/api');
-const jwtRouter = require('./middlewares/generator');
 
 const app = express();
 var routeModules = [];
@@ -50,7 +50,7 @@ app.use(authRouter);
 app.use('/api', _jwt.checkToken ,apiRouter);
 
 // connect to jwt routes
-app.use('/d-mar', jwtRouter);
+app.use('/d-mar', _generate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

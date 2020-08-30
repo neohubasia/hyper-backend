@@ -11,7 +11,7 @@ Resilient software is divided into layers, underpinned by business logic and is 
 4. **Independent of Database**. Switch out SQL for MongoDB.
 5. **Independent of any external agency**. Business rules don't know anything about outside world.
 
-![The Clean Architecture diagram](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
+(https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 
 In practice, choice of technology should be the last decision you make or code you write (e.g. database, platform, framework).
 

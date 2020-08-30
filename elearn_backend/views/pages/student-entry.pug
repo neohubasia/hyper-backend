@@ -29,21 +29,28 @@ block content
             div.form-group.row
               div.col-sm-6
                 label.control-label(for='name') Name
-                input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autofocus)
+                input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required autofocus)
 
               div.col-sm-6
                 label.control-label(for='age') Age
-                input.form-control.input-sm#age(type='text', name='age', value=data.age)
+                input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
 
             div.form-group.row
               label.col-sm-2.control-label(for='grade') Grade
               div.col-sm-10
-                input.form-control.input-sm#grade(type='text', name='grade', value=data.grade)
-            
+                input.form-control.input-sm#grade(type='number', name='grade', role='number', min='1' max='11' onkeyup="if(parseInt(this.value)>11){ this.value =11; return false; }" value=data.grade autocomplete="off" required)
+
+            //- input.form-control.input-sm.date(type='text', name='prefect', role="date" autocomplete="off")
+
             div.form-group.row
               label.col-sm-2.control-label(for='prefect') Prefect
-              div.col-sm-10
-                input.form-control.input-sm#prefect(type='text', name='prefect', value=data.prefect)
+              div.col-sm-10.radio.radio-toolbar.row
+                div.col-sm-2
+                  input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
+                  label(for='prefectActive') &nbsp;Active
+                div.col-sm-2
+                  input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
+                  label(for='prefectInactive') &nbsp;Inactive
 
             div.row.justify-content-md-center
               a.btn.btn-default.btn-sm.m-1(href=url.list, role='button') Cancel
@@ -55,6 +62,10 @@ block content
   script.
     $(document).ready(function() {
       $('#alert').hide();
+
+      var prefect = "!{data.prefect}";
+      if (prefect && prefect == "false")
+        $('#prefectInactive').attr("checked", "checked");
 
       var getFrm = $('#entryForm');
       getFrm.submit(function (e) {

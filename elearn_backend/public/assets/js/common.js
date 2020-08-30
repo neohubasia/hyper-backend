@@ -20,7 +20,7 @@
   
   function dataTableNotiRenderer() {
     return function(d, type, row) {
-      return d = true
+      return d == true
         ? '<span class="badge badge-success" style="font-size:12px;">Yes</span>'
         : '<span class="badge badge-danger" style="font-size:12px;">No</span>';
     };
@@ -168,38 +168,7 @@
     var current = new Date(dateObj.getTime() + diff);
     return date.format(current, format);
   }
-  
-  function doDelete(url, token, successCallback) {
-    if (typeof url === "string" && url != "") {
-      $.ajax({
-        url: url,
-        type: "post",
-        headers: { authorization: "Bearer " + token },
-        success: function(data) {
-          if (typeof data !== "undefined" && typeof data.data == "string") {
-            $("#delErrorMsg").html(data.data);
-            $("#alertDeleteSuccess").hide();
-            $("#alertDeleteError").show();
-          } else if (typeof data === "undefined" || data.data == 0) {
-            $("#delErrorMsg").html("Can not delete data.");
-            $("#alertDeleteSuccess").hide();
-            $("#alertDeleteError").show();
-          } else {
-            $("#alertDeleteError").hide();
-            $("#alertDeleteSuccess").show();
-  
-            if (typeof successCallback === "function") {
-              successCallback();
-            }
-          }
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          alert(errorThrown);
-        }
-      });
-    }
-  }
-  
+
   function checkIfFileExist(args){
     if (args.option == "IMG") {
       return checkIfImageExist(args);
@@ -208,7 +177,7 @@
       return checkIfVideoExist(args);
     }
   }
-  
+
   function checkIfImageExist(args) {
     $.get("/file/stream", { file: args.filename }, function(data, textStatus) {
       if(args.lang == "EN") {
@@ -267,193 +236,221 @@
     );
   }
   
-  $(function() {
-    $('[data-hide="alert"]').on("click", function() {
-      $(this)
-        .closest("div.alert")
-        .hide();
-    });
-  
-    $('input[role="number"]')
-      .on("keydown", function(e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if (
-          $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-          // Allow: Ctrl+A, Command+A
-          (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-          // Allow: home, end, left, right, down, up
-          (e.keyCode >= 35 && e.keyCode <= 40)
-        ) {
-          // let it happen, don't do anything
-          return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if (
-          (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
-          (e.keyCode < 96 || e.keyCode > 105)
-        ) {
-          e.preventDefault();
-        }
-      })
-      .on("paste", function(e) {
-        // Get pasted data via clipboard API
-        var clipboardData = e.clipboardData || window.clipboardData;
-        var pastedData = clipboardData.getData("Text").toUpperCase();
-        if (!/^[\d.]+/.test(pastedData)) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-      });
-  
-    $('input[role="phone"]')
-      .on("keydown", function(e) {
-        //alert(e.keyCode);
-        // Allow: backspace, delete, tab, escape, enter, comma, space and dash
-        if (
-          $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 188, 32, 173]) !== -1 ||
-          // Allow: Plus
-          (e.keyCode === 61 && e.shiftKey === true) ||
-          // Allow: Ctrl+A, Command+A
-          (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-          // Allow: home, end, left, right, down, up
-          (e.keyCode >= 35 && e.keyCode <= 40)
-        ) {
-          // let it happen, don't do anything
-          return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if (
-          (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
-          (e.keyCode < 96 || e.keyCode > 105)
-        ) {
-          e.preventDefault();
-        }
-      })
-      .on("paste", function(e) {
-        // Get pasted data via clipboard API
-        var clipboardData = e.clipboardData || window.clipboardData;
-        var pastedData = clipboardData.getData("Text").toUpperCase();
-        if (!/^[\d/]+/.test(pastedData)) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-      });
-  
-    $('input[role="time"]')
-      .on("keydown", function(e) {
-        //alert(e.keyCode);
-        // Allow: backspace, delete, tab, escape, enter and .
-        if (
-          $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-          // Allow: colon
-          (e.keyCode === 59 && e.shiftKey === true) ||
-          // Allow: Ctrl+A, Command+A
-          (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-          // Allow: home, end, left, right, down, up
-          (e.keyCode >= 35 && e.keyCode <= 40)
-        ) {
-          // let it happen, don't do anything
-          return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if (
-          (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
-          (e.keyCode < 96 || e.keyCode > 105)
-        ) {
-          e.preventDefault();
-        }
-      })
-      .on("paste", function(e) {
-        // Get pasted data via clipboard API
-        var clipboardData = e.clipboardData || window.clipboardData;
-        var pastedData = clipboardData.getData("Text").toUpperCase();
-        if (!/^[\d/]+[:\.][\d/]+/.test(pastedData)) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-      });
-  
-    $('input[role="date"]')
-      .on("keydown", function(e) {
-        // Allow: backspace, delete, tab, escape, enter and slash
-        if (
-          $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 191]) !== -1 ||
-          // Allow: Ctrl+A, Command+A
-          (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-          // Allow: home, end, left, right, down, up
-          (e.keyCode >= 35 && e.keyCode <= 40)
-        ) {
-          // let it happen, don't do anything
-          return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if (
-          (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
-          (e.keyCode < 96 || e.keyCode > 105)
-        ) {
-          e.preventDefault();
-        }
-      })
-      .on("paste", function(e) {
-        // Get pasted data via clipboard API
-        var clipboardData = e.clipboardData || window.clipboardData;
-        var pastedData = clipboardData.getData("Text").toUpperCase();
-        if (!/^[\d/]+/.test(pastedData)) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-      });
-  
-    $('input[editable="false"]')
-      .on("keydown paste input propertychange", function(e) {
+  // $(function() {});
+
+  $('[data-hide="alert"]').on("click", function() {
+    $(this)
+      .closest("div.alert")
+      .hide();
+  });
+
+  $('input[role="number"]')
+    .on("keydown", function(e) {
+      // Allow: backspace, delete, tab, escape, enter and .
+      if (
+        $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+        // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)
+      ) {
+        // let it happen, don't do anything
+        return;
+      }
+      // Ensure that it is a number and stop the keypress
+      if (
+        (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
+        (e.keyCode < 96 || e.keyCode > 105)
+      ) {
+        e.preventDefault();
+      }
+    })
+    .on("paste", function(e) {
+      // Get pasted data via clipboard API
+      var clipboardData = e.clipboardData || window.clipboardData;
+      var pastedData = clipboardData.getData("Text").toUpperCase();
+      if (!/^[\d.]+/.test(pastedData)) {
         e.stopPropagation();
         e.preventDefault();
-      })
-      .attr("autocomplete", "off")
-      .attr("tabIndex", -1)
-      .attr("focusable", false);
-  
-    var nowDate = new Date(Date.now());
-    $("input.date")
-      .datepicker({
-        format: "dd/mm/yyyy",
-        autoclose: true,
-        todayHighlight: true,
-        orientation: "bottom"
-      })
-      .on("hide", function(e) {
-        if (typeof e.date == "undefined" && $(this).val() == "") {
-          $(this).val(window.date.format(nowDate, "DD/MM/YYYY"));
+      }
+    });
+
+  $('input[role="phone"]')
+    .on("keydown", function(e) {
+      //alert(e.keyCode);
+      // Allow: backspace, delete, tab, escape, enter, comma, space and dash
+      if (
+        $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 188, 32, 173]) !== -1 ||
+        // Allow: Plus
+        (e.keyCode === 61 && e.shiftKey === true) ||
+        // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)
+      ) {
+        // let it happen, don't do anything
+        return;
+      }
+      // Ensure that it is a number and stop the keypress
+      if (
+        (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
+        (e.keyCode < 96 || e.keyCode > 105)
+      ) {
+        e.preventDefault();
+      }
+    })
+    .on("paste", function(e) {
+      // Get pasted data via clipboard API
+      var clipboardData = e.clipboardData || window.clipboardData;
+      var pastedData = clipboardData.getData("Text").toUpperCase();
+      if (!/^[\d/]+/.test(pastedData)) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+
+  $('input[role="time"]')
+    .on("keydown", function(e) {
+      //alert(e.keyCode);
+      // Allow: backspace, delete, tab, escape, enter and .
+      if (
+        $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+        // Allow: colon
+        (e.keyCode === 59 && e.shiftKey === true) ||
+        // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)
+      ) {
+        // let it happen, don't do anything
+        return;
+      }
+      // Ensure that it is a number and stop the keypress
+      if (
+        (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
+        (e.keyCode < 96 || e.keyCode > 105)
+      ) {
+        e.preventDefault();
+      }
+    })
+    .on("paste", function(e) {
+      // Get pasted data via clipboard API
+      var clipboardData = e.clipboardData || window.clipboardData;
+      var pastedData = clipboardData.getData("Text").toUpperCase();
+      if (!/^[\d/]+[:\.][\d/]+/.test(pastedData)) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+
+  $('input[role="date"]')
+    .on("keydown", function(e) {
+      // Allow: backspace, delete, tab, escape, enter and slash
+      if (
+        $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 191]) !== -1 ||
+        // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)
+      ) {
+        // let it happen, don't do anything
+        return;
+      }
+      // Ensure that it is a number and stop the keypress
+      if (
+        (e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
+        (e.keyCode < 96 || e.keyCode > 105)
+      ) {
+        e.preventDefault();
+      }
+    })
+    .on("paste", function(e) {
+      // Get pasted data via clipboard API
+      var clipboardData = e.clipboardData || window.clipboardData;
+      var pastedData = clipboardData.getData("Text").toUpperCase();
+      if (!/^[\d/]+/.test(pastedData)) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+
+  $('input[editable="false"]')
+    .on("keydown paste input propertychange", function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    })
+    .attr("autocomplete", "off")
+    .attr("tabIndex", -1)
+    .attr("focusable", false);
+
+  var nowDate = new Date(Date.now());
+  $("input.date")
+    .datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      todayHighlight: true,
+      orientation: "bottom"
+    })
+    .on("hide", function(e) {
+      if (typeof e.date == "undefined" && $(this).val() == "") {
+        $(this).val(window.date.format(nowDate, "DD/MM/YYYY"));
+      }
+    });
+    $('input.fromdate').datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      todayHighlight: true,
+      orientation: 'bottom'
+    }).on("changeDate", function (e) {
+      var toid = $(this).attr('to');
+      if (typeof toid !== 'undefined' && toid != '') {
+        $("input[id='"+toid+"']").datepicker('setStartDate', e.date);
+      } else {
+        $("input.todate").datepicker('setStartDate', e.date);
+      }
+    });
+
+    $('input.todate').datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      todayHighlight: true,
+      orientation: 'bottom'
+    }).on("changeDate", function (e) {
+      var fromid = $(this).attr('from');
+      if (typeof fromid !== 'undefined' && fromid != '') {
+        $("input[id='"+fromid+"']").datepicker('setEndDate', e.date);
+      } else {
+        $("input.fromdate").datepicker('setEndDate', e.date);
+      }
+    });
+
+  function handleDelete(url, token, cb) {
+    if (typeof url === "string" && url != "") {
+      $.ajax({
+        url: url,
+        type: "delete",
+        headers: { "authorization": "Bearer " + token },
+        success: function(data) {
+          if (typeof data !== "undefined" && data.status == "SUCCESS") {
+            $("#alertDeleteError").hide();
+            $("#alertDeleteSuccess").show();
+            if (typeof cb === "function") {
+              cb();
+            }
+          }
+          else if (typeof data !== "undefined" && data.status == "FAIL"){
+            /* if (data.message)
+              $("#delErrorMsg").html(data.message) */
+            $("#alertDeleteSuccess").hide();
+            $("#alertDeleteError").show();
+          }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert(errorThrown);
         }
       });
-      $('input.fromdate').datepicker({
-        format: "dd/mm/yyyy",
-        autoclose: true,
-        todayHighlight: true,
-        orientation: 'bottom'
-      }).on("changeDate", function (e) {
-        var toid = $(this).attr('to');
-        if (typeof toid !== 'undefined' && toid != '') {
-          $("input[id='"+toid+"']").datepicker('setStartDate', e.date);
-        } else {
-          $("input.todate").datepicker('setStartDate', e.date);
-        }
-      });
-  
-      $('input.todate').datepicker({
-        format: "dd/mm/yyyy",
-        autoclose: true,
-        todayHighlight: true,
-        orientation: 'bottom'
-      }).on("changeDate", function (e) {
-        var fromid = $(this).attr('from');
-        if (typeof fromid !== 'undefined' && fromid != '') {
-          $("input[id='"+fromid+"']").datepicker('setEndDate', e.date);
-        } else {
-          $("input.fromdate").datepicker('setEndDate', e.date);
-        }
-      });
-  });
+    }
+  }
 
   function handleAlert(args) {
     if (args.status == "SUCCESS") {
@@ -472,7 +469,7 @@
       $("#alert").addClass("alert-danger").show();
 
       window.setTimeout(function(){
-        $('#alert').hide();
+        $('#alert').removeClass().hide();
       }, 1 * 1500);
     }
   }

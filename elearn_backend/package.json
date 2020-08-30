@@ -11,6 +11,9 @@
     "itemplate",
     "neohub"
   ],
+  "api": {
+    "postman": "https://documenter.getpostman.com/view/10018411/TVCcXV3L"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/waiphyo285/itemplate.git"

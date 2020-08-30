@@ -3,6 +3,7 @@ let {
   findStudent,
   findStudentsBy,
   addStudent,
+  updateStudent,
   deleteStudent,
   dropAll
 } 
@@ -16,6 +17,7 @@ let studentsDb = {
   findStudent,
   findStudentsBy,
   addStudent,
+  updateStudent,
   deleteStudent,
   dropAll
 };
