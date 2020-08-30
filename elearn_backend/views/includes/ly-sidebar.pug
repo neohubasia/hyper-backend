@@ -6,32 +6,21 @@ div.sidebar.sidebar-hide-to-small.sidebar-shrink.sidebar-gestures
           span rengvo
       ul
         li.label Main
-        li.active
-          a(href="#")
-            i.ti-dashboard
-            | Dashboard
+        if program.menu.dashboard
+          li.active
+            a(href=program.menu.dashboard.url)
+              i(class=program.menu.dashboard.icon)
+              | #{program.menu.dashboard.title}
+
         li.label Apps
-        li
-          a.sidebar-sub-toggle
-            i.ti-files
-            | Invoices 
-            span.badge.badge-primary
-            span.sidebar-collapse-icon.ti-angle-down
-          ul
-            li
-              a(href="./students") Credit 
-            li
-              a(href="#") Debit
-        li
-          a.sidebar-sub-toggle
-            i.ti-bar-chart-alt
-            | Charts
-            span.badge.badge-primary
-            span.sidebar-collapse-icon.ti-angle-down
-          ul
-            li 
-              a(href="#") Flot 
-            li
-              a(href="#") Morris
-            li
-              a(href="#") Peity
+        if program.menu.course && program.menu.course.submenu.length > 0 
+          li
+            a.sidebar-sub-toggle
+              i(class=program.menu.course.icon)
+              | #{program.menu.course.title}
+              span.badge.badge-primary
+              span.sidebar-collapse-icon.ti-angle-down
+            each submenu in program.menu.course.submenu
+              ul
+                li
+                  a(href=submenu.url) #{submenu.title}

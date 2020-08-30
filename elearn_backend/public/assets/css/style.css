@@ -896,7 +896,7 @@ a.dt-button.active:not(.disabled) {
 .main .page-header {
   background: #FFF;
   min-height: 30px;
-  margin: 15px 0 0.3in;
+  margin: 15px 0 0;
   padding: 0 15px;
   border: 1px solid #EEE;
   border-radius: 5px;

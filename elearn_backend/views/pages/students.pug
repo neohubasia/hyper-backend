@@ -9,11 +9,13 @@ block content
             div.page-header
               div.page-title
                 ol.breadcrumb
-                  li.breadcrumb-item
-                    a(href="/") Dashboard
-                  li.breadcrumb-item.active Student List
+                  if page.list.breadcrumb.url.length > 0
+                    each url, index in page.list.breadcrumb.url
+                      li.breadcrumb-item
+                        a(href=url) #{page.list.breadcrumb.text[index]}
         include ./../includes/ly-delete
         div.col-md-12
+          h5.h5.p-b-10 #{page.list.title}
           table#example.table(style='width:100%')
             thead
               tr

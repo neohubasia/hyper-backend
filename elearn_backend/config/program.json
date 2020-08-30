@@ -1,0 +1,51 @@
+{
+  "menu": {
+    "dashboard": {
+      "url": "/",
+      "title": "Dashboard",
+      "icon": "fa fa-home",
+      "submenu": []
+    },
+    "course": {
+      "url": "#",
+      "title": "Course",
+      "icon": "fa fa-list",
+      "submenu": [
+        { 
+          "name": "teacher",
+          "url": "/teachers",
+          "title": "Teacher",
+          "icon": "fa fa-list",
+          "list": {
+            "url": "/teachers",
+            "title": "Teacher List",
+            "breadcrumb": { "url": ["/", ""], "text": ["Dashboard", "Teacher List"] }
+          },
+          "entry": {
+            "url": "/teacher",
+            "title": "Teacher Entry",
+            "breadcrumb": { "url": ["/", "/teachers", ""], "text": ["Dashboard", "Teacher List", "Teacher Entry"] }
+          },
+          "actions": { "add": 1, "edit": 1, "delete": 1 }
+        },
+        {
+          "name": "student",
+          "url": "/students",
+          "title": "Student",
+          "icon": "fa fa-list",
+          "list": {
+            "url": "/students",
+            "title": "Student List",
+            "breadcrumb": { "url": ["/", ""], "text": ["Dashboard", "Student List"] }
+          },
+          "entry": {
+            "url": "/student",
+            "title": "Student Entry",
+            "breadcrumb": { "url": ["/", "/students", ""], "text": ["Dashboard", "Student List", "Student Entry"] }
+          },
+          "actions": { "add": 1, "edit": 1, "delete": 1 }
+        }
+      ]
+    }
+  }
+}

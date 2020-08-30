@@ -1,16 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const connect = require('connect-ensure-login');
-
+const program = require("../../../../config/program.json")
 let studentsDb = require('../../../../controllers/students-db');
 
 router.get('/students', 
   connect.ensureLoggedIn(),
   (req, res, next) => {
+    // menu or program permission function call coming ...
+    // list permission function call comming ...
+    // url obj would be deprecated soon, through replaced by list permission
+    let permission = program;
+    console.log(permission.menu.course.submenu[1])
     let url = {
       entry: './student',
     };
-    res.render('pages/students', { title: 'Student List', url: url });
+    res.render('pages/students', { url: url, page: permission.menu.course.submenu[1], program: permission });
   }
 );
 
@@ -24,7 +29,7 @@ router.get('/student/:id?',
     };
     if (req.params.id)
       data = await studentsDb.findStudent('id', req.params.id);
-    res.render('pages/student-entry', { title: 'Student Entry', url: url, data: data });
+    res.render('pages/student-entry', { url: url, program: program, data: data });
 
     // this code is smarter but can't serialize data
     // try {
