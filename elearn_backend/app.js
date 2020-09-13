@@ -5,8 +5,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const logger = require('morgan');
-const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
@@ -18,6 +16,8 @@ const _generate = require('./middlewares/generator');
 
 const authRouter = require('./drivers/webserver/routes/auth');
 const apiRouter = require('./drivers/webserver/routes/api');
+
+const UserDetails = require('./database/mongodb/models/user');
 
 const app = express();
 var routeModules = [];
@@ -56,17 +56,6 @@ app.use('/d-mar', _generate);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-const Schema = mongoose.Schema;
-const UserDetail = new Schema({
-  username: String,
-  password: String
-});
-
-UserDetail.plugin(passportLocalMongoose);
-const UserDetails = mongoose.model('userInfo', UserDetail, 'userInfo');
-
-// UserDetails.register({username:'paul', active: false}, 'paul');
 
 /* passport local authentication */
 passport.use(UserDetails.createStrategy());

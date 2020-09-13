@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
 
 // Set environment variables
 let env = process.env.NODE_ENV;

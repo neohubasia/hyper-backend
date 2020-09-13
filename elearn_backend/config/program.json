@@ -6,6 +6,30 @@
       "icon": "fa fa-home",
       "submenu": []
     },
+    "admin": {
+      "url": "#",
+      "title": "Administrative",
+      "icon": "fa fa-list",
+      "submenu": [
+        { 
+          "name": "user",
+          "url": "/users",
+          "title": "Registration",
+          "icon": "fa fa-list",
+          "list": {
+            "url": "/users",
+            "title": "Registration List",
+            "breadcrumb": { "url": ["/", ""], "text": ["Dashboard", "Registration List"] }
+          },
+          "entry": {
+            "url": "/user",
+            "title": "Registration Entry",
+            "breadcrumb": { "url": ["/", "/users", ""], "text": ["Dashboard", "Registration List", "Registration Entry"] }
+          },
+          "actions": { "add": 1, "edit": 1, "delete": 1 }
+        }
+      ]
+    },
     "course": {
       "url": "#",
       "title": "Course",

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const connect = require('connect-ensure-login');
-const program = require("../../../../config/program.json")
+const program = require("../../../../config/program.json");
 let studentsDb = require('../../../../controllers/students-db');
 
 router.get('/students', 

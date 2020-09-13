@@ -1,4 +1,4 @@
-let mongoose = require('../connection');
+const mongoose = require('../connection');
 
 let Schema = mongoose.Schema;
 let StudentSchema = new Schema({

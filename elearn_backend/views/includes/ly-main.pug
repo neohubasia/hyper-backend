@@ -108,7 +108,7 @@ html(lang="en")
 
     script.
       const req = new XMLHttpRequest();
-      req.open("GET", "http://localhost:7878/user", true);
+      req.open("GET", "http://localhost:7878/getuser", true);
       req.send();
       req.onreadystatechange = function () {
         if (req.readyState == 4 && req.status == 200) {

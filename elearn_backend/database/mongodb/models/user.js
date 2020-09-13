@@ -1,23 +1,15 @@
-let mongoose = require('../connection');
-const passport = require('passport');
+const mongoose = require('../connection');
 const passportLocalMongoose = require('passport-local-mongoose');
 
-let Schema = mongoose.Schema;
-let UserSchema = new Schema({
-  name: String,
-  age: String
+const Schema = mongoose.Schema;
+const UserDetail = new Schema({
+  username: String,
+  password: String
 });
 
-UserSchema.plugin(passportLocalMongoose);
-let User = mongoose.model('userInfo', UserSchema, 'userInfo');
+UserDetail.plugin(passportLocalMongoose);
+const UserDetails = mongoose.model('userInfo', UserDetail, 'userInfo');
 
-// User.register({username:'paul', active: false}, 'paul');
-// User.register({username:'jay', active: false}, 'jay');
-// User.register({username:'roy', active: false}, 'roy');
+// UserDetails.register({username:'paul', active: false}, 'paul');
 
-/* PASSPORT LOCAL AUTHENTICATION */
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-module.exports = User;
+module.exports = UserDetails;

@@ -20,10 +20,7 @@ block content
             thead
               tr
                 th #
-                th Name
-                th Age
-                th Grade
-                th Active
+                th Username
                 th.actions
                   a.btn.btn-sm.btn-success.btn-rounded.list-action-text(href=url.entry, role="button", title="Add")
                     i.fa.fa-plus  New
@@ -53,22 +50,18 @@ block content
           },
           "ajax": { 
             "type": "Get",
-            "url": "./api/students/",
+            "url": "./api/users/",
             "headers": {"authorization": "Bearer " + token},
             "dataSrc": "data",
           },
           "columns":  [
             { "data": "id" },
-            { "data": "name"},
-            { "data": "age" },
-            { "data": "grade" },
-            { "data": "prefect" },
+            { "data": "username"},
             { "data": "actions", "className":"nowrap" }
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 4, orderable: false, render: dataTableNotiRenderer() },
-            { targets: 5, orderable: false, render: dataTableActionsRenderer("!{url.entry}", "1,1,1") }
+            { targets: 2, orderable: false, render: dataTableActionsRenderer("!{url.entry}", "1,1,1") }
           ]
       });
 
