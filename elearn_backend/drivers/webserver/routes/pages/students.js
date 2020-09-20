@@ -23,13 +23,14 @@ router.get('/student/:id?',
   connect.ensureLoggedIn(),
   async (req, res, next) => {
     let data = {};
+    let permission = program;
     let url = {
       list: '/students',
       post: '/student'
     };
     if (req.params.id)
       data = await studentsDb.findStudent('id', req.params.id);
-    res.render('pages/student-entry', { url: url, program: program, data: data });
+    res.render('pages/student-entry', { url: url, page: permission.menu.course.submenu[1], program: program, data: data });
 
     // this code is smarter but can't serialize data
     // try {

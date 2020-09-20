@@ -1,64 +1,52 @@
-extends ../includes/ly-main
-
+extends ../includes/layout-main
 block content
-  div.content-wrap
-    div.main
-      div.container-fluid
-        div.row
-          div.col-md-12.title-margin-left
-            div.page-header
-              div.page-title
-                ol.breadcrumb
-                  li.breadcrumb-item
-                    a(href="/") Dashboard
-                  li.breadcrumb-item
-                    a(href=url.list) Student List
-                  li.breadcrumb-item.active
-                    span Student Entry
-        div.col-md-12
-          div.row
-            div.col-md-12.alert.alert-dismissible#alert(role='alert')
-              strong.alert-title#alertTitle
-              span#alertMessage
-              //- button.close(type='button', data-dismiss="alert" aria-label='Close')
-              //-   span(aria-hidden='true') &times;
-    
-          form.form-horizontal.card#entryForm(method='post', action=url.post)
-            input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
+  main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role='main')
 
-            div.form-group.row
-              div.col-sm-6
-                label.control-label(for='name') Name
-                input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required autofocus)
+    nav.pt-3(aria-label='breadcrumb')
+      ol.breadcrumb
+        if page.entry.breadcrumb.url.length > 0
+          each url, index in page.entry.breadcrumb.url
+            li.breadcrumb-item
+              a(href=url) #{page.entry.breadcrumb.text[index]}
 
-              div.col-sm-6
-                label.control-label(for='age') Age
-                input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
+    div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
+      h3.h3 !{page.entry.title}
 
-            div.form-group.row
-              label.col-sm-2.control-label(for='grade') Grade
-              div.col-sm-10
-                input.form-control.input-sm#grade(type='number', name='grade', role='number', min='1' max='11' onkeyup="if(parseInt(this.value)>11){ this.value =11; return false; }" value=data.grade autocomplete="off" required)
+    div.alert.alert-dismissible#alert(role='alert')
+      strong.alert-title#alertTitle
+      span#alertMessage
 
-            //- input.form-control.input-sm.date(type='text', name='prefect', role="date" autocomplete="off")
-
-            div.form-group.row
-              label.col-sm-2.control-label(for='prefect') Prefect
-              div.col-sm-10.radio.radio-toolbar.row
-                div.col-sm-2
-                  input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
-                  label(for='prefectActive') &nbsp;Active
-                div.col-sm-2
-                  input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
-                  label(for='prefectInactive') &nbsp;Inactive
-
-            div.row.justify-content-md-center
-              a.btn.btn-default.btn-sm.m-1(href=url.list, role='button') Cancel
-              button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button') Save
-
-          form#postSuccessForm(method='GET', action=url.list)
-
-  script(src="/assets/js/lib/data-table/datatables.min.js")
+      //- button.close(type='button', data-dismiss="alert" aria-label='Close')
+      //-   span(aria-hidden='true') &times;
+    form.form-horizontal.p-3.card#entryForm(method='post', action=url.post)
+      input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
+      div.form-group.row
+        div.col-sm-6
+          label.control-label(for='name') Name
+          input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required autofocus)
+        div.col-sm-6
+          label.control-label(for='age') Age
+          input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
+      div.form-group.row
+        div.col-sm-6
+          label.control-label(for='grade') Grade
+          input.form-control.input-sm#grade(type='number', name='grade', role='number', min='1' max='11' onkeyup="if(parseInt(this.value)>11){ this.value =11; return false; }" value=data.grade autocomplete="off" required)
+          //- input.form-control.input-sm.date(type='text', name='prefect', role="date" autocomplete="off")
+        div.col-sm-6
+          label.control-label(for='prefect') Prefect
+          div.radio.radio-toolbar.row
+            div.col-sm-3
+              input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
+              label(for='prefectActive') &nbsp;Active
+            div.col-sm-3
+              input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
+              label(for='prefectInactive') &nbsp;Inactive
+      div.row.justify-content-center.border-top.pt-3
+        a.btn.btn-secondary.btn-sm.m-1(href=url.list, role='button') CANCEL
+        button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
+          span(data-feather='save') 
+          |  SAVE
+    form#postSuccessForm(method='GET', action=url.list)
   script.
     $(document).ready(function() {
       $('#alert').hide();

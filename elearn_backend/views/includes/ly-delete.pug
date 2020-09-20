@@ -13,16 +13,16 @@ div.modal.fade#dialogDeleteConfirm(tabindex='-1', role='dialog', aria-labelledby
         button.btn.btn-danger.btn-sm#dialogAccept(type='button', data-dismiss='modal')
           i.fa.fa-check   OK
 
-div.col-sm-12
-  div.col-sm-12.alert.alert-success.alert-dismissible#alertDeleteSuccess(role='alert' style="display:none;")
-    strong Success:
-    span#delSuccessMsg  Delete Successful.
-    button.close(type='button', data-hide='alert', aria-label='Close')
-      span(aria-hidden='true') &times;
 
-div.col-sm-12
-  div.col-sm-12.alert.alert-danger.alert-dismissible#alertDeleteError(role='alert' style="display:none;")
-    strong Error:
-    span#delErrorMsg  Delete Unsuccessful.
-    button.close(type='button', data-hide='alert', aria-label='Close')
-      span(aria-hidden='true') &times;
+div.alert.alert-success.alert-dismissible#alertDeleteSuccess(role='alert' style="display:none;")
+  strong Success:
+  span#delSuccessMsg  Delete Successful.
+  button.close(type='button', data-hide='alert', aria-label='Close')
+    span(aria-hidden='true') &times;
+
+
+div.alert.alert-danger.alert-dismissible#alertDeleteError(role='alert' style="display:none;")
+  strong Error:
+  span#delErrorMsg  Delete Unsuccessful.
+  button.close(type='button', data-hide='alert', aria-label='Close')
+    span(aria-hidden='true') &times;

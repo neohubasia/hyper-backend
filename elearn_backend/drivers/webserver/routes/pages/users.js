@@ -27,13 +27,14 @@ router.get('/user/:id?',
   connect.ensureLoggedIn(),
   async (req, res, next) => {
     let data = {};
+    let permission = program;
     let url = {
       list: '/users',
       post: '/user'
     };
     if (req.params.id)
       data = await usersDb.findUser('id', req.params.id);
-    res.render('pages/user-entry', { url: url, program: program, data: data });
+    res.render('pages/user-entry', { url: url, page: permission.menu.admin.submenu[0], program: program, data: data });
   }
 )
 .post('/user',
