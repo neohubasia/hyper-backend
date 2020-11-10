@@ -16,7 +16,7 @@ block content
       thead
         tr
           th #
-          th Username
+          th User Role
           th.actions
             a.btn.btn-sm.btn-success.btn-rounded.pull-right(href=url.entry, role="button", title="New")
               i.fa.fa-plus
@@ -24,7 +24,7 @@ block content
       tbody
   script.
     $(document).ready(function() {
-      var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTYwNDc1MDE3MywiZXhwIjoxNjA0ODM2NTczfQ.t3zQaTKZDhhRQ4vFrTDheO6eDL3M54QEH3V98l5DDrA";
+      var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTYwNTAxNjQwNCwiZXhwIjoxNjA1MTAyODA0fQ.2BFopgqXlOChniTDRBSqB_arZ2w_6MZwc0B0RRY1wF8";
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
@@ -42,13 +42,13 @@ block content
           },
           "ajax": { 
             "type": "Get",
-            "url": "./api/users/",
+            "url": "./api/permissions/",
             "headers": {"authorization": "Bearer " + token},
             "dataSrc": "data",
           },
           "columns":  [
             { "data": "id" },
-            { "data": "username"},
+            { "data": "name" },
             { "data": "actions", "className":"nowrap" }
           ],
           "columnDefs": [

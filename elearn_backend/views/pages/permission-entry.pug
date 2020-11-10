@@ -1,0 +1,179 @@
+extends ../includes/layout-main
+block content
+  main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role='main')
+
+    nav.pt-3(aria-label='breadcrumb')
+      ol.breadcrumb
+        if page.entry.breadcrumb.url.length > 0
+          each url, index in page.entry.breadcrumb.url
+            li.breadcrumb-item
+              a(href=url) #{page.entry.breadcrumb.text[index]}
+
+    div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
+      h3.h3 !{page.entry.title}
+
+    div.alert.alert-dismissible#alert(role='alert')
+      strong.alert-title#alertTitle
+      span#alertMessage
+
+    form.form-horizontal.p-3.mb-3.card#entryForm(method='post', action=url.post)
+      input.form-control.input-sm#recordid(type='text', name='id', value=params.id)
+      div.form-group.row
+        div.col-sm-6
+          label.control-label(for='name') User Role
+          input.form-control.input-sm#name(type='text', name='name', value=params.name, maxlength="55" required autofocus)
+        div.col-sm-6
+          label.control-label(for='description') Description
+          input.form-control.input-sm#description(type='text', name='description', value=params.description required)
+      div.row.mb-1
+        label.control-label.col-sm-12.pl-3(for='program') 
+          h6.mt-2
+            i.fa.fa-list-ul.text-info
+            span  Menu List
+      ul.list-group.mb-3#menu
+      div.row.mb-1
+        label.control-label.col-sm-12.pl-3(for='program') 
+          h6.mt-2
+            i.fa.fa-list-ul.text-info
+            span  Sub Menu List
+      ul.list-group#submenu
+
+      div.row.justify-content-center.pt-3
+        a.btn.btn-secondary.btn-sm.m-1(href=url.list, role='button') CANCEL
+        button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
+          span(data-feather='save') 
+          |  SAVE
+    form#postSuccessForm(method='GET', action=url.list)
+
+  script.
+    $(document).ready(function() {
+      $('#alert').hide();
+      $('#makeMenu').remove();
+
+      var getFrm = $('#entryForm');
+      getFrm.submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+          type: getFrm.attr('method'),
+          url: getFrm.attr('action'),
+          data: getFrm.serialize(),
+          success: function (data) {
+            console.log(data);
+            handleAlert(data);
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      });
+
+      var obj = JSON.parse('!{data}');
+      console.log("Data ", obj);
+      var checkObj = {};
+      var fieldSetMenu = $("<fieldset id=\"makeMenu\"></fieldset>");
+      var fieldSetSubMenu = $("<fieldset id=\"makeSubMenu\"></fieldset>");
+      if (obj) {
+        alert("Hello");
+        Object.entries(obj).forEach(([key1, value1]) => {
+          if(value1) {
+            var checkKey = '';
+            var checkedMenu = '';
+            Object.entries(value1).forEach(([key2, value2]) => { // to append menu
+              var checkArr = [];
+              checkKey = key2; // to keep key on checkObj
+              if (value2.access == 1)
+                checkedMenu = "checked";
+              var menu = $("<li class=\"row pt-2 pb-2 pl-2\"> \
+                            <label class=\"control-label col-sm-10 text-left pt-3 pl-2\"> \
+                              <span> \
+                                <span data-feather="+ value2.icon +"\>"+ value2.title +"\
+                              </span> \
+                            </label> \
+                            <div class=\"col-sm-2 btn-group pt-2\" role=\"group\"> \
+                              <label class=\"label btn border-left border-right\" role=\"button\"> \
+                                <input type=\"checkbox\" class=\"pt-2 menu_check\" id=\"access_menu_"+ key2 +"\" name=\"access_menu_"+ key2 +"\" value=\"1\" aria-label=\"chkAccess\""+ checkedMenu +"> \
+                                &nbsp; Access \
+                              </label> \
+                            </div> \
+                          </li>");
+              checkedMenu = '';
+              fieldSetMenu.append(menu);
+              if(value2.submenu) {
+                var checkedAdd = '';
+                var checkedEdit = '';
+                var checkedDelete = '';
+                $.each(value2.submenu, (index3, value3 ) => { // to append sub menu
+                  if (value3.actions.add == 1)
+                    checkedAdd = "checked";
+                  if (value3.actions.edit == 1) {
+                    checkedEdit= "checked";
+                  }
+                  if (value3.actions.delete == 1) {
+                    checkedDelete = "checked";
+                  }
+                  checkArr.push("access_submenu_" + key2 + "_" + value3.name); // to keep value on checkObj
+                  var submenu = $("<li class=\"row pt-2 pb-2 pl-2\"> \
+                                     <label class=\"control-label col-sm-8 text-left pt-3 pl-2\"> \
+                                        <span> \
+                                          <span class=\"\">" + value3.title + "\
+                                        </span> \
+                                     </label> \
+                                     <div class=\"col-sm-4 btn-group pt-2 align-self-center\" role=\"group\"> \
+                                        <label class=\"btn border-left border-right\" role=\"button\"> \
+                                          <input type=\"checkbox\" class=\"sub_menu_check\" id=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedAdd +"/> \
+                                          <i class=\"fa fa-eye text-primary ml-2\"></i> \
+                                        </label> \
+                                        <label class=\"btn border-right\" role=\"button\"> \
+                                          <input type=\"checkbox\" class=\"sub_menu_check\" id=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedEdit +"/> \
+                                          <i class=\"fa fa-edit text-warning ml-2\"></i> \
+                                        </label> \
+                                        <label class=\"btn border-right\" role=\"button\"> \
+                                          <input type=\"checkbox\" class=\"sub_menu_check\" id=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedDelete +"/> \
+                                          <i class=\"fa fa-times text-danger ml-2\"></i> \
+                                        </label> \
+                                     </div> \
+                                   </li> \
+                                  ");
+                  checkedAdd = '';
+                  checkedEdit = '';
+                  checkedDelete = '';
+                  fieldSetSubMenu.append(submenu);
+                });
+                checkObj = {
+                  ...checkObj,
+                  [checkKey]: checkArr
+                };
+              }
+            });
+          }
+        });
+        $("#menu").append(fieldSetMenu);
+        $("#submenu").append(fieldSetSubMenu);
+      }
+      
+      $('input.menu_check').click(function() {
+        var eventid = event.target.id.split('_');
+        if ($(this).is(':checked')) { // checked
+          MenuToggleCheck(eventid[2], true);
+        }
+        else { // unchecked
+          MenuToggleCheck(eventid[2], false);
+        }
+      });
+
+      function MenuToggleCheck(event, bool) {
+        var actions = ['#add_', '#edit_', '#delete_'];
+        Object.entries(checkObj).forEach(([key1, value1]) => { // to check or uncheck submenu
+          if(key1 === event) { // check if event id
+            if(value1 && value1.length > 0) { // check if exists and gt 0
+              $.each(value1, (index2, value2 ) => { 
+                $.each(actions, (index3, value3 ) => {
+                  $(value3+value2).prop("checked", bool);
+                });
+              });
+            }
+          }
+        });
+      }
+    });

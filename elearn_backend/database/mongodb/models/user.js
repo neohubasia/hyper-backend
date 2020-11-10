@@ -10,6 +10,8 @@ const UserDetail = new Schema({
 UserDetail.plugin(passportLocalMongoose);
 const UserDetails = mongoose.model('userInfo', UserDetail, 'userInfo');
 
-// UserDetails.register({username:'paul', active: false}, 'paul');
+// UserDetails.register({username:'admin', active: false}, 'min');
+// just create first action
+// node ../path/user.js
 
 module.exports = UserDetails;

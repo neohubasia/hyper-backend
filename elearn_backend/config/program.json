@@ -1,21 +1,26 @@
 {
   "menu": {
     "dashboard": {
+      "menuid": "dashMenu",
       "url": "/",
       "title": "Dashboard",
-      "icon": "fa fa-home",
+      "icon": "home",
+      "access": 0,
       "submenu": []
     },
     "admin": {
+      "menuid": "adminMenu",
       "url": "#",
       "title": "Administrative",
-      "icon": "fa fa-list",
+      "icon": "box",
+      "access": 0,
       "submenu": [
-        { 
+        {
           "name": "user",
           "url": "/users",
           "title": "Registration",
           "icon": "fa fa-list",
+          "access": 0,
           "list": {
             "url": "/users",
             "title": "Registration List",
@@ -26,20 +31,41 @@
             "title": "Registration Entry",
             "breadcrumb": { "url": ["/", "/users", ""], "text": ["Dashboard", "Registration List", "Registration Entry"] }
           },
-          "actions": { "add": 1, "edit": 1, "delete": 1 }
+          "actions": { "add": 0, "edit": 0, "delete": 0 }
+        },
+        { 
+          "name": "permission",
+          "url": "/permissions",
+          "title": "User Role",
+          "icon": "fa fa-list",
+          "access": 0,
+          "list": {
+            "url": "/permissions",
+            "title": "User Role List",
+            "breadcrumb": { "url": ["/", ""], "text": ["Dashboard", "User Role List"] }
+          },
+          "entry": {
+            "url": "/permission",
+            "title": "Uer Role Entry",
+            "breadcrumb": { "url": ["/", "/permissions", ""], "text": ["Dashboard", "User Role List", "User Role Entry"] }
+          },
+          "actions": { "add": 0, "edit": 0, "delete": 0 }
         }
       ]
     },
     "course": {
+      "menuid": "courseMenu",
       "url": "#",
       "title": "Course",
-      "icon": "fa fa-list",
+      "icon": "box",
+      "access": 0,
       "submenu": [
         { 
           "name": "teacher",
           "url": "/teachers",
           "title": "Teacher",
           "icon": "fa fa-list",
+          "access": 0,
           "list": {
             "url": "/teachers",
             "title": "Teacher List",
@@ -50,13 +76,14 @@
             "title": "Teacher Entry",
             "breadcrumb": { "url": ["/", "/teachers", ""], "text": ["Dashboard", "Teacher List", "Teacher Entry"] }
           },
-          "actions": { "add": 1, "edit": 1, "delete": 1 }
+          "actions": { "add": 0, "edit": 0, "delete": 0 }
         },
         {
           "name": "student",
           "url": "/students",
           "title": "Student",
           "icon": "fa fa-list",
+          "access": 0,
           "list": {
             "url": "/students",
             "title": "Student List",
@@ -67,7 +94,7 @@
             "title": "Student Entry",
             "breadcrumb": { "url": ["/", "/students", ""], "text": ["Dashboard", "Student List", "Student Entry"] }
           },
-          "actions": { "add": 1, "edit": 1, "delete": 1 }
+          "actions": { "add": 0, "edit": 0, "delete": 0 }
         }
       ]
     }

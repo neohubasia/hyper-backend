@@ -6,7 +6,7 @@
           if program.menu.dashboard
             li.nav-item
               a.nav-link.active(href=program.menu.dashboard.url)
-                span(data-feather='home')
+                span(data-feather=program.menu.dashboard.icon)
                 |  #{program.menu.dashboard.title}
               span.sr-only (current)
           li.nav-item
@@ -32,7 +32,7 @@
           if program.menu.admin && program.menu.admin.submenu.length > 0 
             li.nav-item
               a.nav-link.collapsed.py-1(href='#submenu_admin' data-toggle='collapse' data-target='#submenu_admin')
-                span(data-feather='box')
+                span(data-feather=program.menu.admin.icon)
                 span.pl-1  #{program.menu.admin.title}
                 span.mt-1.pull-right(data-feather='plus-circle')
               #submenu_admin.collapse(aria-expanded='false')
@@ -41,10 +41,11 @@
                     li.nav-item(id='submenu_'+submenu.name)
                       a.nav-link.p-1(href=submenu.url)
                         span.pl-3 #{submenu.title}
+
           if program.menu.course && program.menu.course.submenu.length > 0 
             li.nav-item
               a.nav-link.collapsed.py-1(href='#submenu_course' data-toggle='collapse' data-target='#submenu_course')
-                span(data-feather='box')
+                span(data-feather=program.menu.course.icon)
                 span.pl-1  #{program.menu.course.title}
                 span.mt-1.pull-right(data-feather='plus-circle')
               #submenu_course.collapse(aria-expanded='false')

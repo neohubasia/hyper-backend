@@ -1,19 +1,19 @@
-extends ../includes/ly-auth
+extends ../includes/layout-auth
 
 block content
   form(action="/login" method="post")
     img.logo(src="/images/auth/ecommerce.jpg", alt="", srcset="")
-    div.title welcome you
-    div.sub-title BETA
+    div.title rengvo
+    div.sub-title WELCOME BACK
     div.fields
       div.username
         input.user-input(type="username" name="username" placeholder="username" autofocus autocomplete="off" required)
       div.password
         input.pass-input(type="password" name="password" placeholder="password" required)
     button.signin-button(type="submit") Login
-    div.link
-      a(href="#") Forgot password? or 
-      a(href="#") Sign up
+    //- div.link
+    //-   a(href="#") Forgot password? or 
+    //-   a(href="#") Sign up
     label#error-message
   script.
     const urlParams = new URLSearchParams(window.location.search);
@@ -21,6 +21,7 @@ block content
 
     if(info) {
       const errorMessage = document.getElementById("error-message");
-      errorMessage.innerText = info;
+      var message = info.split(':');
+      errorMessage.innerText = message[1];
       errorMessage.style.display = "block";
     }
