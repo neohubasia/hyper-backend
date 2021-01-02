@@ -1,5 +1,5 @@
 let args = require('yargs-parser')(process.argv.slice(2));
-let studentsDb = require('../../controllers/students-db/index');
+let studentsDb = require('../../controllers/students/index');
 
 let printHelp = function () {
   console.log(`

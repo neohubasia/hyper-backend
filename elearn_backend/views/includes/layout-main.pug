@@ -16,8 +16,12 @@ head
   // Data Table CSS
   link(href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet")
 
+  // Layout/Lib
+  link(href='/layout-css/lib/select2/select2.min.css' rel='stylesheet')
+
   // Layout CSS
   link(href='/layout-css/dashboard.css' rel='stylesheet')
+  link(href='/layout-css/general.min.css' rel='stylesheet')
 
   // Font Awesome
   link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous")
@@ -44,6 +48,9 @@ head
     include layout-navbar
     include layout-sidebar
     block content
+
+<!-- Layout JS/ Lib -->
+script(src='/layout-js/lib/select2/select2.full.min.js')
 
 script(src='/assets/dist/js/bootstrap.bundle.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js')

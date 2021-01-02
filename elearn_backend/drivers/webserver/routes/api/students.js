@@ -1,4 +1,4 @@
-let studentsDb = require('../../../../controllers/students-db');
+let studentsDb = require('../../../../controllers/students');
 
 let students = module.exports = {};
 

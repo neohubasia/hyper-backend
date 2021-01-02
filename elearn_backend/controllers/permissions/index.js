@@ -1,13 +1,15 @@
 let {
   listPermissions,
   findPermission,
-  addPermission
+  addPermission,
+  updatePermission
 }  = require('./mongod/index');
 
 let permissionsDb = {
   listPermissions,
   findPermission,
-  addPermission
+  addPermission,
+  updatePermission
 };
 
 module.exports = permissionsDb;

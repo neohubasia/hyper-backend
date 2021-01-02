@@ -5,7 +5,7 @@ let config = require('../config');
 let _jwt = require('./jwt');
 
 class HandleGenerator {
-  generateToken (req, res) {
+  async generateToken (req, res) {
     let username = req.body.username;
     let password = req.body.password;
     // For the given username fetch user from DB
@@ -14,11 +14,7 @@ class HandleGenerator {
 
     if (username && password) {
       if (username === mockedUsername && password === mockedPassword) {
-        let token = jwt.sign({username: username},
-          config.jwt.SECRET, { 
-            expiresIn: '24h' // expires in 24 hours
-          }
-        );
+        let token = new HandleGenerator().generateTokenSign(username);
         // return the JWT token for the future API calls
         res.json({
           status: "SUCCESS",
@@ -38,16 +34,26 @@ class HandleGenerator {
       });
     }
   }
+
   index (req, res) {
     res.json({
       status: "FAIL",
       message: 'Welcome JWT Token'
     });
   }
+
+  generateTokenSign(username) {
+    return jwt.sign({ username: username },
+      config.jwt.SECRET, { 
+        expiresIn: '24h' // expires in 24 hours
+      }
+    );
+  }
 }
 
 let handlers = new HandleGenerator();
 router.post('/u-bar', handlers.generateToken); // Routes & Handlers
-  
-module.exports = router;
+
+module.exports.Handlers = handlers;
+module.exports.tokenRouter = router;
 

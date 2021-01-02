@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const connect = require('connect-ensure-login');
+const { Handlers } = require('../../../../middlewares/generator');
+const config = require("../../../../config/index");
 const program = require("../../../../config/program.json");
-let usersDb = require('../../../../controllers/users-db');
+let usersDb = require('../../../../controllers/users');
 
 router.get('/getuser', connect.ensureLoggedIn(), (req, res, next) => {
   res.send({user: req.user});
@@ -19,7 +21,11 @@ router.get('/users',
     let url = {
       entry: './user',
     };
-    res.render('pages/users', { url: url, page: permission.menu.admin.submenu[0], program: permission });
+    res.render('pages/users', {
+      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      url: url,
+      page: permission.menu.admin.submenu[0],
+      program: permission });
   }
 );
 

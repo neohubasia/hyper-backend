@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const connect = require('connect-ensure-login');
+const { Handlers } = require('../../../../middlewares/generator');
+const config = require("../../../../config/index");
 const program = require("../../../../config/program.json");
-let studentsDb = require('../../../../controllers/students-db');
+let studentsDb = require('../../../../controllers/students');
 
 router.get('/students', 
   connect.ensureLoggedIn(),
@@ -15,7 +17,12 @@ router.get('/students',
     let url = {
       entry: './student',
     };
-    res.render('pages/students', { url: url, page: permission.menu.course.submenu[1], program: permission });
+    res.render('pages/students', {
+      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      url: url,
+      page: permission.menu.course.submenu[1],
+      program: permission
+    });
   }
 );
 

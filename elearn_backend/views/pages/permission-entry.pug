@@ -69,12 +69,10 @@ block content
       });
 
       var obj = JSON.parse('!{data}');
-      console.log("Data ", obj);
       var checkObj = {};
       var fieldSetMenu = $("<fieldset id=\"makeMenu\"></fieldset>");
       var fieldSetSubMenu = $("<fieldset id=\"makeSubMenu\"></fieldset>");
-      if (obj) {
-        alert("Hello");
+      if (obj && typeof obj === "object") {
         Object.entries(obj).forEach(([key1, value1]) => {
           if(value1) {
             var checkKey = '';
@@ -84,19 +82,12 @@ block content
               checkKey = key2; // to keep key on checkObj
               if (value2.access == 1)
                 checkedMenu = "checked";
-              var menu = $("<li class=\"row pt-2 pb-2 pl-2\"> \
-                            <label class=\"control-label col-sm-10 text-left pt-3 pl-2\"> \
-                              <span> \
-                                <span data-feather="+ value2.icon +"\>"+ value2.title +"\
-                              </span> \
-                            </label> \
-                            <div class=\"col-sm-2 btn-group pt-2\" role=\"group\"> \
-                              <label class=\"label btn border-left border-right\" role=\"button\"> \
-                                <input type=\"checkbox\" class=\"pt-2 menu_check\" id=\"access_menu_"+ key2 +"\" name=\"access_menu_"+ key2 +"\" value=\"1\" aria-label=\"chkAccess\""+ checkedMenu +"> \
-                                &nbsp; Access \
-                              </label> \
-                            </div> \
-                          </li>");
+              var menu = $(handleMenuInPermissionEntry({
+                icon: value2.icon,
+                title: value2.title,
+                key: key2,
+                ischecked: checkedMenu
+              }));
               checkedMenu = '';
               fieldSetMenu.append(menu);
               if(value2.submenu) {
@@ -113,28 +104,36 @@ block content
                     checkedDelete = "checked";
                   }
                   checkArr.push("access_submenu_" + key2 + "_" + value3.name); // to keep value on checkObj
-                  var submenu = $("<li class=\"row pt-2 pb-2 pl-2\"> \
-                                     <label class=\"control-label col-sm-8 text-left pt-3 pl-2\"> \
-                                        <span> \
-                                          <span class=\"\">" + value3.title + "\
-                                        </span> \
-                                     </label> \
-                                     <div class=\"col-sm-4 btn-group pt-2 align-self-center\" role=\"group\"> \
-                                        <label class=\"btn border-left border-right\" role=\"button\"> \
-                                          <input type=\"checkbox\" class=\"sub_menu_check\" id=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedAdd +"/> \
-                                          <i class=\"fa fa-eye text-primary ml-2\"></i> \
-                                        </label> \
-                                        <label class=\"btn border-right\" role=\"button\"> \
-                                          <input type=\"checkbox\" class=\"sub_menu_check\" id=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedEdit +"/> \
-                                          <i class=\"fa fa-edit text-warning ml-2\"></i> \
-                                        </label> \
-                                        <label class=\"btn border-right\" role=\"button\"> \
-                                          <input type=\"checkbox\" class=\"sub_menu_check\" id=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedDelete +"/> \
-                                          <i class=\"fa fa-times text-danger ml-2\"></i> \
-                                        </label> \
-                                     </div> \
-                                   </li> \
-                                  ");
+                  var submenu = $(handleSubMenuPermissionEntry({
+                    title: value3.title,
+                    key: key2,
+                    name: value3.name,
+                    checkedAdd: checkedAdd,
+                    checkedEdit: checkedEdit,
+                    checkedDelete: checkedDelete
+                  }));
+                  //- var submenu = $("<li class=\"row pt-2 pb-2 pl-2\"> \
+                  //-                    <label class=\"control-label col-sm-8 text-left pt-3 pl-2\"> \
+                  //-                       <span> \
+                  //-                         <span class=\"\">" + value3.title + "\
+                  //-                       </span> \
+                  //-                    </label> \
+                  //-                    <div class=\"col-sm-4 btn-group pt-2 align-self-center\" role=\"group\"> \
+                  //-                       <label class=\"btn border-left border-right\" role=\"button\"> \
+                  //-                         <input type=\"checkbox\" class=\"sub_menu_check\" id=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedAdd +"/> \
+                  //-                         <i class=\"fa fa-eye text-primary ml-2\"></i> \
+                  //-                       </label> \
+                  //-                       <label class=\"btn border-right\" role=\"button\"> \
+                  //-                         <input type=\"checkbox\" class=\"sub_menu_check\" id=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedEdit +"/> \
+                  //-                         <i class=\"fa fa-edit text-warning ml-2\"></i> \
+                  //-                       </label> \
+                  //-                       <label class=\"btn border-right\" role=\"button\"> \
+                  //-                         <input type=\"checkbox\" class=\"sub_menu_check\" id=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedDelete +"/> \
+                  //-                         <i class=\"fa fa-times text-danger ml-2\"></i> \
+                  //-                       </label> \
+                  //-                    </div> \
+                  //-                  </li> \
+                  //-                 ");
                   checkedAdd = '';
                   checkedEdit = '';
                   checkedDelete = '';

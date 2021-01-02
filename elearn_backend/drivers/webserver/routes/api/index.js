@@ -6,7 +6,6 @@ const validateware = require('./../../../../middlewares/validator');
 const users = require('./users');
 const permissions = require('./permissions');
 const students = require('./students');
-const teachers = require('./teachers');
 
 const studentSchema = require('./../../../../models/student/student-schema');
 
@@ -15,7 +14,8 @@ router
 
 router
   .get('/permissions', permissions.index)
-  .post('/permission', permissions.create);
+  .post('/permission', permissions.create)
+  .post('/permission/:id', permissions.update)
 
 router
   .get('/students', students.index)
@@ -25,10 +25,5 @@ router
   .post('/student/:id', validateware(studentSchema), students.update)
   .delete('/student/:id', students.delete)
   .delete('/students', students.deleteall);
-
-router
-  .get('/teachers', teachers.index)
-  .get('/teachers/:id', teachers.show)
-  .post('/teachers', teachers.create);
 
 module.exports = router;

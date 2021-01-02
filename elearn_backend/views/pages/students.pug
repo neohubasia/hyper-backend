@@ -27,7 +27,7 @@ block content
       tbody
   script.
     $(document).ready(function() {
-      var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTYwNDc1MDE3MywiZXhwIjoxNjA0ODM2NTczfQ.t3zQaTKZDhhRQ4vFrTDheO6eDL3M54QEH3V98l5DDrA";
+      var token = '!{token}';
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       var table = $('#example').on('error.dt', function(e, settings, techNote, message) {

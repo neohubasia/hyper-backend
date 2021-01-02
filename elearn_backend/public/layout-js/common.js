@@ -7,6 +7,7 @@
       return parseInt("" + meta.row) + 1;
     };
   }
+
   function dataTableActiveRenderer() {
     return function(d, type, row) {
       var id = row.id;
@@ -164,67 +165,6 @@
     var current = new Date(dateObj.getTime() + diff);
     return date.format(current, format);
   }
-
-  function checkIfFileExist(args){
-    if (args.option == "IMG") {
-      return checkIfImageExist(args);
-    }
-    else if (args.option == "VDO") {
-      return checkIfVideoExist(args);
-    }
-  }
-
-  function checkIfImageExist(args) {
-    $.get("/file/stream", { file: args.filename }, function(data, textStatus) {
-      if(args.lang == "EN") {
-        if(typeof data == "string") {
-          $("#imgImage").attr("src", "/file/stream?file=" + args.filename);
-          showImgVdo("IMG");
-        }
-        else {
-          showBtn("IMG");
-        }
-      }
-    });
-  }
-  
-  function checkIfVideoExist(args) {
-    $.get("/file/stream", { file: args.filename }, function(data, textStatus) {
-      if(args.lang == "EN"){
-        if(typeof data == "string") {
-          $("#vdoVideo").attr("src", "/file/stream?file=" + args.filename);
-          showImgVdo("VDO");
-        }
-        else {
-          showBtn("VDO");
-        }
-      }
-    });
-  }
-  
-  function showImgVdo(option) {
-    $("#btnAdd").removeClass("d-block").addClass("d-none");
-    if (option == "VDO") {
-      $("#vdoVideo").removeClass("d-none").addClass("d-block");
-      $("#btnVideoDel").removeClass("d-none").addClass("d-block");
-    }
-    else if (option == "IMG") {
-      $("#imgImage").removeClass("d-none").addClass("d-block");
-      $("#btnImageDel").removeClass("d-none").addClass("d-block");
-    }
-  }
-  
-  function showBtn(option) {
-    $("#btnAdd").removeClass("d-none").addClass("d-block");
-    if (option == "VDO") {
-      $("#vdoVideo").removeClass("d-block").addClass("d-none");
-      $("#btnVideoDel").removeClass("d-block").addClass("d-none");
-    }
-    else if (option == "IMG") {
-      $("#imgImage").removeClass("d-block").addClass("d-none");
-      $("#btnImageDel").removeClass("d-block").addClass("d-none");
-    }
-  }
   
   function isValidEmail(email) {
     return /^([a-zA-Z])+([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.+?(com|co|in|org|net|edu|info|gov|vekomy))\.?(com|co|in|org|net|edu|info|gov)?$/.test(
@@ -233,6 +173,7 @@
   }
   
   // $(function() {});
+  $('.selectpicker').select2();
 
   $('[data-hide="alert"]').on("click", function() {
     $(this)
@@ -467,4 +408,44 @@
         $('#alert').removeClass().hide();
       }, 1 * 1500);
     }
+  }
+
+  function handleMenuInPermissionEntry(args) {
+      return '<li class="row pt-2 pb-2 pl-2"> \
+                <label class="control-label col-sm-10 text-left pt-3 pl-2"> \
+                  <span> \
+                    <span data-feather="' + args.icon + '">' + args.title + '\
+                  </span> \
+                </label> \
+                <div class="col-sm-2 btn-group pt-2" role="group"> \
+                  <label class="label btn border-left border-right" role="button"> \
+                    <input type="checkbox" class="pt-2 menu_check" id="access_menu_' + args.key + '" name="access_menu_' + args.key + '" value="1" aria-label="chkAccess"' + args.ischecked + '> &nbsp; Access \
+                  </label> \
+                </div> \
+              </li>';
+  }
+
+  function handleSubMenuPermissionEntry(args) {
+    return '<li class="row pt-2 pb-2 pl-2"> \
+              <label class="control-label col-sm-8 text-left pt-3 pl-2"> \
+                <span> \
+                  <span class="">' + args.title + '\
+                </span> \
+              </label> \
+              <div class="col-sm-4 btn-group pt-2 align-self-center" role="group"> \
+                <label class="btn border-left border-right" role="button"> \
+                  <input type="checkbox" class="sub_menu_check" id="add_access_submenu_'+ args.key + "_" + args.name + '" name="add_access_submenu_'+ args.key + "_" + args.name + '" value="1" aria-label="chkRead" ' + args.checkedAdd + '/> \
+                  <i class="fa fa-eye text-primary ml-2"></i> \
+                </label> \
+                <label class="btn border-right" role="button"> \
+                  <input type="checkbox" class="sub_menu_check" id="edit_access_submenu_'+ args.key + "_" + args.name + '" name="edit_access_submenu_'+ args.key + "_" + args.name + '" value="1" aria-label="chkRead" ' + args.checkedEdit + '/> \
+                  <i class="fa fa-edit text-warning ml-2"></i> \
+                </label> \
+                <label class="btn border-right" role="button"> \
+                  <input type="checkbox" class="sub_menu_check" id="delete_access_submenu_'+ args.key + "_" + args.name + '" name="delete_access_submenu_'+ args.key + "_" + args.name + '" value="1" aria-label="chkRead" ' + args.checkedDelete + '/> \
+                  <i class="fa fa-times text-danger ml-2"></i> \
+                </label> \
+              </div> \
+            </li> \
+          ';
   }

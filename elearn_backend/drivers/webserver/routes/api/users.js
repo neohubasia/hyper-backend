@@ -1,4 +1,4 @@
-let usersDb = require('../../../../controllers/users-db');
+let usersDb = require('../../../../controllers/users');
 
 let users = module.exports = {};
 

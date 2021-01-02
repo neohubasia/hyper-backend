@@ -20,8 +20,16 @@ let addPermission = (permissionInfo) => {
     .then(serialize);
 };
 
+let updatePermission = (id, permissionInfo) => {
+  console.log(id);
+  console.log(permissionInfo);
+  return Permission.findByIdAndUpdate(id, permissionInfo)
+    .then(serialize);
+}
+
 module.exports = {
   listPermissions,
   findPermission,
-  addPermission
+  addPermission,
+  updatePermission
 };
