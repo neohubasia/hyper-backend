@@ -1,0 +1,76 @@
+.container-fluid
+  .row
+    nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .sidebar-sticky.pt-3
+        ul.nav.flex-column
+          if program.menu.dashboard
+            li.nav-item
+              a.nav-link.active(href=program.menu.dashboard.url)
+                span(data-feather=program.menu.dashboard.icon)
+                |  #{program.menu.dashboard.title}
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='file')
+              span.pl-1  Orders
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='shopping-cart')
+              span.pl-1  Products
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='users')
+              span.pl-1  Customers
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='bar-chart-2')
+              span.pl-1  Reports
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='layers')
+              span.pl-1  Integrations
+          if program.menu.admin && program.menu.admin.submenu.length > 0 
+            li.nav-item
+              a.nav-link.collapsed.py-1(href='#submenu_admin' data-toggle='collapse' data-target='#submenu_admin')
+                span(data-feather=program.menu.admin.icon)
+                span.pl-1  #{program.menu.admin.title}
+                span.mt-1.pull-right(data-feather='plus-circle')
+              #submenu_admin.collapse(aria-expanded='false')
+                each submenu in program.menu.admin.submenu
+                  ul.flex-column.nav.pl-4
+                    li.nav-item(id='submenu_'+submenu.name)
+                      a.nav-link.p-1(href=submenu.url)
+                        span.pl-3 #{submenu.title}
+
+          if program.menu.course && program.menu.course.submenu.length > 0 
+            li.nav-item
+              a.nav-link.collapsed.py-1(href='#submenu_course' data-toggle='collapse' data-target='#submenu_course')
+                span(data-feather=program.menu.course.icon)
+                span.pl-1  #{program.menu.course.title}
+                span.mt-1.pull-right(data-feather='plus-circle')
+              #submenu_course.collapse(aria-expanded='false')
+                each submenu in program.menu.course.submenu
+                  ul.flex-column.nav.pl-4
+                    li.nav-item(id='submenu_'+submenu.name)
+                      a.nav-link.p-1(href=submenu.url)
+                        span.pl-3 #{submenu.title}
+
+        h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          span Saved reports
+        ul.nav.flex-column.mb-2
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='file-text')
+              span.pl-1  Current month
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='file-text')
+              span.pl-1  Last quarter
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='file-text')
+              span.pl-1  Social engagement
+          li.nav-item
+            a.nav-link(href='#')
+              span(data-feather='file-text')
+              span.pl-1  Year-end sale

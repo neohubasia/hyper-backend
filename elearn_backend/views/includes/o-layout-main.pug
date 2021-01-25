@@ -3,11 +3,10 @@ head
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   meta(name='description' content='')
-  meta(name='author' content='Wai Phyo')
+  meta(name='author' content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+  meta(name='generator' content='Jekyll v4.1.1')
   link(rel="shortcut icon" href="/images/auth/ecommerce.jpg")
-
   title rengvo
-
   // Dashboard CSS
   link(href='https://getbootstrap.com/docs/4.5/examples/dashboard/' rel='canonical')
 
@@ -27,23 +26,34 @@ head
   // Font Awesome
   link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous")
 
-  // Font Feather
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js')
+  style.
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
 
-  // Jquery Core
+  // JQuery
   script(src="/layout-js/lib/jquery.min.js")
 
-#wrapper.d-flex
-  include layout-sidebar
-  #page-content-wrapper
+  body
     include layout-navbar
-    .container-fluid
-      block content
+    include layout-sidebar
+    block content
 
 <!-- Layout JS/ Lib -->
 script(src='/layout-js/lib/select2/select2.full.min.js')
 
 script(src='/assets/dist/js/bootstrap.bundle.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js')
 
 <!-- Data Table JS -->
@@ -56,13 +66,7 @@ script(src="/layout-js/lib/datepicker/bootstrap-datepicker.min.js")
 script(src='/layout-js/dashboard.js')  <!-- to fix later ...  -->
 script(src='/layout-js/common.js')
 
-// Menu Toggle Script
 script.
-  $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
-
   const req = new XMLHttpRequest();
   req.open("GET", "http://localhost:7878/getuser", true);
   req.send();

@@ -1,6 +1,6 @@
 extends ../includes/layout-main
 block content
-  main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role='main')
+  main.ml-sm-auto.px-md-4(role='main')
 
     nav.pt-3(aria-label='breadcrumb')
       ol.breadcrumb
@@ -17,7 +17,7 @@ block content
       span#alertMessage
 
     form.form-horizontal.p-3.mb-3.card#entryForm(method='post', action=url.post)
-      input.form-control.input-sm#recordid(type='text', name='id', value=params.id)
+      input.form-control.input-sm#recordid(type='hidden', name='id', value=params.id)
       div.form-group.row
         div.col-sm-6
           label.control-label(for='name') User Role
@@ -112,28 +112,6 @@ block content
                     checkedEdit: checkedEdit,
                     checkedDelete: checkedDelete
                   }));
-                  //- var submenu = $("<li class=\"row pt-2 pb-2 pl-2\"> \
-                  //-                    <label class=\"control-label col-sm-8 text-left pt-3 pl-2\"> \
-                  //-                       <span> \
-                  //-                         <span class=\"\">" + value3.title + "\
-                  //-                       </span> \
-                  //-                    </label> \
-                  //-                    <div class=\"col-sm-4 btn-group pt-2 align-self-center\" role=\"group\"> \
-                  //-                       <label class=\"btn border-left border-right\" role=\"button\"> \
-                  //-                         <input type=\"checkbox\" class=\"sub_menu_check\" id=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"add_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedAdd +"/> \
-                  //-                         <i class=\"fa fa-eye text-primary ml-2\"></i> \
-                  //-                       </label> \
-                  //-                       <label class=\"btn border-right\" role=\"button\"> \
-                  //-                         <input type=\"checkbox\" class=\"sub_menu_check\" id=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"edit_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedEdit +"/> \
-                  //-                         <i class=\"fa fa-edit text-warning ml-2\"></i> \
-                  //-                       </label> \
-                  //-                       <label class=\"btn border-right\" role=\"button\"> \
-                  //-                         <input type=\"checkbox\" class=\"sub_menu_check\" id=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" name=\"delete_access_submenu_"+ key2 + "_" + value3.name +"\" value=\"1\" aria-label=\"chkRead\""+ checkedDelete +"/> \
-                  //-                         <i class=\"fa fa-times text-danger ml-2\"></i> \
-                  //-                       </label> \
-                  //-                    </div> \
-                  //-                  </li> \
-                  //-                 ");
                   checkedAdd = '';
                   checkedEdit = '';
                   checkedDelete = '';
