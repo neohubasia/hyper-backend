@@ -1,9 +1,10 @@
 let programMenu = require("../config/program-menu.json");
 let programAccess = require("../config/program-access.json");
 
-let getProgram = (userRole, pageId = undefined) => {
+let getProgram = (userRole, pageId) => {
 
     let programMenuJson = JSON.parse(JSON.stringify(programMenu));
+    let activeMenuArr = pageId.split(".");
 
     const roleAcess = Object.entries(programAccess).find(([key, value]) => key == userRole);
 
@@ -12,12 +13,14 @@ let getProgram = (userRole, pageId = undefined) => {
         programMenuJson.map((menuObj, menuIdx) => { // have access all program
 
             menuObj.access = true; // menu access true
+            menuObj.active = activeMenuArr[0] == menuObj.menuid ? true : false; // menu active true
             
             if (menuObj.submenu && menuObj.submenu.length > 0) {
 
                 menuObj.submenu.map((subMenuObj, subMenuIdx) => {
                     subMenuObj.access = true // submenu access true
                     subMenuObj.actions = subMenuObj.actions.split(",");
+                    subMenuObj.active = activeMenuArr[1] == subMenuObj.menuid ? true : false; // submenu active true
                 });
             }
         });
@@ -29,6 +32,7 @@ let getProgram = (userRole, pageId = undefined) => {
         programMenuJson.map((menuObj, subMenuIdx) => { // have access some program
             if (roleAcess[1].menu.includes(menuObj.menuid)) {
                 menuObj.access = true; // menu access true
+                menuObj.active = activeMenuArr[0] == menuObj.menuid ? true : false; // menu active true
             }
 
             // if (subMenuIdx == 0) {
@@ -44,6 +48,7 @@ let getProgram = (userRole, pageId = undefined) => {
                     if (subMenuAccess) {
                         subMenuObj.access = true; // submenu access true
                         subMenuObj.actions = subMenuAccess.split(",").slice(1);
+                        subMenuObj.active = activeMenuArr[1] == subMenuObj.menuid ? true : false; // submenu active true
                     }
                 });
             }

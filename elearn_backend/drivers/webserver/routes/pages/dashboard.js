@@ -6,10 +6,8 @@ const menuAccess = require("../../../../librarys/menu-access");
 router.get('/',
   connect.ensureLoggedIn(),
   (req, res, next) => {
-
-    console.log(req.user)
     res.render('pages/dashboard', {
-      ...menuAccess.getProgram(req.user.role), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "dashMenu.null.null"), // admin may change on req.user => role
     });
   }
 );

@@ -1,7 +1,8 @@
 const _serializeSingle = (user) => {
     const logging = {
       'id': user._id,
-      'username': user.username
+      'username': user.username,
+      'role': user.role
     };
     return logging;
   };

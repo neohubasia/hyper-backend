@@ -4,12 +4,16 @@ const router = express.Router();
 const validateware = require('./../../../../middlewares/validator');
 
 const users = require('./users');
+const userRoles = require('./user-roles');
 const students = require('./students');
 
 const studentSchema = require('./../../../../models/student/student-schema');
 
 router
   .get('/users', users.index);
+
+router
+  .get('/user-roles', userRoles.index);
 
 
 router

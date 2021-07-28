@@ -4,11 +4,31 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px;
+}
+
 #wrapper {
   overflow-x: hidden;
 }
 
+
 #sidebar-wrapper {
+  /* z-index: 1000; */
+  /* position: fixed; */
   min-height: 100vh;
   margin-left: -15rem;
   -webkit-transition: margin 0.25s ease-out;
@@ -28,6 +48,7 @@
 
 #page-content-wrapper {
   min-width: 100vw;
+  /* max-height: 100vh; */
 }
 
 #wrapper.toggled #sidebar-wrapper {

@@ -3,16 +3,18 @@
     "menuid": "dashMenu",
     "url": "/",
     "title": "Dashboard",
-    "icon": "fa fa-list-ul",
+    "icon": "fa fa-tachometer",
     "access": false,
+    "active": false,
     "submenu": []
   },
   {
     "menuid": "adminMenu",
     "url": "#",
     "title": "Administrative",
-    "icon": "fa fa-list-ul",
+    "icon": "fa fa-folder",
     "access": false,
+    "active": false,
     "submenu": [
       {
         "menuid": "userSubMenu",
@@ -20,6 +22,7 @@
         "title": "Registration",
         "icon": "fa fa-list",
         "access": false,
+        "active": false,
         "list": {
           "url": "/users",
           "title": "Registration List",
@@ -52,8 +55,9 @@
     "menuid": "courseMenu",
     "url": "#",
     "title": "Course",
-    "icon": "fa fa-list-ul",
+    "icon": "fa fa-folder",
     "access": false,
+    "active": false,
     "submenu": [
       {
         "menuid": "teacherSubMenu",
@@ -61,6 +65,7 @@
         "title": "Teacher",
         "icon": "fa fa-list",
         "access": false,
+        "active": false,
         "list": {
           "url": "/teachers",
           "title": "Teacher List",
@@ -93,6 +98,7 @@
         "title": "Student",
         "icon": "fa fa-list",
         "access": false,
+        "active": false,
         "list": {
           "url": "/students",
           "title": "Student List",

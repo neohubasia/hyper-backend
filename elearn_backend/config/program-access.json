@@ -1,6 +1,6 @@
 {
-    "admin": "*",
-    "supervisor": {
+    "admin (access all)": "*",
+    "supervisor (read, write)": {
         "menu": [
             "dashMenu",
             "courseMenu"
@@ -10,8 +10,9 @@
             "studentSubMenu,1,1,0"
         ]
     },
-    "basic": {
+    "cashier (read only)": {
         "menu": [
+            "dashMenu",
             "courseMenu"
         ],
         "submenu": [

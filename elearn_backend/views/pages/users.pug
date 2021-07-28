@@ -19,6 +19,7 @@ block content
         tr
           th #
           th Username
+          th Access Role
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
               a.btn.btn-sm.btn-success.btn-rounded.pull-right(href=page.entry.url, role="button", title="New")
@@ -52,11 +53,12 @@ block content
           "columns":  [
             { "data": "id" },
             { "data": "username"},
+            { "data": "role"},
             { "data": "actions", "className":"nowrap" }
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 2, orderable: false, render: dataTableActionsRenderer(".!{page.entry.url}", "!{page.actions}") }
+            { targets: 3, orderable: false, render: dataTableActionsRenderer(".!{page.entry.url}", "!{page.actions}") }
           ]
       });
 

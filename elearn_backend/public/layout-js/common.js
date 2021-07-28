@@ -149,7 +149,22 @@ function dataTableActionsRenderer(editUrl, access) {
     );
   }
   
-  // $(function() {});
+  $(function() {
+    $(".list-group-item").on('click', function () {
+      var eleIcon = this.getElementsByTagName("span")[2];
+      var isExpand = $(this).closest('a.list-group-item').attr('aria-expanded'); // index return undefined
+     
+      (eleIcon.classList.contains("fa-plus"))
+        ? eleIcon.classList.replace("fa-plus",  "fa-minus")
+        : eleIcon.classList.replace("fa-minus",  "fa-plus");  
+    });
+  });
+
+  $(".list-group .list-group-item-menu").on("click", function () {
+    $(".list-group").find(".active").removeClass("active");
+    $(this).addClass("active");
+  });
+
   $('.selectpicker').select2();
 
   $('[data-hide="alert"]').on("click", function() {

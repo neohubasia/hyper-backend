@@ -30,7 +30,7 @@ block content
       div.form-group.row
         div.col-sm-12
           label.control-label(for='role') Role
-          select.form-control.input-sm.selectpicker#roleid(name='roleid' data-value='', data-live-search="true", data-size="8")
+          select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8")
 
       div.row.justify-content-center.border-top.pt-3
         a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
@@ -42,9 +42,9 @@ block content
   script.
     $(document).ready(function() {
       $('#alert').hide();
-      var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zTz9VOEw0QjFTNkUzSyIsImlhdCI6MTYwNjMxMTQ0OCwiZXhwIjoxNjA2Mzk3ODQ4fQ.NL-TPGPh8Y1dBBgRL7VRyB1636D3TdWDJG1-oecD1Jo";
-
+      var token = '!{token}';
       var getFrm = $('#entryForm');
+
       getFrm.submit(function (e) {
         e.preventDefault();
         $.ajax({
@@ -64,16 +64,19 @@ block content
   
       $.ajax({
         type: "GET",
-        url: "/api/permissions/",
+        url: "/api/user-roles",
         headers: {"authorization": "Bearer " + token},
         success: function (data) {
-          console.log(data.data);
           var items = "";
           items += "<option value='' disabled selected>Please Choose One</option>";
-          $.each(data.data, function (i, item) {
-            items += "<option value='" + item._id + "'>" + item.name + "</option>";
-          });
-          $("#roleid").html(items);
+
+          if (data.status == "SUCCESS") {
+            $.each(Object.entries(data.data), function (i, item) {
+              items += "<option value='" + item[0] + "'>" + item[0] + "</option>";
+            });
+          }
+
+          $("#roleid").html(items).val($('#roleid').data('value'));
         }
       });
 
