@@ -1,33 +1,23 @@
 #sidebar-wrapper.bg-light.border-right
-    .sidebar-heading rengvo | e-commerce
+    .sidebar-heading
     .list-group.list-group-flush
-
-      if program.menu.dashboard
-          a.list-group-item.list-group-item-action.nav-link(href=program.menu.dashboard.url)
-            span.fa.fa-list
-            span.pl-1  #{program.menu.dashboard.title}
-          span.sr-only (current)
-
-      if program.menu.admin && program.menu.admin.submenu.length > 0 
-          a.list-group-item.list-group-item-action.bg-light.nav-link.collapsed(href='#submenu_admin' data-toggle='collapse' data-target='#submenu_admin')
-            span.fa.fa-list
-            span.pl-1  #{program.menu.admin.title}
-            span.fa.fa-plus.mt-1.pull-right
-          #submenu_admin.collapse(aria-expanded='false')
-            each submenu in program.menu.admin.submenu
-              ul.flex-column.nav.pl-1
-                li.nav-item(id='submenu_'+submenu.name)
-                  a.list-group-item-action.nav-link(href=submenu.url)
-                    span.p-1 #{submenu.title}
-
-      if program.menu.course && program.menu.course.submenu.length > 0 
-          a.list-group-item.list-group-item-action.bg-light.nav-link.collapsed(href='#submenu_course' data-toggle='collapse' data-target='#submenu_course')
-            span.fa.fa-list
-            span.pl-1  #{program.menu.course.title}
-            span.fa.fa-plus.mt-1.pull-right
-          #submenu_course.collapse(aria-expanded='false')
-            each submenu in program.menu.course.submenu
-              ul.flex-column.nav.pl-1
-                li.nav-item(id='submenu_'+submenu.name)
-                  a.list-group-item-action.nav-link(href=submenu.url)
-                    span.p-1 #{submenu.title}
+        if program && program.length > 0
+            each programObj in program
+                if programObj.access == true
+                    - var subMenuLength = programObj.submenu.length;
+                    if !(subMenuLength > 0)
+                        a.list-group-item.list-group-item-action.nav-link(href=programObj.url)
+                            span(class=programObj.icon)
+                            span.pl-1  #{programObj.title}
+                        span.sr-only (current)
+                    else
+                        a.list-group-item.list-group-item-action.bg-light.nav-link.collapsed(href='#'+programObj.menuid data-toggle='collapse' data-target='#'+programObj.menuid)
+                            span(class=programObj.icon)
+                            span.pl-1  #{programObj.title}
+                            span.fa.fa-plus.mt-1.pull-right
+                        div.collapse(aria-expanded='false' id=programObj.menuid)
+                            each subMenu in programObj.submenu
+                                ul.flex-column.nav.pl-1
+                                    li.nav-item(id='#'+subMenu.menuid)
+                                        a.list-group-item-action.nav-link(href=subMenu.url)
+                                            span.p-1 #{subMenu.title}

@@ -1,0 +1,124 @@
+[
+  {
+    "menuid": "dashMenu",
+    "url": "/",
+    "title": "Dashboard",
+    "icon": "fa fa-list-ul",
+    "access": false,
+    "submenu": []
+  },
+  {
+    "menuid": "adminMenu",
+    "url": "#",
+    "title": "Administrative",
+    "icon": "fa fa-list-ul",
+    "access": false,
+    "submenu": [
+      {
+        "menuid": "userSubMenu",
+        "url": "/users",
+        "title": "Registration",
+        "icon": "fa fa-list",
+        "access": false,
+        "list": {
+          "url": "/users",
+          "title": "Registration List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Registration List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/user",
+          "title": "Registration Entry",
+          "breadcrumb": [
+            {
+              "url": "/users",
+              "text": "Registration List"
+            },
+            {
+              "url": "",
+              "text": "Registration Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },
+  {
+    "menuid": "courseMenu",
+    "url": "#",
+    "title": "Course",
+    "icon": "fa fa-list-ul",
+    "access": false,
+    "submenu": [
+      {
+        "menuid": "teacherSubMenu",
+        "url": "/teachers",
+        "title": "Teacher",
+        "icon": "fa fa-list",
+        "access": false,
+        "list": {
+          "url": "/teachers",
+          "title": "Teacher List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Teacher List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/teacher",
+          "title": "Teacher Entry",
+          "breadcrumb": [
+            {
+              "url": "/teachers",
+              "text": "Teacher List"
+            },
+            {
+              "url": "",
+              "text": "Teacher Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "studentSubMenu",
+        "url": "/students",
+        "title": "Student",
+        "icon": "fa fa-list",
+        "access": false,
+        "list": {
+          "url": "/students",
+          "title": "Student List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Student List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/student",
+          "title": "Student Entry",
+          "breadcrumb": [
+            {
+              "url": "/students",
+              "text": "Student List"
+            },
+            {
+              "url": "",
+              "text": "Student Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  }
+]

@@ -3,7 +3,7 @@ const router = express.Router();
 const connect = require('connect-ensure-login');
 const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
-const program = require("../../../../config/program.json");
+const menuAccess = require("../../../../librarys/menu-access");
 let usersDb = require('../../../../controllers/users');
 
 router.get('/getuser', connect.ensureLoggedIn(), (req, res, next) => {
@@ -13,19 +13,13 @@ router.get('/getuser', connect.ensureLoggedIn(), (req, res, next) => {
 router.get('/users', 
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    // menu or program permission function call coming ...
-    // list permission function call comming ...
-    // url obj would be deprecated soon, through replaced by list permission
-    let permission = program;
-    console.log(permission.menu.admin.submenu[0])
-    let url = {
-      entry: './user',
-    };
     res.render('pages/users', {
+      ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
-      url: url,
-      page: permission.menu.admin.submenu[0],
-      program: permission });
+      url: {
+        entry: './user',
+      },
+    });
   }
 );
 
@@ -33,14 +27,17 @@ router.get('/user/:id?',
   connect.ensureLoggedIn(),
   async (req, res, next) => {
     let data = {};
-    let permission = program;
-    let url = {
-      list: '/users',
-      post: '/user'
-    };
     if (req.params.id)
       data = await usersDb.findUser('id', req.params.id);
-    res.render('pages/user-entry', { url: url, page: permission.menu.admin.submenu[0], program: program, data: data });
+    
+    res.render('pages/user-entry', {
+      ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.entry"), // admin may change on req.user => role
+      url: {
+        list: '/users',
+        post: '/user'
+      },
+      data: data
+    });
   }
 )
 .post('/user',

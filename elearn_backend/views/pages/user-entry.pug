@@ -4,10 +4,12 @@ block content
 
     nav.pt-3(aria-label='breadcrumb')
       ol.breadcrumb
-        if page.entry.breadcrumb.url.length > 0
-          each url, index in page.entry.breadcrumb.url
+        li.breadcrumb-item
+          a(href="/") Dashboard 
+        if page.entry.breadcrumb.length > 0
+          each breadcrumbObj, index in page.entry.breadcrumb
             li.breadcrumb-item
-              a(href=url) #{page.entry.breadcrumb.text[index]}
+              a(href=breadcrumbObj.url) #{breadcrumbObj.text}
 
     div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
       h3.h3 !{page.entry.title}
@@ -16,7 +18,7 @@ block content
       strong.alert-title#alertTitle
       span#alertMessage
 
-    form.form-horizontal.p-3.card#entryForm(method='post', action=url.post)
+    form.form-horizontal.p-3.card#entryForm(method='post', action=page.entry.url)
       input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
       div.form-group.row
         div.col-sm-6
@@ -31,11 +33,11 @@ block content
           select.form-control.input-sm.selectpicker#roleid(name='roleid' data-value='', data-live-search="true", data-size="8")
 
       div.row.justify-content-center.border-top.pt-3
-        a.btn.btn-secondary.btn-sm.m-1(href=url.list, role='button') CANCEL
+        a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
         button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
           span(data-feather='save') 
           |  SAVE
-    form#postSuccessForm(method='GET', action=url.list)
+    form#postSuccessForm(method='GET', action=page.list.url)
 
   script.
     $(document).ready(function() {

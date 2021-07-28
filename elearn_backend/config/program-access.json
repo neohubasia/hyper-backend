@@ -1,0 +1,22 @@
+{
+    "admin": "*",
+    "supervisor": {
+        "menu": [
+            "dashMenu",
+            "courseMenu"
+        ],
+        "submenu": [
+            "teacherSubMenu,1,1,0",
+            "studentSubMenu,1,1,0"
+        ]
+    },
+    "basic": {
+        "menu": [
+            "courseMenu"
+        ],
+        "submenu": [
+            "teacherSubMenu,1,0,0",
+            "studentSubMenu,1,0,0"
+        ]
+    }
+}

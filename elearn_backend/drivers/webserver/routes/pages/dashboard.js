@@ -1,13 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const connect = require('connect-ensure-login');
-
-const program = require("../../../../config/program.json")
+const menuAccess = require("../../../../librarys/menu-access");
 
 router.get('/',
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    res.render('pages/dashboard', { program: program });
+
+    console.log(req.user)
+    res.render('pages/dashboard', {
+      ...menuAccess.getProgram(req.user.role), // admin may change on req.user => role
+    });
   }
 );
 

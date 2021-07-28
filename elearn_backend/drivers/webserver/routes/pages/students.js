@@ -3,25 +3,18 @@ const router = express.Router();
 const connect = require('connect-ensure-login');
 const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
-const program = require("../../../../config/program.json");
+const menuAccess = require("../../../../librarys/menu-access");
 let studentsDb = require('../../../../controllers/students');
 
 router.get('/students', 
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    // menu or program permission function call coming ...
-    // list permission function call comming ...
-    // url obj would be deprecated soon, through replaced by list permission
-    let permission = program;
-    console.log(permission.menu.course.submenu[1])
-    let url = {
-      entry: './student',
-    };
     res.render('pages/students', {
+      ...menuAccess.getProgram(req.user.role, "courseMenu.studentSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
-      url: url,
-      page: permission.menu.course.submenu[1],
-      program: permission
+      url: {
+        entry: './student',
+      },
     });
   }
 );
@@ -30,14 +23,17 @@ router.get('/student/:id?',
   connect.ensureLoggedIn(),
   async (req, res, next) => {
     let data = {};
-    let permission = program;
-    let url = {
-      list: '/students',
-      post: '/student'
-    };
     if (req.params.id)
       data = await studentsDb.findStudent('id', req.params.id);
-    res.render('pages/student-entry', { url: url, page: permission.menu.course.submenu[1], program: program, data: data });
+    
+    res.render('pages/student-entry', {
+      ...menuAccess.getProgram(req.user.role, "courseMenu.studentSubMenu.entry"), // admin may change on req.user => role
+      url: {
+        list: '/students',
+        post: '/student'
+      },
+      data: data
+    });
 
     // this code is smarter but can't serialize data
     // try {

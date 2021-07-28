@@ -1,6 +1,6 @@
 .container-fluid {
   padding-top: 3.8rem;
-  max-height: 100vh;
+  min-height: 100vh;
   overflow-y: scroll;
 }
 .select2-selection__rendered {

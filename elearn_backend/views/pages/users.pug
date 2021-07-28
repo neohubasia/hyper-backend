@@ -3,10 +3,12 @@ block content
   main.ml-sm-auto.px-md-4(role='main')
     nav.pt-3(aria-label='breadcrumb')
       ol.breadcrumb
-        if page.list.breadcrumb.url.length > 0
-          each url, index in page.list.breadcrumb.url
+        li.breadcrumb-item
+          a(href="/") Dashboard 
+        if page.list.breadcrumb.length > 0
+          each breadcrumbObj, index in page.list.breadcrumb
             li.breadcrumb-item
-              a(href=url) #{page.list.breadcrumb.text[index]}
+              a(href=breadcrumbObj.url) #{breadcrumbObj.text}
 
     div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2
       h3.h3 !{page.list.title}
@@ -18,9 +20,10 @@ block content
           th #
           th Username
           th.actions
-            a.btn.btn-sm.btn-success.btn-rounded.pull-right(href=url.entry, role="button", title="New")
-              i.fa.fa-plus
-              span  NEW
+            if ((page.actions[0] && page.actions[1]) == true)
+              a.btn.btn-sm.btn-success.btn-rounded.pull-right(href=page.entry.url, role="button", title="New")
+                i.fa.fa-plus
+                span  NEW
       tbody
   script.
     $(document).ready(function() {
@@ -42,7 +45,7 @@ block content
           },
           "ajax": { 
             "type": "Get",
-            "url": "./api/users/",
+            "url": "./api" + '!{page.list.url}',
             "headers": {"authorization": "Bearer " + token},
             "dataSrc": "data",
           },
@@ -53,7 +56,7 @@ block content
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 2, orderable: false, render: dataTableActionsRenderer("!{url.entry}", "1,1,1") }
+            { targets: 2, orderable: false, render: dataTableActionsRenderer(".!{page.entry.url}", "!{page.actions}") }
           ]
       });
 
@@ -62,7 +65,7 @@ block content
         var id = button.data('id');
         $(this).attr('data-id', id);
         $(this).find('#dialogAccept').on('click', function(ev) {
-          var deleteUrl = './api/student/'+id;
+          var deleteUrl = './api/user/'+id;
           handleDelete(deleteUrl, token, function() {
             table.ajax.reload();
           });
