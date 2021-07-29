@@ -31,17 +31,21 @@ block content
     form.form-horizontal.p-3.card#entryForm(method='post', action=page.entry.url)
       input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
 
+      div.form-group.d-none 
+        div.row.remove-img-list
+
       div.form-group  
         div.row.img-list
           .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
             img.m-1#add-image(src="/images/icons/add-image.svg", alt="", srcset="" width="360" height="360")
 
-          if data.profile_images.length > 0
+          - var imageArray = data.profile_images || [];
+          if imageArray.length > 0
             each progfile_image in data.profile_images
               .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
-                input.uploaded-files(type="hidden", name="profile_images", value=`${progfile_image}`)
+                input.uploaded-files(type="hidden", name="profile_images[]", value=`${progfile_image}`)
                 img.m-1.img.img-thumbnail(src=`${progfile_image}`, alt="", srcset="" width="360" height="360")
-                button.btn(type="button") Remove
+                button.btn.remove-file(type="button") Remove
 
          
       div.form-group.row
@@ -59,12 +63,12 @@ block content
         div.col-sm-6
           label.control-label(for='prefect') Prefect
           div.radio.radio-toolbar.row
-            div.col-sm-3
+            div.col-sm-6.col-xl-3
               input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
-              label(for='prefectActive') &nbsp;Active
-            div.col-sm-3
+              label.ml-1(for='prefectActive') &nbsp;Active
+            div.col-sm-6.col-xl-3
               input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
-              label(for='prefectInactive') &nbsp;Inactive
+              label.ml-1(for='prefectInactive') &nbsp;Inactive
       div.row.justify-content-center.border-top.pt-3
         a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
         button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
@@ -125,9 +129,9 @@ block content
             if(data.status == "SUCCESS") {
               var setSrc = data.data.path.replace("public", "");
               var makeImage  = `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
-                                  <input class="uploaded-files" type="hidden" name="profile_images" value=${setSrc} />
+                                  <input class="uploaded-files" type="hidden" name="profile_images[]" value=${setSrc} />
                                   <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
-                                  <button type="button" class="btn">Remove</button>
+                                  <button type="button" class="btn remove-file">Remove</button>
                                </div>`;
               //- alert($(".img-list").children().length)
               $(".img-list").append(makeImage)
@@ -138,6 +142,17 @@ block content
             console.log(data);
           },
         });
+      });
+
+
+      $(document).on('click', '.remove-file', function () {
+        // your function here
+        var backupSrc = $(this).closest('div').find('img.img').attr('src');
+        //- alert(backupSrc)
+        var makeInput = `<input class="remove-files" type="hidden" name="remove_images[]" value=${backupSrc} />`;
+
+        $(".remove-img-list").append(makeInput);
+        $(this).parent().remove();
       });
 
     });

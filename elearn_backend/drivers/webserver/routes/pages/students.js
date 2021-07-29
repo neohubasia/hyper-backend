@@ -50,7 +50,7 @@ router.get('/student/:id?',
 )
 .post('/student',
   (req, res, next) => {
-    let db, status = "FAIL"; 
+    let db, status = "FAIL";
 
     (req.body.prefect == "1") 
       ? req.body.prefect = true
