@@ -11,7 +11,8 @@ router.get('/students',
   (req, res, next) => {
     res.render('pages/students', {
       ...menuAccess.getProgram(req.user.role, "courseMenu.studentSubMenu.list"), // admin may change on req.user => role
-      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME)
+      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      app: config.app
     });
   }
 );
@@ -26,6 +27,7 @@ router.get('/student/:id?',
     res.render('pages/student-entry', {
       ...menuAccess.getProgram(req.user.role, "courseMenu.studentSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      app: config.app,
       data: data
     });
 

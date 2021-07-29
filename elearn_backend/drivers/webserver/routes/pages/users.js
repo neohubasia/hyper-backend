@@ -16,6 +16,7 @@ router.get('/users',
     res.render('pages/users', {
       ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      app: config.app
     });
   }
 );
@@ -30,6 +31,7 @@ router.get('/user/:id?',
     res.render('pages/user-entry', {
       ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      app: config.app,
       data: data
     });
   }

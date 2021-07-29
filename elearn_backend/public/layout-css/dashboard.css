@@ -12,7 +12,7 @@
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 /* Handle */
@@ -31,6 +31,7 @@
   /* position: fixed; */
   min-height: 100vh;
   margin-left: -15rem;
+  border-right: 0.5px solid #ddd;
   -webkit-transition: margin 0.25s ease-out;
   -moz-transition: margin 0.25s ease-out;
   -o-transition: margin 0.25s ease-out;
@@ -70,29 +71,36 @@
   }
 }
 
-/* Test */
+/* Image Container with delete button */
 
-.feather {
-  width: 16px;
-  height: 16px;
-  vertical-align: text-bottom;
+/* Container needed to position the button. Adjust the width as needed */
+.img-container {
+  position: relative;
+  cursor: pointer;
 }
 
-.nav-link {
-  font-weight: 500;
-  color: #333;
+/* Make the image responsive */
+.img-container img {
+  width: 100%;
+  height: auto;
 }
 
-.nav-link .feather {
-  margin-right: 4px;
-  color: #999;
+/* Style the button and place it in the middle of the container/image */
+.img-container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  color: rgb(255, 255, 255);
+  background-color: #dc3545;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
-.nav-link.active {
-  color: #007bff;
+.img-container:hover .img {
+  opacity: 0.3;
 }
 
-.nav-link:hover .feather,
-.nav-link.active .feather {
-  color: inherit;
+.img-container:hover .btn {
+  opacity: 1;
 }

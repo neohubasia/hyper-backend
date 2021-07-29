@@ -18,8 +18,32 @@ block content
       strong.alert-title#alertTitle
       span#alertMessage
 
+    //- this is single file upload  - work well
+    form#uploadForm(method='POST' action='/file/upload/students' enctype="multipart/form-data")
+      input#file-input(type='file' name='uploaded_file')
+      //- input#file-input-btn(type='submit' name='uploaded_file_btn' value='Upload')
+
+    //- this is multiple files upload - work well
+    //- form(method='POST' action='/file/multiUpload/multitest' enctype='multipart/form-data')
+    //-   input(type='file' name='uploaded_files' multiple='')
+    //-   input(type='submit' name='uploaded_files_btn' value='Upload')
+
     form.form-horizontal.p-3.card#entryForm(method='post', action=page.entry.url)
       input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
+
+      div.form-group  
+        div.row.img-list
+          .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+            img.m-1#add-image(src="/images/icons/add-image.svg", alt="", srcset="" width="360" height="360")
+
+          if data.profile_images.length > 0
+            each progfile_image in data.profile_images
+              .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+                input.uploaded-files(type="hidden", name="profile_images", value=`${progfile_image}`)
+                img.m-1.img.img-thumbnail(src=`${progfile_image}`, alt="", srcset="" width="360" height="360")
+                button.btn(type="button") Remove
+
+         
       div.form-group.row
         div.col-sm-6
           label.control-label(for='name') Name
@@ -46,22 +70,24 @@ block content
         button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
           span(data-feather='save') 
           |  SAVE
+
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
       $('#alert').hide();
+      $('#uploadForm').hide();
 
       var prefect = "!{data.prefect}";
       if (prefect && prefect == "false")
         $('#prefectInactive').attr("checked", "checked");
 
-      var getFrm = $('#entryForm');
-      getFrm.submit(function (e) {
+    
+      $('#entryForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
-          type: getFrm.attr('method'),
-          url: getFrm.attr('action'),
-          data: getFrm.serialize(),
+          url: $(this).attr('action'),
+          type:$(this).attr('method'),
+          data: $(this).serialize(),
           success: function (data) {
             handleAlert(data);
           },
@@ -71,4 +97,47 @@ block content
           },
         });
       });
+
+      $('#add-image').on('click', function() {
+         $(this).css('background-color', '#f3f3f3');
+         $('#file-input').trigger('click');
+      });
+
+      $('#file-input').on('change', function(e) {
+        e.preventDefault();
+        $('#uploadForm').submit();
+      });
+      
+      // multi/part  form submit
+      $('#uploadForm').submit(function (e) {
+        e.preventDefault();
+        $.ajax( {
+          url: $(this).attr('action'),
+          type: $(this).attr('method'),
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: new FormData( this ),
+          success: function (data) {
+            console.log(data);
+            //- handleAlert(data, false);
+
+            if(data.status == "SUCCESS") {
+              var setSrc = data.data.path.replace("public", "");
+              var makeImage  = `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
+                                  <input class="uploaded-files" type="hidden" name="profile_images" value=${setSrc} />
+                                  <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
+                                  <button type="button" class="btn">Remove</button>
+                               </div>`;
+              //- alert($(".img-list").children().length)
+              $(".img-list").append(makeImage)
+            }
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      });
+
     });

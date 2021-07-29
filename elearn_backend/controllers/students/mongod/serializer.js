@@ -4,6 +4,7 @@ const _serializeSingle = (student) => {
     'grade': student.grade,
     'name': student.name,
     'age': student.age,
+    'profile_images': student.profile_images,
     'prefect': student.prefect
   };
 };

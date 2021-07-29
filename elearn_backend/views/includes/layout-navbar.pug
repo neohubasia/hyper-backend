@@ -1,14 +1,14 @@
 nav(class="navbar navbar-expand-md fixed-top bg-light border-bottom")
   button.btn#menu-toggle
     span.data-feather(data-feather='sliders')
-  h4.p-1.m-1 itemplate
+  h4.p-1.m-1 !{app.NAME}
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.fa.fa-bars
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.ml-auto.bg-light.border.mt-md-0.mt-2.p-md-0.p-3
       li.nav-item.active
         a.nav-link(href='#')
-          span.fa.fa-user &nbsp;
+          span.data-feather(data-feather='user')
           span#username 
           span.sr-only (current)
       li.nav-item.dropdown
@@ -19,4 +19,6 @@ nav(class="navbar navbar-expand-md fixed-top bg-light border-bottom")
           a.dropdown-item(href='#') Action
           a.dropdown-item(href='#') Another action
           .dropdown-divider
-          a.dropdown-item(href='/logout') Logout
+          a.dropdown-item(href='/logout') 
+           span(data-feather='log-out')
+           | &nbsp; Logout

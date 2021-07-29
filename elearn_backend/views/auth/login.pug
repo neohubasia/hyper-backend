@@ -2,15 +2,15 @@ extends ../includes/layout-auth
 
 block content
   form(action="/login" method="post")
-    img.logo(src="/images/auth/ecommerce.jpg", alt="", srcset="")
-    div.title rengvo
-    div.sub-title WELCOME BACK
+    img.logo(src="/images/auth/it-logo.png", alt="", srcset="")
+    div.title !{app.NAME}
+    div.sub-title !{subtitle}
     div.fields
       div.username
         input(type="username" name="username" placeholder="username" autofocus autocomplete="off" required)
       div.password
         input(type="password" name="password" placeholder="password" required)
-    button.signin-button(type="submit") Login
+    button.signin-button(type="submit") !{title}
     //- div.link
     //-   a(href="#") Forgot password? or 
     //-   a(href="#") Sign up

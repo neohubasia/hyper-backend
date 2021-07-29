@@ -5,6 +5,7 @@ let StudentSchema = new Schema({
   name: String,
   age: Number,
   grade: Number,
+  profile_images: Array,
   prefect: {
     type: Boolean,
     default: false

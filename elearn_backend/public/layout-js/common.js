@@ -22,8 +22,8 @@
   function dataTableNotiRenderer() {
     return function(d, type, row) {
       return d == true
-        ? '<span class="badge badge-success" style="font-size:12px;">Yes</span>'
-        : '<span class="badge badge-danger" style="font-size:12px;">No</span>';
+        ? '<span class="badge badge-success" style="font-size:12px;">Active</span>'
+        : '<span class="badge badge-danger" style="font-size:12px;">Inactive</span>';
     };
   }
   
@@ -52,12 +52,12 @@ function dataTableActionsRenderer(editUrl, access) {
     return function(d, type, row) {
       var id = row.id || "#";
       var html = "";
-      if (access[0] == "1" && access[1] == "1") { // read && write
+      if (access[0] == "1" && access[1] == "1") { // read && write access
         html +=
           '<div class="pull-right"><a class="btn btn-sm btn-warning list-action" href="./' + editUrl + "/" + id +
           '" title="Edit"><i class="fa fa-edit text-white"></i></a> ';
       }
-      if (access[2] == "1") { // delete
+      if (access[2] == "1") { // delete access 
         html +=
           '<a class="btn btn-sm btn-danger list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
          data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><i class="fa fa-times text-white"></i></a></div>';
@@ -378,7 +378,7 @@ function dataTableActionsRenderer(editUrl, access) {
     }
   }
 
-  function handleAlert(args) {
+  function handleAlert(args,  redirect = true) {
     if (args.status == "SUCCESS") {
       $("#alertTitle").html("Success: ");
       $("#alertMessage").html("Save Successful.");
@@ -386,8 +386,9 @@ function dataTableActionsRenderer(editUrl, access) {
 
       var postFrm = $('#postSuccessForm');
       window.setTimeout(function(){
-        postFrm.submit();
-      }, 1 * 1000);
+        if (redirect) postFrm.submit();
+        $('#alert').removeClass().hide();
+      }, 3 * 1000);
     } 
     else {
       $("#alertTitle").html("Error: ");
@@ -396,6 +397,6 @@ function dataTableActionsRenderer(editUrl, access) {
 
       window.setTimeout(function(){
         $('#alert').removeClass().hide();
-      }, 1 * 1500);
+      }, 3 * 1000);
     }
   }
