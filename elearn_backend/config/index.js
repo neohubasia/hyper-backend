@@ -8,10 +8,11 @@ module.exports = {
     FILE: "itemplate-file",
     DESC: "business  solution for general purpose",
     icons: {
-      PLUS: "/images/icons/feather-plus.svg",
-      FILE_PLUS: "/images/icons/feather-file-plus.svg",
-      LOADER: "/images/icons/feather-loader.svg",
-      X: "/images/icons/feather-x.svg",
+      FILE_PLUS: "/images/icons/feather-plus.svg",
+      TIMES: "/images/icons/feather-times.svg",
+      PLUS: "/images/icons/icons8-plus.svg",
+      EDIT: "/images/icons/icons8-edit.svg",
+      DELETE: "/images/icons/icons8-delete.svg",
     }
   },
   mongo: {
@@ -30,7 +31,7 @@ module.exports = {
     HASH: 'SHA256',
     SECRET: 'C57B465081874C256CFD78D9EC226DCD111D03E08E21ABB8DCAF0CF7DA71D362',
     credential: {
-      USERNAME: 'N3OXU8L4B1S6E3K',
+      USERNAME: 'N3OXUBL1SN0T633K',
       PASSWORD: 'ZOZO.4U6.1ST.8D'
     }
   }

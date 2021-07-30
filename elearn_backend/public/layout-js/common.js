@@ -47,20 +47,20 @@
     };
   }
   
-function dataTableActionsRenderer(editUrl, access) {
+function dataTableActionsRenderer(editUrl, access, icons) {
   access = access.split(",");
-    return function(d, type, row) {
+  return function (d, type, row) {
       var id = row.id || "#";
       var html = "";
       if (access[0] == "1" && access[1] == "1") { // read && write access
         html +=
-          '<div class="pull-right"><a class="btn btn-sm btn-warning list-action" href="./' + editUrl + "/" + id +
-          '" title="Edit"><i class="fa fa-edit text-white"></i></a> ';
+          '<div class="pull-right"><a class="btn btn-sm btn-light list-action" href="./' + editUrl + "/" + id +
+          '" title="Edit"><img src="' + icons.edit + '" height="20" width="20"/></a> ';
       }
       if (access[2] == "1") { // delete access 
         html +=
-          '<a class="btn btn-sm btn-danger list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
-         data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><i class="fa fa-times text-white"></i></a></div>';
+          '<a class="btn btn-sm btn-light list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
+         data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><img src="' + icons.delete + '" height="20" width="20"/></i></a></div>';
       }
       return html;
     };
@@ -111,8 +111,7 @@ function dataTableActionsRenderer(editUrl, access) {
   
   function dataTableRenderDateTime() {
     return function(d, type, row) {
-      d = toTableDateTime(d, "DD/MM/YYYY hh:mm A");
-      return d;
+      return toTableDateTime(d, "DD/MM/YYYY hh:mm A");
     };
   }
   

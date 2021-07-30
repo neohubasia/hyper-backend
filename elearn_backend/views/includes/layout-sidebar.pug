@@ -24,7 +24,7 @@
                             each subMenuObj in programObj.submenu
                                 - var isActive = (subMenuObj.active == true) ? "active" : undefined;
                                 
-                                ul.flex-column.nav.pl-1
+                                ul.flex-column.nav
                                     li.nav-item(id=subMenuObj.menuid)
                                         a.list-group-item.list-group-item-action.list-group-item-menu(href=subMenuObj.url class=isActive)
                                             span(class=subMenuObj.icon)

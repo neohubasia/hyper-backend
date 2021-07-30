@@ -40,8 +40,6 @@ router.get('/user/:id?',
   (req, res, next) => {
     let db, status = "FAIL"; 
 
-    console.log("Request ", req.body);
-
     if (!req.body.id) { // insert data
       db = usersDb.addUser(req.body);
     }

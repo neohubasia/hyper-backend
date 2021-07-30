@@ -1,0 +1,8 @@
+nav.pt-3(aria-label='breadcrumb')
+ ol.breadcrumb
+    li.breadcrumb-item
+      a(href="/") Dashboard 
+    if page.entry.breadcrumb.length > 0
+      each breadcrumbObj, index in page.entry.breadcrumb
+        li.breadcrumb-item
+          a(href=breadcrumbObj.url) #{breadcrumbObj.text}

@@ -1,3 +1,8 @@
+include ./content-header
+
+div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
+  h3.h3 !{page.list.title}
+
 div.modal.fade#dialogDeleteConfirm(tabindex='-1', role='dialog', aria-labelledby='deleteConfirm')
   div.modal-dialog.modal-sm(role='document')
     div.modal-content
@@ -10,10 +15,11 @@ div.modal.fade#dialogDeleteConfirm(tabindex='-1', role='dialog', aria-labelledby
       div.modal-body
         p Are you sure to delete this?
       div.modal-footer.justify-content-md-center
-        button.btn.btn-secondary.btn-sm#dialogCancel(type='button', data-dismiss='modal')
+        button.btn.btn-light.btn-sm#dialogCancel(type='button', data-dismiss='modal')
           | CANCEL
-        button.btn.btn-danger.btn-sm#dialogAccept(type='button', data-dismiss='modal')
-          i.fa.fa-check   OK
+        button.btn.btn-light.btn-sm#dialogAccept(type='button', data-dismiss='modal')
+          i.fa.fa-check.text-danger
+          span.span.text-danger &nbsp;OK
 
 
 div.alert.alert-success.alert-dismissible#alertDeleteSuccess(role='alert' style="display:none;")
