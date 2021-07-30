@@ -51,7 +51,7 @@ app.use(authRouter);
 app.use('/api', _jwt.checkToken, apiRouter);
 
 // connet to file routes
-app.use('/file', fileRouter)
+app.use('/file', _jwt.checkToken, fileRouter)
 
 // connect to jwt routes
 app.use('/d-mar', tokenRouter);

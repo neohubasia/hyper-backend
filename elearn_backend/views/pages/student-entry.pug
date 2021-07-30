@@ -2,21 +2,7 @@ extends ../includes/layout-main
 block content
   main.ml-sm-auto.px-md-4(role='main')
 
-    nav.pt-3(aria-label='breadcrumb')
-      ol.breadcrumb
-        li.breadcrumb-item
-          a(href="/") Dashboard 
-        if page.entry.breadcrumb.length > 0
-          each breadcrumbObj, index in page.entry.breadcrumb
-            li.breadcrumb-item
-              a(href=breadcrumbObj.url) #{breadcrumbObj.text}
-
-    div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
-      h3.h3 !{page.entry.title}
-
-    div.alert.alert-dismissible#alert(role='alert')
-      strong.alert-title#alertTitle
-      span#alertMessage
+    include ./../includes/layout-entry
 
     //- this is single file upload  - work well
     form#uploadForm(method='POST' action='/file/upload/students' enctype="multipart/form-data")
@@ -37,7 +23,7 @@ block content
       div.form-group  
         div.row.img-list
           .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
-            img.m-1#add-image(src="/images/icons/add-image.svg", alt="", srcset="" width="360" height="360")
+            img.m-1.add-img-wrapper#add-image(src=app.icons.FILE_PLUS, alt="", srcset="" width="360" height="360")
 
           - var imageArray = data.profile_images || [];
           if imageArray.length > 0
@@ -65,10 +51,10 @@ block content
           div.radio.radio-toolbar.row
             div.col-sm-6.col-xl-3
               input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
-              label.ml-1(for='prefectActive') &nbsp;Active
+              label.ml-1(for='prefectActive') &nbsp; Active
             div.col-sm-6.col-xl-3
               input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
-              label.ml-1(for='prefectInactive') &nbsp;Inactive
+              label.ml-1(for='prefectInactive') &nbsp; Inactive
       div.row.justify-content-center.border-top.pt-3
         a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
         button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
@@ -78,6 +64,8 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
+      var token = '!{token}';
+      var maxImageCount  = 5;
       $('#alert').hide();
       $('#uploadForm').hide();
 
@@ -103,45 +91,43 @@ block content
       });
 
       $('#add-image').on('click', function() {
-         $(this).css('background-color', '#f3f3f3');
-         $('#file-input').trigger('click');
+        //- $(this).css('background-color', '#fff');
+
+        var imgCount  = $(".img-list").children().length || 0;
+
+        if(imgCount -1 <  maxImageCount) {
+          $('#file-input').trigger('click');
+        }
+        else {
+          swalWarning({
+            position: "top",
+            icon: "warning",
+            title: "Warning Message",
+            text: "The specified number of images has been reached",
+          });
+        }
       });
 
       $('#file-input').on('change', function(e) {
         e.preventDefault();
-        $('#uploadForm').submit();
+        if ( $(this).val() != "" ) {
+          $('#uploadForm').submit();
+        }
       });
       
       // multi/part  form submit
       $('#uploadForm').submit(function (e) {
         e.preventDefault();
-        $.ajax( {
-          url: $(this).attr('action'),
-          type: $(this).attr('method'),
-          cache: false,
-          contentType: false,
-          processData: false,
-          data: new FormData( this ),
-          success: function (data) {
-            console.log(data);
-            //- handleAlert(data, false);
 
-            if(data.status == "SUCCESS") {
-              var setSrc = data.data.path.replace("public", "");
-              var makeImage  = `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
-                                  <input class="uploaded-files" type="hidden" name="profile_images[]" value=${setSrc} />
-                                  <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
-                                  <button type="button" class="btn remove-file">Remove</button>
-                               </div>`;
-              //- alert($(".img-list").children().length)
-              $(".img-list").append(makeImage)
-            }
-          },
-          error: function (data) {
-            console.log('An error occurred.');
-            console.log(data);
-          },
-        });
+        ajaxUploadForm(
+          {
+            imgParentDiv: '.img-list',
+            _this: this,
+            token: token
+          }
+        );
+
+        $('#file-input').val(null);
       });
 
 

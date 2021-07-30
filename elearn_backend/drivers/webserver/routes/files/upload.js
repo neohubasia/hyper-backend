@@ -1,8 +1,8 @@
-var multer = require("multer");
-var fs = require('fs');
-var path = require("path");
-var helpers = require("./helpers");
-var config = require("../../../../config/index");
+const multer = require("multer");
+const fs = require('fs');
+const path = require("path");
+const helpers = require("./helpers");
+const config = require("../../../../config/index");
 
 let upload = module.exports = {};
 

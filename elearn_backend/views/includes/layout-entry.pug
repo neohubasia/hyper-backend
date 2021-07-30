@@ -1,0 +1,15 @@
+nav.pt-3(aria-label='breadcrumb')
+ ol.breadcrumb
+    li.breadcrumb-item
+      a(href="/") Dashboard 
+    if page.entry.breadcrumb.length > 0
+      each breadcrumbObj, index in page.entry.breadcrumb
+        li.breadcrumb-item
+          a(href=breadcrumbObj.url) #{breadcrumbObj.text}
+
+div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
+  h3.h3 !{page.entry.title}
+
+div.alert.alert-dismissible#alert(role='alert')
+  strong.alert-title#alertTitle
+  span#alertMessage

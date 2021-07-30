@@ -42,7 +42,6 @@ let addStudent = (studentInfo) => {
 }
 
 let updateStudent = (id, studentInfo) => {
-  console.log(id, studentInfo)
   return Student.findByIdAndUpdate(id, studentInfo)
     .then(serialize);
 }

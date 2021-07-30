@@ -6,6 +6,9 @@
 # Node artifact files
 node_modules/
 
+# Public uploads dir
+public/uploads/*
+
 # Compiled Java class files
 *.class
 

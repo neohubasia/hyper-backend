@@ -6,7 +6,13 @@ module.exports = {
   app: {
     NAME: "itemplate",
     FILE: "itemplate-file",
-    DESC:  "business  solution for general purpose",
+    DESC: "business  solution for general purpose",
+    icons: {
+      PLUS: "/images/icons/feather-plus.svg",
+      FILE_PLUS: "/images/icons/feather-file-plus.svg",
+      LOADER: "/images/icons/feather-loader.svg",
+      X: "/images/icons/feather-x.svg",
+    }
   },
   mongo: {
     MONGO_USER: process.env.MONGO_USER,

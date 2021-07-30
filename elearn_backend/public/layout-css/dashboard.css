@@ -45,6 +45,7 @@
 
 #sidebar-wrapper .list-group {
   width: 15rem;
+  margin-top: 5px;
 }
 
 #page-content-wrapper {
@@ -69,38 +70,4 @@
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
-}
-
-/* Image Container with delete button */
-
-/* Container needed to position the button. Adjust the width as needed */
-.img-container {
-  position: relative;
-  cursor: pointer;
-}
-
-/* Make the image responsive */
-.img-container img {
-  width: 100%;
-  height: auto;
-}
-
-/* Style the button and place it in the middle of the container/image */
-.img-container .btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  color: rgb(255, 255, 255);
-  background-color: #dc3545;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-.img-container:hover .img {
-  opacity: 0.3;
-}
-
-.img-container:hover .btn {
-  opacity: 1;
 }

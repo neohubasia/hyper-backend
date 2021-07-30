@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 const connect = require('connect-ensure-login');
 const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
@@ -50,11 +51,28 @@ router.get('/student/:id?',
 )
 .post('/student',
   (req, res, next) => {
-    let db, status = "FAIL";
 
-    (req.body.prefect == "1") 
-      ? req.body.prefect = true
-      : req.body.prefect = false;
+    let db, status = "FAIL";
+    let remove_images = req.body.remove_images || [];
+    req.body.profile_images = req.body.profile_images || [];
+
+    if (remove_images && remove_images.length > 0) {
+      remove_images.map((file, fileIdx) => {
+        // console.log(file.replace(/\\/g, "/"));
+        // fs.unlinkSync(file.replace(/\\/g, "/"));
+
+        fs.unlink('./public' + file.replace(/\\/g, "/"), function (err) {            
+          if (err)                                                
+            console.error("File Unlink Error", err);                                    
+          else                                                        
+            console.log(fileIdx, 'File has been Deleted');                           
+        });         
+      });
+    }
+
+    // (req.body.prefect == "1")  // no longer need, it's already ok
+    //   ? req.body.prefect = true
+    //   : req.body.prefect = false;
 
     if (!req.body.id) { // insert data 
       db = studentsDb.addStudent(req.body);
