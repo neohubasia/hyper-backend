@@ -1,7 +1,8 @@
 const mongoose = require('../connection');
+const SchemaPlugin = require('./helpers/schema-plugin');
 
 let Schema = mongoose.Schema;
-let StudentSchema = new Schema({
+let makeSchema = new Schema({
   name: String,
   age: Number,
   grade: Number,
@@ -9,9 +10,12 @@ let StudentSchema = new Schema({
   prefect: {
     type: Boolean,
     default: false
-  }
+  },
+  created_at: { type: Date },
+  updated_at: { type: Date }
 });
 
-let Student = mongoose.model('Student', StudentSchema);
+makeSchema.plugin(SchemaPlugin);
+let Student = mongoose.model('Student', makeSchema);
 
 module.exports = Student;

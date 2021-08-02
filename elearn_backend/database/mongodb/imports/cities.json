@@ -1,0 +1,274 @@
+[{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa4"
+  },
+  "city": "မန္တလေး",
+  "code": "MDY",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Mandalay",
+  "status": false,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa3"
+  },
+  "city": "မကွေး",
+  "code": "MGY",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Magway",
+  "status": false,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa6"
+  },
+  "city": "ရခိုင်",
+  "code": "RKE",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-23T00:00:00Z"
+  },
+  "city_en": "Rakhine",
+  "status": true,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa5"
+  },
+  "city": "မွန်",
+  "code": "MON",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-24T00:00:00Z"
+  },
+  "city_en": "Mon",
+  "status": false,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa7"
+  },
+  "city": "ရန်ကုန်",
+  "code": "YGN",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Yangon",
+  "status": true,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa9"
+  },
+  "city": "ဧရာဝတီ",
+  "code": "AYY",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Ayeyarwady",
+  "status": true,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879faa"
+  },
+  "city": "နေပြည်တော်",
+  "code": "NPW",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Naypyidaw",
+  "status": false,
+  "unitname": "ကောင်စီနယ်မြေ",
+  "unittype": "council"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fab"
+  },
+  "city": "ကရင်",
+  "code": "KYN",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-23T00:00:00Z"
+  },
+  "city_en": "Kayin",
+  "status": false,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fa8"
+  },
+  "city": "ရှမ်း",
+  "code": "SHN",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-23T00:00:00Z"
+  },
+  "city_en": "Shan",
+  "status": false,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fac"
+  },
+  "city": "ချင်း",
+  "code": "CHN",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-23T00:00:00Z"
+  },
+  "city_en": "Chin",
+  "status": false,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fad"
+  },
+  "city": "ကချင်",
+  "code": "KCN",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-23T00:00:00Z"
+  },
+  "city_en": "Kachin",
+  "status": false,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fae"
+  },
+  "city": "စစ်ကိုင်း",
+  "code": "SGG",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Sagaing",
+  "status": false,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879fb0"
+  },
+  "city": "ပဲခူး",
+  "code": "BGO",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Bago",
+  "status": false,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5f4cad7b2f07385283879faf"
+  },
+  "city": "ကယား",
+  "code": "KYH",
+  "description": "",
+  "createddate": {
+    "$date": "2017-04-23T00:00:00Z"
+  },
+  "updateddate": {
+    "$date": "2020-11-23T00:00:00Z"
+  },
+  "city_en": "Kayah",
+  "status": false,
+  "unitname": "ပြည်နယ်",
+  "unittype": "state"
+},{
+  "_id": {
+    "$oid": "5f4cbfc4b85210344c6faa71"
+  },
+  "createddate": {
+    "$date": "2020-08-31T00:00:00Z"
+  },
+  "city": "တနင်္သာရီ",
+  "code": "TNI",
+  "description": "",
+  "updateddate": {
+    "$date": "2021-01-20T00:00:00Z"
+  },
+  "city_en": "Tanintharyi",
+  "status": false,
+  "unitname": "တိုင်းဒေသကြီး",
+  "unittype": "region"
+},{
+  "_id": {
+    "$oid": "5fbc9121977f7d2efe13eed2"
+  },
+  "status": false,
+  "createddate": {
+    "$date": "2020-11-24T00:00:00Z"
+  },
+  "city": "အခြား",
+  "city_en": "Other",
+  "code": "OTH",
+  "unitname": "နေရပ်",
+  "unittype": "other",
+  "description": "",
+  "updateddate": {
+    "$date": "2020-11-24T00:00:00Z"
+  },
+  "__v": 0
+}]

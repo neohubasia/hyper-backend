@@ -15,7 +15,7 @@ block content
     //-   input(type='submit' name='uploaded_files_btn' value='Upload')
 
     form.form-horizontal.p-3.card#entryForm(method='post', action=page.entry.url)
-      input.form-control.input-sm#recordid(type='hidden', name='id', value=data.id)
+      input.form-control.input-sm#record_id(type='hidden', name='id', value=data.id)
 
       div.form-group.d-none 
         div.row.remove-img-list
@@ -132,9 +132,8 @@ block content
 
 
       $(document).on('click', '.remove-file', function () {
-        // your function here
+        // remove element
         var backupSrc = $(this).closest('div').find('img.img').attr('src');
-        //- alert(backupSrc)
         var makeInput = `<input class="remove-files" type="hidden" name="remove_images[]" value=${backupSrc} />`;
 
         $(".remove-img-list").append(makeInput);

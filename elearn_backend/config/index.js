@@ -10,6 +10,7 @@ module.exports = {
     icons: {
       FILE_PLUS: "/images/icons/feather-plus.svg",
       TIMES: "/images/icons/feather-times.svg",
+      GRID: "images/icons/feather-grid.svg",
       PLUS: "/images/icons/icons8-plus.svg",
       EDIT: "/images/icons/icons8-edit.svg",
       DELETE: "/images/icons/icons8-delete.svg",

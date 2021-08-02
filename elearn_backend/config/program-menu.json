@@ -52,6 +52,82 @@
     ]
   },
   {
+    "menuid": "generalMenu",
+    "url": "#",
+    "title": "General Setup",
+    "icon": "fa fa-folder",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "townshipSubMenu",
+        "url": "/townships",
+        "title": "Township",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/townships",
+          "title": "Township List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Township List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/township",
+          "title": "Township Entry",
+          "breadcrumb": [
+            {
+              "url": "/townships",
+              "text": "Township List"
+            },
+            {
+              "url": "",
+              "text": "Township Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "regionSubMenu",
+        "url": "/regions",
+        "title": "Region",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/regions",
+          "title": "Region List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Region List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/region",
+          "title": "Region Entry",
+          "breadcrumb": [
+            {
+              "url": "/regions",
+              "text": "Region List"
+            },
+            {
+              "url": "",
+              "text": "Region Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },
+  {
     "menuid": "courseMenu",
     "url": "#",
     "title": "Course",
