@@ -10,6 +10,7 @@ block content
           th #
           th Username
           th Access Role
+          th Account Type
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
               a.btn.btn-sm.btn-light.btn-rounded.pull-right(href=page.entry.url, role="button", title="New")
@@ -43,11 +44,13 @@ block content
             { "data": "id" },
             { "data": "username"},
             { "data": "role"},
+            { "data": "active"},
             { "data": "actions", "className":"nowrap" }
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 3, orderable: false, render: dataTableActionsRenderer(
+            { targets: 3, render: dataTableActiveRenderer() },
+            { targets: 4, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.EDIT}", delete: "!{app.icons.DELETE}" }
               )
@@ -60,9 +63,9 @@ block content
         var id = button.data('id');
         $(this).attr('data-id', id);
         $(this).find('#dialogAccept').on('click', function(ev) {
-          var deleteUrl = './api/user/'+id;
+          var deleteUrl = './api' + "!{page.entry.url}/" + id;
           handleDelete(deleteUrl, token, function() {
-            table.ajax.reload();
+            $('#example').DataTable().ajax.reload()
           });
         });
       }).on('hide.bs.modal', function (event) {

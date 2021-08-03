@@ -1,36 +1,28 @@
 let STUDENTS = require('../../../db/memory/students'); // DB
 let serialize = require('./serializer'); // serializer custom to db
 
-let listStudents = () => {
+let listData = () => {
   return Promise.resolve(serialize(STUDENTS))
 }
 
-let findStudent = (prop, val) => {
+let findData = (prop, val) => {
   if (prop === 'id') { prop = 'serial' }
   let student = STUDENTS.find(student => student[prop] == val)
   return Promise.resolve(serialize(student))
 }
 
-let findStudentsBy = (prop, val) => {
+let findDataBy = (prop, val) => {
   if (prop === 'grade') {prop = 'year'}
   let student = STUDENTS.filter(student => student[prop] == val)
   return Promise.resolve(serialize(student))
 }
 
-let addStudent = (studentInfo) => {
-  let student = makeStudent(studentInfo)
-  // let newStudent = {
-  //   serial: STUDENTS.length + 1,
-  //   year: student.getGrade(),
-  //   name: student.getName(),
-  //   age: student.getAge(),
-  //   prefect: student.isPrefect()
-  // }
+let addData = (studentInfo) => {
   STUDENTS.push(studentInfo)
   return findStudent('serial', newStudent.serial)
 }
 
-let deleteStudent = (id) => {
+let deleteData = (id) => {
   return findStudent({id})
     .then(student => {
       if (student.id == id) {
@@ -52,10 +44,10 @@ let dropAll = () => {
 }
 
 module.exports = {
-  listStudents,
-  findStudent,
-  findStudentsBy,
-  addStudent,
-  deleteStudent,
+  listData,
+  findData,
+  findDataBy,
+  addData,
+  deleteData,
   dropAll
 };

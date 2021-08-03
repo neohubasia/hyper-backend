@@ -16,6 +16,6 @@ let makeSchema = new Schema({
 });
 
 makeSchema.plugin(SchemaPlugin);
-let Student = mongoose.model('Student', makeSchema);
+let Student = mongoose.model('student', makeSchema);
 
 module.exports = Student;

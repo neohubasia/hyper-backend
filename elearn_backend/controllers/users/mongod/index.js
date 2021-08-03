@@ -1,4 +1,3 @@
-const { async } = require('validate.js');
 let User = require('../../../database/mongodb/models/user');
 let serialize = require('./serializer'); // serializer custom to db
 
@@ -17,7 +16,11 @@ let findUser = (prop, val) => {
 }
 
 let addUser = (userInfo) => {
-  return User.register({username: userInfo.username, active: false}, userInfo.password)
+  return User.register({
+    username: userInfo.username,
+    role: userInfo.role,
+    active: true,
+  }, userInfo.password)
    .then(serialize);
 }
 

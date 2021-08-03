@@ -10,7 +10,7 @@ let studentsDb = require('../../../../controllers/students');
 router.get('/students', 
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    res.render('pages/students', {
+    res.render('pages/student-list', {
       ...menuAccess.getProgram(req.user.role, "courseMenu.studentSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
@@ -23,7 +23,7 @@ router.get('/student/:id?',
   async (req, res, next) => {
     let data = {};
     if (req.params.id)
-      data = await studentsDb.findStudent('id', req.params.id);
+      data = await studentsDb.findData('id', req.params.id);
     
     res.render('pages/student-entry', {
       ...menuAccess.getProgram(req.user.role, "courseMenu.studentSubMenu.entry"), // admin may change on req.user => role
@@ -75,12 +75,12 @@ router.get('/student/:id?',
     //   : req.body.prefect = false;
 
     if (!req.body.id) { // insert data 
-      db = studentsDb.addStudent(req.body);
+      db = studentsDb.addData(req.body);
     }
     else { // update data
       const id = req.body.id;
       const {['id']: removed, ...data} = req.body;
-      db =  studentsDb.updateStudent(req.body.id, data);
+      db =  studentsDb.updateData(req.body.id, data);
     }
     db.then(result => {
       if (result != null)

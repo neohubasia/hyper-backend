@@ -1,9 +1,9 @@
-let studentsDb = require('../../../../controllers/students');
+let townshipsDb = require('../../../../controllers/townships');
 
-let students = module.exports = {};
+let townships = module.exports = {};
 
-students.index = (req, res, next) => {
-  studentsDb.listStudents()
+townships.index = (req, res, next) => {
+  townshipsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -19,8 +19,8 @@ students.index = (req, res, next) => {
     });
 }
 
-students.show = (req, res, next) => {
-  studentsDb.findStudent('id', req.params.id)
+townships.show = (req, res, next) => {
+  townshipsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,13 +36,13 @@ students.show = (req, res, next) => {
     });
 }
 
-students.showby = (req,res, next) => {
+townships.showby = (req,res, next) => {
   let obj = [];
   Object.keys(req.query).map(function(i){ 
     obj.push({ prop: i, val: req.query[i]});
   })
-  console.log("OBJ ", obj)
-  studentsDb.findStudentsBy(obj[0]['prop'], obj[0]['val'])
+  
+  townshipsDb.findDataBy(obj[0]['prop'], obj[0]['val'])
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -58,8 +58,8 @@ students.showby = (req,res, next) => {
     });
 }
 
-students.create = (req, res, next) => {
-  studentsDb.addStudent(req.body)
+townships.create = (req, res, next) => {
+  townshipsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -75,8 +75,8 @@ students.create = (req, res, next) => {
     });
 }
 
-students.update = (req, res, next) => {
-  studentsDb.updateStudent(req.params.id, req.body)
+townships.update = (req, res, next) => {
+  townshipsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -92,16 +92,16 @@ students.update = (req, res, next) => {
     });
 }
 
-students.delete = (req, res, next) => {
-  studentsDb.deleteStudent(req.params.id)
+townships.delete = (req, res, next) => {
+  townshipsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
     .catch(next);
 }
 
-students.deleteall = (req, res, next) => {
-  studentsDb.dropAll()
+townships.deleteall = (req, res, next) => {
+  townshipsDb.dropAll()
     .then(data => {
       res.send(data)
     })

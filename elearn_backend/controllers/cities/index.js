@@ -12,7 +12,7 @@ let {
 // = require('./pg/index')
 
 
-let studentsDb = {
+let citiesDb = {
   listData,
   findData,
   findDataBy,
@@ -22,4 +22,4 @@ let studentsDb = {
   dropAll
 };
 
-module.exports = studentsDb
+module.exports = citiesDb

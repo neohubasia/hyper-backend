@@ -1,13 +1,13 @@
-const _serializeSingle = (student) => {
+const _serializeSingle = (dataObj) => {
   return {
-    'id': student._id,
-    'grade': student.grade,
-    'name': student.name,
-    'age': student.age,
-    'profile_images': student.profile_images,
-    'prefect': student.prefect,
-    'created_at': student.created_at,
-    'updated_at': student.updated_at
+    'id': dataObj._id,
+    'grade': dataObj.grade,
+    'name': dataObj.name,
+    'age': dataObj.age,
+    'profile_images': dataObj.profile_images,
+    'prefect': dataObj.prefect,
+    'created_at': dataObj.created_at,
+    'updated_at': dataObj.updated_at
   };
 };
 

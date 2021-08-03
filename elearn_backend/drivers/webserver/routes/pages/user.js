@@ -13,7 +13,7 @@ router.get('/getuser', connect.ensureLoggedIn(), (req, res, next) => {
 router.get('/users', 
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    res.render('pages/users', {
+    res.render('pages/user-list', {
       ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app

@@ -3,16 +3,17 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-    township_mm: String,
-    township_en: String,
-    cityid: { type: mongoose.Schema.Types.ObjectId, ref: "city" },
+    city_mm: String,
+    city_en: String,
     code: String,
+    unit: String,
     description: String,
+    status: Boolean,
     created_at: { type: Date },
-    updated_at: { type: Date }
+    updated_at: { type: Date },
 });
 
 makeSchema.plugin(SchemaPlugin);
-let Township = mongoose.model('township', makeSchema);
+let City = mongoose.model('city', makeSchema);
 
-module.exports = Township;
+module.exports = City;

@@ -10,14 +10,28 @@ block content
       div.form-group.row
         div.col-sm-6
           label.control-label(for='username') Username
-          input.form-control.input-sm#username(type='text', name='username', value=data.username, maxlength="55" required autofocus)
+          input.form-control.input-sm#username(type='text', name='username', value=data.username, maxlength="55" autocomplete="off" required autofocus)
         div.col-sm-6
           label.control-label(for='password') Password
           input.form-control.input-sm#password(type='password', name='password', role='password' value=data.password required)
+      //- div.form-group.row
+      //-   div.col-sm-12
+      //-     label.control-label(for='role') Role
+      //-     select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8")
+
       div.form-group.row
-        div.col-sm-12
+        div.col-sm-6
           label.control-label(for='role') Role
-          select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8")
+          select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8" required)
+        div.col-sm-6
+          label.control-label(for='status') Status
+          div.radio.radio-toolbar.row
+            div.col-sm-6.col-xl-3
+              input#statusActive.radiobox(type='radio', name='active', value="1" checked)
+              label.ml-1(for='statusActive') &nbsp; Active
+            div.col-sm-6.col-xl-3
+              input#statusInactive.radiobox(type='radio', name='active', value="0")
+              label.ml-1(for='statusInactive') &nbsp; Inactive
 
       div.row.justify-content-center.border-top.pt-3
         a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
@@ -31,6 +45,10 @@ block content
       $('#alert').hide();
       var token = '!{token}';
       var getFrm = $('#entryForm');
+
+      var active = "!{data.active}";
+      if (active && active == "false")
+        $('#statusInactive').attr("checked", "checked");
 
       getFrm.submit(function (e) {
         e.preventDefault();
@@ -48,23 +66,13 @@ block content
           },
         });
       });
-  
-      $.ajax({
+
+      ajaxLoadOption({
         type: "GET",
-        url: "/api/user-roles",
-        headers: {"authorization": "Bearer " + token},
-        success: function (data) {
-          var items = "";
-          items += "<option value='' disabled selected>Please Choose One</option>";
-
-          if (data.status == "SUCCESS") {
-            $.each(Object.entries(data.data), function (i, item) {
-              items += "<option value='" + item[0] + "'>" + item[0] + "</option>";
-            });
-          }
-
-          $("#roleid").html(items).val($('#roleid').data('value'));
-        }
+        url:"/api/user-roles",
+        selectId: "#roleid",
+        filterObj: {},
+        token: token
       });
 
     });

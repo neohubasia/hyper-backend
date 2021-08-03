@@ -93,33 +93,33 @@
         "actions": "1,1,1"
       },
       {
-        "menuid": "regionSubMenu",
-        "url": "/regions",
-        "title": "Region",
+        "menuid": "citySubMenu",
+        "url": "/cities",
+        "title": "City",
         "icon": "fa fa-list",
         "access": false,
         "active": false,
         "list": {
-          "url": "/regions",
-          "title": "Region List",
+          "url": "/cities",
+          "title": "City List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "Region List"
+              "text": "City List"
             }
           ]
         },
         "entry": {
-          "url": "/region",
-          "title": "Region Entry",
+          "url": "/city",
+          "title": "City Entry",
           "breadcrumb": [
             {
-              "url": "/regions",
-              "text": "Region List"
+              "url": "/cities",
+              "text": "City List"
             },
             {
               "url": "",
-              "text": "Region Entry"
+              "text": "City Entry"
             }
           ]
         },

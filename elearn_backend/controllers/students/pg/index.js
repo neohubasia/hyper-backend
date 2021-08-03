@@ -1,36 +1,29 @@
 let knex = require('../../../db/pg/knex');
 
-let listStudents = () => {
+let listData = () => {
   return knex.raw(`SELECT * FROM students;`).then(data => data.rows);
 }
 
-let findStudent = (prop, val) => {
+let findData = (prop, val) => {
   return knex.raw(`
     SELECT * FROM students WHERE ${prop}= '${val}'
   `)
   .then(data => data.rows[0]);
 }
 
-let findStudentsBy = (prop, val) => {
+let findDataBy = (prop, val) => {
   return knex.raw(`
     SELECT * FROM students WHERE ${prop}= '${val}'
   `)
   .then(data => data.rows);
 }
 
-let addStudent = (studentInfo) => {
-  // let student = makeStudent(studentInfo)
-  // let newStudent = {
-  //   name: student.getName(),
-  //   grade: student.getGrade(),
-  //   age: student.getAge(),
-  //   prefect: student.isPrefect()
-  // }
+let addData = (studentInfo) => {
   return knex('students').insert(studentInfo).returning('*')
   .then(result => result[0]);
 }
 
-let deleteStudent = (id) => {
+let deleteData = (id) => {
   return knex('students')
     .where('id', id)
     .del()
@@ -55,10 +48,10 @@ let dropAll = () => {
 }
 
 module.exports = {
-  listStudents,
-  findStudent,
-  findStudentsBy,
-  addStudent,
-  deleteStudent,
+  listData,
+  findData,
+  findDataBy,
+  addData,
+  deleteData,
   dropAll
 };

@@ -50,7 +50,7 @@ block content
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 4, orderable: false, render: dataTableNotiRenderer() },
+            { targets: 4, orderable: false, render: dataTableActiveRenderer() },
             { targets: 5, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.EDIT}", delete: "!{app.icons.DELETE}" }
@@ -64,9 +64,9 @@ block content
         var id = button.data('id');
         $(this).attr('data-id', id);
         $(this).find('#dialogAccept').on('click', function(ev) {
-          var deleteUrl = './api/student/'+id;
+          var deleteUrl = './api' + "!{page.entry.url}/" + id;
           handleDelete(deleteUrl, token, function() {
-            table.ajax.reload();
+            $('#example').DataTable().ajax.reload()
           });
         });
       }).on('hide.bs.modal', function (event) {

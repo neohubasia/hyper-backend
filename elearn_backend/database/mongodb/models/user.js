@@ -6,6 +6,9 @@ const Schema = mongoose.Schema;
 const UserDetail = new Schema({
   username: String,
   password: String,
+  active: {
+    type: Boolean, default: false
+  },
   role: String,
   created_at: { type: Date },
   updated_at: { type: Date }
