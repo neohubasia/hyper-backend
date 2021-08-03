@@ -2,14 +2,30 @@ let Student = require('../../../database/mongodb/models/student');
 let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
-  return Student.find({})
+  return Student.find({}).populate({
+    path: 'cityid',
+    model: 'city',
+    select: 'city_mm city_en'
+  }).populate({
+    path: 'townshipid',
+    model: 'township',
+    select: 'township_mm township_en'
+  })
     .then(serialize);
 }
 
 let findData = (prop, val) => {
   if (prop === 'id')
     prop = '_id'
-  return Student.find({[prop]: val})
+  return Student.find({[prop]: val}).populate({
+    path: 'cityid',
+    model: 'city',
+    select: 'city_mm city_en'
+  }).populate({
+    path: 'townshipid',
+    model: 'township',
+    select: 'township_mm township_en'
+  })
     .then(resp => {
       return serialize(resp[0])
     });
@@ -25,7 +41,15 @@ let findData = (prop, val) => {
 let findDataBy = (prop, val) => {
   if (prop === 'id')
     prop = '_id';
-  return Student.find({[prop]: val})
+  return Student.find({[prop]: val}).populate({
+    path: 'cityid',
+    model: 'city',
+    select: 'city_mm city_en'
+  }).populate({
+    path: 'townshipid',
+    model: 'township',
+    select: 'township_mm township_en'
+  })
     .then(serialize);
 }
 

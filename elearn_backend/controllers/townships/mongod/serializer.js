@@ -1,13 +1,13 @@
-const _serializeSingle = (township) => {
+const _serializeSingle = (dataObj) => {
   return {
-    'id': township._id,
-    'township_mm': township.township_mm,
-    'township_en': township.township_en,
-    'cityid': township.cityid,
-    'code': township.code,
-    'description': township.description,
-    'created_at': township.created_at,
-    'updated_at': township.updated_at,
+    'id': dataObj._id,
+    'township_mm': dataObj.township_mm,
+    'township_en': dataObj.township_en,
+    'cityid': dataObj.cityid,
+    'code': dataObj.code,
+    'description': dataObj.description,
+    'created_at': dataObj.created_at,
+    'updated_at': dataObj.updated_at,
   };
 };
 

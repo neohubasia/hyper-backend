@@ -1,4 +1,5 @@
-let config = require('../../config')
+let clr = require("../../librarys/console-color");
+let config = require('../../config');
 let mongoose = require('mongoose');
 
 // Use ES6 Promises for mongoose
@@ -23,11 +24,11 @@ if (env === 'production') {
 
 // Signal connection
 mongoose.connection.once('open', function () {
-  console.log('Server is connected with mongo...');
+  console.log(`${clr.fg.cyan}Mongo database server is connected...`);
 }).on('error', function (error) {
-  console.log('Mongo connection error ', error);
+  console.log(`${clr.fg.red}Mongo database connection error `, error);
 }).on('disconnected', function () {
-  console.log('Mongo connection is disconnected...');
+  console.log(`${clr.fg.yellow}Mongo database server is disconnected...`);
 })
 
 module.exports = mongoose

@@ -401,21 +401,20 @@
     $.ajax({
       type: type,
       url: url,
-      headers: {"authorization": "Bearer " + token},
+      headers: { "authorization": "Bearer " + token },
+      data: { ...filerObj },
       success: function (data) {
         var items = "";
         items += "<option value='' disabled selected>[ Please Select ]</option>";
-        if (data.status == "SUCCESS") {
-          if($.isArray(data.data)) {
-            $.each(data.data, function (i, item) {
-              items += "<option value='" + item['id'] + "'>" + item[showKey] + "</option>";
-            });
-          }
-          else {
-            $.each(Object.entries(data.data), function (i, item) {
-              items += "<option value='" + item[0] + "'>" + item[0] + "</option>";
-            });
-          }
+        if (data.status == "SUCCESS" && $.isArray(data.data)) {
+          $.each(data.data, function (i, item) {
+            items += "<option value='" + item['id'] + "'>" + item[showKey] + "</option>";
+          });
+        }
+        else {
+          $.each(Object.entries(data.data), function (i, item) {
+            items += "<option value='" + item[0] + "'>" + item[0] + "</option>";
+          });
         }
         $(selectId).html(items).val($(selectId).data('value'));
       }

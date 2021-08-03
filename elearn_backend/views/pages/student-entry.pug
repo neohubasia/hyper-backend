@@ -33,7 +33,6 @@ block content
                 img.m-1.img.img-thumbnail(src=`${progfile_image}`, alt="", srcset="" width="360" height="360")
                 button.btn.remove-file(type="button") Remove
 
-         
       div.form-group.row
         div.col-sm-6
           label.control-label(for='name') Name
@@ -41,6 +40,17 @@ block content
         div.col-sm-6
           label.control-label(for='age') Age
           input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
+      
+      div.form-group.row
+        div.col-sm-6
+          - var cityid =  data.cityid || "#";
+          label.control-label(for='city') City
+          select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
+        div.col-sm-6
+          - var townshipid =  data.townshipid || "#";
+          label.control-label(for='township') Township
+          select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
+      
       div.form-group.row
         div.col-sm-6
           label.control-label(for='grade') Grade
@@ -55,6 +65,7 @@ block content
             div.col-sm-6.col-xl-3
               input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
               label.ml-1(for='prefectInactive') &nbsp; Inactive
+
       div.row.justify-content-center.border-top.pt-3
         a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
         button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
@@ -73,7 +84,6 @@ block content
       if (prefect && prefect == "false")
         $('#prefectInactive').attr("checked", "checked");
 
-    
       $('#entryForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
@@ -88,6 +98,30 @@ block content
             console.log(data);
           },
         });
+      });
+
+      ajaxLoadOption({
+        type: "GET",
+        url:"/api/cities",
+        selectId: "#cityid",
+        showKey: "city_mm",
+        filterObj: { },
+        token: token
+      });
+
+      $('#cityid').on('change', function() {
+        // get value to filter
+        var cityid = $(this).val();
+        if(cityid) {
+          ajaxLoadOption({
+            type: "GET",
+            url:"/api/township",
+            selectId: "#townshipid",
+            showKey: "township_mm",
+            filterObj: { cityid: cityid },
+            token: token
+          });
+        }
       });
 
       $('#add-image').on('click', function() {

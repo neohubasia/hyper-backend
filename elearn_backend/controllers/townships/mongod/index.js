@@ -26,6 +26,7 @@ let findData = async (prop, val) => {
 let findDataBy = (prop, val) => {
   if (prop === 'id')
     prop = '_id';
+  console.log(prop, val);
   return Township.find({[prop]: val}).populate({
     path: 'cityid',
     model: 'city',

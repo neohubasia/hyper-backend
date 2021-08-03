@@ -11,6 +11,8 @@ let makeSchema = new Schema({
     type: Boolean,
     default: false
   },
+  cityid: { type: mongoose.Schema.Types.ObjectId, ref: "city" },
+  townshipid: { type: mongoose.Schema.Types.ObjectId, ref: "township" },
   created_at: { type: Date },
   updated_at: { type: Date }
 });
