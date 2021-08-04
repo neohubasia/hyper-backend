@@ -338,6 +338,7 @@
     }
   });
   
+  $('.selectpicker').select2({width: "100%"});
 
   function handleDelete(url, token, cb) {
     if (typeof url === "string" && url != "") {

@@ -45,7 +45,7 @@ block content
         div.col-sm-6
           - var cityid =  data.cityid || "#";
           label.control-label(for='city') City
-          select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
+          select.form-control.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
         div.col-sm-6
           - var townshipid =  data.townshipid || "#";
           label.control-label(for='township') Township
@@ -77,6 +77,7 @@ block content
     $(document).ready(function() {
       var token = '!{token}';
       var maxImageCount  = 5;
+      var editMode = $("input[name='id']").val();
       $('#alert').hide();
       $('#uploadForm').hide();
 
@@ -111,7 +112,8 @@ block content
 
       $('#cityid').on('change', function() {
         // get value to filter
-        var cityid = $(this).val();
+        var cityid = $(this).val() || // get value [new entry]
+                     $(this).data('value'); // get value [edit entry]
         if(cityid) {
           ajaxLoadOption({
             type: "GET",
@@ -124,22 +126,23 @@ block content
         }
       });
 
+      if (editMode && typeof editMode === "string")
+        $('#cityid').trigger('change');
+
       $('#add-image').on('click', function() {
         //- $(this).css('background-color', '#fff');
 
         var imgCount  = $(".img-list").children().length || 0;
 
-        if(imgCount -1 <  maxImageCount) {
+        if (imgCount -1 <  maxImageCount) 
           $('#file-input').trigger('click');
-        }
-        else {
+        else
           swalWarning({
             position: "top",
             icon: "warning",
             title: "Warning Message",
             text: "The specified number of images has been reached",
           });
-        }
       });
 
       $('#file-input').on('change', function(e) {
@@ -153,13 +156,11 @@ block content
       $('#uploadForm').submit(function (e) {
         e.preventDefault();
 
-        ajaxUploadForm(
-          {
-            imgParentDiv: '.img-list',
-            _this: this,
-            token: token
-          }
-        );
+        ajaxUploadForm({
+          imgParentDiv: '.img-list',
+          _this: this,
+          token: token
+        });
 
         $('#file-input').val(null);
       });
