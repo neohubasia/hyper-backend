@@ -14,19 +14,14 @@ const validateware = require('./../../../../middlewares/validator');
 const studentSchema = require('./../../../../models/students/student-schema');
 
 router
-  .get('/users', users.index);
+  .get('/user-roles', userRoles.index); // working with json
 
 router
-  .get('/user-roles', userRoles.index);
-
-router
-  .get('/students', students.index)
-  .get('/student/:id', students.show)
-  .get('/student', students.showby)
-  .post('/student', validateware(studentSchema), students.create)
-  .post('/student/:id', validateware(studentSchema), students.update)
-  .delete('/student/:id', students.delete)
-  .delete('/students', students.deleteall);
+  .get('/users', users.index)
+  .get('/user/:id', users.show)
+  .post('/user', users.create)
+  .post('/user/:id', users.update)
+  .delete('/user/:id', users.delete);
 
 router
   .get('/townships', townships.index)
@@ -45,6 +40,15 @@ router
   .post('/city/:id', cities.update)
   .delete('/city/:id', cities.delete)
   .delete('/cities', cities.deleteall);
+
+router
+  .get('/students', students.index)
+  .get('/student/:id', students.show)
+  .get('/student', students.showby)
+  .post('/student', validateware(studentSchema), students.create)
+  .post('/student/:id', validateware(studentSchema), students.update)
+  .delete('/student/:id', students.delete)
+  .delete('/students', students.deleteall);
 
 
 module.exports = router;

@@ -35,9 +35,27 @@ let updateUser = async (id, userInfo) => {
     });
 }
 
+let deleteUser = (id) => {
+  return User.findByIdAndDelete(id)
+    .then(resp => {
+      return {
+        id: resp._id.toString(),
+        status: 'SUCCESS',
+        message: 'Delete Successful'
+      }
+    })
+    .catch(err => {
+      return { 
+        status: 'FAIL',
+        message: 'Delete Unsuccessful' 
+      }
+    })
+}
+
 module.exports = {
   listUsers,
   findUser,
   addUser,
-  updateUser
+  updateUser,
+  deleteUser
 };

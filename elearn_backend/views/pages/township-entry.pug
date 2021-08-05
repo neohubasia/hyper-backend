@@ -30,11 +30,7 @@ block content
           input.form-control.input-sm#description(type='text', name='description', value=data.description autocomplete="off")
        
 
-      div.row.justify-content-center.border-top.pt-3
-        a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
-        button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
-          span(data-feather='save') 
-          |  SAVE
+      include ./../includes/layout-entry-btn
 
     form#postSuccessForm(method='GET', action=page.list.url)
   script.

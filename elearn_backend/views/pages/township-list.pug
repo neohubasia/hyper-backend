@@ -14,9 +14,7 @@ block content
           th Description
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
-              a.btn.btn-sm.btn-light.btn-rounded.pull-right(href=page.entry.url, role="button", title="New")
-                img(src=app.icons.PLUS, alt="" width="50", height="20")
-      tbody
+              include ./../includes/layout-list-plus
   script.
     $(document).ready(function() {
       var token = '!{token}';
@@ -53,7 +51,7 @@ block content
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 5, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
-                { edit: "!{app.icons.EDIT}", delete: "!{app.icons.DELETE}" }
+                { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )
             }
           ]

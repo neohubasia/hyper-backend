@@ -23,7 +23,7 @@ block content
       div.form-group  
         div.row.img-list
           .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
-            img.m-1.add-img-wrapper#add-image(src=app.icons.FILE_PLUS, alt="", srcset="" width="360" height="360")
+            img.m-1.p-3.add-img-wrapper#add-image(src=app.icons.FLAT_PLUS, alt="", srcset="" width="360" height="360")
 
           - var imageArray = data.profile_images || [];
           if imageArray.length > 0
@@ -66,11 +66,7 @@ block content
               input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
               label.ml-1(for='prefectInactive') &nbsp; Inactive
 
-      div.row.justify-content-center.border-top.pt-3
-        a.btn.btn-secondary.btn-sm.m-1(href=page.list.url, role='button') CANCEL
-        button.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
-          span(data-feather='save') 
-          |  SAVE
+      include ./../includes/layout-entry-btn
 
     form#postSuccessForm(method='GET', action=page.list.url)
   script.

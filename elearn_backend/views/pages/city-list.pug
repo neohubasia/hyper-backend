@@ -15,8 +15,7 @@ block content
           th Status
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
-              a.btn.btn-sm.btn-light.btn-rounded.pull-right(href=page.entry.url, role="button", title="New")
-                img(src=app.icons.PLUS, alt="" width="50", height="20")
+              include ./../includes/layout-list-plus
       tbody
   script.
     $(document).ready(function() {
@@ -55,7 +54,7 @@ block content
             { targets: 5, render: dataTableActiveRenderer() },
             { targets: 6, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
-                { edit: "!{app.icons.EDIT}", delete: "!{app.icons.DELETE}" }
+                { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )
             }
           ]

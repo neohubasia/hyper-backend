@@ -3,9 +3,12 @@
     "supervisor (read, write)": {
         "menu": [
             "dashMenu",
+            "generalMenu",
             "courseMenu"
         ],
         "submenu": [
+            "townshipSubMenu,1,1,0",
+            "citySubMenu,1,1,0",
             "teacherSubMenu,1,1,0",
             "studentSubMenu,1,1,0"
         ]

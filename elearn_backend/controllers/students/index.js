@@ -22,4 +22,4 @@ let studentsDb = {
   dropAll
 };
 
-module.exports = studentsDb
+module.exports = studentsDb;

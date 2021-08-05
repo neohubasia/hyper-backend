@@ -22,4 +22,4 @@ let townshipsDb = {
   dropAll
 };
 
-module.exports = townshipsDb
+module.exports = townshipsDb;

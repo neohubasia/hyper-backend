@@ -22,4 +22,4 @@ let citiesDb = {
   dropAll
 };
 
-module.exports = citiesDb
+module.exports = citiesDb;
