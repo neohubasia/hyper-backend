@@ -341,32 +341,29 @@
   $('.selectpicker').select2({width: "100%"});
 
   function handleDelete(url, token, cb) {
-    if (typeof url === "string" && url != "") {
-      $.ajax({
-        url: url,
-        type: "delete",
-        headers: { "authorization": "Bearer " + token },
-        success: function (data) {
-          console.log(data)
-          if (typeof data !== "undefined" && data.status == "SUCCESS") {
-            $("#alertDeleteError").hide();
-            $("#alertDeleteSuccess").show();
-            if (typeof cb === "function") {
-              cb();
-            }
+    $.ajax({
+      url: url,
+      type: "delete",
+      headers: { "authorization": "Bearer " + token },
+      success: function (data) {
+        if (typeof data !== "undefined" && data.status == "SUCCESS") {
+          $("#alertDeleteError").hide();
+          $("#alertDeleteSuccess").show();
+          if (typeof cb === "function") {
+            cb();
           }
-          else if (typeof data !== "undefined" && data.status == "FAIL"){
-            /* if (data.message)
-              $("#delErrorMsg").html(data.message) */
-            $("#alertDeleteSuccess").hide();
-            $("#alertDeleteError").show();
-          }
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          alert(errorThrown);
         }
-      });
-    }
+        else if (typeof data !== "undefined" && data.status == "FAIL"){
+          /* if (data.message)
+            $("#delErrorMsg").html(data.message) */
+          $("#alertDeleteSuccess").hide();
+          $("#alertDeleteError").show();
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert(errorThrown);
+      }
+    });
   }
 
   function handleAlert(args,  redirect = true) {
@@ -407,7 +404,7 @@
       data: { ...filerObj },
       success: function (data) {
         var items = "";
-        items += "<option value='' disabled selected>[ Please Select ]</option>";
+        items += "<option value='' disabled selected> -- Please Select -- </option>";
         if (data.status == "SUCCESS" && $.isArray(data.data)) {
           $.each(data.data, function (i, item) {
             items += "<option value='" + item['id'] + "'>" + item[showKey] + "</option>";
