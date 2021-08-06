@@ -15,7 +15,7 @@ if (env === 'production') {
   // Using mongoose to connect to MLAB database (Create new database single node free and create new user and set name and password)
   const username = config.mongo.MONGO_USER
   const password = config.mongo.MONGO_PW
-  mongoose.connect(`mongodb://${username}:${password}@ds161630.mlab.com:61630/elearn_backend_prod`)
+  mongoose.connect(`mongodb://${username}:${password}@ds161630.mlab.com:61630/elearn_backend_uat`)
 } else {
   mongoose.connect('mongodb://localhost:27017/elearn_backend_uat'), {
     useMongoClient: true,
