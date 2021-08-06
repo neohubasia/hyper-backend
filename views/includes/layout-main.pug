@@ -73,6 +73,7 @@ script.
   req.open("GET", "https://itemplate.herokuapp.com/getuser", true);
   req.send();
   req.onreadystatechange = function () {
+    console.log("Req ", req);
     if (req.readyState == 4 && req.status == 200) {
       const user = JSON.parse(req.response).user;
       document.getElementById("username").innerText = ` ${user.username}`;
