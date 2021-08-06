@@ -12,12 +12,6 @@ const expressSession = require('express-session')({
   saveUninitialized: true
 });
 
-const corsOptions = {
-  origin: 'http://itemplate.herokuapp.com',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
-
 const _jwt = require('./middlewares/jwt');
 const { tokenRouter } = require('./middlewares/generator');
 
@@ -34,7 +28,7 @@ var routeModules = [];
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
