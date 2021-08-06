@@ -20,7 +20,7 @@
   },
   "bugs": "https://github.com/waiphyo285/itemplate/issues",
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "dev": "nodemon ./drivers/webserver/server.js",
     "test": "mocha './**/*.spec.js' --exit"
   },
