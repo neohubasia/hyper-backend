@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const logger = require('morgan');
@@ -10,6 +11,12 @@ const expressSession = require('express-session')({
   resave: false,
   saveUninitialized: true
 });
+
+const corsOptions = {
+  origin: 'http://itemplate.herokuapp.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 
 const _jwt = require('./middlewares/jwt');
 const { tokenRouter } = require('./middlewares/generator');
@@ -27,6 +34,7 @@ var routeModules = [];
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
