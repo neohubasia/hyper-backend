@@ -70,7 +70,7 @@ script.
   });
 
   const req = new XMLHttpRequest();
-  req.open("GET", "http://localhost:7878/getuser", true);
+  req.open("GET", "https://itemplate.herokuapp.com/getuser", true);
   req.send();
   req.onreadystatechange = function () {
     if (req.readyState == 4 && req.status == 200) {

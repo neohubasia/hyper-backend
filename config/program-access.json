@@ -9,8 +9,8 @@
         "submenu": [
             "townshipSubMenu,1,1,0",
             "citySubMenu,1,1,0",
-            "teacherSubMenu,1,1,0",
-            "studentSubMenu,1,1,0"
+            "teacherSubMenu,1,1,1",
+            "studentSubMenu,1,1,1"
         ]
     },
     "cashier (read only)": {
