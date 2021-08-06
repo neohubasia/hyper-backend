@@ -26,7 +26,7 @@ if (env === 'production') {
 mongoose.connection.once('open', function () {
   console.log(`${clr.fg.cyan}Mongo database server is connected...`);
 }).on('error', function (error) {
-  console.log(`${clr.fg.red}Mongo database connection error `, error);
+  console.log(`${clr.fg.red}Mongo database connection error... `, error);
 }).on('disconnected', function () {
   console.log(`${clr.fg.yellow}Mongo database server is disconnected...`);
 })
