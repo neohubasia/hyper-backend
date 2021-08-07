@@ -1,7 +1,7 @@
 /* *
  * Scripts
  */
-
+    
     function dataTableIndexRenderer() {
       return function(d, type, row, meta) {
         return parseInt("" + meta.row) + 1;
@@ -40,18 +40,19 @@
     access = access.split(",");
     return function (d, type, row) {
       var id = row.id || "#";
-      var html = "";
+      var html = '<div class="btn-group pull-right" role="group" aria-label="Actions">';
       if (access[0] == "1" && access[1] == "1") { // read && write access
         html +=
-          '<div class="pull-right"><a class="btn btn-sm list-action" href="./' + editUrl + "/" + id +
+          '<a class="btn btn-sm list-action" href="./' + editUrl + "/" + id +
           '" title="Edit"><img src="' + icons.edit + '" height="22" width="22"/></a> ';
       }
       if (access[2] == "1") { // delete access 
         html +=
           '<a class="btn btn-sm list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
-         data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><img src="' + icons.delete + '" height="22" width="22"/></a></div>';
+         data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><img src="' + icons.delete + '" height="22" width="22"/></a>';
       }
-      return html;
+      
+      return html + '</div>';
     };
   }
   
@@ -94,41 +95,17 @@
   }
   
   function dataTableDateRenderer() {
-    return $.fn.dataTable.render.date("YYYY-MM-DD", "DD/MM/YYYY");
-  }
-  
-  function dataTableRenderDateTime() {
-    return function(d, type, row) {
-      return toTableDateTime(d, "DD/MM/YYYY hh:mm A");
+    return function (d, type, row) {
+      return moment(new Date(d)).format("DD/MM/YYYY")
     };
   }
   
-  function toTableDateTime(dateVal, format) {
-    if (typeof format != "string" || format == "") {
-      format = "DD/MM/YYYY";
-    }
-    var dateObj = new Date();
-    if (typeof dateVal === "string" && dateVal != "") {
-      var fromFormat = "YYYY-MM-DD";
-      if (dateVal.length > 10) {
-        fromFormat = "YYYY-MM-DD HH:mm:ss";
-      }
-      dateObj = date.parse(dateVal, fromFormat);
-    } else if (
-      typeof dateVal === "object" &&
-      typeof dateVal.getTime === "function"
-    ) {
-      dateObj = new Date(dateVal.getTime());
-    }
-    if (dateObj && typeof dateObj.getTime !== "function") {
-      return "";
-    }
-  
-    // var diff = 0;
-    const diff = (6 * 60 + 30) * 60000;
-    var current = new Date(dateObj.getTime() + diff);
-    return date.format(current, format);
+  function dataTableDateTimeRenderer() {
+    return function (d, type, row) {
+      return moment(new Date(d)).format("DD/MM/YYYY hh:mm A")
+    };
   }
+
   
   function isValidEmail(email) {
     return /^([a-zA-Z])+([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.+?(com|co|in|org|net|edu|info|gov|vekomy))\.?(com|co|in|org|net|edu|info|gov)?$/.test(

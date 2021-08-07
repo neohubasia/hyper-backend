@@ -11,6 +11,7 @@ block content
           th Username
           th Access Role
           th Account Type
+          th Updated Time
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
               include ./../includes/layout-list-plus
@@ -44,12 +45,14 @@ block content
             { "data": "username"},
             { "data": "role"},
             { "data": "active"},
+            { "data": "updated_at"},
             { "data": "actions", "className":"nowrap" }
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 3, render: dataTableActiveRenderer() },
-            { targets: 4, orderable: false, render: dataTableActionsRenderer(
+            { targets: 4, render: dataTableDateTimeRenderer() },
+            { targets: 5, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )

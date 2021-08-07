@@ -6,6 +6,7 @@ const _serializeSingle = (dataObj) => {
     'cityid': dataObj.cityid,
     'code': dataObj.code,
     'description': dataObj.description,
+    'status': dataObj.status,
     'created_at': dataObj.created_at,
     'updated_at': dataObj.updated_at,
   };
