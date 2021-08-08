@@ -7,6 +7,8 @@ const menuAccess = require("../../../../librarys/menu-access");
 let usersDb = require('../../../../controllers/users');
 
 router.get('/getuser', connect.ensureLoggedIn(), (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.send({user: req.user});
 });
 

@@ -2,14 +2,19 @@
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f5"
   },
-  "township": "နတ်မောက်",
   "cityid": {
     "$oid": "5f4cad7b2f07385283879fa3"
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.648Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-05T10:59:43.089Z"
+  },
+  "township_mm": "နတ်မောက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f6"
@@ -20,8 +25,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.650Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "မကွေး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799fa"
@@ -32,8 +43,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.650Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "စလင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f3"
@@ -44,8 +61,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.650Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "ချောက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799fb"
@@ -56,8 +79,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.650Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "စေတုတ္တရာမြို့နယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799fc"
@@ -68,8 +97,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "ပွင့်ဖြူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f2"
@@ -80,12 +115,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": {
-    "$date": "2017-04-24T00:00:00Z"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
   },
-  "updateddate": {
-    "$date": "2020-09-08T00:00:00Z"
-  }
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "ရေစကြို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799fe"
@@ -96,8 +133,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "ကံမမြို့နယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799fd"
@@ -108,8 +151,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "မင်းဘူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799ff"
@@ -120,8 +169,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "ဆင်ပေါင်ဝဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a02"
@@ -132,8 +187,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.677Z"
+  },
+  "township_mm": "သရက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a00"
@@ -144,8 +205,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်းတုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a04"
@@ -156,8 +223,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဂန့်ဂေါ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a01"
@@ -168,8 +241,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်းလှ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a06"
@@ -180,8 +259,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.651Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ထီးလင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a07"
@@ -192,8 +277,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆိပ်ဖြူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a05"
@@ -204,8 +295,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a03"
@@ -216,8 +313,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အောင်လံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a08"
@@ -228,8 +331,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပခုက္ကူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a09"
@@ -240,8 +349,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပေါက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a0a"
@@ -252,8 +367,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f9"
@@ -264,8 +385,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ငဖဲမြို့နယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f8"
@@ -276,8 +403,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရေနံချောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a0d"
@@ -288,8 +421,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆွမ်ပရာဘွမ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a0e"
@@ -300,8 +439,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နောင်မွန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f7"
@@ -312,8 +457,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြို့သစ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a10"
@@ -324,8 +475,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မချမ်းဘော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a0f"
@@ -336,8 +493,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပူတာအို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a0b"
@@ -348,8 +511,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အခြား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f5799f4"
@@ -360,8 +529,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တောင်တွင်းကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a11"
@@ -372,8 +547,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဗန်းမော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a12"
@@ -384,8 +565,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.652Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မံစီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a14"
@@ -396,8 +583,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြစ်ကြီးနား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a15"
@@ -408,8 +601,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဝိုင်းမော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a18"
@@ -420,8 +619,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖားဆောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a16"
@@ -432,8 +637,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အင်ဂျန်းယန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a19"
@@ -444,8 +655,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဘော်လခဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a1a"
@@ -456,8 +673,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မယ်စဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a13"
@@ -468,8 +691,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုးမောက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a0c"
@@ -480,8 +709,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ခေါင်လန်းဖူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a1b"
@@ -492,8 +727,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒီးမော့ဆို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a1c"
@@ -504,8 +745,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖရူဆို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a21"
@@ -516,8 +763,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကော့ကရိတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a20"
@@ -528,8 +781,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆော့လော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a22"
@@ -540,8 +799,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လွိုင်ကော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a23"
@@ -552,8 +817,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကြာအင်းဆိပ်ကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a24"
@@ -564,8 +835,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖာပွန်မြို့"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a25"
@@ -576,8 +853,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဘားအံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a26"
@@ -588,8 +871,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လိူင်းဘွဲ့"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a1d"
@@ -600,8 +889,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.653Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရှားတော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a28"
@@ -612,8 +907,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ချီဖွေ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a27"
@@ -624,8 +925,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သံတောင်ကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a29"
@@ -636,8 +943,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တနိုင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a2b"
@@ -648,8 +961,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုးကောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a2c"
@@ -660,8 +979,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရွှေကူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a2a"
@@ -672,8 +997,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖားကန့်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a2e"
@@ -684,8 +1015,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြဝတီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a2f"
@@ -696,8 +1033,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တွန်းဇန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a31"
@@ -708,8 +1051,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖလမ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a1e"
@@ -720,8 +1069,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုးညှင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a32"
@@ -732,8 +1087,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကန်ပက်လက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a33"
@@ -744,8 +1105,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပလက်ဝ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a30"
@@ -756,8 +1123,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တီးတိန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a3b"
@@ -768,8 +1141,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကသာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a36"
@@ -780,8 +1159,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဟားခါး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a35"
@@ -792,8 +1177,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မတူပီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a3c"
@@ -804,8 +1195,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ထီးချိုင့်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a3d"
@@ -816,8 +1213,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.654Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်းကင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a3e"
@@ -828,8 +1231,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အင်းတော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a3f"
@@ -840,8 +1249,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျွန်းလှ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a37"
@@ -852,8 +1267,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ထန်တလန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a40"
@@ -864,8 +1285,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တန့်ဆည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a43"
@@ -876,8 +1303,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဝန်းသို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a42"
@@ -888,8 +1321,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရေဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a41"
@@ -900,8 +1339,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ခန္တီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a44"
@@ -912,8 +1357,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လဟယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a45"
@@ -924,8 +1375,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နန်းယွန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a3a"
@@ -936,8 +1393,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကလေးဝ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a46"
@@ -948,8 +1411,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဟုမ္မလင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a49"
@@ -960,8 +1429,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြင်းမူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a34"
@@ -972,8 +1447,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်းတပ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a47"
@@ -984,8 +1465,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လေရှီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a48"
@@ -996,8 +1483,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "စစ်ကိုင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a4a"
@@ -1008,8 +1501,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကန့်ဘလူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a4b"
@@ -1020,8 +1519,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a4d"
@@ -1032,8 +1537,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.655Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ချောင်းဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a4e"
@@ -1044,8 +1555,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဘုတလင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a50"
@@ -1056,8 +1573,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပင်လည်ဘူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a51"
@@ -1068,8 +1591,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အရာတော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a4f"
@@ -1080,8 +1609,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မုံရွာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a52"
@@ -1092,8 +1627,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2018-08-17"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကနီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a53"
@@ -1104,8 +1645,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆားလင်းကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a54"
@@ -1116,8 +1663,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပုလဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a55"
@@ -1128,8 +1681,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ယင်းမာပင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a56"
@@ -1140,8 +1699,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မော်လိုက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a58"
@@ -1152,8 +1717,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ခင်ဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a57"
@@ -1164,8 +1735,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒီပဲယင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a59"
@@ -1176,8 +1753,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဝက်လက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a5a"
@@ -1188,8 +1771,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရွှေဘို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a5c"
@@ -1200,8 +1789,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကော့သောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a39"
@@ -1212,8 +1807,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကလေး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a5d"
@@ -1224,8 +1825,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဘုတ်ပြင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a5e"
@@ -1236,8 +1843,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ထားဝယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a5f"
@@ -1248,8 +1861,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရေဖြူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a61"
@@ -1260,8 +1879,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဗန်းမောက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a63"
@@ -1272,8 +1897,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သရက်ချောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a64"
@@ -1284,8 +1915,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.656Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လောင်းလုံး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a62"
@@ -1296,8 +1933,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တမူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a66"
@@ -1308,8 +1951,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တနင်္သာရီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a65"
@@ -1320,8 +1969,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျွန်းစု"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a67"
@@ -1332,8 +1987,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပုလော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a68"
@@ -1344,8 +2005,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြိတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a6a"
@@ -1356,8 +2023,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တောင်ငူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a6b"
@@ -1368,12 +2041,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": {
-    "$date": "2017-04-24T00:00:00Z"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
   },
-  "updateddate": {
-    "$date": "2021-07-06T00:00:00Z"
-  }
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ထန်းတပင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a6c"
@@ -1384,8 +2059,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖြူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a6f"
@@ -1396,8 +2077,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကဝ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a6e"
@@ -1408,8 +2095,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရေတာရှည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a6d"
@@ -1420,8 +2113,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အုတ်တွင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a70"
@@ -1432,8 +2131,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်ကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a71"
@@ -1444,8 +2149,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်တံခါး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a72"
@@ -1456,8 +2167,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရွှေကျင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a60"
@@ -1468,8 +2185,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖောင်းပြင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a74"
@@ -1480,8 +2203,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပေါင်းတည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a73"
@@ -1492,8 +2221,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ညောင်လေးပင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a79"
@@ -1504,8 +2239,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.657Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒိုက်ဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a7a"
@@ -1516,8 +2257,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.658Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကြို့ပင်ကောက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a7b"
@@ -1528,8 +2275,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.658Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဇီးကုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a76"
@@ -1540,8 +2293,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.658Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရွှေတောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a75"
@@ -1552,8 +2311,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.658Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပန်းတောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a77"
@@ -1564,8 +2329,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.658Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပြည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a7d"
@@ -1576,8 +2347,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သနပ်ပင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a7f"
@@ -1588,8 +2365,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပေါက်ခေါင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a80"
@@ -1600,8 +2383,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပဲခူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a81"
@@ -1612,8 +2401,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုးညို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a7c"
@@ -1624,8 +2419,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နတ်တလင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a82"
@@ -1636,8 +2437,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဝေါ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a84"
@@ -1648,8 +2455,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်ဆည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a83"
@@ -1660,8 +2473,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လက်ပံတန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a85"
@@ -1672,8 +2491,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သာယာဝတီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a87"
@@ -1684,8 +2509,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တံတားဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a89"
@@ -1696,8 +2527,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်ပန်းတောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a86"
@@ -1708,8 +2545,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြစ်သား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a78"
@@ -1720,8 +2563,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သဲကုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a88"
@@ -1732,8 +2581,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အုတ်ဖို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a8b"
@@ -1744,8 +2599,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "စဉ့်ကူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a8a"
@@ -1756,8 +2617,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ညောင်ဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a8d"
@@ -1768,8 +2635,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မတ္တရာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a8e"
@@ -1780,8 +2653,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သပိတ်ကျင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a8f"
@@ -1792,8 +2671,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ချမ်းမြသာစည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a90"
@@ -1804,8 +2689,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ချမ်းအေးသာဇံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a91"
@@ -1816,8 +2707,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပြည်ကြီးတံခွန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a92"
@@ -1828,8 +2725,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မဟာအောင်မြေ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a95"
@@ -1840,8 +2743,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပုသိမ်ကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a93"
@@ -1852,8 +2761,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုးကုတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a94"
@@ -1864,8 +2779,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အောင်မြေသာဇံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a96"
@@ -1876,8 +2797,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မလိူင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a97"
@@ -1888,8 +2815,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိတ္ထီလာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a98"
@@ -1900,8 +2833,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.659Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဝမ်းတွင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a99"
@@ -1912,8 +2851,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အမရပူရ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a9a"
@@ -1924,8 +2869,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သာစည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a9c"
@@ -1936,8 +2887,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "စဉ့်ကိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a9b"
@@ -1948,8 +2905,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ငါန်းဇွန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a9d"
@@ -1960,8 +2923,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပြင်ဦးလွင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a9e"
@@ -1972,8 +2941,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တောင်သာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579a9f"
@@ -1984,8 +2959,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရမည်းသင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa0"
@@ -1996,8 +2977,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြင်းခြံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa2"
@@ -2008,8 +2995,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နွားထိုးကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa3"
@@ -2020,8 +3013,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပျော်ဘွယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa5"
@@ -2032,8 +3031,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ချောင်းဆုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa4"
@@ -2044,8 +3049,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မော်လမြိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa7"
@@ -2056,8 +3067,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျိုက်မရော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa6"
@@ -2068,8 +3085,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မုဒုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa8"
@@ -2080,8 +3103,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရေး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aa9"
@@ -2092,8 +3121,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သံဖြူဇရပ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aaa"
@@ -2104,8 +3139,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဘီးလင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aac"
@@ -2116,8 +3157,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သထုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aad"
@@ -2128,8 +3175,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်ဖြူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aae"
@@ -2140,8 +3193,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မာန်အောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab1"
@@ -2152,8 +3211,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပေါက်တော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab2"
@@ -2164,8 +3229,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "စစ်တွေ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab0"
@@ -2176,8 +3247,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အမ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab3"
@@ -2188,8 +3265,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပုဏ္ဍားကျွန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab9"
@@ -2200,8 +3283,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်းပြား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab5"
@@ -2212,8 +3301,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရသေ့တောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab4"
@@ -2224,8 +3319,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဘူးသီးတောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aba"
@@ -2236,8 +3337,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျိုက်ထို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab8"
@@ -2248,8 +3355,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်တော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579abc"
@@ -2260,8 +3373,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြောက်ဦး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579abb"
@@ -2272,8 +3391,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.660Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြေပုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac2"
@@ -2284,8 +3409,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်္ဂလာဒုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac4"
@@ -2296,8 +3427,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရွှေပြည်သာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac6"
@@ -2308,8 +3445,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မှော်ဘီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac7"
@@ -2320,8 +3463,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တာမွေ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac8"
@@ -2332,8 +3481,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လှည်းကူး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac5"
@@ -2344,12 +3499,14 @@
   },
   "code": "HTY",
   "description": "",
-  "createddate": {
-    "$date": "2017-04-24T00:00:00Z"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
   },
-  "updateddate": {
-    "$date": "2021-01-20T00:00:00Z"
-  }
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လှိုင်သာယာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab6"
@@ -2360,8 +3517,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပေါင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ac9"
@@ -2372,8 +3535,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အင်းစိန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579acb"
@@ -2384,8 +3553,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒဂုံမြို့သစ်(ဆိပ်ကမ်း)"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aca"
@@ -2396,8 +3571,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တောင်ဥက္ကလာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ab7"
@@ -2408,8 +3589,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မောင်တော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579acc"
@@ -2420,8 +3607,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒဂုံမြို့သစ်(တောင်ပိုင်း)"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ace"
@@ -2432,8 +3625,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒဂုံမြို့သစ်(မြောက်ပိုင်း)"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579acf"
@@ -2444,8 +3643,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒဂုံမြို့သစ်(အရှေ့ပိုင်း)"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579acd"
@@ -2456,8 +3661,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒေါပုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad0"
@@ -2468,8 +3679,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပုဇွန်တောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad1"
@@ -2480,8 +3697,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ရန်ကင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad3"
@@ -2492,8 +3715,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဗိုလ်တစ်ထောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad2"
@@ -2504,8 +3733,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.661Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မြောက်ဥက္ကလာပ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad4"
@@ -2516,8 +3751,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သာကေတ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad5"
@@ -2528,8 +3769,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မင်္ဂလာတောင်ညွန့်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad9"
@@ -2540,8 +3787,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သင်္ဃန်းကျွန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579adc"
@@ -2552,8 +3805,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆိပ်ကြီးခနောင်တို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ad7"
@@ -2564,8 +3823,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကိုကိုးကျွန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579adf"
@@ -2576,8 +3841,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်တံတား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ade"
@@ -2588,8 +3859,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သန်လျင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae0"
@@ -2600,8 +3877,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကြည့်မြင်တိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae4"
@@ -2612,8 +3895,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ပန်းပဲတန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae1"
@@ -2624,8 +3913,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဆိပ်ကမ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae3"
@@ -2636,8 +3931,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒဂုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae2"
@@ -2648,8 +3949,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "စမ်းချောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae5"
@@ -2660,8 +3967,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကမာရွတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae6"
@@ -2672,8 +3985,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဗဟန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae9"
@@ -2684,8 +4003,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လမ်းမတော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aea"
@@ -2696,12 +4021,14 @@
   },
   "code": "HG",
   "description": "",
-  "createddate": {
-    "$date": "2017-04-24T00:00:00Z"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
   },
-  "updateddate": {
-    "$date": "2021-07-07T00:00:00Z"
-  }
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လှိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aec"
@@ -2712,8 +4039,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "လသာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579ae8"
@@ -2724,8 +4057,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မရမ်းကုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aef"
@@ -2736,8 +4075,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နမ္မတူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aee"
@@ -2748,8 +4093,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဒလ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af0"
@@ -2760,8 +4111,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နမ့်ဆန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af1"
@@ -2772,8 +4129,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျောက်မဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af2"
@@ -2784,8 +4147,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "နောင်ချို"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af3"
@@ -2796,8 +4165,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "သီပေါ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aeb"
@@ -2808,8 +4183,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "အလုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af4"
@@ -2820,8 +4201,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မန်တုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af5"
@@ -2832,8 +4219,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.662Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုင်းခတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af7"
@@ -2844,8 +4237,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုင်းယန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af6"
@@ -2856,8 +4255,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကျိုင်းတုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af9"
@@ -2868,8 +4273,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုင်းလား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579af8"
@@ -2880,8 +4291,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "မိုင်းဖြတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579afc"
@@ -2892,8 +4309,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ကလော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579aff"
@@ -2904,8 +4327,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တောင်ကြီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579afd"
@@ -2916,8 +4345,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ညောင်ရွှေ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579afe"
@@ -2928,8 +4363,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "တာချီလိတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b01"
@@ -2940,8 +4381,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.678Z"
+  },
+  "township_mm": "ဖယ်ခုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b03"
@@ -2952,8 +4399,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ရပ်စောက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b00"
@@ -2964,8 +4417,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပင်လောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b02"
@@ -2976,8 +4435,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပင်းတယ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b04"
@@ -2988,8 +4453,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဟိုပုံး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b05"
@@ -3000,8 +4471,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကွတ်ခိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b07"
@@ -3012,8 +4489,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ရွာငံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b08"
@@ -3024,8 +4507,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မူဆယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b09"
@@ -3036,8 +4525,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "နမ့်ခမ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b0a"
@@ -3048,8 +4543,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မဘိမ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b06"
@@ -3060,8 +4561,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းပျဉ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b0c"
@@ -3072,8 +4579,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "နားဖန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b0b"
@@ -3084,8 +4597,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုးမိတ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b0d"
@@ -3096,8 +4615,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.663Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပန်ဆန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579afa"
@@ -3108,8 +4633,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းယောင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b0e"
@@ -3120,8 +4651,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မက်မန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b12"
@@ -3132,8 +4669,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လားရှိုး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b0f"
@@ -3144,8 +4687,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းဆက်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b15"
@@ -3156,8 +4705,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းပန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b14"
@@ -3168,8 +4723,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုးနဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b16"
@@ -3180,8 +4741,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လင်းခေး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b11"
@@ -3192,8 +4759,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကွမ်းလုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b13"
@@ -3204,8 +4777,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "သိန္နီ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b10"
@@ -3216,8 +4795,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းတုံ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b18"
@@ -3228,8 +4813,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.664Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကုန်းကြမ်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b17"
@@ -3240,8 +4831,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မောက်မယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b1a"
@@ -3252,8 +4849,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လောက်ကိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b1b"
@@ -3264,8 +4867,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းရယ်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b19"
@@ -3276,8 +4885,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကျေးသီး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b1c"
@@ -3288,8 +4903,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကွန်ဟိန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b1d"
@@ -3300,8 +4921,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းကိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579afb"
@@ -3312,8 +4939,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဆီဆိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b1f"
@@ -3324,8 +4957,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "နမ့်စန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b20"
@@ -3336,8 +4975,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လဲချား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b21"
@@ -3348,8 +4993,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လွိုင်လင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b22"
@@ -3360,8 +5011,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပန်ဝိုင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b1e"
@@ -3372,8 +5029,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းရှုး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b23"
@@ -3384,8 +5047,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "တန့်ယန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b25"
@@ -3396,8 +5065,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဟိုပန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b24"
@@ -3408,8 +5083,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မိုင်းမော"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b27"
@@ -3420,8 +5101,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကန်ကြီးထောင့်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b28"
@@ -3432,8 +5119,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကျောင်းကုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b2d"
@@ -3444,8 +5137,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ရေကြည်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b2f"
@@ -3456,8 +5155,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပန်းတနော်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b30"
@@ -3468,8 +5173,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဓနုဖြူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b32"
@@ -3480,8 +5191,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဝါးခယ်မ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b35"
@@ -3492,8 +5209,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မအူပင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b38"
@@ -3504,8 +5227,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဇလွန်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b36"
@@ -3516,8 +5245,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မြောင်းမြ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b39"
@@ -3528,8 +5263,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ညောင်တုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b3a"
@@ -3540,8 +5281,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မော်လမြိုင်ကျွန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b3b"
@@ -3552,8 +5299,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လေးမျက်နှာ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b33"
@@ -3564,8 +5317,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "အိမ်မဲ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b3c"
@@ -3576,8 +5335,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကြံခင်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b3e"
@@ -3588,8 +5353,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မြန်အောင်"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b3f"
@@ -3600,8 +5371,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဟင်္သာတ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b43"
@@ -3612,8 +5389,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဒက္ခိဏသီရိ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b42"
@@ -3624,8 +5407,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဇမ္ဗူသီရိ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b44"
@@ -3636,8 +5425,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဇေယျာသီရိ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b40"
@@ -3648,8 +5443,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "အင်္ဂပူ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b47"
@@ -3660,8 +5461,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "တပ်ကုန်း"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b48"
@@ -3672,8 +5479,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပျဉ်းမနား"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b46"
@@ -3684,8 +5497,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-09-05",
-  "updateddate": "2017-09-05"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မန္တလေးမြို့"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b4a"
@@ -3696,8 +5515,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-09-05",
-  "updateddate": "2017-09-05"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "နေပြည်တော်မြို့"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b4b"
@@ -3708,8 +5533,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-09-05",
-  "updateddate": "2017-09-05"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ချောင်းသာမြို့"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b4c"
@@ -3720,8 +5551,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.665Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဥတ္တရသီရိ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b49"
@@ -3732,8 +5569,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပုဗ္ဗသီရိ"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b4e"
@@ -3744,8 +5587,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-11-01",
-  "updateddate": "2017-11-01"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မန္တလေး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b4f"
@@ -3756,8 +5605,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-04-24",
-  "updateddate": "2017-04-24"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လယ်ဝေး"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b4d"
@@ -3768,8 +5623,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-09-05",
-  "updateddate": "2017-09-05"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ငွေဆောင်မြို့"
 },{
   "_id": {
     "$oid": "5f4cc20ec412a1e80f579b50"
@@ -3780,8 +5641,14 @@
   },
   "code": "",
   "description": "",
-  "createddate": "2017-09-05",
-  "updateddate": "2017-09-05"
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "မုတ္တမမြို့"
 },{
   "_id": {
     "$oid": "5fc99f6eefd7b72ca81981e1"
@@ -3791,13 +5658,15 @@
   },
   "township": "တောင်ကုတ်",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:10.875Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:10.875Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "တောင်ကုတ်"
 },{
   "_id": {
     "$oid": "5fc99f6eefd7b72ca81981db"
@@ -3807,13 +5676,15 @@
   },
   "township": "ရမ်းဗြဲ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:10.858Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:10.858Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ရမ်းဗြဲ"
 },{
   "_id": {
     "$oid": "5fc99f6eefd7b72ca81981e7"
@@ -3823,13 +5694,15 @@
   },
   "township": "သံတွဲ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:10.893Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:10.893Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "သံတွဲ"
 },{
   "_id": {
     "$oid": "5fc99f6eefd7b72ca81981f4"
@@ -3839,13 +5712,15 @@
   },
   "township": "ဂွ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:10.927Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:10.927Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဂွ"
 },{
   "_id": {
     "$oid": "5fc99f6eefd7b72ca8198208"
@@ -3855,13 +5730,15 @@
   },
   "township": "ခရမ်း",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:10.997Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:10.997Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ခရမ်း"
 },{
   "_id": {
     "$oid": "5fc99f6eefd7b72ca8198200"
@@ -3871,13 +5748,15 @@
   },
   "township": "ကျောက်တန်း",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:10.970Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:10.970Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကျောက်တန်း"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca819820e"
@@ -3887,13 +5766,15 @@
   },
   "township": "သုံးခွ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.021Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.021Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "သုံးခွ"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198211"
@@ -3903,13 +5784,15 @@
   },
   "township": "ကော့မှူး",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.031Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.031Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကော့မှူး"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198214"
@@ -3919,13 +5802,15 @@
   },
   "township": "ကွမ်းခြံကုန်း",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.042Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.042Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကွမ်းခြံကုန်း"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198223"
@@ -3935,13 +5820,15 @@
   },
   "township": "တိုက်ကြီး",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.091Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.091Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "တိုက်ကြီး"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198218"
@@ -3951,13 +5838,15 @@
   },
   "township": "တွံတေး",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.056Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.056Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "တွံတေး"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198228"
@@ -3967,13 +5856,15 @@
   },
   "township": "ဘိုကလေး",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.108Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.108Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဘိုကလေး"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca819822a"
@@ -3983,13 +5874,15 @@
   },
   "township": "ဒေးဒရဲ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.118Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.118Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဒေးဒရဲ"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198235"
@@ -3999,13 +5892,15 @@
   },
   "township": "ဖျာပုံ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.151Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.151Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ဖျာပုံ"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198230"
@@ -4015,13 +5910,15 @@
   },
   "township": "ကျိုက်လတ်",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.132Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.132Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကျိုက်လတ်"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca819823a"
@@ -4031,13 +5928,15 @@
   },
   "township": "ကျုံပျော်",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.172Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.172Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ကျုံပျော်"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca819823b"
@@ -4047,13 +5946,15 @@
   },
   "township": "ငပုတော",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.174Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.174Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ငပုတော"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca819823f"
@@ -4063,13 +5964,15 @@
   },
   "township": "ပုသိမ်",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.196Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.196Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "ပုသိမ်"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca8198243"
@@ -4079,13 +5982,15 @@
   },
   "township": "သာပေါင်း",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.218Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.218Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "သာပေါင်း"
 },{
   "_id": {
     "$oid": "5fc99f6fefd7b72ca819824a"
@@ -4095,11 +6000,13 @@
   },
   "township": "လပွတ္တာ",
   "code": "",
-  "createddate": {
-    "$date": "2020-12-04T02:31:11.239Z"
-  },
   "description": "",
-  "updateddate": {
-    "$date": "2020-12-04T02:31:11.239Z"
-  }
+  "created_at": {
+    "$date": "2021-08-03T02:01:33.666Z"
+  },
+  "township_en": "",
+  "updated_at": {
+    "$date": "2021-08-03T02:01:33.679Z"
+  },
+  "township_mm": "လပွတ္တာ"
 }]
