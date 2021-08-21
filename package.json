@@ -1,5 +1,5 @@
 {
-  "name": "elearn-backend",
+  "name": "itemplate-backend",
   "description": "Trend to general business solution",
   "version": "1.0.0",
   "private": true,
@@ -15,7 +15,7 @@
     "postman": "https://documenter.getpostman.com/view/10018411/TVCcXV3L"
   },
   "repository": {
-    "type": "git",
+    "type": "github",
     "url": "https://github.com/waiphyo285/itemplate.git"
   },
   "bugs": "https://github.com/waiphyo285/itemplate/issues",
