@@ -8,17 +8,17 @@ const userRoles = require('./user-role');
 const students = require('./student');
 const townships = require('./township');
 const cities = require('./city');
-const product_categories=require('./product_category')
-const product_inventories=require('./product_inventory')
-const discounts=require('./discount')
-const products=require('./product')
-const carts=require('./cart')
-const orders=require('./order')
+const product_categories = require('./product_category')
+const product_inventories = require('./product_inventory')
+const discounts = require('./discount')
+const products = require('./product')
+const carts = require('./cart')
+const orders = require('./order')
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
 const studentSchema = require('./../../../../models/students/student-schema');
-const {findAndConstructOrder,updateStock,verifyStock} = require('../../../../middlewares/cartToOrder')
+const { findAndConstructOrder, updateStock, verifyStock } = require('../../../../middlewares/cartToOrder')
 
 router
   .get('/user-roles', userRoles.index); // working with json
@@ -101,7 +101,7 @@ router
   .get('/carts',carts.getList)
 
 router
-  // .post('/order',findAndConstructOrder,verifyStock,updateStock,carts.destroy,orders.create)
   .post('/order',findAndConstructOrder,verifyStock,updateStock,carts.destroy,orders.create)
-  .get('/order/:customerId',orders.read)
+  .get('/order/:customerId', orders.read)
+  
 module.exports = router;

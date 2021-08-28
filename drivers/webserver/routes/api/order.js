@@ -1,8 +1,7 @@
 
 let productsDb = require('../../../../controllers/product');
 let discountsDb = require('../../../../controllers/discount');
-let Order=require('../../../../database/mongodb/models/order');
-const array = require('joi/lib/types/array');
+let Order = require('../../../../database/mongodb/models/order');
 
 let orders = module.exports = {};
 
@@ -10,13 +9,12 @@ let orders = module.exports = {};
 orders.create = (req,res) => {
     req.body.address = req.body.address
     const order = new Order(req.body)
-    // order.userId = req.user._id
     order.customerId = req.body.customerId
     order.save()
-    .then(response => {
-        res.json(response)
-    })
-    .catch(err => res.json(err))
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => res.json(err))
 }
 
 orders.read = (req, res) => {

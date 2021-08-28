@@ -3,7 +3,6 @@ let productsDb = require('../../../../controllers/product');
 let discountsDb = require('../../../../controllers/discount');
 let Cart=require('../../../../database/mongodb/models/cart');
 const array = require('joi/lib/types/array');
-const { async } = require('validate.js');
 
 let carts = module.exports = {};
 

@@ -7,11 +7,10 @@ const Discount=require('../database/mongodb/models/discount')
 const findAndConstructOrder =function(req, res, next) {
 	req.body.orderNumber = Number(Date.now())
     const customerId = req.body.customerId
-	// const userId = req.user._id
 	req.body.customerId = customerId
 	let total = 0
 	let orderItem = []
-	 Cart.find({ customerId })
+	Cart.find({ customerId })
         .populate("productId")
 		.then(items => {
             if(items.length){
@@ -23,16 +22,16 @@ const findAndConstructOrder =function(req, res, next) {
                             msg: "Invalid request"
                         })
                     }
-                    if(productDetails.discount_id!=undefined){
+                    if(productDetails.discount_id!=undefined) {
                         let discountDetail = await Discount.findById(productDetails.discount_id)
                         var discount_amount=discountDetail.discount_type==true?(parseInt(discountDetail.discount_amount)/100)*productDetails.price:parseInt(discountDetail.discount_amount)
-                    }else{
+                    } else {
                         var discount_amount=0
                     }
                     const { quantity } = item
                     const { price } = item.productId
                     total = total + (price-discount_amount) * quantity
-                    orderItem=orderItem.concat({
+                    orderItem = orderItem.concat({
                         productId: item.productId._id,
                         quantity,
                         price,
@@ -73,7 +72,7 @@ const updateStock = function(req,res,next){
 
 const verifyStock = function(req,res,next){
     const items = req.body.orderItem
-    var ck_enditem=0;
+    var ck_enditem = 0;
     if(items.length){
         items.map(item => {
             Product.findOne({_id:item.productId})
@@ -95,7 +94,7 @@ const verifyStock = function(req,res,next){
                     "error":'Item Unavailable'
                 })
                }
-               if(items.length==ck_enditem){
+               if(items.length == ck_enditem){
                 next()
                }
             })
@@ -103,7 +102,6 @@ const verifyStock = function(req,res,next){
         })
     }
 }
-
 
 module.exports = {
     findAndConstructOrder,
