@@ -4,13 +4,19 @@
         "menu": [
             "dashMenu",
             "generalMenu",
+            "orderMenu",
             "courseMenu"
         ],
         "submenu": [
             "townshipSubMenu,1,1,0",
             "citySubMenu,1,1,0",
-            "teacherSubMenu,1,1,1",
-            "studentSubMenu,1,1,1"
+            "productCategorySubMenu,1,1,0",
+            "productSubMenu,1,1,0",
+            "discountSubMenu,1,1,0",
+            "cartSubMenu,1,1,1",
+            "orderSubMenu,1,1,1",
+            "teacherSubMenu,1,1,2",
+            "studentSubMenu,1,1,2"
         ]
     },
     "cashier (read only)": {

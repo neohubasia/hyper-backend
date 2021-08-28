@@ -124,7 +124,182 @@
           ]
         },
         "actions": "1,1,1"
-      }
+        },
+        {
+          "menuid": "productCategorySubMenu",
+          "url": "/product_categories",
+          "title": "Product Category",
+          "icon": "fa fa-list",
+          "access": false,
+          "active": false,
+          "list": {
+            "url": "/product_categories",
+            "title": "Product Category List",
+            "breadcrumb": [
+              {
+                "url": "",
+              "text": "Product Category List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/product_category",
+          "title": "Product Category Entry",
+          "breadcrumb": [
+            {
+              "url": "/product_categories",
+              "text": "Product Category List"
+            },
+            {
+              "url": "",
+              "text": "Product Category Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "productSubMenu",
+        "url": "/products",
+        "title": "Product",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/products",
+          "title": "Product List",
+          "breadcrumb": [
+            {
+              "url": "",
+            "text": "Product List"
+          }
+        ]
+      },
+      "entry": {
+        "url": "/product",
+        "title": "Product Entry",
+        "breadcrumb": [
+          {
+            "url": "/products",
+            "text": "Product List"
+          },
+          {
+            "url": "",
+            "text": "Product Entry"
+          }
+        ]
+      },
+      "actions": "1,1,1"
+    },
+      {
+        "menuid": "discountSubMenu",
+        "url": "/discounts",
+        "title": "Discount",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/discounts",
+          "title": "Discount List",
+          "breadcrumb": [
+            {
+              "url": "",
+            "text": "Discount List"
+          }
+        ]
+      },
+      "entry": {
+        "url": "/discount",
+        "title": "Discount Entry",
+        "breadcrumb": [
+          {
+            "url": "/discounts",
+            "text": "Discount List"
+          },
+          {
+            "url": "",
+            "text": "Discount Entry"
+          }
+        ]
+      },
+      "actions": "1,1,1"
+    }
+    ]
+  },
+  {
+    "menuid": "orderMenu",
+    "url": "#",
+    "title": "Order",
+    "icon": "fa fa-folder",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "cartSubMenu",
+          "url": "/carts",
+          "title": "Cart",
+          "icon": "fa fa-list",
+          "access": false,
+          "active": false,
+          "list": {
+            "url": "/carts",
+            "title": "Cart List",
+            "breadcrumb": [
+              {
+                "url": "",
+              "text": "Cart List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/cart",
+          "title": "Cart Entry",
+          "breadcrumb": [
+            {
+              "url": "/carts",
+              "text": "Cart List"
+            },
+            {
+              "url": "",
+              "text": "Cart Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "orderSubMenu",
+        "url": "/orders",
+        "title": "Order",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/orders",
+          "title": "Order List",
+          "breadcrumb": [
+            {
+              "url": "",
+            "text": "Order List"
+          }
+        ]
+      },
+      "entry": {
+        "url": "/order",
+        "title": "Order Detail",
+        "breadcrumb": [
+          {
+            "url": "/orders",
+            "text": "Order List"
+          },
+          {
+            "url": "",
+            "text": "Order Entry"
+          }
+        ]
+      },
+      "actions": "1,1,1"
+    }
     ]
   },
   {

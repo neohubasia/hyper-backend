@@ -4,7 +4,9 @@ const passport = require('passport');
 const config = require('../../../config/index');
 
 router.get('/login', (req, res, next) => {
-  res.render('auth/login', { app: config.app, title:  "Login", subtitle: "Welcome back" });
+  res.render('auth/login', {
+    app: config.app, title: "Login", subtitle: "Welcome back"
+  });
 })
 .post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
