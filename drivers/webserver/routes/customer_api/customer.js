@@ -24,19 +24,29 @@ customers.create = (req, res, next) => {
 
 customers.login = (req, res, next) => {
   Customer.findOne({email:req.body.email}, function(err,user){
-    if(err) return res.status(500).send('Error on the server.');
-    if(!user) return res.status(404).send('No user found.');
+    if (err) return res.send({
+      status: 500, auth: false, token: null
+    });
+
+    if (!user) return res.send({
+      status: 404, auth: false, token: null
+    });
 
     //after we found data with email, we crypt password and check with user pw
-    var passwordIsValid=bcrypt.compareSync(req.body.password,user.password);
+    var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+    
     if(!passwordIsValid){
-        return res.status(401).send({auth:false, token:null});
+        return res.send({status: 401, auth:false, token:null});
     }
+
     //if password valid jwt need to produce token with our secrep
-    var token=jwt.sign({id:user._id},config.jwt.SECRET,{
+    var token=jwt.sign({ id:user._id}, config.jwt.SECRET, {
         expiresIn:86400 //seconds expires in 24hrs 
     });
-    res.status(200).send({auth:true,user:user,token:token});
+
+    res.status(200).send({
+      auth: true, user: user, token: token
+    });
 });
 }
 customers.read = (req, res, next) => {
