@@ -17,6 +17,7 @@ const { tokenRouter } = require('./middlewares/generator');
 
 const authRouter = require('./drivers/webserver/routes/auth');
 const apiRouter = require('./drivers/webserver/routes/api');
+const customerRouter = require('./drivers/webserver/routes/customer_api')
 const fileRouter = require('./drivers/webserver/routes/files');
 
 const UserDetails = require('./database/mongodb/models/user');
@@ -52,8 +53,10 @@ app.use(authRouter);
 // connect to api routes
 app.use('/api', _jwt.checkToken, apiRouter);
 
-// connet to file routes
-app.use('/file', _jwt.checkToken, fileRouter)
+app.use('/c_api', _jwt.checkToken, customerRouter)
+ 
+// connet to file routes 
+app.use('/file', fileRouter)
 
 // connect to jwt routes
 app.use('/d-mar', tokenRouter);

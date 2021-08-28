@@ -1,0 +1,68 @@
+extends ../includes/layout-main
+block content
+  main.ml-sm-auto.px-md-4(role='main')
+
+    include ./../includes/layout-entry-header
+
+    include ./../includes/layout-entry-form
+      block inputs
+
+        div.form-group.row
+          div.col-sm-6.offset-3
+            label.control-label(for='name') Name
+            input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
+        
+        div.form-group.row
+          div.col-sm-6.offset-3
+            label.control-label(for='description') Description
+            input.form-control.input-sm#description(type='text', name='description', value=data.description, maxlength="55" autocomplete="off" required autofocus)
+        
+        div.form-group.row
+          div.col-sm-6.offset-3
+            label.control-label(for='status') Status
+            div.radio.radio-toolbar.row
+              div.col-sm-6.col-xl-3
+                input#statusActive.radiobox(type='radio', name='status', value="1" checked)
+                label.ml-1(for='statusActive') &nbsp; Active
+              div.col-sm-6.col-xl-3
+                input#statusInactive.radiobox(type='radio', name='status', value="0")
+                label.ml-1(for='statusInactive') &nbsp; Inactive
+
+        include ./../includes/layout-entry-btn
+
+    form#postSuccessForm(method='GET', action=page.list.url)
+  script.
+    $(document).ready(function() {
+      var token = '!{token}';
+      $('#alert').hide();
+
+      var status = "!{data.status}";
+      if (status && status == "false")
+        $('#statusInactive').attr("checked", "checked");
+
+      $('#entryForm').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: $(this).attr('action'),
+          type:$(this).attr('method'),
+          data: $(this).serialize(),
+          success: function (data) {
+            handleAlert(data);
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      });
+
+      //- ajaxLoadOption({
+      //-   type: "GET",
+      //-   url:"/api/cities",
+      //-   selectId: "#cityid",
+      //-   showKey: "city_mm",
+      //-   filterObj: {},
+      //-   token: token
+      //- });
+
+    });

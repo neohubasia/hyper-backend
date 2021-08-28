@@ -15,7 +15,13 @@
           : '<span class="badge badge-danger" style="font-size:12px;">Inactive</span>';
       };
     }
-
+    function dataTableDiscountTypeRenderer() {
+      return function (d, type, row) {
+        return d == true
+          ? 'Percent'
+          : 'Amount';
+      };
+    }
     function dataTableMoneyRenderer() {
       return function(d, type, row) {
         return `<h4 style="text-align: right"><span class="badge badge-info" style="font-size:12px;">
@@ -38,6 +44,7 @@
   
   function dataTableActionsRenderer(editUrl, access, icons) {
     access = access.split(",");
+    console.log(access)
     return function (d, type, row) {
       var id = row.id || "#";
       var html = '<div class="btn-group pull-right" role="group" aria-label="Actions">';
@@ -55,7 +62,12 @@
       return html + '</div>';
     };
   }
-  
+  function dataTableOrderDetailRenderer(detail) {
+    return function(d, type, row) {
+      const id = row._id || "#";
+      return '<a class="btn btn-warning list-action" href="./'+detail+'/'+id+'" title="Edit"><i class="fa fa-list"></i></a>';
+    };
+  }
   function dataTableSlicer() {
     return function(d, type, row) {
       if (d) return d.slice(0, 10) + "......";
@@ -396,7 +408,43 @@
       }
     });
   }
-   
+  
+  function ajaxProductUploadForm(args) {
+    var imgParentDiv = args.imgParentDiv,
+      _this  = args._this,
+      token = args.token;
+    
+    // multi/part  form submit
+    $.ajax( {
+        url: $(_this).attr('action'),
+        type: $(_this).attr('method'),
+        headers: {"authorization": "Bearer " + token},
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: new FormData( _this ),
+        success: function (data) {
+          console.log(data);
+          //- handleAlert(data, false);
+          if(data.status == "SUCCESS") {
+            var setSrc = data.data.path.replace("public", "");
+            var makeImage = `
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
+                <input class="uploaded-files" type="hidden" name="images[]" value=${setSrc} />
+                <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
+                <button type="button" class="btn remove-file">Remove</button>
+              </div>`;
+            //- alert($(".img-list").children().length);
+            $(imgParentDiv).append(makeImage)
+          }
+        },
+        error: function (data) {
+          console.log('An error occurred.');
+          console.log(data);
+        },
+    });
+  }
+
   function ajaxUploadForm(args) {
     var imgParentDiv = args.imgParentDiv,
       _this  = args._this,

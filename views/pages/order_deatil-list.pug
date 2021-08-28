@@ -1,0 +1,70 @@
+extends ../includes/layout-main
+block content
+  main.ml-sm-auto.px-md-4(role='main')
+
+    include ./../includes/layout-entry-header
+
+    section.content
+      .row
+          .col-12
+              .card
+                  .card-body
+                      table.table.table-bordered.table-striped
+                          thead
+                              tr  
+                                  th(style="text-align:center") #
+                                  th(style="text-align:center") Product Name
+                                  th(style="text-align:center") Product Category
+                                  th(style="text-align:right") Price
+                                  th(style="text-align:center") Quantity
+                                  th(style="text-align:right") Discount Price
+                                  th(style="text-align:right") Amount
+                          tbody
+                              each item, i in data.orderItem
+                                  tr  
+                                      td(style="text-align:center") #{i + 1}
+                                      td(style="text-align:center") #{item.productId.name}
+                                      td(style="text-align:center") #{item.productId.category_id.name}
+                                      td(style="text-align:right") #{item.price}
+                                      td(style="text-align:center") #{item.quantity}
+                                      td(style="text-align:right") #{item.discount_price}
+                                      td(style="text-align:right") #{(item.price-item.discount_price) * item.quantity}
+                          tfoot
+                              tr  
+                                  td
+                                  td 
+                                  td 
+                                  td 
+                                  td
+                                  td(style="text-align:right")
+                                      b Total
+                                  td(style="text-align:right") #{data.total}
+                                    
+                                
+      .row
+          .col-6
+              .card
+                  .card-header.border-0
+                      h3.card-title Customer Information 
+                                  
+                  .card-body.table-responsive.p-0
+                      table.table.table-striped.table-valign-middle
+                          thead
+                              tr
+                          tbody
+                              tr
+                                  td Name
+                                  td 
+                                  td 
+                                  td #{data.customerId.username}
+                              tr
+                                  td Phone
+                                  td 
+                                  td 
+                                  td #{data.customerId.telephone}
+                              tr
+                                  td Address
+                                  td 
+                                  td 
+                                  td #{data.customerId.address}
+
