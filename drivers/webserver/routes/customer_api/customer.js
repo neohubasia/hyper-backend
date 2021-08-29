@@ -47,8 +47,9 @@ customers.login = (req, res, next) => {
     res.status(200).send({
       auth: true, user: user, token: token
     });
-});
+  });
 }
+
 customers.read = (req, res, next) => {
   Customer.find({_id:req.params.id})
     .then(customer=>{
@@ -64,6 +65,7 @@ customers.read = (req, res, next) => {
       })
     });
 }
+
 customers.update = (req, res, next) => {
   customersDb.updateData(req.params.id, req.body)
     .then(data => {

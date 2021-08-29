@@ -25,8 +25,8 @@ let bcrypt=require('bcrypt')
 
 let addData = (dataObj) => {
   if(dataObj.password){
-      var hashedPassword=bcrypt.hashSync(dataObj.password,8);
-      dataObj.password=hashedPassword;
+      var hashedPassword = bcrypt.hashSync(dataObj.password,8);
+      dataObj.password = hashedPassword;
     }
     // console.log(dataObj)
     return Customer.create(dataObj)
@@ -35,8 +35,8 @@ let addData = (dataObj) => {
 
 let updateData = (id, dataObj) => {
     if(dataObj.password){
-      var hashedPassword=bcrypt.hashSync(dataObj.password,8);
-      dataObj.password=hashedPassword;
+      var hashedPassword = bcrypt.hashSync(dataObj.password,8);
+      dataObj.password = hashedPassword;
     }
   return Customer.findByIdAndUpdate(id, dataObj)
     .then(serialize);
