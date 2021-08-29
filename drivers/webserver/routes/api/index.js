@@ -14,6 +14,7 @@ const discounts = require('./discount')
 const products = require('./product')
 const carts = require('./cart')
 const orders = require('./order')
+const banners = require('./banner');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -103,5 +104,15 @@ router
 router
   .post('/order',findAndConstructOrder,verifyStock,updateStock,carts.destroy,orders.create)
   .get('/order/:customerId', orders.read)
+
+router
+  .get('/banners', banners.index)
+  .get('/bannerbytype', banners.bannerbytype)
+  .get('/banner/:id', banners.show)
+  .get('/banner', banners.showby)
+  .post('/banner', banners.create)
+  .post('/banner/:id', banners.update)
+  .delete('/banner/:id', banners.delete)
+  .delete('/banners', banners.deleteall);
   
 module.exports = router;

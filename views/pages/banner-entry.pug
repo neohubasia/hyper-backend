@@ -1,0 +1,177 @@
+extends ../includes/layout-main
+block content
+  main.ml-sm-auto.px-md-4(role='main')
+    include ./../includes/layout-entry-header
+    form#uploadForm(method='POST' action='/file/upload/banners' enctype="multipart/form-data")
+      input#file-input(type='file' name='uploaded_file')
+    include ./../includes/layout-entry-form
+      block inputs
+        div.form-group.d-none 
+          div.row.remove-img-list
+        div.form-group.row
+          div.col-sm-6
+            label.control-label(for='type') Type
+            div#showmessage.text-right
+            select#imagetype.selectpicker.form-control(name='imagetype', value=data.imagetype, data-value=data.imagetype  data-live-search="true" required autofocus)
+                    option(value = "") Select One
+                    option(value= 1) 1
+                    option(value= 2) 2
+                    option(value= 3) 3
+                    option(value= 4) 4
+        div.form-group  
+          div.row.img-list
+            .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+              img.m-1.p-3.add-img-wrapper#add-image(src=app.icons.FLAT_PLUS, alt="", srcset="" width="360" height="360")
+
+            - var imageArray = data.images || [];
+            if imageArray.length > 0
+              each images in data.images
+                .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+                  input.uploaded-files(type="hidden", name="images[]", value=`${images}`)
+                  img.m-1.img.img-thumbnail(src=`${images}`, alt="", srcset="" width="360" height="360")
+                  button.btn.remove-file(type="button") Remove
+
+        div.form-group.row
+          div.col-sm-6
+            label.control-label(for='title') Title
+            input.form-control.input-sm#title(type='text', name='title', value=data.title, maxlength="55" required autofocus)
+          
+          div.col-sm-6
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description', autofocus)= data.description
+          //- div.col-sm-6
+          //-   - var discount_id =  data.discount_id || "#";
+          //-   label.control-label(for='discount') Discount
+          //-   select.form-control.selectpicker#discount_id(name='discount_id' value=discount_id._id data-value=discount_id._id, data-live-search="true", data-size="8")
+            
+        div.form-group.row
+          div.col-sm-6
+            label.control-label(for='status') Status
+            div.radio.radio-toolbar.row
+              div.col-sm-6.col-xl-3
+                input#statusActive.radiobox(type='radio', name='status', value="1" checked)
+                label.ml-1(for='statusActive') &nbsp; Active
+              div.col-sm-6.col-xl-3
+                input#statusInactive.radiobox(type='radio', name='status', value="0")
+                label.ml-1(for='statusInactive') &nbsp; Inactive
+
+        include ./../includes/layout-entry-btn
+
+    form#postSuccessForm(method='GET', action=page.list.url)
+  script.
+    $(document).ready(function() {
+      var token = '!{token}';
+      if ("!{data.imagetype}") {
+        $("#imagetype").prop('disabled', true);
+    }
+      var maxImageCount  = 5;
+      var editMode = $("input[name='id']").val();
+      $('#alert').hide();
+      $('#uploadForm').hide();
+
+      var status = "!{data.status}";
+      if (status && status == "false")
+        $('#statusInactive').attr("checked", "checked");
+
+      $('#entryForm').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: $(this).attr('action'),
+          type:$(this).attr('method'),
+          data: $(this).serialize(),
+          success: function (data) {
+            handleAlert(data);
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      });
+
+      if (editMode && typeof editMode === "string")
+        $('#category_id').trigger('change');
+
+      $('#add-image').on('click', function() {
+        //- $(this).css('background-color', '#fff');
+
+        var imgCount  = $(".img-list").children().length || 0;
+
+        if (imgCount -1 <  maxImageCount) 
+          $('#file-input').trigger('click');
+        else
+          swalWarning({
+            position: "top",
+            icon: "warning",
+            title: "Warning Message",
+            text: "The specified number of images has been reached",
+          });
+      });
+
+      $('#file-input').on('change', function(e) {
+        e.preventDefault();
+        if ( $(this).val() != "" ) {
+          $('#uploadForm').submit();
+        }
+      });
+      //for option
+      $("#imagetype").change(function(){
+        var selected = $('#imagetype option:selected').val();  
+        if (selected == 1) {
+            maxImageCount = 1;
+        } else if (selected == 2){
+            maxImageCount = 2;
+        } else if (selected == 3) {
+            maxImageCount = 3;
+        } else if (selected == 4) {
+            maxImageCount = 4;
+        }
+      });
+      // multi/part  form submit
+      $('#uploadForm').submit(function (e) {
+        e.preventDefault();
+
+        ajaxProductUploadForm({
+          imgParentDiv: '.img-list',
+          _this: this,
+          token: token
+        });
+
+        $('#file-input').val(null);
+      });
+
+
+      $(document).on('click', '.remove-file', function () {
+        // remove element
+        var backupSrc = $(this).closest('div').find('img.img').attr('src');
+        var makeInput = `<input class="remove-files" type="hidden" name="remove_images[]" value=${backupSrc} />`;
+
+        $(".remove-img-list").append(makeInput);
+        $(this).parent().remove();
+      });
+
+       $("#imagetype").change(function() {
+            var typeValue = parseInt($(this).children("option:selected").val());
+            $.ajax({
+                url: './imagetype',
+                type: 'POST',
+                success: function(data) {
+                    console.log(data);
+                    if (data.includes(typeValue)) {
+                        $("#showmessage").html("Already Exist!").addClass('text-danger').show();
+                        $('.btn-').hide();
+                    } else {
+                        $("#showmessage").hide();
+                        $('.btn-').show();
+                    }
+                }
+            });
+        });
+     
+        var typeVal = parseInt($('#imagetype').data('value'));
+        if (typeVal) {
+            $("#imagetype").val("" + typeVal);
+            $('#imagetype').selectpicker('refresh')
+        }
+
+    });

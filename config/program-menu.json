@@ -223,8 +223,39 @@
         ]
       },
       "actions": "1,1,1"
-    }
-    ]
+    },{
+      "menuid": "bannerSubMenu",
+      "url": "/banners",
+      "title": "Banner",
+      "icon": "fa fa-list",
+      "access": false,
+      "active": false,
+      "list": {
+        "url": "/banners",
+        "title": "Banner List",
+        "breadcrumb": [
+          {
+            "url": "",
+          "text": "Banner List"
+        }
+      ]
+    },
+    "entry": {
+      "url": "/banner",
+      "title": "Banner Entry",
+      "breadcrumb": [
+        {
+          "url": "/banners",
+          "text": "Banner List"
+        },
+        {
+          "url": "",
+          "text": "Banner Entry"
+        }
+      ]
+    },
+    "actions": "1,1,1"
+  }]
   },
   {
     "menuid": "orderMenu",
