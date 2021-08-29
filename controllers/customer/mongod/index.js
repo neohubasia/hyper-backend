@@ -24,20 +24,28 @@ let bcrypt=require('bcrypt')
 // }
 
 let addData = (dataObj) => {
-  if(dataObj.password){
-      var hashedPassword = bcrypt.hashSync(dataObj.password,8);
-      dataObj.password = hashedPassword;
-    }
+  if (dataObj.password) {
+    var hashedPassword = bcrypt.hashSync(dataObj.password, 8);
+    dataObj.password = hashedPassword;
+  }
     // console.log(dataObj)
-    return Customer.create(dataObj)
-    .then(serialize);
+  return Customer.findOneAndUpdate(
+    { email: dataObj.email },   // Query parameter
+    { ...dataObj },             // Replacement document
+    {                           // Options
+      new: true,
+      upsert: true,
+      useFindAndModify: false
+    }            
+  ).then(serialize);
 }
 
 let updateData = (id, dataObj) => {
-    if(dataObj.password){
-      var hashedPassword = bcrypt.hashSync(dataObj.password,8);
-      dataObj.password = hashedPassword;
-    }
+  if (dataObj.password) {
+    var hashedPassword = bcrypt.hashSync(dataObj.password, 8);
+    dataObj.password = hashedPassword;
+  }
+
   return Customer.findByIdAndUpdate(id, dataObj)
     .then(serialize);
 }
