@@ -1,14 +1,14 @@
 const _serializeSingle = (dataObj) => {
   const logging = {
     'id': dataObj._id,
-    'username': dataObj.username,
+    'email': dataObj.email,
     'first_name': dataObj.first_name,
     'last_name': dataObj.last_name,
-    'telephone': dataObj.telephone,
-    'email': dataObj.email,
+    'displayName': dataObj.displayName,
     'customer_type': dataObj.customer_type,
-    'address': dataObj.address,
     'account_type': dataObj.account_type,
+    'oauth_profile': dataObj.oauth_profile,
+    'address': dataObj.address,
     'active': dataObj.active,
     'created_at': dataObj.created_at,
     'updated_at': dataObj.updated_at,
