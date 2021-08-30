@@ -104,6 +104,8 @@ router
 router
   .post('/order',findAndConstructOrder,verifyStock,updateStock,carts.destroy,orders.create)
   .get('/order/:customerId', orders.read)
+  .get('/orders',orders.getList)
+
 
 router
   .get('/banners', banners.index)

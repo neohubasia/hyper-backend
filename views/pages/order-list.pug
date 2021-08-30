@@ -10,7 +10,7 @@ block content
           th #
           th OrderCode
           th Customer
-          th Phone No:
+          th Email
           th Update Time
           th
       tbody#tbl
@@ -40,8 +40,8 @@ block content
           "columns": [
             { "data": "id"},
             { "data": "orderNumber"},
-            { "data": "customerId.username" },
-            { "data": "customerId.telephone" },
+            { "data": "customerId.displayName" },
+            { "data": "customerId.email" },
             { "data": "updated_at" },
             { "data": "actions" },
           ],
