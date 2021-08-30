@@ -131,8 +131,9 @@ block content
       $('#uploadForm').submit(function (e) {
         e.preventDefault();
 
-        ajaxProductUploadForm({
+        ajaxUploadForm({
           imgParentDiv: '.img-list',
+          imgName: 'images[]'
           _this: this,
           token: token
         });
