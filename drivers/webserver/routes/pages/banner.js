@@ -21,12 +21,11 @@ router.get('/banners',
 router.get('/banner/:id?', 
   connect.ensureLoggedIn(),
   async (req, res, next) => {
-    console.log("OK");
     let data = {};
     if (req.params.id)
       data = await bannerDb.findData('id', req.params.id);
-      console.log("data",data);
-      res.render('pages/banner-entry', {
+      
+    res.render('pages/banner-entry', {
       ...menuAccess.getProgram(req.user.role, "generalMenu.bannerSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
@@ -39,9 +38,23 @@ router.get('/banner/:id?',
   (req, res, next) => {
 
     let db, status = "FAIL";
+    let remove_images = req.body.remove_images || [];
+
+    if (remove_images && remove_images.length > 0) {
+      remove_images.map((file, fileIdx) => {
+        // console.log(file.replace(/\\/g, "/"));
+        // fs.unlinkSync(file.replace(/\\/g, "/"));
+
+        fs.unlink('./public' + file.replace(/\\/g, "/"), function (err) {            
+          if (err)                                                
+            console.error("File Unlink Error", err);                                    
+          else                                                        
+            console.log(fileIdx, 'File has been Deleted');                           
+        });         
+      });
+    }
 
     if (!req.body.id) { // insert data 
-      console.log("Data",req.body);
       db = bannerDb.addData(req.body);
     }
     else { // update data
@@ -61,24 +74,4 @@ router.get('/banner/:id?',
   }
 );
 
-router.route('/imagetype')
-.post(function(req, res, next) {
-  console.log("REACH");
-  const dataresult = [];
-  bannerDb.listData()
-  .then(data => {
-    for(var i=0;i<data.length;i++){
-        dataresult.push(data[i].imagetype);
-      }
-      res.json(dataresult);
-      console.log(dataresult);
-  })
-  .catch(err => {
-    console.log(`Error ${err}`)
-    res.json({
-      status: "FAIL",
-      data: err
-    })
-  });
-});
 module.exports = router;

@@ -3,62 +3,62 @@ let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
   return Product.find({})
-                .populate({
-                  path: 'category_id',
-                  model: 'product_category',
-                  select: 'name as category_name'
-                }).populate({
-                  path: 'inventory_id',
-                  model: 'product_inventory',
-                  select: 'quantity'
-                }).populate({
-                  path: 'discount_id',
-                  model: 'discount',
-                  select: 'name as discount_name'
-                })
-                .then(serialize);
+    .populate({
+      path: 'category_id',
+      model: 'product_category',
+      select: 'name as category_name'
+    }).populate({
+      path: 'inventory_id',
+      model: 'product_inventory',
+      select: 'quantity'
+    }).populate({
+      path: 'discount_id',
+      model: 'discount',
+      select: 'name as discount_name'
+    })
+    .then(serialize);
 }
 
 let findData = async (prop, val) => {
   if (prop === 'id')
     prop = '_id'
   return Product.find({ [prop]: val })
-                .populate({
-                  path: 'category_id',
-                  model: 'product_category',
-                  select: 'name as category_name'
-                }).populate({
-                  path: 'inventory_id',
-                  model: 'product_inventory',
-                  select: 'quantity'
-                }).populate({
-                  path: 'discount_id',
-                  model: 'discount',
-                  select: 'name as discount_name'
-                })
-                .then(resp => {
-                  return serialize(resp[0])
-                });
+    .populate({
+      path: 'category_id',
+      model: 'product_category',
+      select: 'name as category_name'
+    }).populate({
+      path: 'inventory_id',
+      model: 'product_inventory',
+      select: 'quantity'
+    }).populate({
+      path: 'discount_id',
+      model: 'discount',
+      select: 'name as discount_name'
+    })
+    .then(resp => {
+      return serialize(resp[0])
+    });
 }
 
 let findDataBy = (prop, val) => {
   if (prop === 'id')
     prop = '_id';
   return Product.find({[prop]: val})
-                .populate({
-                  path: 'category_id',
-                  model: 'product_category',
-                  select: 'name as category_name'
-                }).populate({
-                  path: 'inventory_id',
-                  model: 'product_inventory',
-                  select: 'quantity'
-                }).populate({
-                  path: 'discount_id',
-                  model: 'discount',
-                  select: 'name as discount_name'
-                })
-                .then(serialize);
+    .populate({
+      path: 'category_id',
+      model: 'product_category',
+      select: 'name as category_name'
+    }).populate({
+      path: 'inventory_id',
+      model: 'product_inventory',
+      select: 'quantity'
+    }).populate({
+      path: 'discount_id',
+      model: 'discount',
+      select: 'name as discount_name'
+    })
+    .then(serialize);
 }
 
 let addData = (dataObj) => {

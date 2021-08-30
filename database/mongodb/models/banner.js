@@ -5,7 +5,8 @@ let Schema = mongoose.Schema;
 let makeSchema = new Schema({
     images: Array,
     title: String,
-    imagetype: Number,
+    image_size: String,
+    no_of_image: Number,
     status: { type: Boolean, default: true },
     description: String,
     created_at: { type: Date },

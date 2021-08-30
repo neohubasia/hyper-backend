@@ -5,7 +5,6 @@ let banners = module.exports = {};
 banners.index = (req, res, next) => {
   bannerDb.listData()
     .then(data => {
-     console.log("Data",data);
       res.json({
         status: "SUCCESS",
         data: data
@@ -36,25 +35,6 @@ banners.show = (req, res, next) => {
       })
     });
 }
-
-banners.bannerbytype = (req, res, next) => {
-    let type = req.query.type;
-    console.log(type);
-    bannerDb.findData('imagetype', type)
-      .then(data => {
-        res.json({
-          status: "SUCCESS",
-          data: data
-        });
-      })
-      .catch(err => {
-        console.log(`Error ${err}`)
-        res.json({
-          status: "FAIL",
-          data: err
-        })
-      });
-  }
 
 banners.showby = (req,res, next) => {
   let obj = [];

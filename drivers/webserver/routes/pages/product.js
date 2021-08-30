@@ -43,51 +43,52 @@ router.get('/product/:id?',
   async (req, res, next) => {
 
     let db, status = "FAIL";
-    //for feature
-    var data=req.body
-    // data.features=data.features.replace(/(\r\n|\n|\r)/gm, "");
-    // var feature_arr=data.features.split(',')
-    // var feature_key=[];
-    // var feature_val=[];
-    // feature_arr.forEach(element => {
-    //   var it=element.split(':')
-    //   feature_key.push(it[0])
-    //   feature_val.push(it[1])
-    // });
-    // const obj = {};
 
-    // feature_key.forEach((element,index) => {
-    //   obj[element]=feature_val[index]
-    // })
-    // delete data.features
-    // data.features=obj
+    let remove_images = req.body.remove_images || [];
+
+    if (remove_images && remove_images.length > 0) {
+      remove_images.map((file, fileIdx) => {
+        // console.log(file.replace(/\\/g, "/"));
+        // fs.unlinkSync(file.replace(/\\/g, "/"));
+
+        fs.unlink('./public' + file.replace(/\\/g, "/"), function (err) {            
+          if (err)                                                
+            console.error("File Unlink Error", err);                                    
+          else                                                        
+            console.log(fileIdx, 'File has been Deleted');                           
+        });         
+      });
+    }
+    
+    //for feature
+    var data = req.body
     var old_discount;
 
     if (!data.id) { // insert data 
         // console.log(data)
-      db =await productsDb.addData(data);
+      db = await productsDb.addData(data);
     }
     else { // update data
       const id = data.id;
-      const {['id']: removed, ...data1} = data;
-      // console.log(data)
-      var old_product=await productsDb.findData('id', data.id);
-      old_discount=old_product.discount_id
-      db =await productsDb.updateData(data.id, data1);
+      const { ['id']: removed, ...data1 } = data;
+      
+      var old_product = await productsDb.findData('id', data.id);
+      old_discount = old_product.discount_id;
+      db = await productsDb.updateData(data.id, data1);
     }
-    console.log(old_discount+"....."+req.body.discount_id)
 
     //if empty object
     if(Object.keys(db).length === 0 && db.constructor === Object){
       res.json({ status: "FAIL", data: db });
-    }else{
-      if(old_discount!=undefined){
+    }
+    else {
+      if(old_discount!=undefined) {
         discountsDb.updateData(
           old_discount._id , 
           { $pull: { discounts: db.id } }
       );
-      }
-      if(req.body.discount_id){
+    }
+      if(req.body.discount_id) {
         discountsDb.updateData(
           req.body.discount_id , 
           { $push: { discounts: db.id } }
@@ -95,17 +96,6 @@ router.get('/product/:id?',
       }
       res.json({ status: "SUCCESS", data: db });
     }
-    
-    // db.then(result => {
-    //   if (result != null){
-    //     status = "SUCCESS"
-    //   }
-    //   res.json({ status: status, data: result });
-    // })
-    // .catch(error => {
-    //   console.log(`Error ${error}`);
-    //   res.json({ status: status, data: error });
-    // });
   }
 );
 

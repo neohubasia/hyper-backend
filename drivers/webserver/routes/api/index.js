@@ -107,7 +107,6 @@ router
 
 router
   .get('/banners', banners.index)
-  .get('/bannerbytype', banners.bannerbytype)
   .get('/banner/:id', banners.show)
   .get('/banner', banners.showby)
   .post('/banner', banners.create)

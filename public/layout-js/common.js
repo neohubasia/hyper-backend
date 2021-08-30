@@ -409,44 +409,9 @@
     });
   }
   
-  function ajaxProductUploadForm(args) {
-    var imgParentDiv = args.imgParentDiv,
-      _this  = args._this,
-      token = args.token;
-    
-    // multi/part  form submit
-    $.ajax( {
-        url: $(_this).attr('action'),
-        type: $(_this).attr('method'),
-        headers: {"authorization": "Bearer " + token},
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: new FormData( _this ),
-        success: function (data) {
-          console.log(data);
-          //- handleAlert(data, false);
-          if(data.status == "SUCCESS") {
-            var setSrc = data.data.path.replace("public", "");
-            var makeImage = `
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
-                <input class="uploaded-files" type="hidden" name="images[]" value=${setSrc} />
-                <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
-                <button type="button" class="btn remove-file">Remove</button>
-              </div>`;
-            //- alert($(".img-list").children().length);
-            $(imgParentDiv).append(makeImage)
-          }
-        },
-        error: function (data) {
-          console.log('An error occurred.');
-          console.log(data);
-        },
-    });
-  }
-
   function ajaxUploadForm(args) {
     var imgParentDiv = args.imgParentDiv,
+      imgName = args.imgName,
       _this  = args._this,
       token = args.token;
     
@@ -466,7 +431,7 @@
             var setSrc = data.data.path.replace("public", "");
             var makeImage = `
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
-                <input class="uploaded-files" type="hidden" name="profile_images[]" value=${setSrc} />
+                <input class="uploaded-files" type="hidden" name=${imgName} value=${setSrc} />
                 <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
                 <button type="button" class="btn remove-file">Remove</button>
               </div>`;
