@@ -37,12 +37,8 @@ products.show = (req, res, next) => {
 }
 
 products.showby = (req,res, next) => {
-  let obj = [];
-  Object.keys(req.query).map(function(i){ 
-    obj.push({ prop: i, val: req.query[i]});
-  })
-  
-  productsDb.findDataBy(obj[0]['prop'], obj[0]['val'])
+
+  productsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

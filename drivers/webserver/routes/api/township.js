@@ -37,12 +37,8 @@ townships.show = (req, res, next) => {
 }
 
 townships.showby = (req,res, next) => {
-  let obj = [];
-  Object.keys(req.query).map(function(i){ 
-    obj.push({ prop: i, val: req.query[i]});
-  })
   
-  townshipsDb.findDataBy(obj[0]['prop'], obj[0]['val'])
+  townshipsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

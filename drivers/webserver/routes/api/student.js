@@ -37,12 +37,8 @@ students.show = (req, res, next) => {
 }
 
 students.showby = (req,res, next) => {
-  let obj = [];
-  Object.keys(req.query).map(function(i){ 
-    obj.push({ prop: i, val: req.query[i]});
-  })
-  
-  studentsDb.findDataBy(obj[0]['prop'], obj[0]['val'])
+
+  studentsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

@@ -41,10 +41,8 @@ let findData = async (prop, val) => {
     });
 }
 
-let findDataBy = (prop, val) => {
-  if (prop === 'id')
-    prop = '_id';
-  return Product.find({[prop]: val})
+let findDataBy = (params) => {
+  return Product.find(params)
     .populate({
       path: 'category_id',
       model: 'product_category',

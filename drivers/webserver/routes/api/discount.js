@@ -18,6 +18,7 @@ discounts.index = (req, res, next) => {
       })
     });
 }
+
 discounts.activeData = (req, res, next) => {
   discountDb.listActiveData()
     .then(data => {
@@ -54,12 +55,8 @@ discounts.show = (req, res, next) => {
 }
 
 discounts.showby = (req,res, next) => {
-  let obj = [];
-  Object.keys(req.query).map(function(i){ 
-    obj.push({ prop: i, val: req.query[i]});
-  })
-  
-  discountDb.findDataBy(obj[0]['prop'], obj[0]['val'])
+
+  discountDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

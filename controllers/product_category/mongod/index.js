@@ -15,10 +15,8 @@ let findData = async (prop, val) => {
     });
 }
 
-let findDataBy = (prop, val) => {
-  if (prop === 'id')
-    prop = '_id';
-  return ProductCategory.find({[prop]: val})
+let findDataBy = (params) => {
+  return ProductCategory.find(params)
     .then(serialize);
 }
 
