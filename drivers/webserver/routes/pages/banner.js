@@ -39,6 +39,7 @@ router.get('/banner/:id?',
 
     let db, status = "FAIL";
     let remove_images = req.body.remove_images || [];
+    req.body.images = req.body.images || [];
 
     if (remove_images && remove_images.length > 0) {
       remove_images.map((file, fileIdx) => {
@@ -53,6 +54,8 @@ router.get('/banner/:id?',
         });         
       });
     }
+
+    console.log(req.body)
 
     if (!req.body.id) { // insert data 
       db = bannerDb.addData(req.body);

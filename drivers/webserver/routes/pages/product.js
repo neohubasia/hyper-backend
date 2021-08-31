@@ -12,7 +12,7 @@ router.get('/products',
   connect.ensureLoggedIn(),
   (req, res, next) => {
     res.render('pages/product-list', {
-      ...menuAccess.getProgram(req.user.role, "generalMenu.productSubMenu.list"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "productMenu.productSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
     });
@@ -32,7 +32,7 @@ router.get('/product/:id?',
       // }
     // console.log(data)
     res.render('pages/product-entry', {
-      ...menuAccess.getProgram(req.user.role, "generalMenu.productSubMenu.entry"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "productMenu.productSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data
@@ -43,8 +43,8 @@ router.get('/product/:id?',
   async (req, res, next) => {
 
     let db, status = "FAIL";
-
     let remove_images = req.body.remove_images || [];
+    req.body.images = req.body.images || [];
 
     if (remove_images && remove_images.length > 0) {
       remove_images.map((file, fileIdx) => {

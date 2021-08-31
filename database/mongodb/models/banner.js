@@ -6,6 +6,7 @@ let makeSchema = new Schema({
     images: Array,
     title: String,
     image_size: String,
+    page_name: String,
     no_of_image: Number,
     status: { type: Boolean, default: true },
     description: String,
