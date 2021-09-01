@@ -16,10 +16,8 @@ let bcrypt=require('bcrypt')
 //     });
 // }
 
-// let findDataBy = (prop, val) => {
-//   if (prop === 'id')
-//     prop = '_id';
-//   return Customer.find({[prop]: val})
+// let findDataBy = (params) => {
+//   return Customer.find(params)
 //     .then(serialize);
 // }
 

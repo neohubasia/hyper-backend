@@ -38,29 +38,21 @@ let findData = (prop, val) => {
   // });
 }
 
-let findDataBy = (prop, val) => {
-  if (prop === 'id')
-    prop = '_id';
-  return Student.find({[prop]: val}).populate({
-    path: 'cityid',
-    model: 'city',
-    select: 'city_mm city_en'
-  }).populate({
-    path: 'townshipid',
-    model: 'township',
-    select: 'township_mm township_en'
-  })
+let findDataBy = (params) => {
+  return Student.find(params)
+    .populate({
+      path: 'cityid',
+      model: 'city',
+      select: 'city_mm city_en'
+    }).populate({
+      path: 'townshipid',
+      model: 'township',
+      select: 'township_mm township_en'
+    })
     .then(serialize);
 }
 
 let addData = (dataObj) => {
-  // let student = makeStudent(dataObj)
-  // let newStudent = {
-  //   name: student.getName(),
-  //   grade: student.getGrade(),
-  //   age: student.getAge(),
-  //   prefect: student.isPrefect()
-  // }
   return Student.create(dataObj)
     .then(serialize);
 }

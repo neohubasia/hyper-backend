@@ -124,20 +124,63 @@
           ]
         },
         "actions": "1,1,1"
+      },
+      {
+        "menuid": "bannerSubMenu",
+        "url": "/banners",
+        "title": "Banner",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/banners",
+          "title": "Banner List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Banner List"
+            }
+          ]
         },
-        {
-          "menuid": "productCategorySubMenu",
+        "entry": {
+          "url": "/banner",
+          "title": "Banner Entry",
+          "breadcrumb": [
+            {
+              "url": "/banners",
+              "text": "Banner List"
+            },
+            {
+              "url": "",
+              "text": "Banner Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },
+  {
+    "menuid": "productMenu",
+    "url": "#",
+    "title": "Product Setup",
+    "icon": "fa fa-folder",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "productCategorySubMenu",
+        "url": "/product_categories",
+        "title": "Product Category",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
           "url": "/product_categories",
-          "title": "Product Category",
-          "icon": "fa fa-list",
-          "access": false,
-          "active": false,
-          "list": {
-            "url": "/product_categories",
-            "title": "Product Category List",
-            "breadcrumb": [
-              {
-                "url": "",
+          "title": "Product Category List",
+          "breadcrumb": [
+            {
+              "url": "",
               "text": "Product Category List"
             }
           ]
@@ -171,26 +214,26 @@
           "breadcrumb": [
             {
               "url": "",
-            "text": "Product List"
-          }
-        ]
+              "text": "Product List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/product",
+          "title": "Product Entry",
+          "breadcrumb": [
+            {
+              "url": "/products",
+              "text": "Product List"
+            },
+            {
+              "url": "",
+              "text": "Product Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
       },
-      "entry": {
-        "url": "/product",
-        "title": "Product Entry",
-        "breadcrumb": [
-          {
-            "url": "/products",
-            "text": "Product List"
-          },
-          {
-            "url": "",
-            "text": "Product Entry"
-          }
-        ]
-      },
-      "actions": "1,1,1"
-    },
       {
         "menuid": "discountSubMenu",
         "url": "/discounts",
@@ -204,58 +247,27 @@
           "breadcrumb": [
             {
               "url": "",
-            "text": "Discount List"
-          }
-        ]
-      },
-      "entry": {
-        "url": "/discount",
-        "title": "Discount Entry",
-        "breadcrumb": [
-          {
-            "url": "/discounts",
-            "text": "Discount List"
-          },
-          {
-            "url": "",
-            "text": "Discount Entry"
-          }
-        ]
-      },
-      "actions": "1,1,1"
-    },{
-      "menuid": "bannerSubMenu",
-      "url": "/banners",
-      "title": "Banner",
-      "icon": "fa fa-list",
-      "access": false,
-      "active": false,
-      "list": {
-        "url": "/banners",
-        "title": "Banner List",
-        "breadcrumb": [
-          {
-            "url": "",
-          "text": "Banner List"
-        }
-      ]
-    },
-    "entry": {
-      "url": "/banner",
-      "title": "Banner Entry",
-      "breadcrumb": [
-        {
-          "url": "/banners",
-          "text": "Banner List"
+              "text": "Discount List"
+            }
+          ]
         },
-        {
-          "url": "",
-          "text": "Banner Entry"
-        }
-      ]
-    },
-    "actions": "1,1,1"
-  }]
+        "entry": {
+          "url": "/discount",
+          "title": "Discount Entry",
+          "breadcrumb": [
+            {
+              "url": "/discounts",
+              "text": "Discount List"
+            },
+            {
+              "url": "",
+              "text": "Discount Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
   },
   {
     "menuid": "orderMenu",
@@ -267,17 +279,17 @@
     "submenu": [
       {
         "menuid": "cartSubMenu",
+        "url": "/carts",
+        "title": "Cart",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
           "url": "/carts",
-          "title": "Cart",
-          "icon": "fa fa-list",
-          "access": false,
-          "active": false,
-          "list": {
-            "url": "/carts",
-            "title": "Cart List",
-            "breadcrumb": [
-              {
-                "url": "",
+          "title": "Cart List",
+          "breadcrumb": [
+            {
+              "url": "",
               "text": "Cart List"
             }
           ]
@@ -311,26 +323,26 @@
           "breadcrumb": [
             {
               "url": "",
-            "text": "Order List"
-          }
-        ]
-      },
-      "entry": {
-        "url": "/order",
-        "title": "Order Detail",
-        "breadcrumb": [
-          {
-            "url": "/orders",
-            "text": "Order List"
-          },
-          {
-            "url": "",
-            "text": "Order Entry"
-          }
-        ]
-      },
-      "actions": "1,1,1"
-    }
+              "text": "Order List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/order",
+          "title": "Order Detail",
+          "breadcrumb": [
+            {
+              "url": "/orders",
+              "text": "Order List"
+            },
+            {
+              "url": "",
+              "text": "Order Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
     ]
   },
   {

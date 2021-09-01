@@ -37,12 +37,12 @@ banners.show = (req, res, next) => {
 }
 
 banners.showby = (req,res, next) => {
-  let obj = [];
-  Object.keys(req.query).map(function(i){ 
-    obj.push({ prop: i, val: req.query[i]});
-  })
+  // let obj = [];
+  // Object.keys(req.query).map(function(i){ 
+  //   obj.push({ prop: i, val: req.query[i]});
+  // })
   
-  bannerDb.findDataBy(obj[0]['prop'], obj[0]['val'])
+  bannerDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

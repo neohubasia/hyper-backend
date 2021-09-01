@@ -37,12 +37,7 @@ cities.show = (req, res, next) => {
 }
 
 cities.showby = (req,res, next) => {
-  let obj = [];
-  Object.keys(req.query).map(function(i){ 
-    obj.push({ prop: i, val: req.query[i]});
-  })
-  
-  citiesDb.findDataBy(obj[0]['prop'], obj[0]['val'])
+  citiesDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

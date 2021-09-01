@@ -29,7 +29,7 @@ block content
           
           div.col-sm-6.mb-2
             label.control-label(for='no_of_image') No. of Image
-            select#no_of_image.selectpicker.form-control(name='no_of_image', value=data.no_of_image, data-value=data.no_of_image  data-live-search="true" required)
+            select#no_of_image.selectpicker.form-control(name='no_of_image', value=data.no_of_image, data-value=data.no_of_image  data-size="8" data-live-search="true" required)
               option(value="" disabled)  -- Please Select --
               option(value="1" selected) 1
               option(value="2") 2
@@ -39,12 +39,29 @@ block content
         div.form-group.row  
           div.col-sm-6.mb-2
             label.control-label(for='image_size') Image Size
-            select#image_size.selectpicker.form-control(name='image_size', value=data.image_size, data-value=data.image_size  data-live-search="true" required)
+            select#image_size.selectpicker.form-control(name='image_size', value=data.image_size, data-value=data.image_size  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
               option(value="1920x150") 1920x150
               option(value="870x420") 870x420
               option(value="570x270") 570x270
 
+          div.col-sm-6.mb-2
+            label.control-label(for='page_name') Page Name
+            select#page_name.selectpicker.form-control(name='page_name', value=data.page_name, data-value=data.page_name  data-size="8" data-live-search="true" required)
+              option(value="" disabled selected)  -- Please Select --
+              option(value="home") Home
+              option(value="shop") Shop
+              option(value="shop_details") Shop Details
+              option(value="shop_cart") Shop Cart
+              option(value="checkout") Checkout
+              option(value="blog") Blog
+              option(value="blog_details") Blog Details
+              option(value="contact") Contact
+
+        div.form-group.row
+          div.col-sm-6.mb-2
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description')= data.description
           div.col-sm-6.mb-2
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
@@ -54,11 +71,6 @@ block content
               div.col-sm-6.mb-2.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-
-        div.form-group.row
-          div.col-sm-6.mb-2
-            label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description')= data.description
 
         include ./../includes/layout-entry-btn
 
@@ -79,15 +91,21 @@ block content
         var no_of_image = $('#no_of_image').data('value');
         $('#no_of_image').val(no_of_image).change();
 
+        maxImageCount = no_of_image; // set maxImageCount 
+
         var image_size = $('#image_size').data('value');
         $('#image_size').val(image_size).change();
+
+        var page_name = $('#page_name').data('value');
+        $('#page_name').val(page_name).change();
       }
 
       // select on change
-      $("#no_of_image").change(function(){
+      $("#no_of_image").change(function(e){
+        e.preventDefault()
         maxImageCount =  $('#no_of_image option:selected').val();
-        alert(maxImageCount)
       });
+      
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
@@ -109,15 +127,17 @@ block content
         //- $(this).css('background-color', '#fff');
         var imgCount  = $(".img-list").children().length || 0;
 
-        if (imgCount -1 <  maxImageCount) 
+        if (imgCount -1 <  maxImageCount)  {
           $('#file-input').trigger('click');
-        else
+        }
+        else {
           swalWarning({
             position: "top",
             icon: "warning",
             title: "Warning Message",
             text: "The specified number of images has been reached",
           });
+        }
       });
 
       $('#file-input').on('change', function(e) {
@@ -130,24 +150,32 @@ block content
       // multi/part  form submit
       $('#uploadForm').submit(function (e) {
         e.preventDefault();
+        var imgCount  = $(".img-list").children().length || 0;
 
         ajaxUploadForm({
           imgParentDiv: '.img-list',
-          imgName: 'images[]'
+          imgName: 'images[]',
           _this: this,
           token: token
         });
+
+        if (imgCount == $("#no_of_image").val())
+          $("#no_of_image").attr("disabled", true)
 
         $('#file-input').val(null);
       });
 
       $(document).on('click', '.remove-file', function () {
+        var imgCount  = $(".img-list").children().length || 0;
         // remove element
         var backupSrc = $(this).closest('div').find('img.img').attr('src');
         var makeInput = `<input class="remove-files" type="hidden" name="remove_images[]" value=${backupSrc} />`;
 
         $(".remove-img-list").append(makeInput);
         $(this).parent().remove();
+
+        if (imgCount - 2 < $("#no_of_image").val())
+          $("#no_of_image").attr("disabled", false)
       });
 
     });

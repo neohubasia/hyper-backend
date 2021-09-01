@@ -23,14 +23,13 @@ let findData = async (prop, val) => {
     });
 }
 
-let findDataBy = (prop, val) => {
-  if (prop === 'id')
-    prop = '_id';
-  return Township.find({[prop]: val}).populate({
-    path: 'cityid',
-    model: 'city',
-    select: 'city_mm city_en'
-  })
+let findDataBy = (params) => {
+  return Township.find(params)
+    .populate({
+      path: 'cityid',
+      model: 'city',
+      select: 'city_mm city_en'
+    })
     .then(serialize);
 }
 
