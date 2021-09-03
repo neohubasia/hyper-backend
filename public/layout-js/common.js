@@ -83,6 +83,27 @@
     };
   }
   
+  function dataTableTypeRenderer() {
+    return function (d, type, row) {
+      return d == "normal"
+        ? '<span class="badge badge-success" style="font-size:12px;">Normal</span>'
+        : '<span class="badge badge-warning" style="font-size:12px;">Coming Sonn..</span>';
+    };
+  }
+
+  function dataTableAccountTypeRenderer() {
+    return function (d, type, row) {
+      var d;
+      if (d == "itemplate")
+        d = '<i class="fa fa-info-circle" aria-hidden="true"></i>';
+      else if(d == "facebook")
+        d = '<i class="fa fa-facebook-square" aria-hidden="true"></i>';
+      else if(d == "gmail")
+        d = '<i class="fa fa-google" aria-hidden="true"></i>';
+      return d;
+    };
+  }
+
   function dataTableColumnFilter(column_name) {
     return function() {
       this.api()

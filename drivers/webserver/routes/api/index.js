@@ -15,6 +15,7 @@ const products = require('./product')
 const carts = require('./cart')
 const orders = require('./order')
 const banners = require('./banner');
+const customers = require('./customer');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -114,6 +115,9 @@ router
   .post('/banner', banners.create)
   .post('/banner/:id', banners.update)
   .delete('/banner/:id', banners.delete)
-  .delete('/banners', banners.deleteall);
+  .delete('/banners', banners.deleteall)
+
+router
+   .get('/customers', customers.index)
   
 module.exports = router;

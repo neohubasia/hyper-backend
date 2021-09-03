@@ -50,8 +50,49 @@
         "actions": "1,1,1"
       }
     ]
-  },
-  {
+  },{
+    "menuid": "rigisterMenu",
+    "url": "#",
+    "title": "Registration",
+    "icon": "fa fa-folder",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "customerSubMenu",
+        "url": "/customers",
+        "title": "Customer",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/customers",
+          "title": " List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Customer List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/customer",
+          "title": "Customer Entry",
+          "breadcrumb": [
+            {
+              "url": "/customers",
+              "text": "Customer List"
+            },
+            {
+              "url": "",
+              "text": "Customer Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },{
     "menuid": "generalMenu",
     "url": "#",
     "title": "General Setup",

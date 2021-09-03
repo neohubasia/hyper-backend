@@ -1,21 +1,21 @@
 let {
-  // listData,
-  // findData,
-  // findDataBy,
+  listData,
+  findData,
+  findDataBy,
   addData,
   updateData
-  // deleteData
+  //deleteData
 }
   = require('./mongod/index')
   
   
 let customersDb = {
-  // listData,
-  // findData,
-  // findDataBy,
+  listData,
+  findData,
+  findDataBy,
   addData,
   updateData
-  // deleteData
+  //deleteData
 };
   
 module.exports = customersDb;
