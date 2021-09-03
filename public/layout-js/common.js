@@ -58,10 +58,24 @@
           '<a class="btn btn-sm list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
          data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><img src="' + icons.delete + '" height="22" width="22"/></a>';
       }
-      
       return html + '</div>';
     };
   }
+
+  function dataTableDetailActionsRenderer(detailUrl, access, icons) {
+    access = access.split(",");
+    console.log(access)
+    return function (d, type, row) {
+      var id = row.id || "#";
+      var html = '<div class="btn-group pull-right" role="group" aria-label="Actions">';
+      if (access[1] == "1") {
+        html += '<a class="btn btn-sm list-action" href="./' + detailUrl + "/" + id +
+        '" title="Edit"><img src="' + icons.detail + '" height="22" width="22"/></a> ';
+      }
+      return html;
+    };
+  }
+
   function dataTableOrderDetailRenderer(detail) {
     return function(d, type, row) {
       const id = row._id || "#";

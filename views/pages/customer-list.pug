@@ -13,7 +13,7 @@ block content
           th Type
           th Register From
           th Registration Date
-        //-   th.actions
+          th.actions
         //-     if ((page.actions[0] && page.actions[1]) == true)
         //-       include ./../includes/layout-list-plus
       tbody
@@ -47,18 +47,18 @@ block content
             { "data": "customer_type" },
             { "data": "account_type" },
             { "data": "updated_at" },
-            //-{ "data": "actions" },
+            { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 3, render: dataTableTypeRenderer() },
             { targets: 4, render: dataTableAccountTypeRenderer() },
             { targets: 5, render: dataTableDateTimeRenderer() },
-            //- { targets: 6, orderable: false, render: dataTableActionsRenderer(
-            //-     ".!{page.entry.url}", "!{page.actions}", 
-            //-     { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
-            //-   )
-            //- }
+            { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
+                ".!{page.entry.url}", "!{page.actions}", 
+                { detail: "!{app.icons.FLAT_DETAIL}" }
+              )
+            }
           ]
       });
 
