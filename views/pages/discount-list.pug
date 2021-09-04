@@ -9,8 +9,8 @@ block content
         tr
           th #
           th Name
-          th Discount Type
           th Discount (Percent/Amount)
+          th Discount Type
           th Active
           th Updated Time
           th.actions
@@ -43,15 +43,15 @@ block content
           "columns": [
             { "data": "id" },
             { "data": "name"},
-            { "data": "discount_type" },
             { "data": "discount_amount" },
+            { "data": "discount_type" },
             { "data": "active" },
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 2, render: dataTableDiscountTypeRenderer() },
+            { targets: 3, render: dataTableTypeRenderer() },
             { targets: 4, render: dataTableActiveRenderer() },
             { targets: 5, render: dataTableDateTimeRenderer() },
             { targets: 6, orderable: false, render: dataTableActionsRenderer(

@@ -7,8 +7,6 @@ block content
     //- this is single file upload  - work well
     form#uploadForm(method='POST' action='/file/upload/products' enctype="multipart/form-data")
       input#file-input(type='file' name='uploaded_file')
-      //- input#file-input-btn(type='submit' name='uploaded_file_btn' value='Upload')
-
 
     include ./../includes/layout-entry-form
       block inputs
@@ -37,40 +35,25 @@ block content
             - var category_id =  data.category_id || "#";
             label.control-label(for='category') Category
             select.form-control.selectpicker#category_id(name='category_id' value=category_id._id data-value=category_id._id, data-live-search="true", data-size="8" required)
-          //- div.col-sm-6.mb-2
-          //-   label.control-label(for='sku') Code
-          //-   input.form-control.input-sm#sku(type='text', name='sku', value=data.sku, maxlength="55" required)
-  
       
-        div.form-group.row
-          div.col-sm-6.mb-2
-            label.control-label(for='price') Price
-            input.form-control.input-sm#price(type='text', name='price' , value=data.price autocomplete="off" required)
-          div.col-sm-6.mb-2
-            label.control-label(for='stock') Stock
-            input.form-control.input-sm#prstockice(type='text', name='stock' , value=data.stock autocomplete="off" required)
-
-        //- div.form-group.row
-        //-   div.col-sm-6.mb-2
-        //-     label.control-label(for='features') Feature
-        //-     textarea.form-control.input-sm#features(name='features', autofocus)= data.features
-        //-   div.col-sm-6.mb-2
-        //-     label.control-label(for='description') Description
-        //-     textarea.form-control.input-sm#description(name='description', autofocus)= data.description
-
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='features') Features
             input.form-control.input-sm#features(type='text', name='features', value=data.features, data-role="tagsinput")
           div.col-sm-6.mb-2
+            - var inventory_id =  data.inventory_id || "#";
+            label.control-label(for='inventory') Inventory
+            select.form-control.selectpicker#inventory_id(name='inventory_id' value=inventory_id._id data-value=inventory_id._id, data-live-search="true", data-size="8")
+        
+        div.form-group.row
+          div.col-sm-6.mb-2
+            label.control-label(for='price') Price
+            input.form-control.input-sm#price(type='text', name='price' , value=data.price autocomplete="off" required)
+          div.col-sm-6.mb-2
             - var discount_id =  data.discount_id || "#";
             label.control-label(for='discount') Discount
             select.form-control.selectpicker#discount_id(name='discount_id' value=discount_id._id data-value=discount_id._id, data-live-search="true", data-size="8")
-          //- div.col-sm-6.mb-2
-          //-   - var discount_id =  data.discount_id || "#";
-          //-   label.control-label(for='discount') Discount
-          //-   select.form-control.selectpicker#discount_id(name='discount_id' value=discount_id._id data-value=discount_id._id, data-live-search="true", data-size="8")
-            
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -90,9 +73,9 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
+      var editMode = $("input[name='id']").val();
       var token = '!{token}';
       var maxImageCount  = 5;
-      var editMode = $("input[name='id']").val();
       $('#alert').hide();
       $('#uploadForm').hide();
 

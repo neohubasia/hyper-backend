@@ -8,6 +8,9 @@ block content
       thead
         tr
           th #
+          th Name
+          th Supplier Name
+          th Inventory Type
           th Quantity
           th Updated Time
           th.actions
@@ -39,14 +42,18 @@ block content
           },
           "columns": [
             { "data": "id" },
+            { "data": "name" },
+            { "data": "supplier_id.company_name" },
+            { "data": "inventory_type" },
             { "data": "quantity"},
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 2, render: dataTableDateTimeRenderer() },
-            { targets: 3, orderable: false, render: dataTableActionsRenderer(
+            { targets: 3, render: dataTableTypeRenderer() },
+            { targets: 5, render: dataTableDateTimeRenderer() },
+            { targets: 6, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )

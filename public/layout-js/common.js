@@ -7,6 +7,29 @@
         return parseInt("" + meta.row) + 1;
       };
     }
+    
+    function dataTableSlicer() {
+      return function(d, type, row) {
+        if (d) return d.slice(0, 10) + "......";
+        return "";
+      };
+    }
+  
+    function dataTableThumbnailRenderer() {
+      return function(d, type, row) {
+        var html =
+          '<img src="' + d + '" height="30px" weight="100px" title="" alt="" />';
+        return html;
+      };
+    }
+  
+    function dataTableTypeRenderer() {
+      return function (d, type, row) {
+        return d !== ""
+          ? '<span class="badge badge-primary" style="font-size:12px;">'+ d.toUpperCase() +'</span>'
+          : '<span class="badge badge-primary" style="font-size:12px;">UNDEFINED</span>';
+      };
+    }
 
     function dataTableActiveRenderer() {
       return function (d, type, row) {
@@ -15,13 +38,7 @@
           : '<span class="badge badge-danger" style="font-size:12px;">Inactive</span>';
       };
     }
-    function dataTableDiscountTypeRenderer() {
-      return function (d, type, row) {
-        return d == true
-          ? 'Percent'
-          : 'Amount';
-      };
-    }
+    
     function dataTableMoneyRenderer() {
       return function(d, type, row) {
         return `<h4 style="text-align: right"><span class="badge badge-info" style="font-size:12px;">
@@ -34,13 +51,6 @@
       return d.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    function dataTableCodeRenderer() {
-      return function(d, type, row) {
-        return `<h4><span class="badge badge-secondary" style="font-size:12px;">${d
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, "")}</span></h4>`;
-      };
-    }
   
   function dataTableActionsRenderer(editUrl, access, icons) {
     access = access.split(",");
@@ -72,29 +82,6 @@
         '" title="View"><img src="' + icons.detail + '" height="22" width="22"/></a></div> ';
       }
       return html;
-    };
-  }
-
-  function dataTableSlicer() {
-    return function(d, type, row) {
-      if (d) return d.slice(0, 10) + "......";
-      return "";
-    };
-  }
-  
-  function dataTableThumbnailRenderer() {
-    return function(d, type, row) {
-      var html =
-        '<img src="' + d + '" height="30px" weight="100px" title="" alt="" />';
-      return html;
-    };
-  }
-  
-  function dataTableTypeRenderer() {
-    return function (d, type, row) {
-      return d !== ""
-        ? '<span class="badge badge-primary" style="font-size:12px;">'+ d.toUpperCase() +'</span>'
-        : '<span class="badge badge-primary" style="font-size:12px;">UNDEFINED</span>';
     };
   }
 
