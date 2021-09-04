@@ -11,7 +11,7 @@ router.get('/customers',
   connect.ensureLoggedIn(),
   (req, res, next) => {
     res.render('pages/customer-list', {
-      ...menuAccess.getProgram(req.user.role, "rigisterMenu.customerSubMenu.list"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "registerMenu.customerSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
     });
@@ -26,7 +26,7 @@ router.get('/customer/:id?',
       data = await customersDb.findData('id', req.params.id);
     
     res.render('pages/customer-entry', {
-      ...menuAccess.getProgram(req.user.role, "rigisterMenu.customerSubMenu.entry"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "registerMenu.customerSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data

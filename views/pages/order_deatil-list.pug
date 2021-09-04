@@ -4,31 +4,31 @@ block content
 
     include ./../includes/layout-entry-header
 
-    section.content
+    section.content(style="margin-top: -2.5rem")
       .row
           .col-12
-              .card
+              .card(style="overflow-x:auto;")
                   .card-body
-                      table.table.table-bordered.table-striped
+                      table.table.table-bordered.table-striped.table-
                           thead
                               tr  
                                   th(style="text-align:center") #
                                   th(style="text-align:center") Product Name
                                   th(style="text-align:center") Product Category
-                                  th(style="text-align:right") Price
+                                  th(style="text-align:right")  Price
                                   th(style="text-align:center") Quantity
-                                  th(style="text-align:right") Discount Price
-                                  th(style="text-align:right") Amount
+                                  th(style="text-align:right")  Discount Price
+                                  th(style="text-align:right")  Amount
                           tbody
                               each item, i in data.orderItem
                                   tr  
                                       td(style="text-align:center") #{i + 1}
                                       td(style="text-align:center") #{item.productId.name}
                                       td(style="text-align:center") #{item.productId.category_id.name}
-                                      td(style="text-align:right") #{item.price}
+                                      td(style="text-align:right")  #{item.price}
                                       td(style="text-align:center") #{item.quantity}
-                                      td(style="text-align:right") #{item.discount_price}
-                                      td(style="text-align:right") #{(item.price-item.discount_price) * item.quantity}
+                                      td(style="text-align:right")  #{item.discount_price}
+                                      td(style="text-align:right")  #{(item.price-item.discount_price) * item.quantity}
                           tfoot
                               tr  
                                   td
@@ -41,7 +41,7 @@ block content
                                   td(style="text-align:right") #{data.total}
                                     
                                 
-      .row
+      .row.mt-5
           .col-6
               .card
                   .card-header.border-0

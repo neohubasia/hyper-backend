@@ -11,8 +11,9 @@ block content
           th OrderCode
           th Customer
           th Email
-          th Update Time
+          th Updated Time
           th
+            span.pull-right Actions
       tbody#tbl
   script.
     $(document).ready(function() {
@@ -48,7 +49,11 @@ block content
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 4, render: dataTableDateTimeRenderer() },
-            { targets: 5, orderable: false, render: dataTableOrderDetailRenderer("./order")}
+            { targets: 5, orderable: false, render: dataTableDetailActionsRenderer(
+                ".!{page.entry.url}", "!{page.actions}", 
+                { detail: "!{app.icons.FLAT_DETAIL}" }
+              )
+            }
           ]
       });
       $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {

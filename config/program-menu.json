@@ -50,8 +50,9 @@
         "actions": "1,1,1"
       }
     ]
-  },{
-    "menuid": "rigisterMenu",
+  },
+  {
+    "menuid": "registerMenu",
     "url": "#",
     "title": "Registration",
     "icon": "fa fa-folder",
@@ -67,7 +68,7 @@
         "active": false,
         "list": {
           "url": "/customers",
-          "title": " List",
+          "title": "Customer List",
           "breadcrumb": [
             {
               "url": "",
@@ -90,12 +91,46 @@
           ]
         },
         "actions": "1,1,1"
+      },
+      {
+        "menuid": "supplierSubMenu",
+        "url": "/suppliers",
+        "title": "Supplier",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/suppliers",
+          "title": "Supplier List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Supplier List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/supplier",
+          "title": "Supplier Entry",
+          "breadcrumb": [
+            {
+              "url": "/suppliers",
+              "text": "Supplier List"
+            },
+            {
+              "url": "",
+              "text": "Supplier Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
       }
     ]
-  },{
+  },
+  {
     "menuid": "generalMenu",
     "url": "#",
-    "title": "General Setup",
+    "title": "General",
     "icon": "fa fa-folder",
     "access": false,
     "active": false,
@@ -136,31 +171,64 @@
       {
         "menuid": "citySubMenu",
         "url": "/cities",
-        "title": "City",
+        "title": "Region",
         "icon": "fa fa-list",
         "access": false,
         "active": false,
         "list": {
           "url": "/cities",
-          "title": "City List",
+          "title": "Region List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "City List"
+              "text": "Region List"
             }
           ]
         },
         "entry": {
           "url": "/city",
-          "title": "City Entry",
+          "title": "Region Entry",
           "breadcrumb": [
             {
               "url": "/cities",
-              "text": "City List"
+              "text": "Region List"
             },
             {
               "url": "",
-              "text": "City Entry"
+              "text": "Region Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "paymentMethodSubMenu",
+        "url": "/payment_methods",
+        "title": "Payment Method",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/payment_methods",
+          "title": "Payment Method List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Payment Method List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/payment_method",
+          "title": "Payment Method Entry",
+          "breadcrumb": [
+            {
+              "url": "/payment_methods",
+              "text": "Payment Method List"
+            },
+            {
+              "url": "",
+              "text": "Payment Method Entry"
             }
           ]
         },
@@ -169,31 +237,31 @@
       {
         "menuid": "bannerSubMenu",
         "url": "/banners",
-        "title": "Banner",
+        "title": "Web Banner",
         "icon": "fa fa-list",
         "access": false,
         "active": false,
         "list": {
           "url": "/banners",
-          "title": "Banner List",
+          "title": "Web Banner List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "Banner List"
+              "text": "Web Banner List"
             }
           ]
         },
         "entry": {
           "url": "/banner",
-          "title": "Banner Entry",
+          "title": "Web Banner Entry",
           "breadcrumb": [
             {
               "url": "/banners",
-              "text": "Banner List"
+              "text": "Web Banner List"
             },
             {
               "url": "",
-              "text": "Banner Entry"
+              "text": "Web Banner Entry"
             }
           ]
         },
@@ -202,13 +270,46 @@
     ]
   },
   {
-    "menuid": "productMenu",
+    "menuid": "catalogMenu",
     "url": "#",
-    "title": "Product Setup",
+    "title": "Catalog",
     "icon": "fa fa-folder",
     "access": false,
     "active": false,
     "submenu": [
+      {
+        "menuid": "productInventorySubMenu",
+        "url": "/product_inventories",
+        "title": "Product Inventory",
+        "icon": "fa fa-list",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/product_inventories",
+          "title": "Product Inventory List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Product Inventory List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/product_inventory",
+          "title": "Product Inventory Entry",
+          "breadcrumb": [
+            {
+              "url": "/product_inventory",
+              "text": "Product Inventory List"
+            },
+            {
+              "url": "",
+              "text": "Product Category Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
       {
         "menuid": "productCategorySubMenu",
         "url": "/product_categories",
@@ -243,66 +344,66 @@
         "actions": "1,1,1"
       },
       {
-        "menuid": "productSubMenu",
-        "url": "/products",
-        "title": "Product",
+        "menuid": "discountSubMenu",
+        "url": "/discounts",
+        "title": "Product Discount",
         "icon": "fa fa-list",
         "access": false,
         "active": false,
         "list": {
-          "url": "/products",
-          "title": "Product List",
+          "url": "/discounts",
+          "title": "Product Discount List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "Product List"
+              "text": "Product Discount List"
             }
           ]
         },
         "entry": {
-          "url": "/product",
-          "title": "Product Entry",
+          "url": "/discount",
+          "title": "Product Discount Entry",
           "breadcrumb": [
             {
-              "url": "/products",
-              "text": "Product List"
+              "url": "/discounts",
+              "text": "Product Discount List"
             },
             {
               "url": "",
-              "text": "Product Entry"
+              "text": "Product Discount Entry"
             }
           ]
         },
         "actions": "1,1,1"
       },
       {
-        "menuid": "discountSubMenu",
-        "url": "/discounts",
-        "title": "Discount",
+        "menuid": "productSubMenu",
+        "url": "/products",
+        "title": "Product Item",
         "icon": "fa fa-list",
         "access": false,
         "active": false,
         "list": {
-          "url": "/discounts",
-          "title": "Discount List",
+          "url": "/products",
+          "title": "Product Item List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "Discount List"
+              "text": "Product Item List"
             }
           ]
         },
         "entry": {
-          "url": "/discount",
-          "title": "Discount Entry",
+          "url": "/product",
+          "title": "Product Item Entry",
           "breadcrumb": [
             {
-              "url": "/discounts",
-              "text": "Discount List"
+              "url": "/products",
+              "text": "Product Item List"
             },
             {
               "url": "",
-              "text": "Discount Entry"
+              "text": "Product Item Entry"
             }
           ]
         },
@@ -313,7 +414,7 @@
   {
     "menuid": "orderMenu",
     "url": "#",
-    "title": "Order",
+    "title": "Orders",
     "icon": "fa fa-folder",
     "access": false,
     "active": false,
@@ -379,82 +480,6 @@
             {
               "url": "",
               "text": "Order Entry"
-            }
-          ]
-        },
-        "actions": "1,1,1"
-      }
-    ]
-  },
-  {
-    "menuid": "courseMenu",
-    "url": "#",
-    "title": "Course",
-    "icon": "fa fa-folder",
-    "access": false,
-    "active": false,
-    "submenu": [
-      {
-        "menuid": "teacherSubMenu",
-        "url": "/teachers",
-        "title": "Teacher",
-        "icon": "fa fa-list",
-        "access": false,
-        "active": false,
-        "list": {
-          "url": "/teachers",
-          "title": "Teacher List",
-          "breadcrumb": [
-            {
-              "url": "",
-              "text": "Teacher List"
-            }
-          ]
-        },
-        "entry": {
-          "url": "/teacher",
-          "title": "Teacher Entry",
-          "breadcrumb": [
-            {
-              "url": "/teachers",
-              "text": "Teacher List"
-            },
-            {
-              "url": "",
-              "text": "Teacher Entry"
-            }
-          ]
-        },
-        "actions": "1,1,1"
-      },
-      {
-        "menuid": "studentSubMenu",
-        "url": "/students",
-        "title": "Student",
-        "icon": "fa fa-list",
-        "access": false,
-        "active": false,
-        "list": {
-          "url": "/students",
-          "title": "Student List",
-          "breadcrumb": [
-            {
-              "url": "",
-              "text": "Student List"
-            }
-          ]
-        },
-        "entry": {
-          "url": "/student",
-          "title": "Student Entry",
-          "breadcrumb": [
-            {
-              "url": "/students",
-              "text": "Student List"
-            },
-            {
-              "url": "",
-              "text": "Student Entry"
             }
           ]
         },

@@ -8,14 +8,15 @@ const userRoles = require('./user-role');
 const students = require('./student');
 const townships = require('./township');
 const cities = require('./city');
-const product_categories = require('./product_category')
-const product_inventories = require('./product_inventory')
+const product_cat = require('./product_category')
+const product_inv = require('./product_inventory')
 const discounts = require('./discount')
 const products = require('./product')
 const carts = require('./cart')
 const orders = require('./order')
 const banners = require('./banner');
 const customers = require('./customer');
+const suppliers = require('./supplier');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -60,22 +61,22 @@ router
   .delete('/students', students.deleteall);
 
 router
-  .get('/product_categories', product_categories.index)
-  .get('/product_category/:id', product_categories.show)
-  .get('/product_category', product_categories.showby)
-  .post('/product_category', product_categories.create)
-  .post('/product_category/:id', product_categories.update)
-  .delete('/product_category/:id', product_categories.delete)
-  .delete('/product_categories', product_categories.deleteall);
+  .get('/product_categories', product_cat.index)
+  .get('/product_category/:id', product_cat.show)
+  .get('/product_category', product_cat.showby)
+  .post('/product_category', product_cat.create)
+  .post('/product_category/:id', product_cat.update)
+  .delete('/product_category/:id', product_cat.delete)
+  .delete('/product_categories', product_cat.deleteall);
 
 router
-  .get('/product_inventories', product_inventories.index)
-  .get('/product_inventory/:id', product_inventories.show)
-  .get('/product_inventory', product_inventories.showby)
-  .post('/product_inventory', product_inventories.create)
-  .post('/product_inventory/:id', product_inventories.update)
-  .delete('/product_inventory/:id', product_inventories.delete)
-  .delete('/product_inventories', product_inventories.deleteall);
+  .get('/product_inventories', product_inv.index)
+  .get('/product_inventory/:id', product_inv.show)
+  .get('/product_inventory', product_inv.showby)
+  .post('/product_inventory', product_inv.create)
+  .post('/product_inventory/:id', product_inv.update)
+  .delete('/product_inventory/:id', product_inv.delete)
+  .delete('/product_inventories', product_inv.deleteall);
 
 router
   .get('/discounts', discounts.index)
@@ -96,14 +97,17 @@ router
   .delete('/product/:id', products.delete)
   .delete('/products', products.deleteall);
 
+router
+  .post('/cart', carts.create)
+  .get('/cart/:customerId', carts.read)
+  .get('/carts', carts.getList)
 
 router
-  .post('/cart',carts.create)
-  .get('/cart/:customerId',carts.read)
-  .get('/carts',carts.getList)
-
-router
-  .post('/order',findAndConstructOrder,verifyStock,updateStock,carts.destroy,orders.create)
+  .post('/order',
+    findAndConstructOrder,
+    verifyStock, updateStock,
+    carts.destroy, orders.create
+  )
   .get('/order/:customerId', orders.read)
   .get('/orders',orders.getList)
 
@@ -116,6 +120,15 @@ router
   .post('/banner/:id', banners.update)
   .delete('/banner/:id', banners.delete)
   .delete('/banners', banners.deleteall)
+
+router
+  .get('/suppliers', suppliers.index)
+  .get('/supplier/:id', suppliers.show)
+  .get('/supplier', suppliers.showby)
+  .post('/supplier', suppliers.create)
+  .post('/supplier/:id', suppliers.update)
+  .delete('/supplier/:id', suppliers.delete)
+  .delete('/suppliers', suppliers.deleteall);
 
 router
    .get('/customers', customers.index)

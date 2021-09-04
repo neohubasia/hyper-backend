@@ -10,10 +10,14 @@ carts.create =async (req,res) => {
     const customerId = req.body.customerId
     const productId = req.body.productId
     const quantity = req.body.quantity
-    var ck_cart=await Cart.find({customerId:customerId,productId:productId})  
+
+    var ck_cart = await Cart.find({ customerId: customerId, productId: productId })  
     if (ck_cart[0]) {
-        var up_quantity=ck_cart[0].quantity+parseInt(quantity)
-        Cart.findOneAndUpdate({productId, customerId}, {quantity:up_quantity} , { new: true})
+        var up_quantity = ck_cart[0].quantity + parseInt(quantity)
+        Cart.findOneAndUpdate({
+              productId, customerId
+            },
+            { quantity: up_quantity }, { new: true })
             .then((cart) => {
                 if (cart) {
                     res.json(cart)

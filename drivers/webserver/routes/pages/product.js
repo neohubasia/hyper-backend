@@ -14,7 +14,7 @@ router.get('/products',
   connect.ensureLoggedIn(),
   (req, res, next) => {
     res.render('pages/product-list', {
-      ...menuAccess.getProgram(req.user.role, "productMenu.productSubMenu.list"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "catalogMenu.productSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
     });
@@ -28,7 +28,7 @@ router.get('/product/:id?',
     if (req.params.id)
       data = await productsDb.findData('id', req.params.id);
     res.render('pages/product-entry', {
-      ...menuAccess.getProgram(req.user.role, "productMenu.productSubMenu.entry"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "catalogMenu.productSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data

@@ -13,7 +13,8 @@ block content
           th Type
           th Register From
           th Registration Date
-          th.actions
+          th
+            span.pull-right Actions
         //-     if ((page.actions[0] && page.actions[1]) == true)
         //-       include ./../includes/layout-list-plus
       tbody
@@ -52,7 +53,7 @@ block content
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 3, render: dataTableTypeRenderer() },
-            { targets: 4, render: dataTableAccountTypeRenderer() },
+            { targets: 4, render: dataTableTypeRenderer() },
             { targets: 5, render: dataTableDateTimeRenderer() },
             { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 

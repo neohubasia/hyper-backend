@@ -12,7 +12,7 @@ router.get('/discounts',
   connect.ensureLoggedIn(),
   (req, res, next) => {
     res.render('pages/discount-list', {
-      ...menuAccess.getProgram(req.user.role, "productMenu.discountSubMenu.list"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "catalogMenu.discountSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
     });
@@ -27,7 +27,7 @@ router.get('/discount/:id?',
       data = await discountsDb.findData('id', req.params.id);
     
     res.render('pages/discount-entry', {
-      ...menuAccess.getProgram(req.user.role, "productMenu.discountSubMenu.entry"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "catalogMenu.discountSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data
