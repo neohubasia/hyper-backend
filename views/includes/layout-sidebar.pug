@@ -9,7 +9,7 @@
                         - var isActive = (programObj.active == true) ? "active" : undefined;
 
                         a.list-group-item.list-group-item-action.list-group-item-menu(href=programObj.url, class=isActive)
-                            span(class=programObj.icon)
+                            span(class=programObj.icon style="width: 20px;")
                             span.pl-1  #{programObj.title}
                         span.sr-only (current)
                     else
@@ -17,9 +17,9 @@
                         - var isShow = (programObj.active == true) ? "show" : undefined;
                         
                         a.list-group-item.list-group-item-action.collapsed(href='#'+programObj.menuid data-toggle='collapse' data-target='#'+programObj.menuid)
-                            span(class=programObj.icon)
+                            span(class=programObj.icon style="width: 20px;")
                             span.pl-1  #{programObj.title}
-                            span.mt-1.pull-right(class=iconType)
+                            span.mt-1.float-right(class=iconType)
                         div.collapse(aria-expanded='false'  class=isShow id=programObj.menuid)
                             each subMenuObj in programObj.submenu
                                 - var isActive = (subMenuObj.active == true) ? "active" : undefined;
@@ -27,5 +27,5 @@
                                 ul.flex-column.nav
                                     li.nav-item(id=subMenuObj.menuid)
                                         a.list-group-item.list-group-item-action.list-group-item-menu(href=subMenuObj.url class=isActive)
-                                            span(class=subMenuObj.icon)
+                                            span(class=subMenuObj.icon style="width: 20px;")
                                             span.pl-1  #{subMenuObj.title}

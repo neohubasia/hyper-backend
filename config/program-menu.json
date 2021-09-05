@@ -3,7 +3,7 @@
     "menuid": "dashMenu",
     "url": "/",
     "title": "Dashboard",
-    "icon": "fa fa-tachometer",
+    "icon": "fa fa-tachometer-alt",
     "access": false,
     "active": false,
     "submenu": []
@@ -12,38 +12,38 @@
     "menuid": "adminMenu",
     "url": "#",
     "title": "Administrative",
-    "icon": "fa fa-folder",
+    "icon": "fa fa-user-secret",
     "access": false,
     "active": false,
     "submenu": [
       {
         "menuid": "userSubMenu",
         "url": "/users",
-        "title": "Registration",
-        "icon": "fa fa-list",
+        "title": "User",
+        "icon": "fa fa-user-shield",
         "access": false,
         "active": false,
         "list": {
           "url": "/users",
-          "title": "Registration List",
+          "title": "User List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "Registration List"
+              "text": "User List"
             }
           ]
         },
         "entry": {
           "url": "/user",
-          "title": "Registration Entry",
+          "title": "User Entry",
           "breadcrumb": [
             {
               "url": "/users",
-              "text": "Registration List"
+              "text": "User List"
             },
             {
               "url": "",
-              "text": "Registration Entry"
+              "text": "User Entry"
             }
           ]
         },
@@ -55,7 +55,7 @@
     "menuid": "registerMenu",
     "url": "#",
     "title": "Registration",
-    "icon": "fa fa-folder",
+    "icon": "fa fa-file-signature",
     "access": false,
     "active": false,
     "submenu": [
@@ -63,7 +63,7 @@
         "menuid": "customerSubMenu",
         "url": "/customers",
         "title": "Customer",
-        "icon": "fa fa-list",
+        "icon": "fa fa-user-friends",
         "access": false,
         "active": false,
         "list": {
@@ -96,7 +96,7 @@
         "menuid": "supplierSubMenu",
         "url": "/suppliers",
         "title": "Supplier",
-        "icon": "fa fa-list",
+        "icon": "fa fa-user-tie",
         "access": false,
         "active": false,
         "list": {
@@ -131,7 +131,7 @@
     "menuid": "generalMenu",
     "url": "#",
     "title": "General",
-    "icon": "fa fa-folder",
+    "icon": "fa fa-cogs",
     "access": false,
     "active": false,
     "submenu": [
@@ -139,7 +139,7 @@
         "menuid": "townshipSubMenu",
         "url": "/townships",
         "title": "Township",
-        "icon": "fa fa-list",
+        "icon": "fab fa-simplybuilt",
         "access": false,
         "active": false,
         "list": {
@@ -172,7 +172,7 @@
         "menuid": "citySubMenu",
         "url": "/cities",
         "title": "Region",
-        "icon": "fa fa-list",
+        "icon": "fa fa-city",
         "access": false,
         "active": false,
         "list": {
@@ -204,31 +204,31 @@
       {
         "menuid": "paymentMethodSubMenu",
         "url": "/payment_methods",
-        "title": "Payment Method",
-        "icon": "fa fa-list",
+        "title": "Pay Method",
+        "icon": "fa fa-wallet",
         "access": false,
         "active": false,
         "list": {
           "url": "/payment_methods",
-          "title": "Payment Method List",
+          "title": "Pay Method List",
           "breadcrumb": [
             {
               "url": "",
-              "text": "Payment Method List"
+              "text": "Pay Method List"
             }
           ]
         },
         "entry": {
           "url": "/payment_method",
-          "title": "Payment Method Entry",
+          "title": "Pay Method Entry",
           "breadcrumb": [
             {
               "url": "/payment_methods",
-              "text": "Payment Method List"
+              "text": "Pay Method List"
             },
             {
               "url": "",
-              "text": "Payment Method Entry"
+              "text": "Pay Method Entry"
             }
           ]
         },
@@ -238,7 +238,7 @@
         "menuid": "bannerSubMenu",
         "url": "/banners",
         "title": "Web Banner",
-        "icon": "fa fa-list",
+        "icon": "fa fa-images",
         "access": false,
         "active": false,
         "list": {
@@ -266,6 +266,39 @@
           ]
         },
         "actions": "1,1,1"
+      },
+      {
+        "menuid": "templateSubMenu",
+        "url": "/templates",
+        "title": "Web Template",
+        "icon": "fa fa-file-code",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/templates",
+          "title": "Web Template List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Web Template List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/template",
+          "title": "Web Template Entry",
+          "breadcrumb": [
+            {
+              "url": "/templates",
+              "text": "Web Template List"
+            },
+            {
+              "url": "",
+              "text": "Web Template Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
       }
     ]
   },
@@ -273,7 +306,7 @@
     "menuid": "catalogMenu",
     "url": "#",
     "title": "Catalog",
-    "icon": "fa fa-folder",
+    "icon": "fa fa-database",
     "access": false,
     "active": false,
     "submenu": [
@@ -281,7 +314,7 @@
         "menuid": "productInventorySubMenu",
         "url": "/product_inventories",
         "title": "Product Inventory",
-        "icon": "fa fa-list",
+        "icon": "fa fa-boxes",
         "access": false,
         "active": false,
         "list": {
@@ -299,7 +332,7 @@
           "title": "Product Inventory Entry",
           "breadcrumb": [
             {
-              "url": "/product_inventory",
+              "url": "/product_inventories",
               "text": "Product Inventory List"
             },
             {
@@ -314,7 +347,7 @@
         "menuid": "productCategorySubMenu",
         "url": "/product_categories",
         "title": "Product Category",
-        "icon": "fa fa-list",
+        "icon": "fa fa-cubes",
         "access": false,
         "active": false,
         "list": {
@@ -347,7 +380,7 @@
         "menuid": "discountSubMenu",
         "url": "/discounts",
         "title": "Product Discount",
-        "icon": "fa fa-list",
+        "icon": "fa fa-percentage",
         "access": false,
         "active": false,
         "list": {
@@ -380,7 +413,7 @@
         "menuid": "productSubMenu",
         "url": "/products",
         "title": "Product Item",
-        "icon": "fa fa-list",
+        "icon": "fa fa-cube",
         "access": false,
         "active": false,
         "list": {
@@ -415,7 +448,7 @@
     "menuid": "orderMenu",
     "url": "#",
     "title": "Orders",
-    "icon": "fa fa-folder",
+    "icon": "fa fa-shopping-cart",
     "access": false,
     "active": false,
     "submenu": [
@@ -423,7 +456,7 @@
         "menuid": "cartSubMenu",
         "url": "/carts",
         "title": "Cart",
-        "icon": "fa fa-list",
+        "icon": "fa fa-dolly",
         "access": false,
         "active": false,
         "list": {
@@ -456,7 +489,7 @@
         "menuid": "orderSubMenu",
         "url": "/orders",
         "title": "Order",
-        "icon": "fa fa-list",
+        "icon": "fa fa-clipboard-list",
         "access": false,
         "active": false,
         "list": {
@@ -480,6 +513,49 @@
             {
               "url": "",
               "text": "Order Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },
+  {
+    "menuid": "marketingMenu",
+    "url": "#",
+    "title": "Marketing",
+    "icon": "fa fa-poll",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "couponSubMenu",
+        "url": "/coupons",
+        "title": "Coupon",
+        "icon": "fa fa-ticket-alt",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/coupons",
+          "title": "Coupon List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Coupon List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/coupon",
+          "title": "Coupon Entry",
+          "breadcrumb": [
+            {
+              "url": "/coupons",
+              "text": "Coupon List"
+            },
+            {
+              "url": "",
+              "text": "Coupon Entry"
             }
           ]
         },

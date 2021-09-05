@@ -76,12 +76,14 @@ const verifyStock = function (req, res, next) {
                 select: "quantity"
             })
                 .then(product => {
-                    const quantity = product.inventory_id.quantity - item.quantity
+                    const quantity = product.inventory_id.quantity;
+
+                    console.log("Quantity ", quantity)
 
                     if (quantity >= item.quantity) {
                         checkAll++;
                     }
-                    else if (quantity) {
+                    else if (quantity > 0) {
                         res.json({
                             "status": "FAIL",
                             "data": `Only ${quantity} available for ${item.productId} product`

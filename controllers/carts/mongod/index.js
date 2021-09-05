@@ -47,7 +47,7 @@ let updateData = (id, dataObj) => {
 }
 
 let deleteData = (customerId) => {
-  return Cart.findOneAndRemove({ customerId })
+  return Cart.deleteMany({ customerId })
     .then(resp => {
       return {
         id: resp._id.toString(),

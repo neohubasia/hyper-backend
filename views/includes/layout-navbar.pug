@@ -1,16 +1,35 @@
 nav(class="navbar navbar-expand-md fixed-top bg-light border-bottom")
   button.btn#menu-toggle
-    span.data-feather(data-feather='grid')
+    img(src="/images/auth/it-logo-transparent.png", alt="IT" width="30" height="30")
+    //- span.data-feather(data-feather='grid')
   h4.p-1.m-1 !{app.NAME}
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.fa.fa-bars
   #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.ml-auto.bg-light.border.mt-md-0.mt-2.p-md-0.p-3
-      li.nav-item.active
+    ul.navbar-nav.ml-auto.mt-md-0.mt-3.p-md-0.p-3
+      li.nav-item
+        style.
+          .data-feather[data-count]{
+              position: absolute;
+              font-weight: bold;
+              font-size: 55%;
+              padding: .55em;
+              line-height: .75em;
+              border-radius: 999px;
+              text-align: center;
+              color: #ffffff;
+              background: #f55;
+              min-width: 1.3em;
+          }
+        a.nav-link(href='#')
+          span.data-feather(data-feather='bell')
+          span.data-feather(data-count='20') 20
+            span.sr-only
+      li.nav-item.ml-md-3
         a.nav-link(href='#')
           span.data-feather(data-feather='user')
           span#username 
-          span.sr-only (current)
+          span.sr-only
       li.nav-item.dropdown
         a#navbarDropdown.nav-link(href='#' role='button' data-toggle='dropdown' aria-expanded='false')
           span.fa.fa-caret-down
