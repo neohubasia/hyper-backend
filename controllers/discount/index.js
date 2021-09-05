@@ -7,13 +7,13 @@ let {
   updateData,
   deleteData,
   dropAll
-} 
-// = require('./memory/index') // switch out db as required
-= require('./mongod/index')
+}
+  // = require('./memory/index') // switch out db as required
+  = require('./mongod/index')
 // = require('./pg/index')
 
 
-let townshipsDb = {
+let exportDb = {
   listData,
   listActiveData,
   findData,
@@ -24,4 +24,4 @@ let townshipsDb = {
   dropAll
 };
 
-module.exports = townshipsDb;
+module.exports = exportDb;

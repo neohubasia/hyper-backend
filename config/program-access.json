@@ -4,10 +4,12 @@
         "menu": [
             "dashMenu",
             "generalMenu",
+            "registerMenu",
             "orderMenu",
             "courseMenu"
         ],
         "submenu": [
+            "registerSubMenu,1,1,0",
             "townshipSubMenu,1,1,0",
             "citySubMenu,1,1,0",
             "productCategorySubMenu,1,1,0",

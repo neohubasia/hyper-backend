@@ -13,14 +13,11 @@ block content
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
           div.col-sm-6.mb-2
             label.control-label(for='discount_type') Discount Type
-            div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
-                input#percent.radiobox(type='radio', name='discount_type', value="1" checked)
-                label.ml-1(for='percent') &nbsp; Percent
-              div.col-sm-6.mb-2.col-xl-3
-                input#amount.radiobox(type='radio', name='discount_type', value="0")
-                label.ml-1(for='amount') &nbsp; Amount
-        
+            select#discount_type.selectpicker.form-control(name='discount_type', value=data.discount_type, data-value=data.discount_type  data-size="8" data-live-search="true" required)
+              option(value="" disabled selected)  -- Please Select --
+              option(value="percent")  Percent
+              option(value="amount") Amount
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -44,6 +41,7 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
+      var editMode = $("input[name='id']").val();
       var token = '!{token}';
       $('#alert').hide();
 
@@ -51,9 +49,10 @@ block content
       if (status && status == "false")
         $('#statusInactive').attr("checked", "checked");
 
-      var discount_type = "!{data.discount_type}";
-      if (discount_type && discount_type == "false")
-        $('#amount').attr("checked", "checked");
+      if (editMode && typeof editMode === "string") {
+        var discount_type = $('#discount_type').data('value');
+        $('#discount_type').val(discount_type).change();
+      }
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
@@ -70,14 +69,5 @@ block content
           },
         });
       });
-
-      //- ajaxLoadOption({
-      //-   type: "GET",
-      //-   url:"/api/cities",
-      //-   selectId: "#cityid",
-      //-   showKey: "city_mm",
-      //-   filterObj: {},
-      //-   token: token
-      //- });
 
     });

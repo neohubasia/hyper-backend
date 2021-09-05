@@ -11,6 +11,7 @@ module.exports = {
       FLAT_PLUS: "/images/icons/flat-plus.svg",
       FLAT_EDIT: "/images/icons/flat-edit.svg",
       FLAT_DELETE: "/images/icons/flat-delete.svg",
+      FLAT_DETAIL: "/images/icons/flat-detail.svg"
     }
   },
   mongo: {

@@ -10,9 +10,10 @@ block content
           th #
           th OrderCode
           th Customer
-          th Phone No:
-          th Update Time
+          th Email
+          th Updated Time
           th
+            span.pull-right Actions
       tbody#tbl
   script.
     $(document).ready(function() {
@@ -40,15 +41,19 @@ block content
           "columns": [
             { "data": "id"},
             { "data": "orderNumber"},
-            { "data": "customerId.username" },
-            { "data": "customerId.telephone" },
+            { "data": "customerId.displayName" },
+            { "data": "customerId.email" },
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 4, render: dataTableDateTimeRenderer() },
-            { targets: 5, orderable: false, render: dataTableOrderDetailRenderer("./order")}
+            { targets: 5, orderable: false, render: dataTableDetailActionsRenderer(
+                ".!{page.entry.url}", "!{page.actions}", 
+                { detail: "!{app.icons.FLAT_DETAIL}" }
+              )
+            }
           ]
       });
       $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {

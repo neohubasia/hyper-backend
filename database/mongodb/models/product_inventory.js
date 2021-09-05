@@ -3,7 +3,10 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-    quantity: Number,
+    name: { type: String },
+    supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
+    inventory_type: { type: String, enum: [ "RM", "WIP", "FG", "MRO" ], default: "Raw Materials" },
+    quantity: { type: Number },
     created_at: { type: Date },
     updated_at: { type: Date },
     deleted_at: { type: Date }

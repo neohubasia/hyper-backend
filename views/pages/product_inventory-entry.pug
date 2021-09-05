@@ -8,20 +8,53 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-6.mb-2.offset-3
+          div.col-md-6.mb-1.offset-md-3
+            label.control-label(for='name') Name
+            input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
+
+        div.form-group.row
+          div.col-md-6.mb-1.offset-md-3
             label.control-label(for='quantity') Quantity
-            input.form-control.input-sm#quantity(type='text', name='quantity', value=data.quantity, maxlength="55" autocomplete="off" required autofocus)
+            input.form-control.input-sm#quantity(type='number', name='quantity', role='number', min='1', value=data.quantity, autocomplete="off" required)
+
+        div.form-group.row
+          div.col-md-6.mb-1.offset-md-3
+            - var supplier_id =  data.supplier_id || "#";
+            label.control-label(for='supplier_id') Supplier
+            select.form-control.input-sm.selectpicker#supplier_id(name='supplier_id' value=supplier_id.  id data-value=supplier_id._id, data-live-search="true", data-size="8" required)
+
+        div.form-group.row
+          div.col-md-6.mb-1.offset-md-3
+            label.control-label(for='inventory_type') Inventory Type
+            select#inventory_type.selectpicker.form-control(name='inventory_type', value=data.inventory_type, data-value=data.inventory_type  data-size="8" data-live-search="true" required)
+              option(value="" disabled selected)  -- Please Select --
+              option(value="RM")  Raw Materials
+              option(value="WIP") Work in Process
+              option(value="FG")  Finished Goods
+              option(value="MRO") Maintenance, Repair and Operations
+
         include ./../includes/layout-entry-btn
 
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
+      var editMode = $("input[name='id']").val();
       var token = '!{token}';
       $('#alert').hide();
 
-      var status = "!{data.status}";
-      if (status && status == "false")
-        $('#statusInactive').attr("checked", "checked");
+      ajaxLoadOption({
+        type: "GET",
+        url:"/api/suppliers",
+        selectId: "#supplier_id",
+        showKey: "company_name",
+        filterObj: {},
+        token: token
+      });
+
+      if (editMode && typeof editMode === "string") {
+        var inventory_type = $('#inventory_type').data('value');
+        $('#inventory_type').val(inventory_type).change();
+      }
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
@@ -38,14 +71,5 @@ block content
           },
         });
       });
-
-      //- ajaxLoadOption({
-      //-   type: "GET",
-      //-   url:"/api/cities",
-      //-   selectId: "#cityid",
-      //-   showKey: "city_mm",
-      //-   filterObj: {},
-      //-   token: token
-      //- });
 
     });

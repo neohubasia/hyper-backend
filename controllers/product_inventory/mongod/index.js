@@ -3,6 +3,11 @@ let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
   return ProductInventory.find({})
+    .populate({
+      model: "supplier",
+      path: "supplier_id",
+      select: "company_name"
+    })
     .then(serialize);
 }
 
@@ -10,6 +15,11 @@ let findData = async (prop, val) => {
   if (prop === 'id')
     prop = '_id'
   return ProductInventory.find({ [prop]: val })
+    .populate({
+      model: "supplier",
+      path: "supplier_id",
+      select: "company_name"
+    })
     .then(resp => {
       return serialize(resp[0])
     });
@@ -17,6 +27,11 @@ let findData = async (prop, val) => {
 
 let findDataBy = (params) => {
   return ProductInventory.find(params)
+    .populate({
+      model: "supplier",
+      path: "supplier_id",
+      select: "company_name"
+    })
     .then(serialize);
 }
 

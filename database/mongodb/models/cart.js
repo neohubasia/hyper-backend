@@ -4,18 +4,18 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 let Schema = mongoose.Schema;
 
 const CartSchema = new Schema({
-    customerId:{
-        type:Schema.Types.ObjectId,
-        ref:'customer',
-        required:true
+    customerId: {
+        type: Schema.Types.ObjectId,
+        ref: 'customer',
+        required: true
     },
-    productId:{
-        type:Schema.Types.ObjectId,
-        ref:'product',
-        required:true
+    productId: {
+        type: Schema.Types.ObjectId,
+        ref: 'product',
+        required: true
     },
-    quantity:{
-        type:Number,
+    quantity: {
+        type: Number,
         default: 1
     },
     created_at: { type: Date },

@@ -1,77 +1,106 @@
-
-let productsDb = require('../../../../controllers/product');
-let discountsDb = require('../../../../controllers/discount');
-let Cart = require('../../../../database/mongodb/models/cart');
+let cartDb = require('../../../../controllers/carts');
 
 let carts = module.exports = {};
 
-carts.create =async (req,res) => {
-    // const userId = req.user._id
-    const customerId = req.body.customerId
-    const productId = req.body.productId
-    const quantity = req.body.quantity
-    var ck_cart=await Cart.find({customerId:customerId,productId:productId})  
-    if (ck_cart[0]) {
-        var up_quantity=ck_cart[0].quantity+parseInt(quantity)
-        Cart.findOneAndUpdate({productId, customerId}, {quantity:up_quantity} , { new: true})
-            .then((cart) => {
-                if (cart) {
-                    res.json(cart)
-                } else {
-                    res.json({})
-                }
-            })
-            .catch((err) => {
-                res.json(err)
-            })
-    }
-    else {
-        const cart =await new Cart({customerId,productId,quantity})
-            cart.save()
-            .then(response => {
-                res.json(response)
-            })
-            .catch(err => console.log(err))
-    }
-}
-
-carts.read = (req, res) => {
-    const customerId = req.params.customerId
-    Cart.find({customerId})
-        .populate('productId')
-        .then(items => {
-            res.send(items)
-        })
-        .catch(err => console.log(err))
-}
-
-carts.getList = (req, res) => {
-    Cart.find()
-        .populate('customerId')
-        .populate('productId')
+carts.index = (req, res, next) => {
+    cartDb.listData()
         .then(data => {
             res.json({
-              status: "SUCCESS",
-              data: data
+                status: "SUCCESS",
+                data: data
             });
-          })
-          .catch(err => {
+        })
+        .catch(err => {
             console.log(`Error ${err}`)
             res.json({
-              status: "FAIL",
-              data: err
+                status: "FAIL",
+                data: err
             })
-          });
+        });
 }
 
-carts.destroy =async (req,res,next) => {
-    const userId = req.body.user_id
-    Cart.deleteMany({userId})
-    .then(cart =>{
-        console.log(cart)
-        if(cart.deletedCount==1){
-            next()
-        }
-    })
-    .catch(err => console.log(err))
+carts.show = (req, res, next) => {
+    cartDb.findData('id', req.params.id)
+        .then(data => {
+            res.json({
+                status: "SUCCESS",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(`Error ${err}`)
+            res.json({
+                status: "FAIL",
+                data: err
+            })
+        });
+}
+
+carts.showby = (req, res, next) => {
+
+    cartDb.findDataBy(req.query)
+        .then(data => {
+            res.json({
+                status: "SUCCESS",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(`Error ${err}`)
+            res.json({
+                status: "FAIL",
+                data: err
+            })
+        });
+}
+
+carts.create = (req, res, next) => {
+    cartDb.addData(req.body)
+        .then(data => {
+            res.json({
+                status: "SUCCESS",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(`Error ${err}`)
+            res.json({
+                status: "FAIL",
+                data: err
+            })
+        });
+}
+
+carts.update = (req, res, next) => {
+    cartDb.updateData(req.params.id, req.body)
+        .then(data => {
+            res.json({
+                status: "SUCCESS",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(`Error ${err}`)
+            res.json({
+                status: "FAIL",
+                data: err
+            })
+        });
+}
+
+carts.delete = (req, res, next) => {
+    cartDb.deleteData(req.body.customerId)
+        .then(data => {
+            // res.send(data)
+            next();
+        })
+        .catch(next);
+}
+
+carts.deleteall = (req, res, next) => {
+    cartDb.dropAll()
+        .then(data => {
+            res.send(data)
+        })
+        .catch(next);
 }

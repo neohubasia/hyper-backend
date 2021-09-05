@@ -7,12 +7,14 @@ const config = require("../../../../config/index");
 const menuAccess = require("../../../../librarys/menu-access");
 let productsDb = require('../../../../controllers/product');
 let discountsDb = require('../../../../controllers/discount');
+const crypto = require("crypto");
+
 
 router.get('/products', 
   connect.ensureLoggedIn(),
   (req, res, next) => {
     res.render('pages/product-list', {
-      ...menuAccess.getProgram(req.user.role, "productMenu.productSubMenu.list"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "catalogMenu.productSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
     });
@@ -25,14 +27,8 @@ router.get('/product/:id?',
     let data = {};
     if (req.params.id)
       data = await productsDb.findData('id', req.params.id);
-      // if(Object.keys(data).length !== 0){
-      //   var fe_str=JSON.stringify(data.features);
-      //   fe_str=fe_str.replace(/"/g, "");
-      //   data.features=fe_str.replace(/[{}]/g, "");
-      // }
-    // console.log(data)
     res.render('pages/product-entry', {
-      ...menuAccess.getProgram(req.user.role, "productMenu.productSubMenu.entry"), // admin may change on req.user => role
+      ...menuAccess.getProgram(req.user.role, "catalogMenu.productSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data
@@ -63,9 +59,10 @@ router.get('/product/:id?',
     //for feature
     var data = req.body
     var old_discount;
-
+    var sku = crypto.randomBytes(4).toString('hex');
     if (!data.id) { // insert data 
         // console.log(data)
+      data.sku=sku;
       db = await productsDb.addData(data);
     }
     else { // update data

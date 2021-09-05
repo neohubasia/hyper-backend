@@ -2,24 +2,24 @@ let Customer = require('../../../database/mongodb/models/customer');
 let serialize = require('./serializer'); // serializer custom to db
 let bcrypt=require('bcrypt')
 
-// let listData = () => {
-//   return Customer.find({})
-//     .then(serialize);
-// }
+let listData = () => {
+  return Customer.find({})
+    .then(serialize);
+}
 
-// let findData = async (prop, val) => {
-//   if (prop === 'id')
-//     prop = '_id'
-//   return Customer.find({ [prop]: val })
-//     .then(resp => {
-//       return serialize(resp[0])
-//     });
-// }
+let findData = async (prop, val) => {
+  if (prop === 'id')
+    prop = '_id'
+  return Customer.find({ [prop]: val })
+    .then(resp => {
+      return serialize(resp[0])
+    });
+}
 
-// let findDataBy = (params) => {
-//   return Customer.find(params)
-//     .then(serialize);
-// }
+let findDataBy = (params) => {
+  return Customer.find(params)
+    .then(serialize);
+}
 
 let addData = (dataObj) => {
   if (dataObj.password) {
@@ -67,11 +67,11 @@ let updateData = (id, dataObj) => {
 
 
 module.exports = {
-  // listData,
-  // findData,
-  // findDataBy,
+  listData,
+  findData,
+  findDataBy,
   addData,
   updateData
-  // deleteData
+  //deleteData
 };
 

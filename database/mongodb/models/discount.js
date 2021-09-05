@@ -5,9 +5,11 @@ let Schema = mongoose.Schema;
 let makeSchema = new Schema({
     name: String,
     description: String,
-    discount_type:{ type: Boolean, default: true },
-    discount_amount:String,
-    discounts: Object,
+    discount_amount: Number,
+    discount_type: {
+        type: String,
+        enum: ["discount", "amount", "other"]
+    },
     active: { type: Boolean, default: true },
     created_at: { type: Date },
     updated_at: { type: Date },

@@ -7,6 +7,29 @@
         return parseInt("" + meta.row) + 1;
       };
     }
+    
+    function dataTableSlicer() {
+      return function(d, type, row) {
+        if (d) return d.slice(0, 10) + "......";
+        return "";
+      };
+    }
+  
+    function dataTableThumbnailRenderer() {
+      return function(d, type, row) {
+        var html =
+          '<img src="' + d + '" height="30px" weight="100px" title="" alt="" />';
+        return html;
+      };
+    }
+  
+    function dataTableTypeRenderer() {
+      return function (d, type, row) {
+        return d !== ""
+          ? '<span class="badge badge-primary" style="font-size:12px;">'+ d.toUpperCase() +'</span>'
+          : '<span class="badge badge-primary" style="font-size:12px;">UNDEFINED</span>';
+      };
+    }
 
     function dataTableActiveRenderer() {
       return function (d, type, row) {
@@ -15,13 +38,7 @@
           : '<span class="badge badge-danger" style="font-size:12px;">Inactive</span>';
       };
     }
-    function dataTableDiscountTypeRenderer() {
-      return function (d, type, row) {
-        return d == true
-          ? 'Percent'
-          : 'Amount';
-      };
-    }
+    
     function dataTableMoneyRenderer() {
       return function(d, type, row) {
         return `<h4 style="text-align: right"><span class="badge badge-info" style="font-size:12px;">
@@ -34,55 +51,40 @@
       return d.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    function dataTableCodeRenderer() {
-      return function(d, type, row) {
-        return `<h4><span class="badge badge-secondary" style="font-size:12px;">${d
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, "")}</span></h4>`;
-      };
-    }
   
   function dataTableActionsRenderer(editUrl, access, icons) {
     access = access.split(",");
-    console.log(access)
     return function (d, type, row) {
       var id = row.id || "#";
       var html = '<div class="btn-group pull-right" role="group" aria-label="Actions">';
       if (access[0] == "1" && access[1] == "1") { // read && write access
         html +=
-          '<a class="btn btn-sm list-action" href="./' + editUrl + "/" + id +
+          '<a class="btn btn-sm border list-action" href="./' + editUrl + "/" + id +
           '" title="Edit"><img src="' + icons.edit + '" height="22" width="22"/></a> ';
       }
       if (access[2] == "1") { // delete access 
         html +=
-          '<a class="btn btn-sm list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
+          '<a class="btn btn-sm border list-action" role="button" data-toggle="modal" data-target="#dialogDeleteConfirm" \
          data-loading-text="Deleting..." data-id="' + id + '" title="Delete"><img src="' + icons.delete + '" height="22" width="22"/></a>';
       }
-      
       return html + '</div>';
     };
   }
-  function dataTableOrderDetailRenderer(detail) {
-    return function(d, type, row) {
-      const id = row._id || "#";
-      return '<a class="btn btn-warning list-action" href="./'+detail+'/'+id+'" title="Edit"><i class="fa fa-list"></i></a>';
-    };
-  }
-  function dataTableSlicer() {
-    return function(d, type, row) {
-      if (d) return d.slice(0, 10) + "......";
-      return "";
-    };
-  }
-  
-  function dataTableThumbnailRenderer() {
-    return function(d, type, row) {
-      var html =
-        '<img src="' + d + '" height="30px" weight="100px" title="" alt="" />';
+
+  function dataTableDetailActionsRenderer(detailUrl, access, icons) {
+    access = access.split(",");
+    return function (d, type, row) {
+      var id = row._id || row.id || "#";
+      var html = '<div class="btn-group pull-right" role="group" aria-label="Actions">';
+      if (access[0] == "1" && access[1] == "1") { // read && write access
+        html +=
+        '<a class="btn btn-sm border list-action" href="./' + detailUrl + "/" + id +
+        '" title="View"><img src="' + icons.detail + '" height="22" width="22"/></a></div> ';
+      }
       return html;
     };
   }
-  
+
   function dataTableColumnFilter(column_name) {
     return function() {
       this.api()
