@@ -1,4 +1,4 @@
-let Order = require('../../../database/mongodb/models/Order');
+let Order = require('../../../database/mongodb/models/order');
 let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
