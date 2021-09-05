@@ -55,8 +55,6 @@ router.get('/banner/:id?',
       });
     }
 
-    console.log(req.body)
-
     if (!req.body.id) { // insert data 
       db = bannerDb.addData(req.body);
     }

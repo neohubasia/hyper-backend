@@ -6,14 +6,14 @@ let {
   deleteUser
 }
   = require('./mongod/index')
-  
-  
-let usersDb = {
+
+
+let exportDb = {
   listUsers,
   findUser,
   addUser,
   updateUser,
   deleteUser
 };
-  
-module.exports = usersDb;
+
+module.exports = exportDb;

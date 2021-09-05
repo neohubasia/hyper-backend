@@ -21,7 +21,7 @@ const suppliers = require('./supplier');
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
 const studentSchema = require('./../../../../models/students/student-schema');
-const { findAndConstructOrder, updateStock, verifyStock } = require('../../../../middlewares/cartToOrder')
+const { constructOrder, updateStock, verifyStock } = require('../../../../middlewares/cart_to_order')
 
 router
   .get('/user-roles', userRoles.index); // working with json
@@ -98,18 +98,25 @@ router
   .delete('/products', products.deleteall);
 
 router
+  .get('/carts', carts.index)
+  .get('/cart/:id', carts.show)
+  .get('/cart', carts.showby)
   .post('/cart', carts.create)
-  .get('/cart/:customerId', carts.read)
-  .get('/carts', carts.getList)
+  .delete('/cart/:id', carts.delete)
+  .delete('/carts', carts.deleteall);
 
 router
   .post('/order',
-    findAndConstructOrder,
-    verifyStock, updateStock,
-    carts.destroy, orders.create
+    constructOrder,
+    verifyStock,
+    updateStock,
+    carts.delete, orders.create
   )
-  .get('/order/:customerId', orders.read)
-  .get('/orders',orders.getList)
+  .get('/orders', orders.index)
+  .get('/order/:id', orders.show)
+  .get('/order', orders.showby)
+  .delete('/order/:id', orders.delete)
+  .delete('/orders', orders.deleteall);
 
 
 router
@@ -131,6 +138,6 @@ router
   .delete('/suppliers', suppliers.deleteall);
 
 router
-   .get('/customers', customers.index)
-  
+  .get('/customers', customers.index)
+
 module.exports = router;

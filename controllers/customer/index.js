@@ -7,9 +7,9 @@ let {
   //deleteData
 }
   = require('./mongod/index')
-  
-  
-let customersDb = {
+
+
+let exportDb = {
   listData,
   findData,
   findDataBy,
@@ -17,5 +17,5 @@ let customersDb = {
   updateData
   //deleteData
 };
-  
-module.exports = customersDb;
+
+module.exports = exportDb;

@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const connect = require('connect-ensure-login');
-const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
+const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-const Order=require('../../../../database/mongodb/models/order')
+let orderDb = require('../../../../controllers/orders')
 
 router.get('/orders',
   connect.ensureLoggedIn(),
@@ -18,20 +18,11 @@ router.get('/orders',
   }
 );
 
-router.get('/order/:id?', 
+router.get('/order/:id?',
   connect.ensureLoggedIn(),
   async (req, res, next) => {
     let data = {};
-      data = await Order.findById(req.params.id)
-        .populate('customerId')
-        .populate({ 
-            path: 'orderItem.productId',
-            populate: {
-              path: 'category_id',
-              model: 'product_category'
-            } 
-        })
-    console.log(data)
+    data = await orderDb.findData('id', req.params.id);
     res.render('pages/order_deatil-list', {
       ...menuAccess.getProgram(req.user.role, "orderMenu.orderSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
