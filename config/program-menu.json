@@ -202,39 +202,6 @@
         "actions": "1,1,1"
       },
       {
-        "menuid": "paymentMethodSubMenu",
-        "url": "/payment_methods",
-        "title": "Pay Method",
-        "icon": "fa fa-wallet",
-        "access": false,
-        "active": false,
-        "list": {
-          "url": "/payment_methods",
-          "title": "Pay Method List",
-          "breadcrumb": [
-            {
-              "url": "",
-              "text": "Pay Method List"
-            }
-          ]
-        },
-        "entry": {
-          "url": "/payment_method",
-          "title": "Pay Method Entry",
-          "breadcrumb": [
-            {
-              "url": "/payment_methods",
-              "text": "Pay Method List"
-            },
-            {
-              "url": "",
-              "text": "Pay Method Entry"
-            }
-          ]
-        },
-        "actions": "1,1,1"
-      },
-      {
         "menuid": "bannerSubMenu",
         "url": "/banners",
         "title": "Web Banner",
@@ -299,6 +266,39 @@
           ]
         },
         "actions": "1,1,1"
+      },
+      {
+        "menuid": "paymentMethodSubMenu",
+        "url": "/payment_methods",
+        "title": "Payment Method",
+        "icon": "fa fa-wallet",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/payment_methods",
+          "title": "Payment Method List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Payment Method List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/payment_method",
+          "title": "Payment Method Entry",
+          "breadcrumb": [
+            {
+              "url": "/payment_methods",
+              "text": "Payment Method List"
+            },
+            {
+              "url": "",
+              "text": "Payment Method Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
       }
     ]
   },
@@ -310,6 +310,72 @@
     "access": false,
     "active": false,
     "submenu": [
+      {
+        "menuid": "productWeightSubMenu",
+        "url": "/product_weights",
+        "title": "Product Weight",
+        "icon": "fa fa-weight",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/product_weights",
+          "title": "Product Weight List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Product Weight List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/product_weight",
+          "title": "Product Weight Entry",
+          "breadcrumb": [
+            {
+              "url": "/product_weights",
+              "text": "Product Weight List"
+            },
+            {
+              "url": "",
+              "text": "Product Weight Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "productPackSubMenu",
+        "url": "/product_packages",
+        "title": "Product Package",
+        "icon": "fa fa-box",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/product_packages",
+          "title": "Product Package List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Product Package List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/product_package",
+          "title": "Product Package Entry",
+          "breadcrumb": [
+            {
+              "url": "/product_packages",
+              "text": "Product Package List"
+            },
+            {
+              "url": "",
+              "text": "Product Package Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
       {
         "menuid": "productInventorySubMenu",
         "url": "/product_inventories",
@@ -337,7 +403,7 @@
             },
             {
               "url": "",
-              "text": "Product Category Entry"
+              "text": "Product Inventory Entry"
             }
           ]
         },
