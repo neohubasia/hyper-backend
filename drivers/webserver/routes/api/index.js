@@ -17,6 +17,7 @@ const orders = require('./order')
 const banners = require('./banner');
 const customers = require('./customer');
 const suppliers = require('./supplier');
+const payment_methods = require('./payment_method');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -137,6 +138,15 @@ router
   .post('/supplier/:id', suppliers.update)
   .delete('/supplier/:id', suppliers.delete)
   .delete('/suppliers', suppliers.deleteall);
+
+router
+  .get('/payment_methods', payment_methods.index)
+  .get('/payment_method/:id', payment_methods.show)
+  .get('/payment_method', payment_methods.showby)
+  .post('/payment_method', payment_methods.create)
+  .post('/payment_method/:id', payment_methods.update)
+  .delete('/payment_method/:id', payment_methods.delete)
+  .delete('/payment_methods', payment_methods.deleteall);
 
 router
   .get('/customers', customers.index)
