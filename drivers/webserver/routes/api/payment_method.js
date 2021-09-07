@@ -5,7 +5,6 @@ let payment_methods = module.exports = {};
 payment_methods.index = (req, res, next) => {
   paymentmethodDb.listData()
     .then(data => {
-      console.log("LIST DATA",data);
       res.json({
         status: "SUCCESS",
         data: data
@@ -37,7 +36,7 @@ payment_methods.show = (req, res, next) => {
     });
 }
 
-payment_methods.showby = (req,res, next) => {
+payment_methods.showby = (req, res, next) => {
   paymentmethodDb.findDataBy(req.query)
     .then(data => {
       res.json({

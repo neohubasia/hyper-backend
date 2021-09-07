@@ -8,7 +8,7 @@ function dataTableIndexRenderer() {
   };
 }
 
-function dataTableSlicer() {
+function dataTableTextSlicer() {
   return function (d, type, row) {
     if (d) return d.slice(0, 10) + "......";
     return "";
@@ -17,8 +17,8 @@ function dataTableSlicer() {
 
 function dataTableThumbnailRenderer() {
   return function (d, type, row) {
-    var html =
-      '<img src="' + d + '" height="30px" weight="100px" title="" alt="" />';
+    var html = '<div class="">' +
+      '<img class="img border" src="' + d + '" height="30" width="30" title="Supplier Logo" alt="" /></div>';
     return html;
   };
 }
