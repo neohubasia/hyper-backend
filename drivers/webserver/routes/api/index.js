@@ -18,6 +18,8 @@ const banners = require('./banner');
 const customers = require('./customer');
 const suppliers = require('./supplier');
 const payment_methods = require('./payment_method');
+const product_package = require('./product_package');
+const product_weight = require('./product_weight');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -147,6 +149,25 @@ router
   .post('/payment_method/:id', payment_methods.update)
   .delete('/payment_method/:id', payment_methods.delete)
   .delete('/payment_methods', payment_methods.deleteall);
+
+router
+  .get('/product_packages', product_package.index)
+  .get('/product_package/:id', product_package.show)
+  .get('/product_package', product_package.showby)
+  .post('/product_package', product_package.create)
+  .post('/product_package/:id', product_package.update)
+  .delete('/product_package/:id', product_package.delete)
+  .delete('/product_packages', product_package.deleteall);
+
+router
+  .get('/product_weights', product_weight.index)
+  .get('/product_weight/:id', product_weight.show)
+  .get('/product_weight', product_weight.showby)
+  .post('/product_weight', product_weight.create)
+  .post('/product_weight/:id', product_weight.update)
+  .delete('/product_weight/:id', product_weight.delete)
+  .delete('/product_weights', product_weight.deleteall);
+
 
 router
   .get('/customers', customers.index)
