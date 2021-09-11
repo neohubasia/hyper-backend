@@ -42,7 +42,21 @@ let findData = async (prop, val) => {
 }
 
 let findDataBy = (params) => {
-  return Product.find(params)
+  const filter = params.filter;                         // Filter Param Anythings
+  const sort = params.sort || {};                       // Sort Param Anythings
+  let limit = parseInt(params.page.limit) || 60;        // Content Length
+  let skip = parseInt(params.page.skip) || 0;           // Page No.
+  skip = skip * limit;
+
+  for (const i in sort) {
+    sort[i] = parseInt(sort[i]);                        // Sort Ensure
+  }
+
+  return Product
+    .find(filter)
+    .sort(sort)
+    .skip(skip)
+    .limit(limit)
     .populate({
       path: 'category_id',
       model: 'product_category',
@@ -69,7 +83,7 @@ let updateData = (id, dataObj) => {
     .then(serialize);
 }
 let updateDataByDiscountId = (we, dataObj) => {
-  return Product.updateMany({discount_id:we}, dataObj)
+  return Product.updateMany({ discount_id: we }, dataObj)
     .then(serialize);
 }
 
@@ -83,9 +97,9 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }

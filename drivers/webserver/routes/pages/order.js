@@ -23,7 +23,7 @@ router.get('/order/:id?',
   async (req, res, next) => {
     let data = {};
     data = await orderDb.findData('id', req.params.id);
-    res.render('pages/order_deatil-list', {
+    res.render('pages/order-deatil-list', {
       ...menuAccess.getProgram(req.user.role, "orderMenu.orderSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
