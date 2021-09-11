@@ -52,6 +52,8 @@ let findDataBy = (params) => {
     sort[i] = parseInt(sort[i]);                        // Sort Ensure
   }
 
+  console.log("Edited Param ", filter, sort, skip, limit)
+
   return Product
     .find(filter)
     .sort(sort)

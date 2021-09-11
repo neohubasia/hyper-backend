@@ -36,7 +36,10 @@ products.show = (req, res, next) => {
     });
 }
 
-products.showby = (req,res, next) => {
+products.showby = (req, res, next) => {
+
+  console.log("Query ", req.query)
+  console.log("Params ", req.params)
 
   productsDb.findDataBy(req.query)
     .then(data => {
