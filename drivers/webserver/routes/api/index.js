@@ -83,7 +83,6 @@ router
 
 router
   .get('/discounts', discounts.index)
-  .get('/discounts/activeData', discounts.activeData)
   .get('/discount/:id', discounts.show)
   .get('/discount', discounts.showby)
   .post('/discount', discounts.create)

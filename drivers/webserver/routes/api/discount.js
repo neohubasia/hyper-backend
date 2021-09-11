@@ -19,23 +19,6 @@ discounts.index = (req, res, next) => {
     });
 }
 
-discounts.activeData = (req, res, next) => {
-  discountDb.listActiveData()
-    .then(data => {
-      console.log(data)
-      res.json({
-        status: "SUCCESS",
-        data: data
-      });
-    })
-    .catch(err => {
-      console.log(`Error ${err}`)
-      res.json({
-        status: "FAIL",
-        data: err
-      })
-    });
-}
 
 discounts.show = (req, res, next) => {
   discountDb.findData('id', req.params.id)
@@ -54,7 +37,7 @@ discounts.show = (req, res, next) => {
     });
 }
 
-discounts.showby = (req,res, next) => {
+discounts.showby = (req, res, next) => {
 
   discountDb.findDataBy(req.query)
     .then(data => {

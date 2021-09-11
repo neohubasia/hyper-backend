@@ -6,7 +6,6 @@ const config = require("../../../../config/index");
 const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
 let discountsDb = require('../../../../controllers/discount');
-let productsDb = require('../../../../controllers/product')
 
 router.get('/discounts',
   connect.ensureLoggedIn(),
@@ -45,10 +44,6 @@ router.get('/discount/:id?',
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        if (data.active == 0) {
-          data.discounts = [];
-          productsDb.updateDataByDiscountId(id, { $unset: { discount_id: 1 } })
-        }
         db = discountsDb.updateData(req.body.id, data);
       }
       db.then(result => {

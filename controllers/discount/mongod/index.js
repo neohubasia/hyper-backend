@@ -5,10 +5,6 @@ let listData = () => {
   return Discount.find({})
     .then(serialize);
 }
-let listActiveData = () => {
-  return Discount.find({active:'true'})
-    .then(serialize);
-}
 
 let findData = async (prop, val) => {
   if (prop === 'id')
@@ -44,9 +40,9 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }
@@ -57,7 +53,6 @@ let dropAll = () => {
 
 module.exports = {
   listData,
-  listActiveData,
   findData,
   findDataBy,
   addData,
