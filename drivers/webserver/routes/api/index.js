@@ -120,7 +120,8 @@ router
   .get('/order/:id', orders.show)
   .get('/order', orders.showby)
   .delete('/order/:id', orders.delete)
-  .delete('/orders', orders.deleteall);
+  .delete('/orders', orders.deleteall)
+  .post('/order/status',orders.updateStatus)
 
 
 router

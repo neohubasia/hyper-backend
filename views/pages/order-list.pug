@@ -11,6 +11,7 @@ block content
           th OrderCode
           th Customer
           th Email
+          th Status
           th Updated Time
           th
             span.float-right Actions
@@ -18,6 +19,7 @@ block content
   script.
     $(document).ready(function() {
       var token = '!{token}';
+      $("#alert").hide();
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
   
@@ -43,18 +45,64 @@ block content
             { "data": "orderNumber"},
             { "data": "customerId.displayName" },
             { "data": "customerId.email" },
+            { "data": "status",render:function (d, type, row, meta) {
+                  
+              return `<select class="form-select" id="status" aria-label="Default select example">
+                      <option value="pending" ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
+                      <option value="confirmed" ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
+                      <option value="cancelled" ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                      ${row.status == 'confirmed' ? 
+                      `<option value="awaiting_picked" ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
+                      <option value="picked" ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
+                      <option value="completed" ${row.status == 'completed' ? 'selected' : ''}>Completed</option>`
+                       : ''}
+                  </select>`
+                  
+                }
+            },
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 4, render: dataTableDateTimeRenderer() },
-            { targets: 5, orderable: false, render: dataTableDetailActionsRenderer(
+            { targets: 5, render: dataTableDateTimeRenderer() },
+            { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { detail: "!{app.icons.FLAT_DETAIL}" }
               )
             }
           ]
+      });
+      $('#example tbody').on('change', '#status', function () {
+          var row = table.row($(this).parents('tr')).data();
+          var data = {};
+          data.status = $(this).val();
+          data.id=row.id
+  
+          //- alert(data.status + ">>" + row.id);
+          $.ajax({
+            type: 'POST',
+            headers: {"authorization": "Bearer " + token},
+            url: './api/order/status',
+            data: JSON.parse(JSON.stringify(data)),
+            success: function(data){
+              if(data.status.toLowerCase() == "success")
+              { 
+                $("#alertTitle").html("Success");
+                $("#alertMessage").html("Save Success!");
+                $("#alert").addClass("alert-success").show();
+              }
+              else{
+                $("#alertTitle").html("Error");
+                $("#alertMessage").html("Error on save!");
+                $("#alert").addClass("alert-danger").show();
+              }
+              setTimeout(function() {
+                $("#alert").hide()
+              }, 2000);
+              table.ajax.reload();
+            }
+          });
       });
       $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
