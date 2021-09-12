@@ -105,8 +105,9 @@ router
   .get('/cart', carts.showby)
   .post('/cart', carts.create)
   .post('/cart/:id', carts.update)
-  .delete('/cart', carts.delete)
-  .delete('/carts', carts.deleteall);
+  .delete('/cart', carts.deleteBy)
+  .delete('/carts', carts.deleteall)
+  .patch('/cart', carts.updateMany);
 
 router
   .post('/order',
