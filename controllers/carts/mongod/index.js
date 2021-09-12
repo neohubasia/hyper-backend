@@ -57,7 +57,7 @@ let updateData = (id, dataObj) => {
 
 let updateMany = (params, data) => { // not to serialize
   try {
-    data.forEach(async (item) => {
+    data.data.forEach(async (item) => {
       const updateCart = await Cart.findOneAndUpdate(
         { _id: item.id, ...params },
         { quantity: item.quantity }
