@@ -42,7 +42,7 @@ let findData = async (prop, val) => {
 }
 
 let findDataBy = (params) => {
-  const filter = params.filter;                         // Filter Param Anythings
+  const filter = params.filter || {};                   // Filter Param Anythings
   const sort = params.sort || {};                       // Sort Param Anythings
   let limit = parseInt(params.page.limit) || 60;        // Content Length
   let skip = parseInt(params.page.skip) || 0;           // Page No.
@@ -51,6 +51,12 @@ let findDataBy = (params) => {
   for (const i in sort) {
     sort[i] = parseInt(sort[i]);                        // Sort Ensure
   }
+
+  if (params.can_discount) {                            // Get Discount Product
+    filter['discount_id'] = { "$ne": null };
+  }
+
+  console.log("Edit Param ", filter, sort, skip, limit)
 
   return Product
     .find(filter)
@@ -68,7 +74,7 @@ let findDataBy = (params) => {
     }).populate({
       path: 'discount_id',
       model: 'discount',
-      select: 'name as discount_name'
+      select: 'name as discount_name, discount_type discount_amount discounts'
     })
     .then(serialize);
 }
@@ -80,10 +86,6 @@ let addData = (dataObj) => {
 
 let updateData = (id, dataObj) => {
   return Product.findByIdAndUpdate(id, dataObj)
-    .then(serialize);
-}
-let updateDataByDiscountId = (we, dataObj) => {
-  return Product.updateMany({ discount_id: we }, dataObj)
     .then(serialize);
 }
 
@@ -114,7 +116,6 @@ module.exports = {
   findDataBy,
   addData,
   updateData,
-  updateDataByDiscountId,
   deleteData,
   dropAll
 };
