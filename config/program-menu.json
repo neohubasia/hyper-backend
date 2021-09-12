@@ -587,6 +587,125 @@
     ]
   },
   {
+    "menuid": "deliveryMenu",
+    "url": "#",
+    "title": "Delivery",
+    "icon": "fa fa-truck-pickup",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "deliCompanySubMenu",
+        "url": "/delivery-companies",
+        "title": "Delivery Company",
+        "icon": "fa fa-building",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/delivery-companies",
+          "title": "Delivery Company List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Delivery Company List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/delivery-company",
+          "title": "Delivery Company Entry",
+          "breadcrumb": [
+            {
+              "url": "/delivery-companies",
+              "text": "Delivery Company List"
+            },
+            {
+              "url": "",
+              "text": "Delivery Company Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "deliChargeSubMenu",
+        "url": "/delivery-charges",
+        "title": "Delivery Charge",
+        "icon": "fa fa-file-invoice-dollar",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/delivery-charges",
+          "title": "Delivery Charge List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Delivery Charge List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/delivery-charge",
+          "title": "Delivery Charge Entry",
+          "breadcrumb": [
+            {
+              "url": "/delivery-charges",
+              "text": "Delivery Charge List"
+            },
+            {
+              "url": "",
+              "text": "Delivery Charge Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },
+  {
+    "menuid": "reportingMenu",
+    "url": "#",
+    "title": "Reporting",
+    "icon": "fa fa-folder",
+    "access": false,
+    "active": false,
+    "submenu": [
+      {
+        "menuid": "orderReportSubMenu",
+        "url": "/order-reports",
+        "title": "Order Report",
+        "icon": "fa fa-file-invoice",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/order-reports",
+          "title": "Order Report List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Order Report List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/order-report",
+          "title": "Order Report Detail",
+          "breadcrumb": [
+            {
+              "url": "/order-reports",
+              "text": "Order Report List"
+            },
+            {
+              "url": "",
+              "text": "Order Report Detail"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      }
+    ]
+  },
+  {
     "menuid": "marketingMenu",
     "url": "#",
     "title": "Marketing",
