@@ -139,7 +139,7 @@
         "menuid": "townshipSubMenu",
         "url": "/townships",
         "title": "Township",
-        "icon": "fab fa-simplybuilt",
+        "icon": "fa fa-archway",
         "access": false,
         "active": false,
         "list": {
@@ -205,7 +205,7 @@
         "menuid": "bannerSubMenu",
         "url": "/banners",
         "title": "Web Banner",
-        "icon": "fa fa-images",
+        "icon": "fa fa-flag",
         "access": false,
         "active": false,
         "list": {

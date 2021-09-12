@@ -45,7 +45,7 @@ block content
             { "data": "orderNumber"},
             { "data": "customerId.displayName" },
             { "data": "customerId.email" },
-            { "data": "status",render:function (d, type, row, meta) {
+            { "data": "status", render: function (d, type, row, meta) {
                   
               return `<select class="form-select" id="status" aria-label="Default select example">
                       <option value="pending" ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
@@ -73,13 +73,14 @@ block content
             }
           ]
       });
+      // processing with status
       $('#example tbody').on('change', '#status', function () {
           var row = table.row($(this).parents('tr')).data();
           var data = {};
+          
+          data.id = row.id
           data.status = $(this).val();
-          data.id=row.id
   
-          //- alert(data.status + ">>" + row.id);
           $.ajax({
             type: 'POST',
             headers: {"authorization": "Bearer " + token},
@@ -88,22 +89,21 @@ block content
             success: function(data){
               if(data.status.toLowerCase() == "success")
               { 
-                $("#alertTitle").html("Success");
-                $("#alertMessage").html("Save Success!");
+                $("#alertTitle").html("Success: ");
+                $("#alertMessage").html("Save Successful.");
                 $("#alert").addClass("alert-success").show();
               }
               else{
-                $("#alertTitle").html("Error");
-                $("#alertMessage").html("Error on save!");
+                $("#alertTitle").html("Error: ");
+                $("#alertMessage").html("Error on save.");
                 $("#alert").addClass("alert-danger").show();
               }
-              setTimeout(function() {
-                $("#alert").hide()
-              }, 2000);
+              setTimeout(function() { $("#alert").hide() }, 2000);
               table.ajax.reload();
             }
           });
       });
+
       $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
