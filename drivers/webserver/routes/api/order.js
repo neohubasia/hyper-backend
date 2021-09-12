@@ -71,8 +71,8 @@ orders.create = (req, res, next) => {
         });
 }
 
-orders.update = (req, res, next) => {
-    orderDb.updateData(req.params.id, req.body)
+orders.updateStatus = (req, res, next) => {
+    orderDb.updateData(req.body.id, req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",

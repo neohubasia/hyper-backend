@@ -45,7 +45,7 @@ const orderSchema = new Schema({
     }],
     status: {
         type: String,
-        default: 'Dispatched'
+        default: 'pending'
     },
     created_at: { type: Date },
     updated_at: { type: Date },
