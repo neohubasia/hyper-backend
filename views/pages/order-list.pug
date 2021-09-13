@@ -22,7 +22,6 @@ block content
       $("#alert").hide();
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
-  
       var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
           console.log('DataTable Error: ', message);
           alert('Read data is failed!');
@@ -46,18 +45,42 @@ block content
             { "data": "customerId.displayName" },
             { "data": "customerId.email" },
             { "data": "status",render:function (d, type, row, meta) {
-                  
-              return `<select class="form-select" id="status" aria-label="Default select example">
-                      <option value="pending" ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
-                      <option value="confirmed" ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
-                      <option value="cancelled" ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
-                      ${row.status == 'confirmed' ? 
-                      `<option value="awaiting_picked" ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
-                      <option value="picked" ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
+              return `<select class="form-select" style="width:150px" id="status" aria-label="Default select example">
+                      <option value="pending"
+                         ${
+                            row.status == 'confirmed' ? 'disabled' : row.status == 'cancelled' ? 'disabled':
+                            row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
+                            row.status == 'completed' ? 'disabled': ''
+                           }
+                         ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
+                      <option value="confirmed"
+                        ${
+                          row.status == 'cancelled' ? 'disabled':
+                          row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
+                          row.status == 'completed' ? 'disabled': ''
+                         }
+                         ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
+                      <option value="cancelled"
+                        ${
+                          row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
+                          row.status == 'completed' ? 'disabled': ''
+                         }
+                         ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                      ${row.status == 'cancelled' ? '':
+                      `<option value="awaiting_picked"
+                        ${
+                          row.status == 'picked' ? 'disabled':
+                          row.status == 'completed' ? 'disabled': ''
+                        }
+                        ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
+                      <option value="picked"
+                        ${
+                          row.status == 'completed' ? 'disabled': ''
+                        }
+                         ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
                       <option value="completed" ${row.status == 'completed' ? 'selected' : ''}>Completed</option>`
-                       : ''}
+                       }
                   </select>`
-                  
                 }
             },
             { "data": "updated_at" },
@@ -78,7 +101,10 @@ block content
           var data = {};
           data.status = $(this).val();
           data.id=row.id
-  
+          var option_id=$(this).children(":selected").attr("id")
+          //- for(var i=1;i<option_id;i++){
+            //- $('#'+1).attr('datamin','1000')
+          //- }
           //- alert(data.status + ">>" + row.id);
           $.ajax({
             type: 'POST',
