@@ -17,9 +17,7 @@
             "discountSubMenu,1,1,0",
             "bannerSubMenu,1,1,0",
             "cartSubMenu,1,1,1",
-            "orderSubMenu,1,1,1",
-            "teacherSubMenu,1,1,2",
-            "studentSubMenu,1,1,2"
+            "orderSubMenu,1,1,1"
         ]
     },
     "cashier (read only)": {

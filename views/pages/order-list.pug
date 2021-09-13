@@ -44,6 +44,7 @@ block content
             { "data": "orderNumber"},
             { "data": "customerId.displayName" },
             { "data": "customerId.email" },
+<<<<<<< HEAD
             { "data": "status",render:function (d, type, row, meta) {
               return `<select class="form-select" style="width:150px" id="status" aria-label="Default select example">
                       <option value="pending"
@@ -78,6 +79,17 @@ block content
                           row.status == 'completed' ? 'disabled': ''
                         }
                          ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
+=======
+            { "data": "status", render: function (d, type, row, meta) {
+                  
+              return `<select class="form-select" id="status" aria-label="Default select example">
+                      <option value="pending" ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
+                      <option value="confirmed" ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
+                      <option value="cancelled" ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                      ${row.status == 'confirmed' ? 
+                      `<option value="awaiting_picked" ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
+                      <option value="picked" ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
+>>>>>>> 52154a8f32dd5c8f835c937dac067f18ce67e608
                       <option value="completed" ${row.status == 'completed' ? 'selected' : ''}>Completed</option>`
                        }
                   </select>`
@@ -96,16 +108,23 @@ block content
             }
           ]
       });
+      // processing with status
       $('#example tbody').on('change', '#status', function () {
           var row = table.row($(this).parents('tr')).data();
           var data = {};
+          
+          data.id = row.id
           data.status = $(this).val();
+<<<<<<< HEAD
           data.id=row.id
           var option_id=$(this).children(":selected").attr("id")
           //- for(var i=1;i<option_id;i++){
             //- $('#'+1).attr('datamin','1000')
           //- }
           //- alert(data.status + ">>" + row.id);
+=======
+  
+>>>>>>> 52154a8f32dd5c8f835c937dac067f18ce67e608
           $.ajax({
             type: 'POST',
             headers: {"authorization": "Bearer " + token},
@@ -114,22 +133,21 @@ block content
             success: function(data){
               if(data.status.toLowerCase() == "success")
               { 
-                $("#alertTitle").html("Success");
-                $("#alertMessage").html("Save Success!");
+                $("#alertTitle").html("Success: ");
+                $("#alertMessage").html("Save Successful.");
                 $("#alert").addClass("alert-success").show();
               }
               else{
-                $("#alertTitle").html("Error");
-                $("#alertMessage").html("Error on save!");
+                $("#alertTitle").html("Error: ");
+                $("#alertMessage").html("Error on save.");
                 $("#alert").addClass("alert-danger").show();
               }
-              setTimeout(function() {
-                $("#alert").hide()
-              }, 2000);
+              setTimeout(function() { $("#alert").hide() }, 2000);
               table.ajax.reload();
             }
           });
       });
+
       $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');

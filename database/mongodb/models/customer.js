@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const makeSchema = new Schema({
   first_name: {
     type: String,
-    required:  true
+    required: true
   },
   last_name: {
     type: String,
@@ -14,11 +14,11 @@ const makeSchema = new Schema({
   },
   displayName: {
     type: String,
-    required:  true
+    required: true
   },
   email: {
     type: String,
-    unique : true,
+    unique: true,
     required: true,
     dropDups: true,
     match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
@@ -26,12 +26,12 @@ const makeSchema = new Schema({
   password: String,
   customer_type: {
     type: String,
-    enum : ["normal", "premium"],
+    enum: ["normal", "premium"],
     default: 'normal'
   },
   account_type: {
     type: String,
-    enum : ['itemplate', 'facebook', 'gmail'],
+    enum: ['itemplate', 'facebook', 'gmail'],
     default: 'itemplate'
   },
   oauth_profile: {
@@ -45,55 +45,40 @@ const makeSchema = new Schema({
   },
   address: [
     {
-      name: {
+      contact_name: {
         type: String,
         trim: true,
         min: 3,
         max: 50,
-        // required: true,
       },
-      mobileNumber: {
+      primary_mobile: {
         type: String,
         trim: true,
-        // required: true,
       },
-      pinCode: {
+      secoundary_mobile: {
         type: String,
         trim: true,
+      },
+      country: {
+        type: String,
         // required: true,
       },
-      locality: {
-        type: String,
-        trim: true,
-        min: 10,
-        max: 100,
-        // required: true,
+      cityid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "city"
+      },
+      townshipid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "township"
       },
       address: {
         type: String,
         trim: true,
         min: 10,
-        max: 100,
+        max: 225,
         // required: true,
       },
-      cityDistrictTown: {
-        type: String,
-        trim: true,
-        // required: true,
-      },
-      state: {
-        type: String,
-        // required: true,
-      },
-      landmark: {
-        type: String,
-        min: 10,
-        max: 100,
-      },
-      alternatePhone: {
-        type: String,
-      },
-      addressType: {
+      address_type: {
         type: String,
         enum: ["home", "work"],
         // required: true,
