@@ -4,9 +4,10 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
   name: String,
+  acc_no: String,
   payment_role: {
     type: String,
-    enum: ["bank", "pay", "other"]
+    enum: ["bank", "pay", "cod", "other"]
   },
   organization: String,
   description: String,

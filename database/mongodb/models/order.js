@@ -43,6 +43,11 @@ const orderSchema = new Schema({
             required: true
         },
     }],
+    payment_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'payment_method',
+        required: true,
+    },
     status: {
         type: String,
         default: 'pending'

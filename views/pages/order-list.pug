@@ -44,56 +44,44 @@ block content
             { "data": "orderNumber"},
             { "data": "customerId.displayName" },
             { "data": "customerId.email" },
-<<<<<<< HEAD
             { "data": "status",render:function (d, type, row, meta) {
-              return `<select class="form-select" style="width:150px" id="status" aria-label="Default select example">
+                return `<select class="form-select" style="width:150px" id="status" aria-label="Default select example">
                       <option value="pending"
-                         ${
-                            row.status == 'confirmed' ? 'disabled' : row.status == 'cancelled' ? 'disabled':
-                            row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
-                            row.status == 'completed' ? 'disabled': ''
-                           }
-                         ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
+                        ${
+                          row.status == 'confirmed' ? 'disabled' : row.status == 'cancelled' ? 'disabled':
+                          row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
+                          row.status == 'completed' ? 'disabled': ''
+                        }
+                        ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
                       <option value="confirmed"
                         ${
                           row.status == 'cancelled' ? 'disabled':
                           row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
                           row.status == 'completed' ? 'disabled': ''
-                         }
-                         ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
+                        }
+                        ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
                       <option value="cancelled"
                         ${
                           row.status == 'awaiting_picked' ? 'disabled': row.status == 'picked' ? 'disabled':
                           row.status == 'completed' ? 'disabled': ''
-                         }
-                         ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                        }
+                        ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
                       ${row.status == 'cancelled' ? '':
-                      `<option value="awaiting_picked"
-                        ${
-                          row.status == 'picked' ? 'disabled':
-                          row.status == 'completed' ? 'disabled': ''
-                        }
-                        ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
-                      <option value="picked"
-                        ${
-                          row.status == 'completed' ? 'disabled': ''
-                        }
-                         ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
-=======
-            { "data": "status", render: function (d, type, row, meta) {
-                  
-              return `<select class="form-select" id="status" aria-label="Default select example">
-                      <option value="pending" ${row.status == 'pending' ? 'selected' : ''}>Pending</option>
-                      <option value="confirmed" ${row.status == 'confirmed' ? 'selected' : ''}>Confirmed</option>
-                      <option value="cancelled" ${row.status == 'cancelled' ? 'selected' : ''}>Cancelled</option>
-                      ${row.status == 'confirmed' ? 
-                      `<option value="awaiting_picked" ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
-                      <option value="picked" ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
->>>>>>> 52154a8f32dd5c8f835c937dac067f18ce67e608
-                      <option value="completed" ${row.status == 'completed' ? 'selected' : ''}>Completed</option>`
-                       }
+                        `<option value="awaiting_picked"
+                          ${
+                            row.status == 'picked' ? 'disabled':
+                            row.status == 'completed' ? 'disabled': ''
+                          }
+                          ${row.status == 'awaiting_picked' ? 'selected' : ''}>Awaiting Picked</option>
+                        <option value="picked"
+                          ${
+                            row.status == 'completed' ? 'disabled': ''
+                          }
+                          ${row.status == 'picked' ? 'selected' : ''}>Picked</option>
+                        <option value="completed" ${row.status == 'completed' ? 'selected' : ''}>Completed</option>`
+                      }
                   </select>`
-                }
+              }
             },
             { "data": "updated_at" },
             { "data": "actions" },
@@ -115,16 +103,9 @@ block content
           
           data.id = row.id
           data.status = $(this).val();
-<<<<<<< HEAD
-          data.id=row.id
+
           var option_id=$(this).children(":selected").attr("id")
-          //- for(var i=1;i<option_id;i++){
-            //- $('#'+1).attr('datamin','1000')
-          //- }
-          //- alert(data.status + ">>" + row.id);
-=======
-  
->>>>>>> 52154a8f32dd5c8f835c937dac067f18ce67e608
+      
           $.ajax({
             type: 'POST',
             headers: {"authorization": "Bearer " + token},
