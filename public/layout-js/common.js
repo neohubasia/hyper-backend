@@ -366,7 +366,7 @@ function handleAlert(args, redirect = true) {
     var postFrm = $('#postSuccessForm');
     window.setTimeout(function () {
       if (redirect) postFrm.submit();
-      $('#alert').removeClass().hide();
+      $('#alert').removeClass("alert-success").hide();
     }, 1 * 1000);
   }
   else {
@@ -375,7 +375,7 @@ function handleAlert(args, redirect = true) {
     $("#alert").addClass("alert-danger").show();
 
     window.setTimeout(function () {
-      $('#alert').removeClass().hide();
+      $('#alert').removeClass("alert-danger").hide();
     }, 1 * 1000);
   }
 }

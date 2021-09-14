@@ -36,6 +36,23 @@ users.show = (req, res, next) => {
     });
 }
 
+users.showby = (req, res, next) => {
+  usersDb.findUserBy(req.query)
+    .then(data => {
+      res.json({
+        status: "SUCCESS",
+        data: data
+      });
+    })
+    .catch(err => {
+      console.log(`Error ${err}`)
+      res.json({
+        status: "FAIL",
+        data: err
+      })
+    });
+}
+
 users.create = (req, res, next) => {
   usersDb.addUser(req.body)
     .then(data => {

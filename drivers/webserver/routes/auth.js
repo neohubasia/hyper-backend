@@ -8,23 +8,24 @@ router.get('/login', (req, res, next) => {
     app: config.app, title: "Login", subtitle: "Welcome back"
   });
 })
-.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) {
-      console.log(`Error ${err}`);
-      return next(err);
-    }
-    if (!user) {
-      return res.redirect('/login?info=' + info);
-    }
-    req.logIn(user, function(err) {
+  .post('/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
       if (err) {
+        console.log(`Error ${err}`);
         return next(err);
       }
-      return res.redirect('/');
-    });
-  })(req, res, next);
-});
+      if (!user) {
+        return res.redirect('/login?info=' + info);
+      }
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+        console.log(user)
+        return res.redirect('/');
+      });
+    })(req, res, next);
+  });
 
 router.get('/logout', (req, res, next) => {
   req.logout();

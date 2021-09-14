@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 // api routing
-const customers=require('./customer')
+const customers = require('./customer')
 
 // schema vialidation
-const validateware = require('./../../../../middlewares/validator');
+const validateware = require('../../../../middlewares/validator');
 
 
 router

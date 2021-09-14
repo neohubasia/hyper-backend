@@ -33,6 +33,7 @@ router
 router
   .get('/users', users.index)
   .get('/user/:id', users.show)
+  .get('/user', users.showby)
   .post('/user', users.create)
   .post('/user/:id', users.update)
   .delete('/user/:id', users.delete);
@@ -122,7 +123,7 @@ router
   .get('/order', orders.showby)
   .delete('/order/:id', orders.delete)
   .delete('/orders', orders.deleteall)
-  .post('/order/status',orders.updateStatus)
+  .post('/order/status', orders.updateStatus)
 
 
 router

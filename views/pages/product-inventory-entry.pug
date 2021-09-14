@@ -8,29 +8,39 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-md-6.mb-1.offset-md-3
+          div.col-md-6.mb-2
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
 
-        div.form-group.row
-          div.col-md-6.mb-1.offset-md-3
+          div.col-md-6.mb-2
             label.control-label(for='quantity') Quantity
             input.form-control.input-sm#quantity(type='number', name='quantity', role='number', min='1', value=data.quantity, autocomplete="off" required)
 
         div.form-group.row
-          div.col-md-6.mb-1.offset-md-3
+          div.col-md-6.mb-2
+            - var weight_id =  data.weight_id || "#";
+            label.control-label(for='weight_id') Weight
+            select.form-control.input-sm.selectpicker#weight_id(name='weight_id' value=weight_id._id data-value=weight_id._id, data-live-search="true", data-size="8" required)
+          
+          div.col-md-6.mb-2
+            - var package_id =  data.package_id || "#";
+            label.control-label(for='package_id') Package
+            select.form-control.input-sm.selectpicker#package_id(name='package_id' value=package_id._id data-value=package_id._id, data-live-search="true", data-size="8" required)
+
+        
+        div.form-group.row
+          div.col-md-6.mb-2
             - var supplier_id =  data.supplier_id || "#";
             label.control-label(for='supplier_id') Supplier
             select.form-control.input-sm.selectpicker#supplier_id(name='supplier_id' value=supplier_id.  id data-value=supplier_id._id, data-live-search="true", data-size="8" required)
 
-        div.form-group.row
-          div.col-md-6.mb-1.offset-md-3
+          div.col-md-6.mb-2
             label.control-label(for='inventory_type') Inventory Type
             select#inventory_type.selectpicker.form-control(name='inventory_type', value=data.inventory_type, data-value=data.inventory_type  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
-              option(value="RM")  Raw Materials
+              option(value="RMS")  Raw Materials
               option(value="WIP") Work in Process
-              option(value="FG")  Finished Goods
+              option(value="FGS")  Finished Goods
               option(value="MRO") Maintenance, Repair and Operations
 
         include ./../includes/layout-entry-btn
@@ -41,6 +51,24 @@ block content
       var editMode = $("input[name='id']").val();
       var token = '!{token}';
       $('#alert').hide();
+
+      ajaxLoadOption({
+        type: "GET",
+        url:"/api/product_weights",
+        selectId: "#weight_id",
+        showKey: "name",
+        filterObj: {},
+        token: token
+      });
+
+      ajaxLoadOption({
+        type: "GET",
+        url:"/api/product_packages",
+        selectId: "#package_id",
+        showKey: "name",
+        filterObj: {},
+        token: token
+      });
 
       ajaxLoadOption({
         type: "GET",

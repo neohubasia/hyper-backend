@@ -17,7 +17,7 @@ const { tokenRouter } = require('./middlewares/generator');
 
 const authRouter = require('./drivers/webserver/routes/auth');
 const apiRouter = require('./drivers/webserver/routes/api');
-const customerRouter = require('./drivers/webserver/routes/customer_api')
+const customerRouter = require('./drivers/webserver/routes/c_api')
 const fileRouter = require('./drivers/webserver/routes/files');
 
 const UserDetails = require('./database/mongodb/models/user');
@@ -38,6 +38,14 @@ app.use(expressSession);
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Locals data middleware
+app.use(function (req, res, next) {
+  if (req.user)
+    res.locals.user = req.user;
+
+  next();
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 

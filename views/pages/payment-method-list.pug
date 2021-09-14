@@ -8,9 +8,11 @@ block content
       thead
         tr
           th #
-          th Name
-          th Payment Role
+          th Acc No.
+          th Acc Name
           th Organization
+          th Payment Method
+          th Payment Name
           th Status
           th Updated Time
           th.actions
@@ -42,20 +44,22 @@ block content
           },
           "columns": [
             { "data": "id" },
-            { "data": "name"},
-            { "data": "payment_role" },
+            { "data": "acc_number"},
+            { "data": "acc_name"},
             { "data": "organization" },
+            { "data": "payment_method" },
+            { "data": "payment_name" },
             { "data": "status" },
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 2, render: dataTableTypeRenderer() },
-            { targets: 3, render: dataTableTypeRenderer() },
-            { targets: 4, render: dataTableActiveRenderer() },
-            { targets: 5, render: dataTableDateTimeRenderer() },
-            { targets: 6, orderable: false, render: dataTableActionsRenderer(
+            { targets: 4, render: dataTableTypeRenderer() },
+            { targets: 5, render: dataTableTypeRenderer() },
+            { targets: 6, render: dataTableActiveRenderer() },
+            { targets: 7, render: dataTableDateTimeRenderer() },
+            { targets: 8, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )

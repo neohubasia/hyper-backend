@@ -1,6 +1,7 @@
 let {
   listUsers,
   findUser,
+  findUserBy,
   addUser,
   updateUser,
   deleteUser
@@ -11,6 +12,7 @@ let {
 let exportDb = {
   listUsers,
   findUser,
+  findUserBy,
   addUser,
   updateUser,
   deleteUser

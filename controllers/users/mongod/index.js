@@ -9,24 +9,31 @@ let listUsers = () => {
 let findUser = (prop, val) => {
   if (prop === 'id')
     prop = '_id'
-  return User.find({[prop]: val})
+  return User.find({ [prop]: val })
     .then(resp => {
       return serialize(resp[0])
-  });
+    });
+}
+
+let findUserBy = (params) => {
+  console.log(params)
+  return User.find(params)
+    .then(serialize)
 }
 
 let addUser = (userInfo) => {
   return User.register({
     username: userInfo.username,
+    supplier_id: userInfo.supplier_id,
     role: userInfo.role,
     active: true,
   }, userInfo.password)
-   .then(serialize);
+    .then(serialize);
 }
 
 let updateUser = async (id, userInfo) => {
   const newpassword = userInfo.password;
-  delete(userInfo.password);
+  delete (userInfo.password);
   return User.findByIdAndUpdate(id, userInfo)
     .then(async resp => {
       await resp.setPassword(newpassword);
@@ -45,9 +52,9 @@ let deleteUser = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }
@@ -55,6 +62,7 @@ let deleteUser = (id) => {
 module.exports = {
   listUsers,
   findUser,
+  findUserBy,
   addUser,
   updateUser,
   deleteUser

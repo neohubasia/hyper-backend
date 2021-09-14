@@ -28,23 +28,26 @@ block content
                   button.btn.remove-file(type="button") Remove
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-4.mb-2
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required)
-          div.col-sm-6.mb-2
+          div.col-sm-4.mb-2
             - var category_id =  data.category_id || "#";
             label.control-label(for='category') Category
             select.form-control.selectpicker#category_id(name='category_id' value=category_id._id data-value=category_id._id, data-live-search="true", data-size="8" required)
-      
+          div.col-sm-4.mb-2
+            - var inventory_id =  data.inventory_id || "#";
+            label.control-label(for='inventory') Inventory
+            select.form-control.selectpicker#inventory_id(name='inventory_id' value=inventory_id._id data-value=inventory_id._id, data-live-search="true", data-size="8" required)
+        
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='features') Features
             input.form-control.input-sm#features(type='text', name='features', value=data.features, data-role="tagsinput")
           div.col-sm-6.mb-2
-            - var inventory_id =  data.inventory_id || "#";
-            label.control-label(for='inventory') Inventory
-            select.form-control.selectpicker#inventory_id(name='inventory_id' value=inventory_id._id data-value=inventory_id._id, data-live-search="true", data-size="8")
-        
+            label.control-label(for='code') Code
+            input.form-control.input-sm#code(type='text', name='sku', value=data.sku required)
+         
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='price') Price

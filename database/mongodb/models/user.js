@@ -4,12 +4,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const Schema = mongoose.Schema;
 const makeSchema = new Schema({
+  role: String,
   username: String,
   password: String,
-  active: {
-    type: Boolean, default: false
-  },
-  role: String,
+  active: { type: Boolean, default: false },
+  supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
   created_at: { type: Date },
   updated_at: { type: Date }
 });

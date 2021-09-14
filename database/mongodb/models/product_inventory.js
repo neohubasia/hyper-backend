@@ -4,12 +4,13 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
     name: { type: String },
+    weight_id: { type: mongoose.Schema.Types.ObjectId, ref: "product_weight" },
+    package_id: { type: mongoose.Schema.Types.ObjectId, ref: "product_package" },
     supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
-    inventory_type: { type: String, enum: [ "RM", "WIP", "FG", "MRO" ], default: "Raw Materials" },
+    inventory_type: { type: String, enum: ["RMS", "WIP", "FGS", "MRO"], default: "Raw Materials" },
     quantity: { type: Number },
     created_at: { type: Date },
     updated_at: { type: Date },
-    deleted_at: { type: Date }
 });
 
 makeSchema.plugin(SchemaPlugin);

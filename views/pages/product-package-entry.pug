@@ -10,6 +10,12 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
+          
+          div.col-sm-6.mb-2
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description' rows="1")= data.description
+          
+        div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
@@ -19,11 +25,6 @@ block content
               div.col-sm-6.mb-2.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-        div.form-group.row
-          div.col-sm-6.mb-2
-            label.control-label(for='description') Description
-            input.form-control.input-sm#description(type='text', name='description', value=data.description autocomplete="off")
-  
         include ./../includes/layout-entry-btn
   
     form#postSuccessForm(method='GET', action=page.list.url)
