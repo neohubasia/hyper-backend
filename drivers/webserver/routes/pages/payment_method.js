@@ -10,7 +10,7 @@ let paymentmethodDb = require('../../../../controllers/payment_methods');
 router.get('/payment_methods',
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    res.render('pages/paymentmethod-list', {
+    res.render('pages/payment-method-list', {
       ...menuAccess.getProgram(req.user.role, "generalMenu.paymentMethodSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
@@ -25,7 +25,7 @@ router.get('/payment_method/:id?',
     if (req.params.id)
       data = await paymentmethodDb.findData('id', req.params.id);
 
-    res.render('pages/paymentmethod-entry', {
+    res.render('pages/payment-method-entry', {
       ...menuAccess.getProgram(req.user.role, "generalMenu.paymentMethodSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,

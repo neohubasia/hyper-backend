@@ -4,7 +4,6 @@ let {
   findDataBy,
   addData,
   updateData,
-  updateDataByDiscountId,
   deleteData,
   dropAll
 }
@@ -19,7 +18,6 @@ let exportDb = {
   findDataBy,
   addData,
   updateData,
-  updateDataByDiscountId,
   deleteData,
   dropAll
 };

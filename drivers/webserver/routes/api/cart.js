@@ -1,3 +1,4 @@
+const { async } = require('validate.js');
 let cartDb = require('../../../../controllers/carts');
 
 let carts = module.exports = {};
@@ -88,11 +89,28 @@ carts.update = (req, res, next) => {
         });
 }
 
+carts.updateMany = async (req, res, next) => {
+    const response = await cartDb.updateMany(req.query, req.body)
+    // .then(data => {
+    //     res.send(data)
+    // })
+    // .catch(next);
+    res.send(response)
+}
+
 carts.delete = (req, res, next) => {
     cartDb.deleteData(req.body.customerId)
         .then(data => {
             // res.send(data)
             next();
+        })
+        .catch(next);
+}
+
+carts.deleteBy = (req, res, next) => {
+    cartDb.deleteDataBy(req.query)
+        .then(data => {
+            res.send(data)
         })
         .catch(next);
 }

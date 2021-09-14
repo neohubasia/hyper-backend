@@ -4,7 +4,9 @@ let {
   findDataBy,
   addData,
   updateData,
+  updateMany,
   deleteData,
+  deleteDataBy,
   dropAll
 }
   // = require('./memory/index') // switch out db as required
@@ -18,7 +20,9 @@ let exportDb = {
   findDataBy,
   addData,
   updateData,
+  updateMany,
   deleteData,
+  deleteDataBy,
   dropAll
 };
 

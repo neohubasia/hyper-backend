@@ -42,7 +42,27 @@ let findData = async (prop, val) => {
 }
 
 let findDataBy = (params) => {
-  return Product.find(params)
+  const filter = params.filter || {};                   // Filter Param Anythings
+  const sort = params.sort || {};                       // Sort Param Anythings
+  let limit = parseInt(params.page.limit) || 60;        // Content Length
+  let skip = parseInt(params.page.skip) || 0;           // Page No.
+  skip = skip * limit;
+
+  for (const i in sort) {
+    sort[i] = parseInt(sort[i]);                        // Sort Ensure
+  }
+
+  if (params.can_discount) {                            // Get Discount Product
+    filter['discount_id'] = { "$ne": null };
+  }
+
+  console.log("Edit Param ", filter, sort, skip, limit)
+
+  return Product
+    .find(filter)
+    .sort(sort)
+    .skip(skip)
+    .limit(limit)
     .populate({
       path: 'category_id',
       model: 'product_category',
@@ -54,7 +74,7 @@ let findDataBy = (params) => {
     }).populate({
       path: 'discount_id',
       model: 'discount',
-      select: 'name as discount_name'
+      select: 'name as discount_name, discount_type discount_amount discounts'
     })
     .then(serialize);
 }
@@ -68,10 +88,6 @@ let updateData = (id, dataObj) => {
   return Product.findByIdAndUpdate(id, dataObj)
     .then(serialize);
 }
-let updateDataByDiscountId = (we, dataObj) => {
-  return Product.updateMany({discount_id:we}, dataObj)
-    .then(serialize);
-}
 
 let deleteData = (id) => {
   return Product.findByIdAndDelete(id)
@@ -83,9 +99,9 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }
@@ -100,7 +116,6 @@ module.exports = {
   findDataBy,
   addData,
   updateData,
-  updateDataByDiscountId,
   deleteData,
   dropAll
 };

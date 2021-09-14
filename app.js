@@ -41,7 +41,7 @@ app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-fs.readdirSync(__dirname + '/drivers/webserver/routes/pages').forEach(function(name){
+fs.readdirSync(__dirname + '/drivers/webserver/routes/pages').forEach(function (name) {
   var obj = require(path.join(__dirname, '/drivers/webserver/routes/pages/' + name));
   routeModules.push(obj);
 });
@@ -53,8 +53,8 @@ app.use(authRouter);
 // connect to api routes
 app.use('/api', _jwt.checkToken, apiRouter);
 
-app.use('/c_api', _jwt.checkToken, customerRouter)
- 
+app.use('/c-api', _jwt.checkToken, customerRouter)
+
 // connet to file routes 
 app.use('/file', fileRouter)
 
@@ -62,7 +62,7 @@ app.use('/file', fileRouter)
 app.use('/d-mar', tokenRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
@@ -80,7 +80,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
- 
+
   // res.json({
   //   "status": "ERR",
   //   "message": err

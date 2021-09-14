@@ -119,10 +119,10 @@ block content
 
       ajaxLoadOption({
         type: "GET",
-        url:"/api/discounts/activeData",
+        url:"/api/discount",
         selectId: "#discount_id",
         showKey: "name",
-        filterObj: { },
+        filterObj: { active: true },
         token: token
       });
 

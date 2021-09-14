@@ -9,7 +9,7 @@ let makeSchema = new Schema({
     address_info: [
         {
             address: { type: String },
-            townshipid:  { type: mongoose.Schema.Types.ObjectId, ref: "township" },
+            townshipid: { type: mongoose.Schema.Types.ObjectId, ref: "township" },
             cityid: { type: mongoose.Schema.Types.ObjectId, ref: "city" },
             postal_code: { type: Number },
             mobile_no: { type: String },
@@ -26,6 +26,7 @@ let makeSchema = new Schema({
         }
     ],
     product_type_id: { type: mongoose.Schema.Types.ObjectId, ref: "product_category" },
+    feature: { type: Boolean, default: true },
     access: { type: Boolean, default: false },
     status: { type: Boolean, default: true },
     description: { type: String },

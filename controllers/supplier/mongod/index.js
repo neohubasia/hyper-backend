@@ -3,13 +3,23 @@ let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
   return Supplier.find({})
+    .populate({
+      path: "product_type_id",
+      model: "product_category",
+      select: "name description"
+    })
     .then(serialize);
 }
 
 let findData = (prop, val) => {
   if (prop === 'id')
     prop = '_id'
-  return Supplier.find({[prop]: val})
+  return Supplier.find({ [prop]: val })
+    .populate({
+      path: "product_type_id",
+      model: "product_category",
+      select: "name description"
+    })
     .then(resp => {
       return serialize(resp[0])
     });
@@ -17,6 +27,11 @@ let findData = (prop, val) => {
 
 let findDataBy = (params) => {
   return Supplier.find(params)
+    .populate({
+      path: "product_type_id",
+      model: "product_category",
+      select: "name description"
+    })
     .then(serialize);
 }
 
@@ -40,9 +55,9 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }
