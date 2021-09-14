@@ -1,11 +1,23 @@
 extends ../includes/layout-main
 block content
+  div.modal.fade#AddUserPassDialog(tabindex='-1', role='dialog', aria-labelledby='AddPayment')
+    div.modal-dialog.modal-sm(role='document', style='max-width:730px')
+      div.modal-content
+        div.modal-header
+          h4.modal-title 
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        div.modal-body
+          div.form-group.row
+            div.col-sm-2.label-data
+              label.control-label(for='username') User Name
+        div.modal-footer
+          button.btn.btn-primary#dialogPaymentAccept(type='button', data-dismiss='modal') Ok
+          button.btn.btn-secondary#dialogPaymentCancel(type='button', data-dismiss='modal') Cancel
   main.ml-sm-auto.px-md-4(role='main')
-
     include ./../includes/layout-entry-header
     include ./../includes/layout-entry-form
       block inputs
-
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='company_name') Company Name
@@ -64,16 +76,15 @@ block content
             label.control-label(for='access') Register Access
             div.radio.radio-toolbar.row
               div.col-sm-6.mb-2.col-xl-3
-                input#statusAccess.radiobox(type='radio', name='access', value="1" checked)
+                input#statusAccess.radiobox(type='radio', name='access', value="1" , data-toggle="modal", data-target="#AddUserPassDialog")
                 label.ml-1(for='statusAccess') &nbsp; Access
               div.col-sm-6.mb-2.col-xl-3
-                input#statusUnaccess.radiobox(type='radio', name='access', value="0")
+                input#statusUnaccess.radiobox(type='radio', name='access', value="0" checked)
                 label.ml-1(for='statusUnaccess') &nbsp; Unaccess
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description', disabled autofocus)= data.description
-  
         include ./../includes/layout-entry-btn
   
     form#postSuccessForm(method='GET', action=page.list.url)

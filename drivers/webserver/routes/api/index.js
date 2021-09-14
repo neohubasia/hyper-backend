@@ -20,6 +20,7 @@ const suppliers = require('./supplier');
 const payment_methods = require('./payment_method');
 const product_package = require('./product_package');
 const product_weight = require('./product_weight');
+const template = require('./template');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -167,6 +168,15 @@ router
   .post('/product_weight/:id', product_weight.update)
   .delete('/product_weight/:id', product_weight.delete)
   .delete('/product_weights', product_weight.deleteall);
+
+router
+  .get('/templates', template.index)
+  .get('/template/:id', template.show)
+  .get('/template', template.showby)
+  .post('/template', template.create)
+  .post('/template/:id', template.update)
+  .delete('/template/:id', template.delete)
+  .delete('/templates', template.deleteall);
 
 
 router
