@@ -85,29 +85,6 @@ function dataTableDetailActionsRenderer(detailUrl, access, icons) {
   };
 }
 
-function dataTableColumnFilter(column_name) {
-  return function () {
-    this.api()
-      .columns(0)
-      .every(function () {
-        var column = this;
-        var select = $('<select><option value="">[SELECT]</option></select>')
-          .appendTo($(column.header()).html(column_name))
-          .on("change", function () {
-            var val = $.fn.dataTable.util.escapeRegex($(this).val());
-            column.search(val ? "^" + val + "$" : "", true, false).draw();
-          });
-        column
-          .data()
-          .unique()
-          .sort()
-          .each(function (d, j) {
-            select.append('<option value="' + d + '">' + d + "</option>");
-          });
-      });
-  };
-}
-
 function dataTableDateRenderer() {
   return function (d, type, row) {
     return moment(new Date(d)).format("DD/MM/YYYY")

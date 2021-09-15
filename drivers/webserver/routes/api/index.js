@@ -4,25 +4,27 @@ const router = express.Router();
 // api routing
 const dev = require('./develop');
 const users = require('./user');
-const userRoles = require('./user-role');
-const students = require('./student');
-const townships = require('./township');
 const cities = require('./city');
-const product_cat = require('./product_category')
-const product_inv = require('./product_inventory')
-const discounts = require('./discount')
-const products = require('./product')
-const carts = require('./cart')
-const orders = require('./order')
+const carts = require('./cart');
+const orders = require('./order');
+const coupons = require('./coupon');
 const banners = require('./banner');
 const customers = require('./customer');
 const suppliers = require('./supplier');
+const townships = require('./township');
+const userRoles = require('./user-role');
+const students = require('./student');
+const discounts = require('./discount');
+const products = require('./product');
+const templates = require('./template');
+const product_cat = require('./product_category')
+const product_inv = require('./product_inventory')
 const payment_methods = require('./payment_method');
 const product_packages = require('./product_package');
 const product_weights = require('./product_weight');
 const delivery_companies = require('./delivery_company');
 const delivery_charges = require('./delivery_charge');
-const templates = require('./template');
+
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -57,6 +59,15 @@ router
   .post('/city/:id', cities.update)
   .delete('/city/:id', cities.delete)
   .delete('/cities', cities.deleteall);
+
+router
+  .get('/coupons', coupons.index)
+  .get('/coupon/:id', coupons.show)
+  .get('/coupon', coupons.showby)
+  .post('/coupon', coupons.create)
+  .post('/coupon/:id', coupons.update)
+  .delete('/coupon/:id', coupons.delete)
+  .delete('/coupons', coupons.deleteall);
 
 router
   .get('/students', students.index)

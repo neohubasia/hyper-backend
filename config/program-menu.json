@@ -377,39 +377,6 @@
         "actions": "1,1,1"
       },
       {
-        "menuid": "productInventorySubMenu",
-        "url": "/product_inventories",
-        "title": "Product Inventory",
-        "icon": "fa fa-boxes",
-        "access": false,
-        "active": false,
-        "list": {
-          "url": "/product_inventories",
-          "title": "Product Inventory List",
-          "breadcrumb": [
-            {
-              "url": "",
-              "text": "Product Inventory List"
-            }
-          ]
-        },
-        "entry": {
-          "url": "/product_inventory",
-          "title": "Product Inventory Entry",
-          "breadcrumb": [
-            {
-              "url": "/product_inventories",
-              "text": "Product Inventory List"
-            },
-            {
-              "url": "",
-              "text": "Product Inventory Entry"
-            }
-          ]
-        },
-        "actions": "1,1,1"
-      },
-      {
         "menuid": "productCategorySubMenu",
         "url": "/product_categories",
         "title": "Product Category",
@@ -437,6 +404,39 @@
             {
               "url": "",
               "text": "Product Category Entry"
+            }
+          ]
+        },
+        "actions": "1,1,1"
+      },
+      {
+        "menuid": "productInventorySubMenu",
+        "url": "/product_inventories",
+        "title": "Product Inventory",
+        "icon": "fa fa-boxes",
+        "access": false,
+        "active": false,
+        "list": {
+          "url": "/product_inventories",
+          "title": "Product Inventory List",
+          "breadcrumb": [
+            {
+              "url": "",
+              "text": "Product Inventory List"
+            }
+          ]
+        },
+        "entry": {
+          "url": "/product_inventory",
+          "title": "Product Inventory Entry",
+          "breadcrumb": [
+            {
+              "url": "/product_inventories",
+              "text": "Product Inventory List"
+            },
+            {
+              "url": "",
+              "text": "Product Inventory Entry"
             }
           ]
         },
