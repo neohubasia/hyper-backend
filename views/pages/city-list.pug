@@ -8,7 +8,7 @@ block content
       thead
         tr
           th #
-          th City
+          th Region
           th Unit
           th Code
           th Description
@@ -53,6 +53,7 @@ block content
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
+            { targets: 4, render: dataTableTextSlicer() },
             { targets: 5, render: dataTableActiveRenderer() },
             { targets: 6, render: dataTableDateTimeRenderer() },
             { targets: 7, orderable: false, render: dataTableActionsRenderer(

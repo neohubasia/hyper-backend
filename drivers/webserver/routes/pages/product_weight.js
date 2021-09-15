@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const connect = require('connect-ensure-login');
-const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
+const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-let productweightDb = require('../../../../controllers/product_weight');
+let ProductWeightsDb = require('../../../../controllers/product_weight');
 
 router.get('/product_weights',
   connect.ensureLoggedIn(),
@@ -23,7 +23,7 @@ router.get('/product_weight/:id?',
   async (req, res, next) => {
     let data = {};
     if (req.params.id)
-      data = await productweightDb.findData('id', req.params.id);
+      data = await ProductWeightsDb.findData('id', req.params.id);
 
     res.render('pages/product-weight-entry', {
       ...menuAccess.getProgram(req.user.role, "catalogMenu.productWeightSubMenu.entry"), // admin may change on req.user => role
@@ -39,12 +39,12 @@ router.get('/product_weight/:id?',
       let db, status = "FAIL";
 
       if (!req.body.id) { // insert data 
-        db = productweightDb.addData(req.body);
+        db = ProductWeightsDb.addData(req.body);
       }
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        db = productweightDb.updateData(req.body.id, data);
+        db = ProductWeightsDb.updateData(req.body.id, data);
       }
       db.then(result => {
         if (result != null)

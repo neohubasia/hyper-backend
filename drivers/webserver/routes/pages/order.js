@@ -5,7 +5,7 @@ const connect = require('connect-ensure-login');
 const config = require("../../../../config/index");
 const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-let orderDb = require('../../../../controllers/orders')
+let OrdersDb = require('../../../../controllers/order')
 
 router.get('/orders',
   connect.ensureLoggedIn(),
@@ -22,7 +22,7 @@ router.get('/order/:id?',
   connect.ensureLoggedIn(),
   async (req, res, next) => {
     let data = {};
-    data = await orderDb.findData('id', req.params.id);
+    data = await OrdersDb.findData('id', req.params.id);
     res.render('pages/order-deatil-list', {
       ...menuAccess.getProgram(req.user.role, "orderMenu.orderSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),

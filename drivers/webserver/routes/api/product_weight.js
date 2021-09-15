@@ -1,9 +1,9 @@
-let productweightDb = require('../../../../controllers/product_weight');
+let ProductWeightsDb = require('../../../../controllers/product_weight');
 
-let productweight = module.exports = {};
+let product_weights = module.exports = {};
 
-productweight.index = (req, res, next) => {
-  productweightDb.listData()
+product_weights.index = (req, res, next) => {
+  ProductWeightsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -19,8 +19,8 @@ productweight.index = (req, res, next) => {
     });
 }
 
-productweight.show = (req, res, next) => {
-  productweightDb.findData('id', req.params.id)
+product_weights.show = (req, res, next) => {
+  ProductWeightsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,8 +36,8 @@ productweight.show = (req, res, next) => {
     });
 }
 
-productweight.showby = (req, res, next) => {
-  productweightDb.findDataBy(req.query)
+product_weights.showby = (req, res, next) => {
+  ProductWeightsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -53,8 +53,8 @@ productweight.showby = (req, res, next) => {
     });
 }
 
-productweight.create = (req, res, next) => {
-  productweightDb.addData(req.body)
+product_weights.create = (req, res, next) => {
+  ProductWeightsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -70,8 +70,8 @@ productweight.create = (req, res, next) => {
     });
 }
 
-productweight.update = (req, res, next) => {
-  productweightDb.updateData(req.params.id, req.body)
+product_weights.update = (req, res, next) => {
+  ProductWeightsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -87,16 +87,16 @@ productweight.update = (req, res, next) => {
     });
 }
 
-productweight.delete = (req, res, next) => {
-  productweightDb.deleteData(req.params.id)
+product_weights.delete = (req, res, next) => {
+  ProductWeightsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
     .catch(next);
 }
 
-productweight.deleteall = (req, res, next) => {
-  productweightDb.dropAll()
+product_weights.deleteall = (req, res, next) => {
+  ProductWeightsDb.dropAll()
     .then(data => {
       res.send(data)
     })

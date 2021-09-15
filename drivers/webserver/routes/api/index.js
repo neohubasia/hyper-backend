@@ -18,9 +18,11 @@ const banners = require('./banner');
 const customers = require('./customer');
 const suppliers = require('./supplier');
 const payment_methods = require('./payment_method');
-const product_package = require('./product_package');
-const product_weight = require('./product_weight');
-const template = require('./template');
+const product_packages = require('./product_package');
+const product_weights = require('./product_weight');
+const delivery_companies = require('./delivery_company');
+const delivery_charges = require('./delivery_charge');
+const templates = require('./template');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
@@ -154,31 +156,49 @@ router
   .delete('/payment_methods', payment_methods.deleteall);
 
 router
-  .get('/product_packages', product_package.index)
-  .get('/product_package/:id', product_package.show)
-  .get('/product_package', product_package.showby)
-  .post('/product_package', product_package.create)
-  .post('/product_package/:id', product_package.update)
-  .delete('/product_package/:id', product_package.delete)
-  .delete('/product_packages', product_package.deleteall);
+  .get('/product_packages', product_packages.index)
+  .get('/product_package/:id', product_packages.show)
+  .get('/product_package', product_packages.showby)
+  .post('/product_package', product_packages.create)
+  .post('/product_package/:id', product_packages.update)
+  .delete('/product_package/:id', product_packages.delete)
+  .delete('/product_packages', product_packages.deleteall);
 
 router
-  .get('/product_weights', product_weight.index)
-  .get('/product_weight/:id', product_weight.show)
-  .get('/product_weight', product_weight.showby)
-  .post('/product_weight', product_weight.create)
-  .post('/product_weight/:id', product_weight.update)
-  .delete('/product_weight/:id', product_weight.delete)
-  .delete('/product_weights', product_weight.deleteall);
+  .get('/product_weights', product_weights.index)
+  .get('/product_weight/:id', product_weights.show)
+  .get('/product_weight', product_weights.showby)
+  .post('/product_weight', product_weights.create)
+  .post('/product_weight/:id', product_weights.update)
+  .delete('/product_weight/:id', product_weights.delete)
+  .delete('/product_weights', product_weights.deleteall);
 
 router
-  .get('/templates', template.index)
-  .get('/template/:id', template.show)
-  .get('/template', template.showby)
-  .post('/template', template.create)
-  .post('/template/:id', template.update)
-  .delete('/template/:id', template.delete)
-  .delete('/templates', template.deleteall);
+  .get('/delivery-companies', delivery_companies.index)
+  .get('/delivery-company/:id', delivery_companies.show)
+  .get('/delivery-company', delivery_companies.showby)
+  .post('/delivery-company', delivery_companies.create)
+  .post('/delivery-company/:id', delivery_companies.update)
+  .delete('/delivery-company/:id', delivery_companies.delete)
+  .delete('/delivery-companies', delivery_companies.deleteall)
+
+router
+  .get('/delivery-charges', delivery_charges.index)
+  .get('/delivery-charge/:id', delivery_charges.show)
+  .get('/delivery-charge', delivery_charges.showby)
+  .post('/delivery-charge', delivery_charges.create)
+  .post('/delivery-charge/:id', delivery_charges.update)
+  .delete('/delivery-charge/:id', delivery_charges.delete)
+  .delete('/delivery-charges', delivery_charges.deleteall)
+
+router
+  .get('/templates', templates.index)
+  .get('/template/:id', templates.show)
+  .get('/template', templates.showby)
+  .post('/template', templates.create)
+  .post('/template/:id', templates.update)
+  .delete('/template/:id', templates.delete)
+  .delete('/templates', templates.deleteall);
 
 
 router

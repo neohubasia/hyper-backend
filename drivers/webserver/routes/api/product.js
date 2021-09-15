@@ -1,9 +1,9 @@
-let productsDb = require('../../../../controllers/product');
+let ProductsDb = require('../../../../controllers/product');
 
 let products = module.exports = {};
 
 products.index = (req, res, next) => {
-  productsDb.listData()
+  ProductsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ products.index = (req, res, next) => {
 }
 
 products.show = (req, res, next) => {
-  productsDb.findData('id', req.params.id)
+  ProductsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -38,7 +38,7 @@ products.show = (req, res, next) => {
 
 products.showby = (req, res, next) => {
 
-  productsDb.findDataBy(req.query)
+  ProductsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -55,7 +55,7 @@ products.showby = (req, res, next) => {
 }
 
 products.create = (req, res, next) => {
-  productsDb.addData(req.body)
+  ProductsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -72,7 +72,7 @@ products.create = (req, res, next) => {
 }
 
 products.update = (req, res, next) => {
-  productsDb.updateData(req.params.id, req.body)
+  ProductsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -89,7 +89,7 @@ products.update = (req, res, next) => {
 }
 
 products.delete = (req, res, next) => {
-  productsDb.deleteData(req.params.id)
+  ProductsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -97,7 +97,7 @@ products.delete = (req, res, next) => {
 }
 
 products.deleteall = (req, res, next) => {
-  productsDb.dropAll()
+  ProductsDb.dropAll()
     .then(data => {
       res.send(data)
     })

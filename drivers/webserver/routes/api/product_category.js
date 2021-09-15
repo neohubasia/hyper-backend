@@ -1,9 +1,9 @@
-let productCategoriesDb = require('../../../../controllers/product_category');
+let ProductCategoriesDb = require('../../../../controllers/product_category');
 
 let product_categories = module.exports = {};
 
 product_categories.index = (req, res, next) => {
-  productCategoriesDb.listData()
+  ProductCategoriesDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ product_categories.index = (req, res, next) => {
 }
 
 product_categories.show = (req, res, next) => {
-  productCategoriesDb.findData('id', req.params.id)
+  ProductCategoriesDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,9 +36,9 @@ product_categories.show = (req, res, next) => {
     });
 }
 
-product_categories.showby = (req,res, next) => {
+product_categories.showby = (req, res, next) => {
 
-  productCategoriesDb.findDataBy(req.query)
+  ProductCategoriesDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -55,7 +55,7 @@ product_categories.showby = (req,res, next) => {
 }
 
 product_categories.create = (req, res, next) => {
-  productCategoriesDb.addData(req.body)
+  ProductCategoriesDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -72,7 +72,7 @@ product_categories.create = (req, res, next) => {
 }
 
 product_categories.update = (req, res, next) => {
-  productCategoriesDb.updateData(req.params.id, req.body)
+  ProductCategoriesDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -89,7 +89,7 @@ product_categories.update = (req, res, next) => {
 }
 
 product_categories.delete = (req, res, next) => {
-  productCategoriesDb.deleteData(req.params.id)
+  ProductCategoriesDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -97,7 +97,7 @@ product_categories.delete = (req, res, next) => {
 }
 
 product_categories.deleteall = (req, res, next) => {
-  productCategoriesDb.dropAll()
+  ProductCategoriesDb.dropAll()
     .then(data => {
       res.send(data)
     })

@@ -1,3 +1,5 @@
 form.form-horizontal.p-3.card#entryForm(method='post', action=page.entry.url)
-  input.form-control.input-sm#record_id(type='hidden', name='id', value=data.id || data.form.id)
+  -var recordForm = data.form || { id: "" };
+  -var recordId = data.id || recordForm.id;
+  input.form-control.input-sm#record_id(type='hidden', name='id', value=`${recordId}`)
   block inputs

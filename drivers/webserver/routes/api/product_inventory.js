@@ -1,9 +1,9 @@
-let productInventoriesDb = require('../../../../controllers/product_inventory');
+let ProductInventoriesDb = require('../../../../controllers/product_inventory');
 
 let product_inventories = module.exports = {};
 
 product_inventories.index = (req, res, next) => {
-  productInventoriesDb.listData()
+  ProductInventoriesDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ product_inventories.index = (req, res, next) => {
 }
 
 product_inventories.show = (req, res, next) => {
-  productInventoriesDb.findData('id', req.params.id)
+  ProductInventoriesDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,9 +36,9 @@ product_inventories.show = (req, res, next) => {
     });
 }
 
-product_inventories.showby = (req,res, next) => {
+product_inventories.showby = (req, res, next) => {
 
-  productInventoriesDb.findDataBy(req.query)
+  ProductInventoriesDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -55,7 +55,7 @@ product_inventories.showby = (req,res, next) => {
 }
 
 product_inventories.create = (req, res, next) => {
-  productInventoriesDb.addData(req.body)
+  ProductInventoriesDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -72,7 +72,7 @@ product_inventories.create = (req, res, next) => {
 }
 
 product_inventories.update = (req, res, next) => {
-  productInventoriesDb.updateData(req.params.id, req.body)
+  ProductInventoriesDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -89,7 +89,7 @@ product_inventories.update = (req, res, next) => {
 }
 
 product_inventories.delete = (req, res, next) => {
-  productInventoriesDb.deleteData(req.params.id)
+  ProductInventoriesDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -97,7 +97,7 @@ product_inventories.delete = (req, res, next) => {
 }
 
 product_inventories.deleteall = (req, res, next) => {
-  productInventoriesDb.dropAll()
+  ProductInventoriesDb.dropAll()
     .then(data => {
       res.send(data)
     })

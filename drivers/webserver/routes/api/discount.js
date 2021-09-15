@@ -1,9 +1,9 @@
-let discountDb = require('../../../../controllers/discount');
+let DiscountsDb = require('../../../../controllers/discount');
 
 let discounts = module.exports = {};
 
 discounts.index = (req, res, next) => {
-  discountDb.listData()
+  DiscountsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -21,7 +21,7 @@ discounts.index = (req, res, next) => {
 
 
 discounts.show = (req, res, next) => {
-  discountDb.findData('id', req.params.id)
+  DiscountsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -39,7 +39,7 @@ discounts.show = (req, res, next) => {
 
 discounts.showby = (req, res, next) => {
 
-  discountDb.findDataBy(req.query)
+  DiscountsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -56,7 +56,7 @@ discounts.showby = (req, res, next) => {
 }
 
 discounts.create = (req, res, next) => {
-  discountDb.addData(req.body)
+  DiscountsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -73,7 +73,7 @@ discounts.create = (req, res, next) => {
 }
 
 discounts.update = (req, res, next) => {
-  discountDb.updateData(req.params.id, req.body)
+  DiscountsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -90,7 +90,7 @@ discounts.update = (req, res, next) => {
 }
 
 discounts.delete = (req, res, next) => {
-  discountDb.deleteData(req.params.id)
+  DiscountsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -98,7 +98,7 @@ discounts.delete = (req, res, next) => {
 }
 
 discounts.deleteall = (req, res, next) => {
-  discountDb.dropAll()
+  DiscountsDb.dropAll()
     .then(data => {
       res.send(data)
     })

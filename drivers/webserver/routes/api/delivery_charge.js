@@ -1,10 +1,9 @@
-const { async } = require('validate.js');
-let CartsDb = require('../../../../controllers/cart');
+let DeliveryChargesDb = require('../../../../controllers/delivery_charge');
 
-let carts = module.exports = {};
+let delivery_charges = module.exports = {};
 
-carts.index = (req, res, next) => {
-    CartsDb.listData()
+delivery_charges.index = (req, res, next) => {
+    DeliveryChargesDb.listData()
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -20,8 +19,8 @@ carts.index = (req, res, next) => {
         });
 }
 
-carts.show = (req, res, next) => {
-    CartsDb.findData('id', req.params.id)
+delivery_charges.show = (req, res, next) => {
+    DeliveryChargesDb.findData('id', req.params.id)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -37,9 +36,8 @@ carts.show = (req, res, next) => {
         });
 }
 
-carts.showby = (req, res, next) => {
-
-    CartsDb.findDataBy(req.query)
+delivery_charges.showby = (req, res, next) => {
+    DeliveryChargesDb.findDataBy(req.query)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -55,8 +53,8 @@ carts.showby = (req, res, next) => {
         });
 }
 
-carts.create = (req, res, next) => {
-    CartsDb.addData(req.body)
+delivery_charges.create = (req, res, next) => {
+    DeliveryChargesDb.addData(req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -72,8 +70,8 @@ carts.create = (req, res, next) => {
         });
 }
 
-carts.update = (req, res, next) => {
-    CartsDb.updateData(req.params.id, req.body)
+delivery_charges.update = (req, res, next) => {
+    DeliveryChargesDb.updateData(req.params.id, req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -89,34 +87,16 @@ carts.update = (req, res, next) => {
         });
 }
 
-carts.updateMany = async (req, res, next) => {
-    const response = await CartsDb.updateMany(req.query, req.body)
-    // .then(data => {
-    //     res.send(data)
-    // })
-    // .catch(next);
-    res.send(response)
-}
-
-carts.delete = (req, res, next) => {
-    CartsDb.deleteData(req.body.customerId)
-        .then(data => {
-            // res.send(data)
-            next();
-        })
-        .catch(next);
-}
-
-carts.deleteBy = (req, res, next) => {
-    CartsDb.deleteDataBy(req.query)
+delivery_charges.delete = (req, res, next) => {
+    DeliveryChargesDb.deleteData(req.params.id)
         .then(data => {
             res.send(data)
         })
         .catch(next);
 }
 
-carts.deleteall = (req, res, next) => {
-    CartsDb.dropAll()
+delivery_charges.deleteall = (req, res, next) => {
+    DeliveryChargesDb.dropAll()
         .then(data => {
             res.send(data)
         })

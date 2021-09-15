@@ -1,9 +1,9 @@
-let townshipsDb = require('../../../../controllers/townships');
+let TownshipsDb = require('../../../../controllers/township');
 
 let townships = module.exports = {};
 
 townships.index = (req, res, next) => {
-  townshipsDb.listData()
+  TownshipsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ townships.index = (req, res, next) => {
 }
 
 townships.show = (req, res, next) => {
-  townshipsDb.findData('id', req.params.id)
+  TownshipsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,9 +36,9 @@ townships.show = (req, res, next) => {
     });
 }
 
-townships.showby = (req,res, next) => {
-  
-  townshipsDb.findDataBy(req.query)
+townships.showby = (req, res, next) => {
+
+  TownshipsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -55,7 +55,7 @@ townships.showby = (req,res, next) => {
 }
 
 townships.create = (req, res, next) => {
-  townshipsDb.addData(req.body)
+  TownshipsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -72,7 +72,7 @@ townships.create = (req, res, next) => {
 }
 
 townships.update = (req, res, next) => {
-  townshipsDb.updateData(req.params.id, req.body)
+  TownshipsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -89,7 +89,7 @@ townships.update = (req, res, next) => {
 }
 
 townships.delete = (req, res, next) => {
-  townshipsDb.deleteData(req.params.id)
+  TownshipsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -97,7 +97,7 @@ townships.delete = (req, res, next) => {
 }
 
 townships.deleteall = (req, res, next) => {
-  townshipsDb.dropAll()
+  TownshipsDb.dropAll()
     .then(data => {
       res.send(data)
     })

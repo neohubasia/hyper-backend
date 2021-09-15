@@ -21,7 +21,6 @@ router.get('/login', (req, res, next) => {
         if (err) {
           return next(err);
         }
-        console.log(user)
         return res.redirect('/');
       });
     })(req, res, next);

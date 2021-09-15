@@ -1,9 +1,9 @@
-let paymentmethodDb = require('../../../../controllers/payment_methods');
+let PaymentMethodsDb = require('../../../../controllers/payment_method');
 
 let payment_methods = module.exports = {};
 
 payment_methods.index = (req, res, next) => {
-  paymentmethodDb.listData()
+  PaymentMethodsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ payment_methods.index = (req, res, next) => {
 }
 
 payment_methods.show = (req, res, next) => {
-  paymentmethodDb.findData('id', req.params.id)
+  PaymentMethodsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -37,7 +37,7 @@ payment_methods.show = (req, res, next) => {
 }
 
 payment_methods.showby = (req, res, next) => {
-  paymentmethodDb.findDataBy(req.query)
+  PaymentMethodsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -54,7 +54,7 @@ payment_methods.showby = (req, res, next) => {
 }
 
 payment_methods.create = (req, res, next) => {
-  paymentmethodDb.addData(req.body)
+  PaymentMethodsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -71,7 +71,7 @@ payment_methods.create = (req, res, next) => {
 }
 
 payment_methods.update = (req, res, next) => {
-  paymentmethodDb.updateData(req.params.id, req.body)
+  PaymentMethodsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -88,7 +88,7 @@ payment_methods.update = (req, res, next) => {
 }
 
 payment_methods.delete = (req, res, next) => {
-  paymentmethodDb.deleteData(req.params.id)
+  PaymentMethodsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -96,7 +96,7 @@ payment_methods.delete = (req, res, next) => {
 }
 
 payment_methods.deleteall = (req, res, next) => {
-  paymentmethodDb.dropAll()
+  PaymentMethodsDb.dropAll()
     .then(data => {
       res.send(data)
     })

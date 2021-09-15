@@ -8,15 +8,15 @@ block content
       thead
         tr
           th #
-          th Company Logo 
+          th Township
           th Company Name
-          th Website
+          th Charge
+          th Description
           th Status
-          th Registered Date
-          th
-            span.float-right Actions
-        //-     if ((page.actions[0] && page.actions[1]) == true)
-        //-       include ./../includes/layout-list-plus
+          th Updated Time
+          th.actions
+            if ((page.actions[0] && page.actions[1]) == true)
+              include ./../includes/layout-list-plus
       tbody
   script.
     $(document).ready(function() {
@@ -43,21 +43,22 @@ block content
           },
           "columns": [
             { "data": "id" },
-            { "data": "company_logo"},
-            { "data": "company_name" },
-            { "data": "website" },
+            { "data": "townshipid.township_mm"},
+            { "data": "companyid.company_name" },
+            { "data": "charge" },
+            { "data": "description" },
             { "data": "status" },
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 1, render: dataTableThumbnailRenderer() },
-            { targets: 4, render: dataTableActiveRenderer() },
-            { targets: 5, render: dataTableDateTimeRenderer() },
-            { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
+            { targets: 4, render: dataTableTextSlicer() },
+            { targets: 5, render: dataTableActiveRenderer() },
+            { targets: 6, render: dataTableDateTimeRenderer() },
+            { targets: 7, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
-                { detail: "!{app.icons.FLAT_DETAIL}" }
+                { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )
             }
           ]

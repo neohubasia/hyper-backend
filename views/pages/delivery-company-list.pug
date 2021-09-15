@@ -10,13 +10,16 @@ block content
           th #
           th Company Logo 
           th Company Name
-          th Website
+          th Contact Name
+          th Email
+          th Primary Mobile 
+          th Address
           th Status
-          th Registered Date
+          th Updated Date
           th
-            span.float-right Actions
-        //-     if ((page.actions[0] && page.actions[1]) == true)
-        //-       include ./../includes/layout-list-plus
+            span.float-right
+            if ((page.actions[0] && page.actions[1]) == true)
+              include ./../includes/layout-list-plus
       tbody
   script.
     $(document).ready(function() {
@@ -45,7 +48,10 @@ block content
             { "data": "id" },
             { "data": "company_logo"},
             { "data": "company_name" },
-            { "data": "website" },
+            { "data": "contact_name" },
+            { "data": "email" },
+            { "data": "primary_mobile" },
+            { "data": "address" },
             { "data": "status" },
             { "data": "updated_at" },
             { "data": "actions" },
@@ -53,11 +59,12 @@ block content
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 1, render: dataTableThumbnailRenderer() },
-            { targets: 4, render: dataTableActiveRenderer() },
-            { targets: 5, render: dataTableDateTimeRenderer() },
-            { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
+            { targets: 6, render: dataTableTextSlicer() },
+            { targets: 7, render: dataTableActiveRenderer() },
+            { targets: 8, render: dataTableDateTimeRenderer() },
+            { targets: 9, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
-                { detail: "!{app.icons.FLAT_DETAIL}" }
+                { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )
             }
           ]

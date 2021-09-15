@@ -1,9 +1,9 @@
-let studentsDb = require('../../../../controllers/students');
+let StudentsDb = require('../../../../controllers/student');
 
 let students = module.exports = {};
 
 students.index = (req, res, next) => {
-  studentsDb.listData()
+  StudentsDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ students.index = (req, res, next) => {
 }
 
 students.show = (req, res, next) => {
-  studentsDb.findData('id', req.params.id)
+  StudentsDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,9 +36,9 @@ students.show = (req, res, next) => {
     });
 }
 
-students.showby = (req,res, next) => {
+students.showby = (req, res, next) => {
 
-  studentsDb.findDataBy(req.query)
+  StudentsDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -55,7 +55,7 @@ students.showby = (req,res, next) => {
 }
 
 students.create = (req, res, next) => {
-  studentsDb.addData(req.body)
+  StudentsDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -72,7 +72,7 @@ students.create = (req, res, next) => {
 }
 
 students.update = (req, res, next) => {
-  studentsDb.updateData(req.params.id, req.body)
+  StudentsDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -89,7 +89,7 @@ students.update = (req, res, next) => {
 }
 
 students.delete = (req, res, next) => {
-  studentsDb.deleteData(req.params.id)
+  StudentsDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -97,7 +97,7 @@ students.delete = (req, res, next) => {
 }
 
 students.deleteall = (req, res, next) => {
-  studentsDb.dropAll()
+  StudentsDb.dropAll()
     .then(data => {
       res.send(data)
     })

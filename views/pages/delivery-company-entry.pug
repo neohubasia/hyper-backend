@@ -5,14 +5,10 @@ block content
     include ./../includes/layout-entry-header
 
     //- this is single file upload  - work well
-    form#uploadForm(method='POST' action='/file/upload/students' enctype="multipart/form-data")
+    form.d-none#uploadForm(method='POST' action='/file/upload/delivery-companies' enctype="multipart/form-data")
       input#file-input(type='file' name='uploaded_file')
       //- input#file-input-btn(type='submit' name='uploaded_file_btn' value='Upload')
 
-    //- this is multiple files upload - work well
-    //- form(method='POST' action='/file/multiUpload/multitest' enctype='multipart/form-data')
-    //-   input(type='file' name='uploaded_files' multiple='')
-    //-   input(type='submit' name='uploaded_files_btn' value='Upload')
 
     include ./../includes/layout-entry-form
       block inputs
@@ -25,46 +21,52 @@ block content
             .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
               img.m-1.p-3.add-img-wrapper#add-image(src=app.icons.FLAT_PLUS, alt="", srcset="" width="360" height="360")
 
-            - var imageArray = data.profile_images || [];
-            if imageArray.length > 0
-              each imageSrc in imageArray
+            - var imageSrc = data.company_logo || "";
+            if imageSrc
                 .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
-                  input.uploaded-files(type="hidden", name="profile_images[]", value=`${imageSrc}`)
+                  input.uploaded-files(type="hidden", name="company_logo", value=`${imageSrc}`)
                   img.m-1.img.img-thumbnail(src=`${imageSrc}`, alt="", srcset="" width="360" height="360")
                   button.btn.remove-file(type="button") Remove
 
         div.form-group.row
           div.col-sm-6.mb-2
-            label.control-label(for='name') Name
-            input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required autofocus)
+            label.control-label(for='company_name') Company Name
+            input.form-control.input-sm#company_name(type='text', name='company_name', value=data.company_name, maxlength="110" required autofocus)
           div.col-sm-6.mb-2
-            label.control-label(for='age') Age
-            input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
-      
+            label.control-label(for='contact_name') Contact Name
+            input.form-control.input-sm#contact_name(type='text', name='contact_name', value=data.contact_name, maxlength="110" required)
+                 
+        div.form-group.row
+          div.col-sm-4.mb-2
+            label.control-label(for='email') Email
+            input.form-control.input-sm#email(type='text', name='email', value=data.email, maxlength="55" required)
+          div.col-sm-4.mb-2
+            label.control-label(for='primary_mobile') Primary Mobile
+            input.form-control.input-sm#primary_mobile(type='text', name='primary_mobile', value=data.primary_mobile, maxlength="55" required)
+          div.col-sm-4.mb-2
+            label.control-label(for='secondary_mobile') Secondary Mobile
+            input.form-control.input-sm#secondary_mobile(type='text', name='secondary_mobile', value=data.secondary_mobile, maxlength="55" required)
+
+        
+        div.form-group.row
+          div.col-sm-12.mb-2
+            label.control-label(for='address') Address
+            textarea.form-control.input-sm#address(name='address')= data.address
+        
         div.form-group.row
           div.col-sm-6.mb-2
-            - var cityid =  data.cityid || "#";
-            label.control-label(for='city') City
-            select.form-control.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description')= data.description
+
           div.col-sm-6.mb-2
-            - var townshipid =  data.townshipid || "#";
-            label.control-label(for='township') Township
-            select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
-      
-        div.form-group.row
-          div.col-sm-6.mb-2
-            label.control-label(for='grade') Grade
-            input.form-control.input-sm#grade(type='number', name='grade', role='number', min='1' max='11' onkeyup="if(parseInt(this.value)>11){ this.value =11; return false; }" value=data.grade autocomplete="off" required)
-            //- input.form-control.input-sm.date(type='text', name='prefect', role="date" autocomplete="off")
-          div.col-sm-6.mb-2
-            label.control-label(for='prefect') Prefect
+            label.control-label(for='status') Status
             div.radio.radio-toolbar.row
               div.col-sm-6.mb-2.col-xl-3
-                input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
-                label.ml-1(for='prefectActive') &nbsp; Active
+                input#statusActive.radiobox(type='radio', name='status', value="1" checked)
+                label.ml-1(for='statusActive') &nbsp; Active
               div.col-sm-6.mb-2.col-xl-3
-                input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
-                label.ml-1(for='prefectInactive') &nbsp; Inactive
+                input#statusInactive.radiobox(type='radio', name='status', value="0")
+                label.ml-1(for='statustInactive') &nbsp; Inactive
 
         include ./../includes/layout-entry-btn
 
@@ -72,10 +74,8 @@ block content
   script.
     $(document).ready(function() {
       var token = '!{token}';
-      var maxImageCount  = 5;
+      var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
-      $('#alert').hide();
-      $('#uploadForm').hide();
 
       var prefect = "!{data.prefect}";
       if (prefect && prefect == "false")
@@ -96,34 +96,6 @@ block content
           },
         });
       });
-
-      ajaxLoadOption({
-        type: "GET",
-        url:"/api/cities",
-        selectId: "#cityid",
-        showKey: "city_mm",
-        filterObj: { },
-        token: token
-      });
-
-      $('#cityid').on('change', function() {
-        // get value to filter
-        var cityid = $(this).val() || // get value [new entry]
-                     $(this).data('value'); // get value [edit entry]
-        if(cityid) {
-          ajaxLoadOption({
-            type: "GET",
-            url:"/api/township",
-            selectId: "#townshipid",
-            showKey: "township_mm",
-            filterObj: { cityid: cityid },
-            token: token
-          });
-        }
-      });
-
-      if (editMode && typeof editMode === "string")
-        $('#cityid').trigger('change');
 
       $('#add-image').on('click', function() {
         //- $(this).css('background-color', '#fff');
@@ -154,7 +126,7 @@ block content
 
         ajaxUploadForm({
           imgParentDiv: '.img-list',
-          imgName: 'profile_images[]',
+          imgName: 'company_logo',
           _this: this,
           token: token
         });

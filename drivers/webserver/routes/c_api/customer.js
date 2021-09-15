@@ -1,8 +1,8 @@
 let customersDb = require('../../../../controllers/customer');
-let Customer=require('../../../../database/mongodb/models/customer')
-let bcrypt=require('bcrypt')
-let jwt=require('jsonwebtoken')
-let config=require('../../../../config/index')
+let Customer = require('../../../../database/mongodb/models/customer')
+let bcrypt = require('bcrypt')
+let jwt = require('jsonwebtoken')
+let config = require('../../../../config/index')
 let customers = module.exports = {};
 
 customers.create = (req, res, next) => {
@@ -23,7 +23,7 @@ customers.create = (req, res, next) => {
 }
 
 customers.login = (req, res, next) => {
-  Customer.findOne({email:req.body.email}, function(err,user){
+  Customer.findOne({ email: req.body.email }, function (err, user) {
     if (err) return res.send({
       status: 500, auth: false, token: null
     });
@@ -34,14 +34,14 @@ customers.login = (req, res, next) => {
 
     //after we found data with email, we crypt password and check with user pw
     var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-    
-    if(!passwordIsValid){
-        return res.send({status: 401, auth:false, token:null});
+
+    if (!passwordIsValid) {
+      return res.send({ status: 401, auth: false, token: null });
     }
 
     //if password valid jwt need to produce token with our secrep
-    var token=jwt.sign({ id:user._id}, config.jwt.SECRET, {
-        expiresIn:86400 //seconds expires in 24hrs 
+    var token = jwt.sign({ id: user._id }, config.jwt.SECRET, {
+      expiresIn: 86400 //seconds expires in 24hrs 
     });
 
     res.status(200).send({
@@ -51,8 +51,8 @@ customers.login = (req, res, next) => {
 }
 
 customers.read = (req, res, next) => {
-  Customer.find({_id:req.params.id})
-    .then(customer=>{
+  Customer.find({ _id: req.params.id })
+    .then(customer => {
       res.json({
         status: "SUCCESS",
         data: customer

@@ -1,9 +1,9 @@
-let bannerDb = require('../../../../controllers/banners');
+let BannersDb = require('../../../../controllers/banner');
 
 let banners = module.exports = {};
 
 banners.index = (req, res, next) => {
-  bannerDb.listData()
+  BannersDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ banners.index = (req, res, next) => {
 }
 
 banners.show = (req, res, next) => {
-  bannerDb.findData('id', req.params.id)
+  BannersDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,13 +36,13 @@ banners.show = (req, res, next) => {
     });
 }
 
-banners.showby = (req,res, next) => {
+banners.showby = (req, res, next) => {
   // let obj = [];
   // Object.keys(req.query).map(function(i){ 
   //   obj.push({ prop: i, val: req.query[i]});
   // })
-  
-  bannerDb.findDataBy(req.query)
+
+  BannersDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -59,7 +59,7 @@ banners.showby = (req,res, next) => {
 }
 
 banners.create = (req, res, next) => {
-  bannerDb.addData(req.body)
+  BannersDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -76,7 +76,7 @@ banners.create = (req, res, next) => {
 }
 
 banners.update = (req, res, next) => {
-  bannerDb.updateData(req.params.id, req.body)
+  BannersDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -93,7 +93,7 @@ banners.update = (req, res, next) => {
 }
 
 banners.delete = (req, res, next) => {
-  bannerDb.deleteData(req.params.id)
+  BannersDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -101,7 +101,7 @@ banners.delete = (req, res, next) => {
 }
 
 banners.deleteall = (req, res, next) => {
-  bannerDb.dropAll()
+  BannersDb.dropAll()
     .then(data => {
       res.send(data)
     })

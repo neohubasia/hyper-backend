@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const connect = require('connect-ensure-login');
-const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
 const menuAccess = require("../../../../librarys/menu-access");
-let productCategoriesDb = require('../../../../controllers/product_category');
+const { Handlers } = require('../../../../middlewares/generator');
+let ProductCategoriesDb = require('../../../../controllers/product_category');
 
 router.get('/product_categories',
   connect.ensureLoggedIn(),
@@ -23,7 +23,7 @@ router.get('/product_category/:id?',
   async (req, res, next) => {
     let data = {};
     if (req.params.id)
-      data = await productCategoriesDb.findData('id', req.params.id);
+      data = await ProductCategoriesDb.findData('id', req.params.id);
 
     res.render('pages/product-category-entry', {
       ...menuAccess.getProgram(req.user.role, "catalogMenu.productCategorySubMenu.entry"), // admin may change on req.user => role
@@ -39,12 +39,12 @@ router.get('/product_category/:id?',
       let db, status = "FAIL";
 
       if (!req.body.id) { // insert data 
-        db = productCategoriesDb.addData(req.body);
+        db = ProductCategoriesDb.addData(req.body);
       }
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        db = productCategoriesDb.updateData(req.body.id, data);
+        db = ProductCategoriesDb.updateData(req.body.id, data);
       }
       db.then(result => {
         if (result != null)

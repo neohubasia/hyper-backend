@@ -1,37 +1,37 @@
-let ProductPackage = require('../../../database/mongodb/models/product_package');
+let DeliveryCompany = require('../../../database/mongodb/models/delivery_company');
 let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
-  return ProductPackage.find({})
+  return DeliveryCompany.find({})
     .then(serialize);
 }
 
 let findData = (prop, val) => {
   if (prop === 'id')
     prop = '_id'
-  return ProductPackage.find({ [prop]: val })
+  return DeliveryCompany.find({ [prop]: val })
     .then(resp => {
       return serialize(resp[0])
     });
 }
 
 let findDataBy = (params) => {
-  return ProductPackage.find(params)
+  return DeliveryCompany.find(params)
     .then(serialize);
 }
 
 let addData = (dataObj) => {
-  return ProductPackage.create(dataObj)
+  return DeliveryCompany.create(dataObj)
     .then(serialize);
 }
 
 let updateData = (id, dataObj) => {
-  return ProductPackage.findByIdAndUpdate(id, dataObj)
+  return DeliveryCompany.findByIdAndUpdate(id, dataObj)
     .then(serialize);
 }
 
 let deleteData = (id) => {
-  return ProductPackage.findByIdAndDelete(id)
+  return DeliveryCompany.findByIdAndDelete(id)
     .then(resp => {
       return {
         id: resp._id.toString(),
@@ -48,7 +48,7 @@ let deleteData = (id) => {
 }
 
 let dropAll = () => {
-  return ProductPackage.remove();
+  return DeliveryCompany.remove();
 }
 
 module.exports = {

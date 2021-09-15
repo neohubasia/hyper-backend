@@ -3,14 +3,15 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-    email: String,
+    townshipid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "township"
+    },
+    companyid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "delivery_company"
+    },
     charge: Number,
-    company_logo: String,
-    company_name: String,
-    contact_name: String,
-    primry_mobile: String,
-    secondary_mobile: String,
-    address: String,
     description: String,
     status: { type: Boolean, default: true },
     created_at: { type: Date },

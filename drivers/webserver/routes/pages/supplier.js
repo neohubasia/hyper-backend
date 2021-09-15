@@ -5,8 +5,8 @@ const config = require("../../../../config/index");
 const { isEmptyArray } = require('../../../../librarys/utilities');
 const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-let suppliersDb = require('../../../../controllers/supplier');
-let usersDb = require('../../../../controllers/users');
+let SuppliersDb = require('../../../../controllers/supplier');
+let UsersDb = require('../../../../controllers/user');
 
 router.get('/suppliers',
   connect.ensureLoggedIn(),
@@ -25,8 +25,8 @@ router.get('/supplier/:id?',
     let data = { form: {}, modal: {} };
 
     if (req.params.id) {
-      data.form = await suppliersDb.findData('id', req.params.id);
-      data.modal = await usersDb.findUserBy({ supplier_id: data.form.id });
+      data.form = await SuppliersDb.findData('id', req.params.id);
+      data.modal = await UsersDb.findUserBy({ supplier_id: data.form.id });
     }
 
     (!isEmptyArray(data.modal)) ? data.modal = data.modal[0] : data.modal = {};
@@ -45,12 +45,12 @@ router.get('/supplier/:id?',
       let db, status = "FAIL";
 
       if (!req.body.id) { // insert data 
-        db = suppliersDb.addData(req.body);
+        db = SuppliersDb.addData(req.body);
       }
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        db = suppliersDb.updateData(req.body.id, data);
+        db = SuppliersDb.updateData(req.body.id, data);
       }
       db.then(result => {
         if (result != null)

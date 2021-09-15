@@ -1,9 +1,9 @@
-let citiesDb = require('../../../../controllers/cities');
+let CitiesDb = require('../../../../controllers/city');
 
 let cities = module.exports = {};
 
 cities.index = (req, res, next) => {
-  citiesDb.listData()
+  CitiesDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ cities.index = (req, res, next) => {
 }
 
 cities.show = (req, res, next) => {
-  citiesDb.findData('id', req.params.id)
+  CitiesDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,8 +36,8 @@ cities.show = (req, res, next) => {
     });
 }
 
-cities.showby = (req,res, next) => {
-  citiesDb.findDataBy(req.query)
+cities.showby = (req, res, next) => {
+  CitiesDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -54,7 +54,7 @@ cities.showby = (req,res, next) => {
 }
 
 cities.create = (req, res, next) => {
-  citiesDb.addData(req.body)
+  CitiesDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -71,7 +71,7 @@ cities.create = (req, res, next) => {
 }
 
 cities.update = (req, res, next) => {
-  citiesDb.updateData(req.params.id, req.body)
+  CitiesDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -88,7 +88,7 @@ cities.update = (req, res, next) => {
 }
 
 cities.delete = (req, res, next) => {
-  citiesDb.deleteData(req.params.id)
+  CitiesDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -96,7 +96,7 @@ cities.delete = (req, res, next) => {
 }
 
 cities.deleteall = (req, res, next) => {
-  citiesDb.dropAll()
+  CitiesDb.dropAll()
     .then(data => {
       res.send(data)
     })
