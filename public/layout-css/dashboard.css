@@ -75,3 +75,87 @@
     margin-left: -15rem;
   }
 }
+
+/* Card Counter */
+
+.card-counter {
+  opacity: 0.88;
+  height: 110px;
+  margin: 5px 0;
+  padding: 16px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #bbb;
+  transition: .3s linear all;
+}
+
+.card-counter:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 20px #fff;
+  transition: .3s linear all;
+}
+
+.card-counter.primary {
+  background-color: #005bff;
+  color: #FFF;
+}
+
+.card-counter.danger {
+  background-color: #dc3545;
+  color: #FFF;
+}
+
+.card-counter.success {
+  background-color: #28a745;
+  color: #FFF;
+}
+
+.card-counter.info {
+  background-color: #15a5b5;
+  color: #FFF;
+}
+
+.card-counter i {
+  font-size: 5em;
+  opacity: 0.2;
+}
+
+.card-counter .count-numbers {
+  position: absolute;
+  top: 22px;
+  right: 35px;
+  font-size: 32px;
+  display: block;
+}
+
+.card-counter .count-name {
+  position: absolute;
+  top: 66px;
+  right: 35px;
+  opacity: 0.6;
+  display: block;
+  font-size: 18px;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+/* Chart.js */
+
+.chart {
+  vertical-align: middle;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+
+}
+
+p {
+  text-align: center;
+  font-family: 'Verdana', sans-serif;
+  font-size: 10px;
+}
+
+canvas {
+  height: 100%;
+}

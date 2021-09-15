@@ -16,7 +16,6 @@ let findUser = (prop, val) => {
 }
 
 let findUserBy = (params) => {
-  console.log(params)
   return User.find(params)
     .then(serialize)
 }

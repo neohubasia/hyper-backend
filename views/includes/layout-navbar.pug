@@ -9,7 +9,7 @@ nav(class="navbar navbar-expand-md fixed-top bg-light border-bottom")
     ul.navbar-nav.ml-auto.mt-md-0.mt-3.p-md-0.p-3
       li.nav-item
         style.
-          .data-feather[data-count]{
+          .noti-count[data-count]{
               position: absolute;
               font-weight: bold;
               font-size: 55%;
@@ -22,12 +22,12 @@ nav(class="navbar navbar-expand-md fixed-top bg-light border-bottom")
               min-width: 1.3em;
           }
         a.nav-link(href='#')
-          span.data-feather(data-feather='bell')
-          span.data-feather(data-count='20') 20
+          span.fa.fa-bell
+          span.noti-count(data-count='20') 20
             span.sr-only
       li.nav-item.ml-md-3
         a.nav-link(href='#')
-          span.data-feather(data-feather='user')
+          span.fa.fa-user
           span#username 
           span.sr-only
       li.nav-item.dropdown

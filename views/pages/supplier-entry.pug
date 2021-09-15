@@ -47,6 +47,16 @@ block content
     include ./../includes/layout-entry-header
     include ./../includes/layout-entry-form
       block inputs
+
+        div.form-group 
+          div.row.img-list
+            - var imageSrc = data.form.company_logo || "";
+            if imageSrc
+              .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+                input.uploaded-files(type="hidden", name="company_logo", value=`${imageSrc}`)
+                a(href=`${imageSrc}` data-toggle='lightbox' data-title='Supplier Company Logo' data-footer='Join our market. Upgrade your sale' style="width: 360px;")
+                  img.m-1.img.img-thumbnail(src=`${imageSrc}`, alt="", srcset="" width="360" height="360")
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='company_name') Company Name
@@ -224,6 +234,11 @@ block content
           },
         });
       })
+
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
 
       $(".input-group-append").on('click', function(event) {
         event.preventDefault();
