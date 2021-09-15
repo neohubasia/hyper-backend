@@ -27,7 +27,7 @@ router.get('/login', (req, res, next) => {
           returnTo = req.session.returnTo
         }
         delete req.session.returnTo;
-        return res.redirect(returnTo);
+        return res.redirect("/");
       });
     })(req, res, next);
   });
