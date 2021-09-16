@@ -89,7 +89,6 @@ block content
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
-        $("#supplier_id").attr("disabled", false)
 
         $.ajax({
           url: $(this).attr('action'),

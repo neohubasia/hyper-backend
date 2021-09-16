@@ -8,7 +8,7 @@ let makeSchema = new Schema({
     discount_amount: Number,
     discount_type: {
         type: String,
-        enum: ["discount", "amount", "other"]
+        enum: ["percent", "amount", "other"]
     },
     supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
     active: { type: Boolean, default: true },

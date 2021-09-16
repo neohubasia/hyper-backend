@@ -38,6 +38,10 @@ router.get('/discount/:id?',
 
       let db, status = "FAIL";
 
+      if (req.user.supplier_id) {
+        req.body.supplier_id = req.user.supplier_id;
+      }
+
       if (!req.body.id) { // insert data 
         db = DiscountsDb.addData(req.body);
       }

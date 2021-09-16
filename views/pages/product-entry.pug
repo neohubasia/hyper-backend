@@ -124,7 +124,7 @@ block content
         url:"/api/discount",
         selectId: "#discount_id",
         showKey: "name",
-        filterObj: { active: true },
+        filterObj: supplierId ? { supplier_id: supplierId } : {},
         token: token
       });
 
