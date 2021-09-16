@@ -23,9 +23,9 @@
                         div.collapse(aria-expanded='false'  class=isShow id=programObj.menuid)
                             each subMenuObj in programObj.submenu
                                 - var isActive = (subMenuObj.active == true) ? "active" : undefined;
-                                
-                                ul.flex-column.nav
-                                    li.nav-item(id=subMenuObj.menuid)
-                                        a.list-group-item.list-group-item-action.list-group-item-menu(href=subMenuObj.url class=isActive)
-                                            span(class=subMenuObj.icon style="width: 20px;")
-                                            span.pl-1  #{subMenuObj.title}
+                                if subMenuObj.access == true
+                                    ul.flex-column.nav
+                                        li.nav-item(id=subMenuObj.menuid)
+                                            a.list-group-item.list-group-item-action.list-group-item-menu(href=subMenuObj.url class=isActive)
+                                                span(class=subMenuObj.icon style="width: 20px;")
+                                                span.pl-1  #{subMenuObj.title}

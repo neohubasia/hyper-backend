@@ -663,7 +663,7 @@
     ]
   },
   {
-    "menuid": "reportingMenu",
+    "menuid": "reportMenu",
     "url": "#",
     "title": "Reporting",
     "icon": "fa fa-folder",

@@ -5,7 +5,7 @@ block content
     include ./../includes/layout-entry-header
 
     //- this is single file upload  - work well
-    form.d-none#uploadForm(method='POST' action='/file/upload/delivery-companies' enctype="multipart/form-data")
+    form#uploadForm.d-none(method='POST' action='/file/upload/delivery-companies' enctype="multipart/form-data")
       input#file-input(type='file' name='uploaded_file')
       //- input#file-input-btn(type='submit' name='uploaded_file_btn' value='Upload')
 
@@ -29,21 +29,21 @@ block content
                   button.btn.remove-file(type="button") Remove
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-4.mb-2
             label.control-label(for='company_name') Company Name
             input.form-control.input-sm#company_name(type='text', name='company_name', value=data.company_name, maxlength="110" required autofocus)
-          div.col-sm-6.mb-2
+          div.col-sm-4.mb-2
             label.control-label(for='contact_name') Contact Name
             input.form-control.input-sm#contact_name(type='text', name='contact_name', value=data.contact_name, maxlength="110" required)
-                 
-        div.form-group.row
           div.col-sm-4.mb-2
             label.control-label(for='email') Email
-            input.form-control.input-sm#email(type='text', name='email', value=data.email, maxlength="55" required)
-          div.col-sm-4.mb-2
+            input.form-control.input-sm#email(type='text', name='email', value=data.email, maxlength="55" required)     
+        
+        div.form-group.row
+          div.col-sm-6.mb-2
             label.control-label(for='primary_mobile') Primary Mobile
             input.form-control.input-sm#primary_mobile(type='text', name='primary_mobile', value=data.primary_mobile, maxlength="55" required)
-          div.col-sm-4.mb-2
+          div.col-sm-6.mb-2
             label.control-label(for='secondary_mobile') Secondary Mobile
             input.form-control.input-sm#secondary_mobile(type='text', name='secondary_mobile', value=data.secondary_mobile, maxlength="55" required)
 

@@ -3,7 +3,9 @@ let ProductInventoriesDb = require('../../../../controllers/product_inventory');
 let product_inventories = module.exports = {};
 
 product_inventories.index = (req, res, next) => {
-  ProductInventoriesDb.listData()
+  delete req.query._;
+
+  ProductInventoriesDb.listData(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

@@ -38,9 +38,10 @@ block content
  
           div.modal-footer.justify-content-md-center
             button.btn.btn-sm.btn-secondary#dialogUserCancel(type='button', data-dismiss='modal')
-              | CANCEL
+              span.fa.fa-times
+              |  CANCEL
             button.btn.btn-sm.btn-primary#dialogUserAccept(type='submit', data-dismiss='modal')
-              i.fa.fa-check
+              span.fa.fa-save
               span.span &nbsp;CREATE USER
 
   main.ml-sm-auto.px-md-4(role='main')
@@ -67,11 +68,11 @@ block content
 
         div.form-group.row
           div.col-sm-6.mb-2
-            - var cityid =  data.form.address_info[0].cityid || "#";
+            - var cityid =  data.form.address_info[0].cityid || { _id: "#" };
             label.control-label(for='city') City
             select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" disabled)
           div.col-sm-6.mb-2
-            - var townshipid =  data.form.address_info[0].townshipid || "#";
+            - var townshipid =  data.form.address_info[0].townshipid || { _id: "#" };
             label.control-label(for='city') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" disabled)
         
@@ -94,11 +95,11 @@ block content
         
         div.form-group.row
           div.col-sm-6.mb-2
-            - var product_type_id =  data.form.product_type_id || "#";
+            - var product_type_id =  data.form.product_type_id || { _id: "#" };
             label.control-label(for='product_type_id') Product Type
             select.form-control.input-sm.selectpicker#product_type_id(name='product_type_id' value=product_type_id._id data-value=product_type_id._id, data-live-search="true", data-size="8" disabled)
           div.col-sm-6.mb-2
-            - var payment_method_id =  data.form.payment_methods[0].payment_method_id || "#";
+            - var payment_method_id =  data.form.payment_methods[0].payment_method_id || { _id: "#" };
             label.control-label(for='payment_method') Payment Method
             select.form-control.input-sm.selectpicker#payment_method_id(name='payment_method_id' value=payment_method_id._id data-value=payment_method_id._id, data-live-search="true", data-size="8" disabled)
                         
@@ -122,7 +123,8 @@ block content
               else
                 div.button-bar
                   button.btn.btn-sm.btn-primary.btn-block#dialogUserCancel(type='button', data-toggle="modal", data-target="#AddUserDialog")
-                    | EDIT USER
+                    span.fa.fa-pen
+                    |  EDIT USER
                 
           div.col-sm-6.mb-2
             label.control-label(for='status') Status
@@ -141,8 +143,7 @@ block content
     $(document).ready(function() {
       var token = '!{token}';
       //- var supplierId = '!{user.supplier_id}';                // to process login user supplierId all pages
-      var supplierId = '!{data.modal.supplier_id}';              // to defined supplierId in this entry
-      $('#alert').hide();
+      var supplierId = '!{data.modal.supplier_id}';
 
       var status = "!{data.form.active}";
       if (status && status == "false")
@@ -154,7 +155,7 @@ block content
 
       if (supplierId) {
         $('#AddUserDialog').find('.modal-title').text('Edit User')
-        $('#AddUserDialog').find('button[type=submit]').text('UPDATE USER')
+        $('#AddUserDialog').find('button[type=submit]').html('<span class="fa fa-save"></span> UPDATE USER')
       }
       
       ajaxLoadOption({

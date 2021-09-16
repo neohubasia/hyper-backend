@@ -3,13 +3,14 @@ const _serializeSingle = (dataObj) => {
     'id': dataObj._id,
     'name': dataObj.name,
     'quantity': dataObj.quantity,
-    'inventory_type': dataObj.inventory_type,
     'weight_id': dataObj.weight_id,
     'package_id': dataObj.package_id,
+    'inventory_type': dataObj.inventory_type,
     'supplier_id': dataObj.supplier_id,
+    'description': dataObj.description,
+    'status': dataObj.status,
     'created_at': dataObj.created_at,
     'updated_at': dataObj.updated_at,
-    'deleted_at': dataObj.deleted_at,
   };
 };
 

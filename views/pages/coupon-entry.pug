@@ -22,7 +22,7 @@ block content
             select#customer_type.selectpicker.form-control(name='customer_type', value=data.customer_type, data-value=data.customer_type  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
               option(value="normal")  Normal
-              option(value="premiun") Premium
+              option(value="premium") Premium
 
         div.form-group.row
           div.col-sm-6.mb-2
@@ -64,7 +64,6 @@ block content
       var editMode = $("input[name='id']").val();
       var token = '!{token}';
       var maxDiscount = 10000;
-      $('#alert').hide();
 
       var status = "!{data.active}";
       if (status && status == "false")

@@ -4,6 +4,8 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
+/* Scroll Bar */
+
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
@@ -25,15 +27,15 @@
   background: #aaa;
 }
 
+/* Wrapper Section */
+
 #wrapper {
   overflow-x: hidden;
 }
 
-
 #sidebar-wrapper {
   /* z-index: 1000; */
   /* position: fixed; */
-  min-height: 100vh;
   margin-left: -15rem;
   border-right: 0.5px solid #ddd;
   -webkit-transition: margin 0.25s ease-out;
@@ -50,11 +52,13 @@
 #sidebar-wrapper .list-group {
   width: 15rem;
   margin-top: 5px;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 
 #page-content-wrapper {
   min-width: 100vw;
-  /* max-height: 100vh; */
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -76,10 +80,35 @@
   }
 }
 
+/* Dropdown Overide */
+
+.navbar-nav>li>.dropdown-menu {
+  top: 50px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 3px 3px 5px #bbb;
+}
+
+.navbar-nav>li>.dropdown-menu>a {
+  padding: 5px 10px;
+  margin: 5px auto;
+  color: #555;
+}
+
+.navbar-nav>li>.dropdown-menu>a:hover,
+.navbar-nav>li>.dropdown-menu>a:focus {
+  color: #000;
+  font-weight: 550;
+  background-color: #f5f5f5;
+}
+
+.navbar-nav>li>.dropdown-menu>.dropdown-divider {
+  background-color: #f5f5f5;
+}
+
 /* Card Counter */
 
 .card-counter {
-  opacity: 0.88;
   height: 110px;
   margin: 5px 0;
   padding: 16px 10px;
@@ -96,17 +125,17 @@
 }
 
 .card-counter.primary {
-  background-color: #005bff;
+  background-color: #22A7F0;
   color: #FFF;
 }
 
-.card-counter.danger {
-  background-color: #dc3545;
+.card-counter.purple {
+  background-color: #875F9A;
   color: #FFF;
 }
 
 .card-counter.success {
-  background-color: #28a745;
+  background-color: #2ABB9B;
   color: #FFF;
 }
 
@@ -123,7 +152,7 @@
 .card-counter .count-numbers {
   position: absolute;
   top: 22px;
-  right: 35px;
+  right: 36px;
   font-size: 32px;
   display: block;
 }
@@ -131,7 +160,7 @@
 .card-counter .count-name {
   position: absolute;
   top: 66px;
-  right: 35px;
+  right: 36px;
   opacity: 0.6;
   display: block;
   font-size: 18px;
@@ -141,21 +170,11 @@
 
 /* Chart.js */
 
-.chart {
-  vertical-align: middle;
+canvas {
+  height: 100%;
   width: 100%;
   margin: 0 auto;
   position: relative;
   display: inline-block;
-
-}
-
-p {
-  text-align: center;
-  font-family: 'Verdana', sans-serif;
-  font-size: 10px;
-}
-
-canvas {
-  height: 100%;
+  vertical-align: middle;
 }

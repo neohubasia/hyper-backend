@@ -7,10 +7,12 @@ block content
     div.sub-title !{subtitle}
     div.fields
       div.username
-        input(type="username" name="username" placeholder="username" autofocus autocomplete="off" required)
+        input(type="username" name="username" placeholder="username" autocomplete="off" required autofocus)
       div.password
-        input(type="password" name="password" placeholder="password" required)
-    button.signin-button(type="submit") !{title}
+        input(type="password" name="password" placeholder="password" autocomplete="off" required)
+    button.signin-button(type="submit") 
+      span.fa.fa-sign-in-alt
+      | &nbsp; !{title}
     //- div.link
     //-   a(href="#") Forgot password? or 
     //-   a(href="#") Sign up

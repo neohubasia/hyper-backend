@@ -1,3 +1,7 @@
+body {
+  overflow-y: hidden;
+}
+
 .container-fluid {
   padding-top: 3.8rem;
   padding-bottom: 1.8rem;

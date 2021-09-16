@@ -10,11 +10,10 @@ const _serializeSingle = (dataObj) => {
     'features': dataObj.features,
     'description': dataObj.description,
     'price': dataObj.price,
-    'stock':dataObj.stock,
+    'stock': dataObj.stock,
     'status': dataObj.status,
     'created_at': dataObj.created_at,
     'updated_at': dataObj.updated_at,
-    'deleted_at': dataObj.deleted_at,
   };
 };
 

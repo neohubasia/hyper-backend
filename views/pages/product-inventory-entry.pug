@@ -18,21 +18,21 @@ block content
 
         div.form-group.row
           div.col-md-6.mb-2
-            - var weight_id =  data.weight_id || "#";
+            - var weight_id =  data.weight_id || { _id: "#" };
             label.control-label(for='weight_id') Weight
             select.form-control.input-sm.selectpicker#weight_id(name='weight_id' value=weight_id._id data-value=weight_id._id, data-live-search="true", data-size="8" required)
           
           div.col-md-6.mb-2
-            - var package_id =  data.package_id || "#";
+            - var package_id =  data.package_id || { _id: "#" };
             label.control-label(for='package_id') Package
             select.form-control.input-sm.selectpicker#package_id(name='package_id' value=package_id._id data-value=package_id._id, data-live-search="true", data-size="8" required)
 
         
         div.form-group.row
           div.col-md-6.mb-2
-            - var supplier_id =  data.supplier_id || "#";
+            - var supplier_id =  data.supplier_id || { _id: user.supplier_id };
             label.control-label(for='supplier_id') Supplier
-            select.form-control.input-sm.selectpicker#supplier_id(name='supplier_id' value=supplier_id.  id data-value=supplier_id._id, data-live-search="true", data-size="8" required)
+            select.form-control.input-sm.selectpicker#supplier_id(name='supplier_id' value=supplier_id.  id data-value=supplier_id._id, data-live-search="true", data-size="8"  disabled=(supplier_id._id ? true : false) required)
 
           div.col-md-6.mb-2
             label.control-label(for='inventory_type') Inventory Type
@@ -43,14 +43,32 @@ block content
               option(value="FGS")  Finished Goods
               option(value="MRO") Maintenance, Repair and Operations
 
+        div.form-group.row
+          div.col-sm-6.mb-2
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description',)= data.description 
+          div.col-sm-6.mb-2
+            label.control-label(for='status') Status
+            div.radio.radio-toolbar.row
+              div.col-sm-6.mb-2.col-xl-3
+                input#statusActive.radiobox(type='radio', name='status', value="1" checked)
+                label.ml-1(for='statusActive') &nbsp; Active
+              div.col-sm-6.mb-2.col-xl-3
+                input#statusInactive.radiobox(type='radio', name='status', value="0")
+                label.ml-1(for='statusInactive') &nbsp; Inactive
+
         include ./../includes/layout-entry-btn
 
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
       var editMode = $("input[name='id']").val();
+      var supplierId = '!{user.supplier_id}';
       var token = '!{token}';
-      $('#alert').hide();
+
+      var status = "!{data.active}";
+      if (status && status == "false")
+        $('#statusInactive').attr("checked", "checked");
 
       ajaxLoadOption({
         type: "GET",
@@ -86,6 +104,8 @@ block content
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
+        $("#supplier_id").attr("disabled", false)
+
         $.ajax({
           url: $(this).attr('action'),
           type:$(this).attr('method'),

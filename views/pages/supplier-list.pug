@@ -14,13 +14,14 @@ block content
           th Status
           th Registered Date
           th
-            span.float-right Actions
+            span.float-right
         //-     if ((page.actions[0] && page.actions[1]) == true)
         //-       include ./../includes/layout-list-plus
       tbody
   script.
     $(document).ready(function() {
       var token = '!{token}';
+      var supplierId = '!{user.supplier_id}';
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
@@ -37,7 +38,7 @@ block content
             }
           },
           "ajax": {
-            "url": "./api" + '!{page.list.url}',
+            "url": "./api" + '!{page.list.url}' + `${supplierId ? "?_id=" + supplierId : ''}`,
             "headers": {"authorization": "Bearer " + token},
             "dataSrc": "data",
           },

@@ -14,7 +14,7 @@ let getProgram = (userRole, pageId) => {
 
             menuObj.access = true; // menu access true
             menuObj.active = activeMenuArr[0] == menuObj.menuid ? true : false; // menu active true
-            
+
             if (menuObj.submenu && menuObj.submenu.length > 0) {
 
                 menuObj.submenu.map((subMenuObj, subMenuIdx) => {
@@ -27,7 +27,7 @@ let getProgram = (userRole, pageId) => {
 
         return { program: programMenuJson, page: getPageData(programMenuJson, pageId) };
     }
-    else if (roleAcess && typeof roleAcess[1] === "object") { // supervisor or basic role
+    else if (roleAcess && typeof roleAcess[1] === "object") { // supplier or other role
 
         programMenuJson.map((menuObj, subMenuIdx) => { // have access some program
             if (roleAcess[1].menu.includes(menuObj.menuid)) {
@@ -75,7 +75,7 @@ let getPageData = (getProgramMenu, getPageId) => {
 
         return pageObj;
     }
-    return;   
+    return;
 }
 
 module.exports = {

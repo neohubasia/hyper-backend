@@ -3,7 +3,9 @@ let DiscountsDb = require('../../../../controllers/discount');
 let discounts = module.exports = {};
 
 discounts.index = (req, res, next) => {
-  DiscountsDb.listData()
+  delete req.query._;
+
+  DiscountsDb.listData(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

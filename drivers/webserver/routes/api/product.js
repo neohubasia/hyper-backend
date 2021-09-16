@@ -3,7 +3,9 @@ let ProductsDb = require('../../../../controllers/product');
 let products = module.exports = {};
 
 products.index = (req, res, next) => {
-  ProductsDb.listData()
+  delete req.query._;
+
+  ProductsDb.listData(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",

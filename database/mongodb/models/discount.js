@@ -10,6 +10,7 @@ let makeSchema = new Schema({
         type: String,
         enum: ["discount", "amount", "other"]
     },
+    supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
     active: { type: Boolean, default: true },
     created_at: { type: Date },
     updated_at: { type: Date },

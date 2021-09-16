@@ -1,8 +1,8 @@
 let Discount = require('../../../database/mongodb/models/discount');
 let serialize = require('./serializer'); // serializer custom to db
 
-let listData = () => {
-  return Discount.find({})
+let listData = (params) => {
+  return Discount.find(params)
     .then(serialize);
 }
 

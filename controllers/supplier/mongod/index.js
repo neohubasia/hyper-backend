@@ -1,8 +1,8 @@
 let Supplier = require('../../../database/mongodb/models/supplier');
 let serialize = require('./serializer'); // serializer custom to db
 
-let listData = () => {
-  return Supplier.find({})
+let listData = (params) => {
+  return Supplier.find(params)
     .populate({
       path: "product_type_id",
       model: "product_category",

@@ -12,6 +12,7 @@ block content
           th Supplier Name
           th Inventory Type
           th Quantity
+          th Status
           th Updated Time
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
@@ -19,6 +20,7 @@ block content
   script.
     $(document).ready(function() {
       var token = '!{token}';
+      var supplierId = '!{user.supplier_id}';
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       console.log('!{page.list.url}')
@@ -36,7 +38,7 @@ block content
             }
           },
           "ajax": {
-            "url": "./api" + '!{page.list.url}',
+            "url": "./api" + '!{page.list.url}' + `${supplierId ? "?supplier_id=" + supplierId : ''}`,
             "headers": {"authorization": "Bearer " + token},
             "dataSrc": "data",
           },
@@ -46,14 +48,16 @@ block content
             { "data": "supplier_id.company_name" },
             { "data": "inventory_type" },
             { "data": "quantity"},
+            { "data": "status"},
             { "data": "updated_at" },
             { "data": "actions" },
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
             { targets: 3, render: dataTableTypeRenderer() },
-            { targets: 5, render: dataTableDateTimeRenderer() },
-            { targets: 6, orderable: false, render: dataTableActionsRenderer(
+            { targets: 5, render: dataTableActiveRenderer() },
+            { targets: 6, render: dataTableDateTimeRenderer() },
+            { targets: 7, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )

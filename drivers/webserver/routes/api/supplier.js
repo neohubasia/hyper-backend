@@ -3,7 +3,9 @@ let SuppliersDb = require('../../../../controllers/supplier');
 let suppliers = module.exports = {};
 
 suppliers.index = (req, res, next) => {
-  SuppliersDb.listData()
+  delete req.query._;
+
+  SuppliersDb.listData(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
