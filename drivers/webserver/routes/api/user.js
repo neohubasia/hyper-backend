@@ -1,9 +1,9 @@
-let usersDb = require('../../../../controllers/users');
+let UsersDb = require('../../../../controllers/user');
 
 let users = module.exports = {};
 
 users.index = (req, res, next) => {
-  usersDb.listUsers()
+  UsersDb.listUsers()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,24 @@ users.index = (req, res, next) => {
 }
 
 users.show = (req, res, next) => {
-  usersDb.findUser('id', req.params.id)
+  UsersDb.findUser('id', req.params.id)
+    .then(data => {
+      res.json({
+        status: "SUCCESS",
+        data: data
+      });
+    })
+    .catch(err => {
+      console.log(`Error ${err}`)
+      res.json({
+        status: "FAIL",
+        data: err
+      })
+    });
+}
+
+users.showby = (req, res, next) => {
+  UsersDb.findUserBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -37,7 +54,7 @@ users.show = (req, res, next) => {
 }
 
 users.create = (req, res, next) => {
-  usersDb.addUser(req.body)
+  UsersDb.addUser(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -54,7 +71,7 @@ users.create = (req, res, next) => {
 }
 
 users.update = (req, res, next) => {
-  usersDb.updateUser(req.params.id, req.body)
+  UsersDb.updateUser(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -71,7 +88,7 @@ users.update = (req, res, next) => {
 }
 
 users.delete = (req, res, next) => {
-  usersDb.deleteUser(req.params.id)
+  UsersDb.deleteUser(req.params.id)
     .then(data => {
       res.send(data)
     })

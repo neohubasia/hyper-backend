@@ -8,12 +8,11 @@ let makeSchema = new Schema({
     template: String,
     type: {
         type: String,
-        enum: ["aboutus", "policy", "howtouse","other"]
+        enum: ["aboutus", "policy", "howtouse", "other"]
     },
     status: { type: Boolean, default: true },
     created_at: { type: Date },
     updated_at: { type: Date },
-    deleted_at: { type: Date }
 });
 
 makeSchema.plugin(SchemaPlugin);

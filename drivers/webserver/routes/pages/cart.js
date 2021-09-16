@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
 const connect = require('connect-ensure-login');
-const { Handlers } = require('../../../../middlewares/generator');
 const config = require("../../../../config/index");
+const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
 
 router.get('/carts',

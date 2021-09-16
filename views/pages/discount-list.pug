@@ -9,7 +9,7 @@ block content
         tr
           th #
           th Name
-          th Discount (Percent/Amount)
+          th Discount (Pct/Amt)
           th Discount Type
           th Active
           th Updated Time
@@ -19,6 +19,7 @@ block content
   script.
     $(document).ready(function() {
       var token = '!{token}';
+      var supplierId = '!{user.supplier_id}';
       $.fn.dataTable.ext.errMode = 'none';
       $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
       console.log('!{page.list.url}')
@@ -36,7 +37,7 @@ block content
             }
           },
           "ajax": {
-            "url": "./api" + '!{page.list.url}',
+            "url": "./api" + '!{page.list.url}' + `${supplierId ? "?supplier_id=" + supplierId : ''}`,
             "headers": {"authorization": "Bearer " + token},
             "dataSrc": "data",
           },

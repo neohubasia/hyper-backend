@@ -1,68 +1,131 @@
 extends ../includes/layout-main
 block content
-  div.modal.fade#AddUserPassDialog(tabindex='-1', role='dialog', aria-labelledby='AddPayment')
+  div.modal.fade#AddUserDialog(tabindex='-1', role='dialog', aria-labelledby='AddPayment')
     div.modal-dialog.modal-sm(role='document', style='max-width:730px')
       div.modal-content
+
         div.modal-header
-          h4.modal-title 
+          h4.modal-title Create User
           button.close(type='button', data-dismiss='modal', aria-label='Close')
             span(aria-hidden='true') &times;
-        div.modal-body
-          div.form-group.row
-            div.col-sm-2.label-data
-              label.control-label(for='username') User Name
-        div.modal-footer
-          button.btn.btn-primary#dialogPaymentAccept(type='button', data-dismiss='modal') Ok
-          button.btn.btn-secondary#dialogPaymentCancel(type='button', data-dismiss='modal') Cancel
+        
+        form#userForm(method="post", action=`/api/user/${data.modal.id ? data.modal.id : ''}`)
+          div.modal-body
+            div.form-group.row 
+              div.col-sm-12
+                input.form-control.input-sm#supplier_id(type='hidden', name='supplier_id', value=data.form.id)
+
+            div.form-group.row
+              div.col-sm-2
+                label.control-label(for='username') Username
+              div.col-sm-10
+                input.form-control.input-sm#username(type='text', name='username', value=`${data.modal.username ? data.modal.username : ''}`, maxlength="55" autocomplete="off" required autofocus)
+
+            div.form-group.row
+              div.col-sm-2
+                label.control-label(for='password') Password
+              div.col-sm-10.input-group
+                input.form-control.input-sm#password(type='password', name='password', role='password' value='' data-toggle="password-validator" data-match-pass=".conf-pass" data-target=".pwd-errors" autocomplete="off" required)
+                div.input-group-append
+                  div.input-group-text
+                    i.fa.fa-eye-slash(aria-hidden='true')
+
+            div.form-group.row
+              div.col-sm-2
+                label.control-label(for='role') Role
+              div.col-sm-10
+                select.form-control.input-sm.selectpicker#roleid(name='role' value=`${data.modal.role ? data.modal.role : ''}` data-value=`${data.modal.role ? data.modal.role : ''}` data-live-search="true", data-size="8" required)
+ 
+          div.modal-footer.justify-content-md-center
+            button.btn.btn-sm.btn-secondary#dialogUserCancel(type='button', data-dismiss='modal')
+              span.fa.fa-times
+              |  CANCEL
+            button.btn.btn-sm.btn-primary#dialogUserAccept(type='submit', data-dismiss='modal')
+              span.fa.fa-save
+              span.span &nbsp;CREATE USER
+
   main.ml-sm-auto.px-md-4(role='main')
     include ./../includes/layout-entry-header
     include ./../includes/layout-entry-form
       block inputs
-        div.form-group.row
-          div.col-sm-6.mb-2
-            label.control-label(for='company_name') Company Name
-            input.form-control.input-sm#company_name(type='text', name='company_name', value=data.company_name, maxlength="55" autocomplete="off" disabled)
-          div.col-sm-6.mb-2
-            label.control-label(for='contact_name') Contact Name
-            input.form-control.input-sm#contact_name(type='text', name='contact_name' value=data.contact_name maxlength="55" autocomplete="off" disabled)
+
+        div.form-group 
+          div.row.img-list
+            - var imageSrc = data.form.company_logo || "";
+            if imageSrc
+              .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+                input.uploaded-files(type="hidden", name="company_logo", value=`${imageSrc}`)
+                a(href=`${imageSrc}` data-toggle='lightbox' data-title='Supplier Company Logo' data-footer='Join our market. Upgrade your sale' style="width: 360px;")
+                  img.m-1.img.img-thumbnail(src=`${imageSrc}`, alt="", srcset="" width="360" height="360")
 
         div.form-group.row
           div.col-sm-6.mb-2
-            - var cityid =  data.address_info[0].cityid || "#";
+            label.control-label(for='company_name') Company Name
+            input.form-control.input-sm#company_name(type='text', name='company_name', value=data.form.company_name, maxlength="55" autocomplete="off" disabled)
+          div.col-sm-6.mb-2
+            label.control-label(for='contact_name') Contact Name
+            input.form-control.input-sm#contact_name(type='text', name='contact_name' value=data.form.contact_name maxlength="55" autocomplete="off" disabled)
+
+        div.form-group.row
+          div.col-sm-6.mb-2
+            - var cityid =  data.form.address_info[0].cityid || { _id: "#" };
             label.control-label(for='city') City
             select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" disabled)
           div.col-sm-6.mb-2
-            - var townshipid =  data.address_info[0].townshipid || "#";
+            - var townshipid =  data.form.address_info[0].townshipid || { _id: "#" };
             label.control-label(for='city') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" disabled)
         
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='address') Address
-            input.form-control.input-sm#address(type='text', name='address', value=data.address_info[0].address, maxlength="55" autocomplete="off" disabled)
+            textarea.form-control.input-sm#address(name='address_info[0][address]' rows="1" disabled)= data.form.address_info[0].address
+
           div.col-sm-6.mb-2
             label.control-label(for='mobile_no') Mobile Phone
-            input.form-control.input-sm#mobile_no(type='text', name='mobile_no' value=data.address_info[0].mobile_no maxlength="55" autocomplete="off" disabled)
+            input.form-control.input-sm#mobile_no(type='text', name='address_info[0][mobile_no]' value=data.form.address_info[0].mobile_no disabled)
         
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='email') Email
-            input.form-control.input-sm#email(type='text', name='email', value=data.address_info[0].email, maxlength="55" autocomplete="off" disabled)
+            input.form-control.input-sm#email(type='text', name='address_info[0][email]', value=data.form.address_info[0].email, disabled)
           div.col-sm-6.mb-2
             label.control-label(for='website') Website
-            input.form-control.input-sm#website(type='text', name='website' value=data.website maxlength="55" autocomplete="off" disabled)
+            input.form-control.input-sm#website(type='text', name='website' value=data.form.website maxlength="55" autocomplete="off" disabled)
         
         div.form-group.row
           div.col-sm-6.mb-2
-            - var product_type_id =  data.product_type_id || "#";
+            - var product_type_id =  data.form.product_type_id || { _id: "#" };
             label.control-label(for='product_type_id') Product Type
             select.form-control.input-sm.selectpicker#product_type_id(name='product_type_id' value=product_type_id._id data-value=product_type_id._id, data-live-search="true", data-size="8" disabled)
           div.col-sm-6.mb-2
-            - var payment_method_id =  data.payment_methods[0].payment_method_id || "#";
+            - var payment_method_id =  data.form.payment_methods[0].payment_method_id || { _id: "#" };
             label.control-label(for='payment_method') Payment Method
             select.form-control.input-sm.selectpicker#payment_method_id(name='payment_method_id' value=payment_method_id._id data-value=payment_method_id._id, data-live-search="true", data-size="8" disabled)
+                        
+        div.form-group.row
+          div.col-sm-12.mb-2
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description', disabled)= data.form.description
         
         div.form-group.row
+          div.col-sm-6.mb-2
+              label.control-label(for='access') User Access
+
+              if (!data.modal.supplier_id)
+                div.radio.radio-toolbar.row
+                  div.col-sm-6.mb-2.col-xl-3
+                    input#statusAccess.radiobox(type='radio', name='access', value="1" , data-toggle="modal", data-target="#AddUserDialog")
+                    label.ml-1(for='statusAccess') &nbsp; Access
+                  div.col-sm-6.mb-2.col-xl-3
+                    input#statusUnaccess.radiobox(type='radio', name='access', value="0" checked)
+                    label.ml-1(for='statusUnaccess') &nbsp; Unaccess
+              else
+                div.button-bar
+                  button.btn.btn-sm.btn-primary.btn-block#dialogUserCancel(type='button', data-toggle="modal", data-target="#AddUserDialog")
+                    span.fa.fa-pen
+                    |  EDIT USER
+                
           div.col-sm-6.mb-2
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
@@ -72,34 +135,28 @@ block content
               div.col-sm-6.mb-2.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='active', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-          div.col-sm-6.mb-2
-            label.control-label(for='access') Register Access
-            div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
-                input#statusAccess.radiobox(type='radio', name='access', value="1" , data-toggle="modal", data-target="#AddUserPassDialog")
-                label.ml-1(for='statusAccess') &nbsp; Access
-              div.col-sm-6.mb-2.col-xl-3
-                input#statusUnaccess.radiobox(type='radio', name='access', value="0" checked)
-                label.ml-1(for='statusUnaccess') &nbsp; Unaccess
-        div.form-group.row
-          div.col-sm-6.mb-2
-            label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description', disabled autofocus)= data.description
+
         include ./../includes/layout-entry-btn
   
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
       var token = '!{token}';
-      $('#alert').hide();
-      console.log("!{data.payment_methods[0].payment_method_id}");
-      var status = "!{data.active}";
+      //- var supplierId = '!{user.supplier_id}';                // to process login user supplierId all pages
+      var supplierId = '!{data.modal.supplier_id}';
+
+      var status = "!{data.form.active}";
       if (status && status == "false")
         $('#statusInactive').attr("checked", "checked");
 
-      var statusaccess = "!{data.access}";
+      var statusaccess = "!{data.form.access}";
       if (statusaccess && statusaccess == "false")
         $('#statusUnaccess').attr("checked", "checked");
+
+      if (supplierId) {
+        $('#AddUserDialog').find('.modal-title').text('Edit User')
+        $('#AddUserDialog').find('button[type=submit]').html('<span class="fa fa-save"></span> UPDATE USER')
+      }
       
       ajaxLoadOption({
         type: "GET",
@@ -137,11 +194,19 @@ block content
         token: token
       });
 
+      ajaxLoadOption({
+        type: "GET",
+        url:"/api/user-roles",
+        selectId: "#roleid",
+        filterObj: {},
+        token: token
+      });
+
       $('#entryForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
           url: $(this).attr('action'),
-          type:$(this).attr('method'),
+          type: $(this).attr('method'),
           data: $(this).serialize(),
           success: function (data) {
             handleAlert(data);
@@ -151,6 +216,43 @@ block content
             console.log(data);
           },
         });
+      });
+
+      $(this).find('#dialogUserAccept').on('click', function(ev) {
+        $.ajax({
+          url: $('#userForm').attr('action'),
+          type:$('#userForm').attr('method'),
+          data: $('#userForm').serialize(),
+          headers: {
+             "authorization": "Bearer " + token,
+          },
+          success: function (data) {
+            handleAlert(data, false)
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      })
+
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
+
+      $(".input-group-append").on('click', function(event) {
+        event.preventDefault();
+        if($("#password").attr("type") == "password"){
+          $("#password").prop("type", "text");
+          $('.input-group-text i').addClass( "fa-eye" );
+          $('.input-group-text i').removeClass( "fa-eye-slash" );
+        }
+        else if($("#password").attr("type") == "text"){
+          $("#password").prop("type", "password");
+          $('.input-group-text i').addClass( "fa-eye-slash" );
+          $('.input-group-text i').removeClass( "fa-eye" );
+        }
       });
 
     });

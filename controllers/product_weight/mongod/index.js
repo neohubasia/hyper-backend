@@ -1,37 +1,37 @@
-let Productweight = require('../../../database/mongodb/models/product_weight');
+let ProductWeight = require('../../../database/mongodb/models/product_weight');
 let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
-  return Productweight.find({})
+  return ProductWeight.find({})
     .then(serialize);
 }
 
 let findData = (prop, val) => {
   if (prop === 'id')
     prop = '_id'
-  return Productweight.find({[prop]: val})
+  return ProductWeight.find({ [prop]: val })
     .then(resp => {
       return serialize(resp[0])
     });
 }
 
 let findDataBy = (params) => {
-  return Productweight.find(params)
+  return ProductWeight.find(params)
     .then(serialize);
 }
 
 let addData = (dataObj) => {
-  return Productweight.create(dataObj)
+  return ProductWeight.create(dataObj)
     .then(serialize);
 }
 
 let updateData = (id, dataObj) => {
-  return Productweight.findByIdAndUpdate(id, dataObj)
+  return ProductWeight.findByIdAndUpdate(id, dataObj)
     .then(serialize);
 }
 
 let deleteData = (id) => {
-  return Productweight.findByIdAndDelete(id)
+  return ProductWeight.findByIdAndDelete(id)
     .then(resp => {
       return {
         id: resp._id.toString(),
@@ -40,15 +40,15 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }
 
 let dropAll = () => {
-  return Productweight.remove();
+  return ProductWeight.remove();
 }
 
 module.exports = {

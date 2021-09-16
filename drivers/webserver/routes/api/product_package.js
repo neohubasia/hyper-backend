@@ -1,9 +1,9 @@
-let productpackDb = require('../../../../controllers/product_package');
+let ProductPacksDb = require('../../../../controllers/product_package');
 
-let prdouctpackage = module.exports = {};
+let product_packages = module.exports = {};
 
-prdouctpackage.index = (req, res, next) => {
-  productpackDb.listData()
+product_packages.index = (req, res, next) => {
+  ProductPacksDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -19,8 +19,8 @@ prdouctpackage.index = (req, res, next) => {
     });
 }
 
-prdouctpackage.show = (req, res, next) => {
-  productpackDb.findData('id', req.params.id)
+product_packages.show = (req, res, next) => {
+  ProductPacksDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,8 +36,8 @@ prdouctpackage.show = (req, res, next) => {
     });
 }
 
-prdouctpackage.showby = (req, res, next) => {
-  productpackDb.findDataBy(req.query)
+product_packages.showby = (req, res, next) => {
+  ProductPacksDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -53,8 +53,8 @@ prdouctpackage.showby = (req, res, next) => {
     });
 }
 
-prdouctpackage.create = (req, res, next) => {
-  productpackDb.addData(req.body)
+product_packages.create = (req, res, next) => {
+  ProductPacksDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -70,8 +70,8 @@ prdouctpackage.create = (req, res, next) => {
     });
 }
 
-prdouctpackage.update = (req, res, next) => {
-  productpackDb.updateData(req.params.id, req.body)
+product_packages.update = (req, res, next) => {
+  ProductPacksDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -87,16 +87,16 @@ prdouctpackage.update = (req, res, next) => {
     });
 }
 
-prdouctpackage.delete = (req, res, next) => {
-  productpackDb.deleteData(req.params.id)
+product_packages.delete = (req, res, next) => {
+  ProductPacksDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
     .catch(next);
 }
 
-prdouctpackage.deleteall = (req, res, next) => {
-  productpackDb.dropAll()
+product_packages.deleteall = (req, res, next) => {
+  ProductPacksDb.dropAll()
     .then(data => {
       res.send(data)
     })

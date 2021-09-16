@@ -1,9 +1,9 @@
-let templateDb = require('../../../../controllers/template');
+let TemplatesDb = require('../../../../controllers/template');
 
-let template = module.exports = {};
+let templates = module.exports = {};
 
-template.index = (req, res, next) => {
-  templateDb.listData()
+templates.index = (req, res, next) => {
+  TemplatesDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -19,8 +19,8 @@ template.index = (req, res, next) => {
     });
 }
 
-template.show = (req, res, next) => {
-  templateDb.findData('id', req.params.id)
+templates.show = (req, res, next) => {
+  TemplatesDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,8 +36,8 @@ template.show = (req, res, next) => {
     });
 }
 
-template.showby = (req,res, next) => {
-  templateDb.findDataBy(req.query)
+templates.showby = (req, res, next) => {
+  TemplatesDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -53,8 +53,8 @@ template.showby = (req,res, next) => {
     });
 }
 
-template.create = (req, res, next) => {
-  templateDb.addData(req.body)
+templates.create = (req, res, next) => {
+  TemplatesDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -70,8 +70,8 @@ template.create = (req, res, next) => {
     });
 }
 
-template.update = (req, res, next) => {
-  templateDb.updateData(req.params.id, req.body)
+templates.update = (req, res, next) => {
+  TemplatesDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -87,16 +87,16 @@ template.update = (req, res, next) => {
     });
 }
 
-template.delete = (req, res, next) => {
-  templateDb.deleteData(req.params.id)
+templates.delete = (req, res, next) => {
+  TemplatesDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
     .catch(next);
 }
 
-template.deleteall = (req, res, next) => {
-  templateDb.dropAll()
+templates.deleteall = (req, res, next) => {
+  TemplatesDb.dropAll()
     .then(data => {
       res.send(data)
     })

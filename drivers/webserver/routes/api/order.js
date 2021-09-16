@@ -1,9 +1,9 @@
-let orderDb = require('../../../../controllers/orders');
+let OrdersDb = require('../../../../controllers/order');
 
 let orders = module.exports = {};
 
 orders.index = (req, res, next) => {
-    orderDb.listData()
+    OrdersDb.listData()
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -20,7 +20,7 @@ orders.index = (req, res, next) => {
 }
 
 orders.show = (req, res, next) => {
-    orderDb.findData('id', req.params.id)
+    OrdersDb.findData('id', req.params.id)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -38,7 +38,7 @@ orders.show = (req, res, next) => {
 
 orders.showby = (req, res, next) => {
 
-    orderDb.findDataBy(req.query)
+    OrdersDb.findDataBy(req.query)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -55,7 +55,7 @@ orders.showby = (req, res, next) => {
 }
 
 orders.create = (req, res, next) => {
-    orderDb.addData(req.body)
+    OrdersDb.addData(req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -72,7 +72,7 @@ orders.create = (req, res, next) => {
 }
 
 orders.updateStatus = (req, res, next) => {
-    orderDb.updateData(req.body.id, req.body)
+    OrdersDb.updateData(req.body.id, req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -89,7 +89,7 @@ orders.updateStatus = (req, res, next) => {
 }
 
 orders.delete = (req, res, next) => {
-    orderDb.deleteData(req.params.id)
+    OrdersDb.deleteData(req.params.id)
         .then(data => {
             res.send(data)
         })
@@ -97,7 +97,7 @@ orders.delete = (req, res, next) => {
 }
 
 orders.deleteall = (req, res, next) => {
-    orderDb.dropAll()
+    OrdersDb.dropAll()
         .then(data => {
             res.send(data)
         })

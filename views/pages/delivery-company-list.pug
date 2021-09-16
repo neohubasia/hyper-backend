@@ -1,0 +1,87 @@
+extends ../includes/layout-main
+block content
+  main.ml-sm-auto.px-md-4(role='main')
+
+    include ./../includes/layout-list-header
+
+    table#example.table(style='width:100%')
+      thead
+        tr
+          th #
+          th Company Logo 
+          th Company Name
+          th Contact Name
+          th Email
+          th Primary Mobile 
+          th Address
+          th Status
+          th Updated Date
+          th
+            span.float-right
+            if ((page.actions[0] && page.actions[1]) == true)
+              include ./../includes/layout-list-plus
+      tbody
+  script.
+    $(document).ready(function() {
+      var token = '!{token}';
+      $.fn.dataTable.ext.errMode = 'none';
+      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
+      var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
+          console.log('DataTable Error: ', message);
+          alert('Read data is failed!');
+        }).DataTable({
+          "autoWidth": true,
+          "pagingType": "full_numbers",
+          "language": {
+            "searchPlaceholder": "Search",
+            "paginate": {
+              "previous": "<",
+              "next": ">"
+            }
+          },
+          "ajax": {
+            "url": "./api" + '!{page.list.url}',
+            "headers": {"authorization": "Bearer " + token},
+            "dataSrc": "data",
+          },
+          "columns": [
+            { "data": "id" },
+            { "data": "company_logo"},
+            { "data": "company_name" },
+            { "data": "contact_name" },
+            { "data": "email" },
+            { "data": "primary_mobile" },
+            { "data": "address" },
+            { "data": "status" },
+            { "data": "updated_at" },
+            { "data": "actions" },
+          ],
+          "columnDefs": [
+            { targets: 0, render: dataTableIndexRenderer() },
+            { targets: 1, render: dataTableThumbnailRenderer() },
+            { targets: 6, render: dataTableTextSlicer() },
+            { targets: 7, render: dataTableActiveRenderer() },
+            { targets: 8, render: dataTableDateTimeRenderer() },
+            { targets: 9, orderable: false, render: dataTableActionsRenderer(
+                ".!{page.entry.url}", "!{page.actions}", 
+                { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
+              )
+            }
+          ]
+      });
+
+      $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        $(this).attr('data-id', id);
+        $(this).find('#dialogAccept').on('click', function(ev) {
+          var deleteUrl = './api' + "!{page.entry.url}/" + id;
+          handleDelete(deleteUrl, token, function() {
+            $('#example').DataTable().ajax.reload()
+          });
+        });
+      }).on('hide.bs.modal', function (event) {
+        $(this).attr('data-id', '');
+        $(this).find('#dialogAccept').off('click');
+      });
+    });

@@ -7,7 +7,7 @@ let makeSchema = new Schema({
     category_id: { type: mongoose.Schema.Types.ObjectId, ref: "product_category" },
     inventory_id: { type: mongoose.Schema.Types.ObjectId, ref: "product_inventory" },
     discount_id: { type: mongoose.Schema.Types.ObjectId, ref: "discount" },
-    sku: { type: String, unique : true, required: true },
+    sku: { type: String, unique: true, required: true },
     images: Array,
     features: String,
     description: String,
@@ -15,7 +15,6 @@ let makeSchema = new Schema({
     status: { type: Boolean, default: true },
     created_at: { type: Date },
     updated_at: { type: Date },
-    deleted_at: { type: Date }
 });
 
 makeSchema.plugin(SchemaPlugin);

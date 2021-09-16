@@ -1,37 +1,37 @@
-let Productpackage = require('../../../database/mongodb/models/product_package');
+let ProductPackage = require('../../../database/mongodb/models/product_package');
 let serialize = require('./serializer'); // serializer custom to db
 
 let listData = () => {
-  return Productpackage.find({})
+  return ProductPackage.find({})
     .then(serialize);
 }
 
 let findData = (prop, val) => {
   if (prop === 'id')
     prop = '_id'
-  return Productpackage.find({[prop]: val})
+  return ProductPackage.find({ [prop]: val })
     .then(resp => {
       return serialize(resp[0])
     });
 }
 
 let findDataBy = (params) => {
-  return Productpackage.find(params)
+  return ProductPackage.find(params)
     .then(serialize);
 }
 
 let addData = (dataObj) => {
-  return Productpackage.create(dataObj)
+  return ProductPackage.create(dataObj)
     .then(serialize);
 }
 
 let updateData = (id, dataObj) => {
-  return Productpackage.findByIdAndUpdate(id, dataObj)
+  return ProductPackage.findByIdAndUpdate(id, dataObj)
     .then(serialize);
 }
 
 let deleteData = (id) => {
-  return Productpackage.findByIdAndDelete(id)
+  return ProductPackage.findByIdAndDelete(id)
     .then(resp => {
       return {
         id: resp._id.toString(),
@@ -40,15 +40,15 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }
 
 let dropAll = () => {
-  return Productpackage.remove();
+  return ProductPackage.remove();
 }
 
 module.exports = {

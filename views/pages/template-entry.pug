@@ -2,42 +2,50 @@ extends ../includes/layout-main
 block content
   main.ml-sm-auto.px-md-4(role='main')
     include ./../includes/layout-entry-header
-    form#uploadForm(method='POST' action='/file/upload/banners' enctype="multipart/form-data")
-      input#file-input(type='file' name='uploaded_file')
     include ./../includes/layout-entry-form
       block inputs
-        div.form-group.row
-          div.col-sm-6.mb-2
+
+        div.form-group.row.mt-2
+          div.col-sm-2.mb-2
             label.control-label(for='name') Name
+          div.col-sm-4.mb-2
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required )
           
-          div.col-sm-6.mb-2
+          div.col-sm-2.mb-2
             label.control-label(for='type') Type
+          div.col-sm-4.mb-2
             select#type.selectpicker.form-control(name='type', value=data.type, data-value=data.type data-size="8" data-live-search="true" required)
               option(value="" disabled)  -- Please Select --
-              option(value="aboutus" selected) About Us
+              option(value="aboutus") About Us
               option(value="policy") Privacy and Policy
               option(value="howtouse") How to use
               option(value="other") Other
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-2.mb-2
             label.control-label(for='description') Description
+          div.col-sm-4.mb-2
             textarea.form-control.input-sm#description(name='description')= data.description
-          div.col-sm-6.mb-2
+          div.col-sm-2.mb-2
             label.control-label(for='status') Status
+          div.col-sm-4.mb-2
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-2.col-xl-4
                 input#statusActive.radiobox(type='radio', name='status', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-2.col-xl-4
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-        
+                
+        hr.hr.my.mb-4
+
         div.form-group.row
-          div.col-sm-12.mb-2
+          div.col-sm-2.mb-2
             label.control-label(for='template') Template
+          div.col-sm-10.mb-2
             textarea.form-control.input-sm#template(rows= 7 name='template')= data.template
+        
+        
 
         include ./../includes/layout-entry-btn
 
@@ -47,10 +55,8 @@ block content
       var token = '!{token}';
       var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
-      $('#alert').hide();
-      $('#uploadForm').hide();
+      
       //for froala plugins
-
       new FroalaEditor('#template')
       
       // for adctive inactive

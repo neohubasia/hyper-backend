@@ -6,7 +6,6 @@ const _serializeSingle = (dataObj) => {
     'status': dataObj.status,
     'created_at': dataObj.created_at,
     'updated_at': dataObj.updated_at,
-    'deleted_at': dataObj.deleted_at,
   };
 };
 

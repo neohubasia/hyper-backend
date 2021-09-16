@@ -1,13 +1,119 @@
 extends ../includes/layout-main
 block content
   main.ml-sm-auto.px-md-4(role='main')
-    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.p-3
+    div.my-3
       h3.h3 Dashboard
-      .btn-toolbar.mb-2.mb-md-0
-        .btn-group.mr-2
-          button.btn.btn-sm.btn-outline-secondary(type='button') Share
-          button.btn.btn-sm.btn-outline-secondary(type='button') Export
-        button.btn.btn-sm.btn-outline-secondary.dropdown-toggle(type='button')
-          span(data-feather='calendar')
-          | This week
-    canvas#myChart.my-4.w-100(width='900' height='380')
+
+    .row
+      .col-md-3(onclick="location.href='/customers';")
+        .card-counter.primary
+          i.fa.fa-user-friends
+          span.count-numbers 9999
+          span.count-name Customers
+      .col-md-3(onclick="location.href='/suppliers';")
+        .card-counter.purple
+          i.fa.fa-user-tie
+          span.count-numbers 99
+          span.count-name Suppliers
+      .col-md-3(onclick="location.href='/products';")
+        .card-counter.success
+          i.fa.fa-cube
+          span.count-numbers 7500
+          span.count-name Products
+      .col-md-3(onclick="location.href='/orders';")
+        .card-counter.info
+          i.fa.fa-clipboard-list
+          span.count-numbers 100
+          span.count-name Orders
+
+    div
+      .col-lg-12.my-5.text-center
+        h2 Charting with Chartjs
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Line Chart
+          .panel-content.text-center
+            canvas#teamChart.chart(height='380')
+          .panel-footer A simple Line Chart with basic settings
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Sale Chart
+          .panel-content.text-center
+            canvas#saleChart.chart(height='380')
+          .panel-footer A sample Sale Chart with basic settings
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Line Chart
+          .panel-content.text-center
+            canvas#lineChart.chart(height='380')
+          .panel-footer A sample Line Chart with basic settings
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Bar Chart
+          .panel-content.text-center
+            canvas#barChart.chart(height='380')
+          .panel-footer A sample Bar Chart with basic settings
+      
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Radar Chart
+          .panel-content.text-center
+            canvas#radarChart.chart(height='380')
+          .panel-footer A sample Radar Chart with basic settings
+
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Pie Chart
+          .panel-content.text-center
+            canvas#pieChart.chart(height='380')
+          .panel-footer A sample Pie Chart with basic settings
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Doughut Chart
+          .panel-content.text-center
+            canvas#doughutChart.chart(height='380')
+          .panel-footer A sample Doughut Chart with basic settings
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Polar Chart
+          .panel-content.text-center
+            canvas#polarChart.chart(height='380')
+          .panel-footer A sample Polar Chart with basic settings
+
+
+      .col-lg-12.my-5
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Single Bar Chart
+          .panel-content.text-center
+            canvas#singelBarChart.chart(height='380')
+          .panel-footer A sample Single Bar Chart with basic settings
+
+  script(src='../layout-js/lib/chart-js/chart.bundle.min.js')
+  script(src='../layout-js/lib/chart-js/chart-init.js')
+  script.
+    $('.count-numbers').each(function () {
+      var $this = $(this);
+      jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+        duration: 1200,
+        easing: 'swing',
+        step: function () {
+          $this.text(Math.ceil(this.Counter));
+        }
+      });
+    });

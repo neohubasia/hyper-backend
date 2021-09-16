@@ -5,7 +5,7 @@ const connect = require('connect-ensure-login');
 const config = require("../../../../config/index");
 const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-let discountsDb = require('../../../../controllers/discount');
+let DiscountsDb = require('../../../../controllers/discount');
 
 router.get('/discounts',
   connect.ensureLoggedIn(),
@@ -23,7 +23,7 @@ router.get('/discount/:id?',
   async (req, res, next) => {
     let data = {};
     if (req.params.id)
-      data = await discountsDb.findData('id', req.params.id);
+      data = await DiscountsDb.findData('id', req.params.id);
 
     res.render('pages/discount-entry', {
       ...menuAccess.getProgram(req.user.role, "catalogMenu.discountSubMenu.entry"), // admin may change on req.user => role
@@ -38,13 +38,17 @@ router.get('/discount/:id?',
 
       let db, status = "FAIL";
 
+      if (req.user.supplier_id) {
+        req.body.supplier_id = req.user.supplier_id;
+      }
+
       if (!req.body.id) { // insert data 
-        db = discountsDb.addData(req.body);
+        db = DiscountsDb.addData(req.body);
       }
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        db = discountsDb.updateData(req.body.id, data);
+        db = DiscountsDb.updateData(req.body.id, data);
       }
       db.then(result => {
         if (result != null)

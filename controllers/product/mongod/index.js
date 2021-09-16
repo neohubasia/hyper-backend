@@ -1,8 +1,8 @@
 let Product = require('../../../database/mongodb/models/product');
 let serialize = require('./serializer'); // serializer custom to db
 
-let listData = () => {
-  return Product.find({})
+let listData = (params) => {
+  return Product.find({ inventory_id: { $ne: null } })
     .populate({
       path: 'category_id',
       model: 'product_category',
@@ -10,11 +10,21 @@ let listData = () => {
     }).populate({
       path: 'inventory_id',
       model: 'product_inventory',
-      select: 'quantity'
+      select: 'quantity',
+      populate: {
+        path: "supplier_id",
+        model: "supplier",
+        select: "company_name",
+        match: { _id: { $eq: params.supplier_id } }                             // filter supplier
+      }
     }).populate({
       path: 'discount_id',
       model: 'discount',
       select: 'name as discount_name'
+    })
+    .then(result => {
+      return (!params.supplier_id) ? result                                     // admin
+        : result.filter(dataObj => dataObj.inventory_id.supplier_id != null);   // supplier 
     })
     .then(serialize);
 }

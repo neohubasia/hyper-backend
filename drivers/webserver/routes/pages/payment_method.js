@@ -5,7 +5,7 @@ const connect = require('connect-ensure-login');
 const config = require("../../../../config/index");
 const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-let paymentmethodDb = require('../../../../controllers/payment_methods');
+let PaymentMethodsDb = require('../../../../controllers/payment_method');
 
 router.get('/payment_methods',
   connect.ensureLoggedIn(),
@@ -23,7 +23,7 @@ router.get('/payment_method/:id?',
   async (req, res, next) => {
     let data = {};
     if (req.params.id)
-      data = await paymentmethodDb.findData('id', req.params.id);
+      data = await PaymentMethodsDb.findData('id', req.params.id);
 
     res.render('pages/payment-method-entry', {
       ...menuAccess.getProgram(req.user.role, "generalMenu.paymentMethodSubMenu.entry"), // admin may change on req.user => role
@@ -39,12 +39,12 @@ router.get('/payment_method/:id?',
       let db, status = "FAIL";
 
       if (!req.body.id) { // insert data 
-        db = paymentmethodDb.addData(req.body);
+        db = PaymentMethodsDb.addData(req.body);
       }
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        db = paymentmethodDb.updateData(req.body.id, data);
+        db = PaymentMethodsDb.updateData(req.body.id, data);
       }
       db.then(result => {
         if (result != null)

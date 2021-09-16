@@ -1,33 +1,22 @@
 {
     "admin (access all)": "*",
-    "supervisor (read, write)": {
+    "supplier (read, write)": {
         "menu": [
             "dashMenu",
-            "generalMenu",
             "registerMenu",
+            "catalogMenu",
             "orderMenu",
-            "courseMenu"
+            "reportMenu"
         ],
         "submenu": [
-            "registerSubMenu,1,1,0",
-            "townshipSubMenu,1,1,0",
-            "citySubMenu,1,1,0",
-            "productCategorySubMenu,1,1,0",
-            "productSubMenu,1,1,0",
+            "customerSubMenu,1,0,0",
+            "supplierSubMenu,1,1,0",
+            "productInventorySubMenu,1,1,0",
             "discountSubMenu,1,1,0",
-            "bannerSubMenu,1,1,0",
-            "cartSubMenu,1,1,1",
-            "orderSubMenu,1,1,1"
-        ]
-    },
-    "cashier (read only)": {
-        "menu": [
-            "dashMenu",
-            "courseMenu"
-        ],
-        "submenu": [
-            "teacherSubMenu,1,0,0",
-            "studentSubMenu,1,0,0"
+            "productSubMenu,1,1,0",
+            "cartSubMenu,1,1,0",
+            "orderSubMenu,1,1,0",
+            "orderReportSubMenu,1,1,0"
         ]
     }
 }

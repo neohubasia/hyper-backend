@@ -1,8 +1,8 @@
 let ProductInventory = require('../../../database/mongodb/models/product_inventory');
 let serialize = require('./serializer'); // serializer custom to db
 
-let listData = () => {
-  return ProductInventory.find({})
+let listData = (params) => {
+  return ProductInventory.find(params)
     .populate({
       model: "supplier",
       path: "supplier_id",
@@ -55,9 +55,9 @@ let deleteData = (id) => {
       }
     })
     .catch(err => {
-      return { 
+      return {
         status: 'FAIL',
-        message: 'Delete Unsuccessful' 
+        message: 'Delete Unsuccessful'
       }
     })
 }

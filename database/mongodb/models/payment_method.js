@@ -3,11 +3,15 @@ const SchemaPlugin = require('./helpers/schema-plugin');
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-  name: String,
-  acc_no: String,
-  payment_role: {
+  acc_name: String,
+  acc_number: String,
+  payment_method: {
     type: String,
-    enum: ["bank", "pay", "cod", "other"]
+    enum: ["bank", "wallet", "cod", "other"]
+  },
+  payment_name: {
+    type: String,
+    enum: ["kbz", "aya", "yoma", "wave_money", "kbz_pay"]
   },
   organization: String,
   description: String,

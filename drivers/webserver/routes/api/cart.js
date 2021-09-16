@@ -1,10 +1,10 @@
 const { async } = require('validate.js');
-let cartDb = require('../../../../controllers/carts');
+let CartsDb = require('../../../../controllers/cart');
 
 let carts = module.exports = {};
 
 carts.index = (req, res, next) => {
-    cartDb.listData()
+    CartsDb.listData()
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -21,7 +21,7 @@ carts.index = (req, res, next) => {
 }
 
 carts.show = (req, res, next) => {
-    cartDb.findData('id', req.params.id)
+    CartsDb.findData('id', req.params.id)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -39,7 +39,7 @@ carts.show = (req, res, next) => {
 
 carts.showby = (req, res, next) => {
 
-    cartDb.findDataBy(req.query)
+    CartsDb.findDataBy(req.query)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -56,7 +56,7 @@ carts.showby = (req, res, next) => {
 }
 
 carts.create = (req, res, next) => {
-    cartDb.addData(req.body)
+    CartsDb.addData(req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -73,7 +73,7 @@ carts.create = (req, res, next) => {
 }
 
 carts.update = (req, res, next) => {
-    cartDb.updateData(req.params.id, req.body)
+    CartsDb.updateData(req.params.id, req.body)
         .then(data => {
             res.json({
                 status: "SUCCESS",
@@ -90,7 +90,7 @@ carts.update = (req, res, next) => {
 }
 
 carts.updateMany = async (req, res, next) => {
-    const response = await cartDb.updateMany(req.query, req.body)
+    const response = await CartsDb.updateMany(req.query, req.body)
     // .then(data => {
     //     res.send(data)
     // })
@@ -99,7 +99,7 @@ carts.updateMany = async (req, res, next) => {
 }
 
 carts.delete = (req, res, next) => {
-    cartDb.deleteData(req.body.customerId)
+    CartsDb.deleteData(req.body.customerId)
         .then(data => {
             // res.send(data)
             next();
@@ -108,7 +108,7 @@ carts.delete = (req, res, next) => {
 }
 
 carts.deleteBy = (req, res, next) => {
-    cartDb.deleteDataBy(req.query)
+    CartsDb.deleteDataBy(req.query)
         .then(data => {
             res.send(data)
         })
@@ -116,7 +116,7 @@ carts.deleteBy = (req, res, next) => {
 }
 
 carts.deleteall = (req, res, next) => {
-    cartDb.dropAll()
+    CartsDb.dropAll()
         .then(data => {
             res.send(data)
         })

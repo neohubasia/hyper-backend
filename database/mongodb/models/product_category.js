@@ -8,7 +8,6 @@ let makeSchema = new Schema({
     status: { type: Boolean, default: true },
     created_at: { type: Date },
     updated_at: { type: Date },
-    deleted_at: { type: Date }
 });
 
 makeSchema.plugin(SchemaPlugin);

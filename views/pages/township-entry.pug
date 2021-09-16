@@ -17,7 +17,7 @@ block content
 
         div.form-group.row
           div.col-sm-6.mb-2
-            - var cityid =  data.cityid || "#";
+            - var cityid =  data.cityid || { _id: "#" };
             label.control-label(for='city') City
             select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
           div.col-sm-6.mb-2
@@ -28,7 +28,7 @@ block content
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
-            input.form-control.input-sm#description(type='text', name='description', value=data.description autocomplete="off")
+            textarea.form-control.input-sm#description(name='description',)= data.description 
           div.col-sm-6.mb-2
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
@@ -45,7 +45,6 @@ block content
   script.
     $(document).ready(function() {
       var token = '!{token}';
-      $('#alert').hide();
 
       var status = "!{data.status}";
       if (status && status == "false")

@@ -10,8 +10,8 @@ block content
           th #
           th Title
           th Description
-          th Updated Date
           th Status
+          th Updated Date
           th.actions
             if ((page.actions[0] && page.actions[1]) == true)
               include ./../includes/layout-list-plus
@@ -44,13 +44,14 @@ block content
             { "data": "id"},
             { "data": "title"},
             { "data": "description" },
+            { "data": "status" },
             { "data": "updated_at" },
-            { "data": "status" }
           ],
           "columnDefs": [
             { targets: 0, render: dataTableIndexRenderer() },
-            { targets: 3, render: dataTableDateTimeRenderer() },
-            { targets: 4, render: dataTableActiveRenderer() },
+            { targets: 2, render: dataTableTextSlicer() },
+            { targets: 3, render: dataTableActiveRenderer() },
+            { targets: 4, render: dataTableDateTimeRenderer() },
             { targets: 5, orderable: false, render: dataTableActionsRenderer(
                 ".!{page.entry.url}", "!{page.actions}", 
                 { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }

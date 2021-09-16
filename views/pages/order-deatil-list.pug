@@ -4,11 +4,11 @@ block content
 
     include ./../includes/layout-entry-header
 
-    section.content(style="margin-top: -2.5rem")
+    section.content(style="")
       .row
           .col-12
-              .card(style="overflow-x:auto;")
-                  .card-body
+              .card
+                  .card-body(style="overflow-x:auto;")
                       table.table.table-bordered.table-striped
                           thead
                               tr  
@@ -42,12 +42,12 @@ block content
                                     
                                 
       .row.mt-5
-          .col-6
+          .col-lg-6.col-sm-12
               .card
-                  .card-header.border-0
-                      h3.card-title Customer Information 
+                  .card-header
+                      h4.card-title Customer Information 
                                   
-                  .card-body.table-responsive.p-0
+                  .card-body(style="overflow-x:auto;")
                       table.table.table-striped.table-valign-middle
                           thead
                               tr

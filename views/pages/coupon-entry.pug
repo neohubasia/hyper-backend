@@ -1,0 +1,110 @@
+extends ../includes/layout-main
+block content
+  main.ml-sm-auto.px-md-4(role='main')
+
+    include ./../includes/layout-entry-header
+
+    include ./../includes/layout-entry-form
+      block inputs
+
+        div.form-group.row
+          div.col-sm-4.mb-2
+            label.control-label(for='code') Code
+            input.form-control.input-sm#code(type='text', name='code', value=data.code, maxlength="55" autocomplete="off" required autofocus)
+          div.col-sm-4.mb-2
+            label.control-label(for='discount_type') Discount Type
+            select#discount_type.selectpicker.form-control(name='discount_type', value=data.discount_type, data-value=data.discount_type  data-size="8" data-live-search="true" required)
+              option(value="" disabled selected)  -- Please Select --
+              option(value="percent")  Percent
+              option(value="amount") Amount
+          div.col-sm-4.mb-2
+            label.control-label(for='customer_type') Customer Type
+            select#customer_type.selectpicker.form-control(name='customer_type', value=data.customer_type, data-value=data.customer_type  data-size="8" data-live-search="true" required)
+              option(value="" disabled selected)  -- Please Select --
+              option(value="normal")  Normal
+              option(value="premium") Premium
+
+        div.form-group.row
+          div.col-sm-6.mb-2
+            label.control-label(for='discount_amount') Discount (Percent/Amount)
+            input.form-control.input-sm#discount_amount(type='number', name='discount_amount', role="number" min='1' max='10000' value=data.discount_amount required)
+            small.text-warning Percent (1-100), Amount (1-10000)
+          div.col-sm-6.mb-2
+            label.control-label(for='no_of_limits') No. of Limit
+            input.form-control.input-sm#no_of_limits(type='number', name='no_of_limits', role="number" min='1' max='10000' onkeyup="if(parseInt(this.value)>10000){ this.value =10000; return false; }" value=data.no_of_limits required)
+            small.text-warning Limit (1-10000)
+
+        div.form-group.row
+          div.col-sm-6.mb-2
+            label.control-label(for='start_time') Start Time
+            input.form-control.input-sm.fromdate#start_time(type='text', name='start_time', value=data.start_time, maxlength="55" editable="false" required)
+          div.col-sm-6.mb-2
+            label.control-label(for='expire_time') Expire Time
+            input.form-control.input-sm.todate#expire_time(type='text', name='expire_time', value=data.expire_time, maxlength="55" editable="false" required)
+        
+        div.form-group.row
+          div.col-sm-6.mb-2
+            label.control-label(for='description') Description
+            textarea.form-control.input-sm#description(name='description',)= data.description 
+          div.col-sm-6.mb-2
+            label.control-label(for='active') Active
+            div.radio.radio-toolbar.row
+              div.col-sm-6.mb-2.col-xl-3
+                input#statusActive.radiobox(type='radio', name='active', value="1" checked)
+                label.ml-1(for='statusActive') &nbsp; Active
+              div.col-sm-6.mb-2.col-xl-3
+                input#statusInactive.radiobox(type='radio', name='active', value="0")
+                label.ml-1(for='statusInactive') &nbsp; Inactive
+
+        include ./../includes/layout-entry-btn
+
+    form#postSuccessForm(method='GET', action=page.list.url)
+  script.
+    $(document).ready(function() {
+      var editMode = $("input[name='id']").val();
+      var token = '!{token}';
+      var maxDiscount = 10000;
+
+      var status = "!{data.active}";
+      if (status && status == "false")
+        $('#statusInactive').attr("checked", "checked");
+
+      if (editMode && typeof editMode === "string") {
+        var discount_type = $('#discount_type').data('value');
+        $('#discount_type').val(discount_type).change();
+
+        var customer_type = $('#customer_type').data('value');
+        $('#customer_type').val(customer_type).change();
+      }
+
+      $("#discount_amount").on("keyup",  function(e) {
+        var discount_type = $('#discount_type').val()
+                            || $('#discount_type').data('value');
+
+        (discount_type == "percent") ? maxDiscount = 100 :  maxDiscount = 10000;  
+        
+        $('#discount_type').attr("max", maxDiscount)
+
+        if(parseInt(this.value) > maxDiscount){
+          this.value = maxDiscount; 
+          return false; 
+        }
+      });
+
+      $('#entryForm').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: $(this).attr('action'),
+          type:$(this).attr('method'),
+          data: $(this).serialize(),
+          success: function (data) {
+            handleAlert(data);
+          },
+          error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+          },
+        });
+      });
+
+    });

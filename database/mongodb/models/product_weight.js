@@ -5,7 +5,7 @@ let Schema = mongoose.Schema;
 let makeSchema = new Schema({
     name: String,
     description: String,
-    status: Boolean,
+    status: { type: Boolean, default: true },
     created_at: { type: Date },
     updated_at: { type: Date },
 });

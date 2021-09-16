@@ -1,9 +1,9 @@
-let customerDb = require('../../../../controllers/customer');
+let CustomersDb = require('../../../../controllers/customer');
 
 let customers = module.exports = {};
 
 customers.index = (req, res, next) => {
-  customerDb.listData()
+  CustomersDb.listData()
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +20,7 @@ customers.index = (req, res, next) => {
 }
 
 customers.show = (req, res, next) => {
-  customerDb.findData('id', req.params.id)
+  CustomersDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,13 +36,13 @@ customers.show = (req, res, next) => {
     });
 }
 
-customers.showby = (req,res, next) => {
+customers.showby = (req, res, next) => {
   // let obj = [];
   // Object.keys(req.query).map(function(i){ 
   //   obj.push({ prop: i, val: req.query[i]});
   // })
-  
-  customerDb.findDataBy(req.query)
+
+  CustomersDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -59,7 +59,7 @@ customers.showby = (req,res, next) => {
 }
 
 customers.create = (req, res, next) => {
-  customerDb.addData(req.body)
+  CustomersDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -76,7 +76,7 @@ customers.create = (req, res, next) => {
 }
 
 customers.update = (req, res, next) => {
-  customerDb.updateData(req.params.id, req.body)
+  CustomersDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -93,7 +93,7 @@ customers.update = (req, res, next) => {
 }
 
 customers.delete = (req, res, next) => {
-  customerDb.deleteData(req.params.id)
+  CustomersDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -101,7 +101,7 @@ customers.delete = (req, res, next) => {
 }
 
 customers.deleteall = (req, res, next) => {
-  customerDb.dropAll()
+  CustomersDb.dropAll()
     .then(data => {
       res.send(data)
     })

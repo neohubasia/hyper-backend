@@ -1,9 +1,11 @@
-let supplierDb = require('../../../../controllers/supplier');
+let SuppliersDb = require('../../../../controllers/supplier');
 
 let suppliers = module.exports = {};
 
 suppliers.index = (req, res, next) => {
-  supplierDb.listData()
+  delete req.query._;
+
+  SuppliersDb.listData(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -20,7 +22,7 @@ suppliers.index = (req, res, next) => {
 }
 
 suppliers.show = (req, res, next) => {
-  supplierDb.findData('id', req.params.id)
+  SuppliersDb.findData('id', req.params.id)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -36,13 +38,13 @@ suppliers.show = (req, res, next) => {
     });
 }
 
-suppliers.showby = (req,res, next) => {
+suppliers.showby = (req, res, next) => {
   // let obj = [];
   // Object.keys(req.query).map(function(i){ 
   //   obj.push({ prop: i, val: req.query[i]});
   // })
-  
-  supplierDb.findDataBy(req.query)
+
+  SuppliersDb.findDataBy(req.query)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -59,7 +61,7 @@ suppliers.showby = (req,res, next) => {
 }
 
 suppliers.create = (req, res, next) => {
-  supplierDb.addData(req.body)
+  SuppliersDb.addData(req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -76,7 +78,7 @@ suppliers.create = (req, res, next) => {
 }
 
 suppliers.update = (req, res, next) => {
-  supplierDb.updateData(req.params.id, req.body)
+  SuppliersDb.updateData(req.params.id, req.body)
     .then(data => {
       res.json({
         status: "SUCCESS",
@@ -93,7 +95,7 @@ suppliers.update = (req, res, next) => {
 }
 
 suppliers.delete = (req, res, next) => {
-  supplierDb.deleteData(req.params.id)
+  SuppliersDb.deleteData(req.params.id)
     .then(data => {
       res.send(data)
     })
@@ -101,7 +103,7 @@ suppliers.delete = (req, res, next) => {
 }
 
 suppliers.deleteall = (req, res, next) => {
-  supplierDb.dropAll()
+  SuppliersDb.dropAll()
     .then(data => {
       res.send(data)
     })

@@ -5,7 +5,7 @@ const connect = require('connect-ensure-login');
 const config = require("../../../../config/index");
 const { Handlers } = require('../../../../middlewares/generator');
 const menuAccess = require("../../../../librarys/menu-access");
-let customersDb = require('../../../../controllers/customer');
+let CustomersDb = require('../../../../controllers/customer');
 
 router.get('/customers',
   connect.ensureLoggedIn(),
@@ -23,7 +23,7 @@ router.get('/customer/:id?',
   async (req, res, next) => {
     let data = {};
     if (req.params.id)
-      data = await customersDb.findData('id', req.params.id);
+      data = await CustomersDb.findData('id', req.params.id);
 
     res.render('pages/customer-entry', {
       ...menuAccess.getProgram(req.user.role, "registerMenu.customerSubMenu.entry"), // admin may change on req.user => role
@@ -39,12 +39,12 @@ router.get('/customer/:id?',
       let db, status = "FAIL";
 
       if (!req.body.id) { // insert data 
-        db = customersDb.addData(req.body);
+        db = CustomersDb.addData(req.body);
       }
       else { // update data
         const id = req.body.id;
         const { ['id']: removed, ...data } = req.body;
-        db = customersDb.updateData(req.body.id, data);
+        db = CustomersDb.updateData(req.body.id, data);
       }
       db.then(result => {
         if (result != null)

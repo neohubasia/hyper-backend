@@ -15,7 +15,7 @@ block content
         div.form-group.row
           div.col-sm-6.mb-2.offset-3
             label.control-label(for='description') Description
-            input.form-control.input-sm#description(type='text', name='description', value=data.description, maxlength="55" autocomplete="off" required)
+            textarea.form-control.input-sm#description(name='description')= data.description 
         
         div.form-group.row
           div.col-sm-6.mb-2.offset-3
@@ -34,7 +34,6 @@ block content
   script.
     $(document).ready(function() {
       var token = '!{token}';
-      $('#alert').hide();
 
       var status = "!{data.status}";
       if (status && status == "false")
