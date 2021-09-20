@@ -75,6 +75,26 @@ let dropAll = () => {
   return Order.remove();
 }
 
+let reportFilter=(dataObj)=>{
+  return Order.find({
+    orderDate: {
+          $gte: dataObj.start_date,
+          $lte: dataObj.end_date
+      },
+    status:dataObj.status
+    }
+    )
+    .populate('customerId')
+    .populate({
+      path: 'orderItem.productId',
+      populate: {
+        path: 'category_id',
+        model: 'product_category'
+      }
+    })
+    .then(serialize);
+}
+
 module.exports = {
   listData,
   findData,
@@ -82,6 +102,7 @@ module.exports = {
   addData,
   updateData,
   deleteData,
-  dropAll
+  dropAll,
+  reportFilter
 };
 

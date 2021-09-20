@@ -1,0 +1,142 @@
+extends ../includes/layout-main
+block content
+  main.ml-sm-auto.px-md-4(role='main')
+
+    include ./../includes/layout-list-header
+    div.form-group.row
+      div.col-sm-6.mb-2
+        div.col-sm-8.offset-2.mb-2
+          label.control-label(for='start_time') Start Date
+          input.form-control.input-sm.fromdate#start_time(type='text', name='start_time', maxlength="55" editable="false" required)
+        div.col-sm-8.offset-2.mb-2
+          label.control-label(for='end_time') End Date
+          input.form-control.input-sm.todate#end_time(type='text', name='end_time', maxlength="55" editable="false" required)
+      div.col-sm-6.mb-2
+        div.col-sm-8.offset-2.mb-2
+          label.control-label(for='status') Status
+          select#status.selectpicker.form-control(name='status',data-size="8" data-live-search="true")
+            //- option(value="" disabled selected)  -- Please Select --
+            option(value="pending" selected)  Pending
+            option(value="cancelled")  Cancelled
+            option(value="confirmed") Confirmed
+            option(value="completed") Completed
+        div.col-sm-8.offset-2.mb-2.mt-5.row
+          div.col-sm-6
+            button#btnLoad.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
+              span.fa.fa-save
+              |  Load
+          div.col-sm-6
+            button#export.btn.btn-.btn-success.btn-sm.m-1(type='submit', role='button')
+              span.fa.fa-file
+              |  Export
+    table#example.table(style='width:100%')
+      thead
+        tr
+          th #
+          th Order Code
+          th Customer
+          th Email
+          th Status
+          th orderDate
+          th
+            span.float-right
+      tbody#tbl
+  script.
+    $(document).ready(function() {
+      var token = '!{token}';
+      $("#alert").hide();
+      var table;
+      date = new Date(),
+      today = [date.getFullYear(), parseInt(date.getMonth())+1, date.getDate()].join("-");
+      console.log(today)
+      tableReload('1900-01-01', today,"pending");
+      $.fn.dataTable.ext.errMode = 'none';
+      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
+      function tableReload(st_date, ed_date,status){
+        //- alert(st_date+">>>"+ed_date+">>>>>"+status)
+        table = $('#example').on('error.dt', function(e, settings, techNote, message) {
+            console.log('DataTable Error: ', message);
+            alert('Read data is failed!');
+          }).DataTable({
+            "destroy":true,
+            "autoWidth": true,
+            "pagingType": "full_numbers",
+            "language": {
+              "searchPlaceholder": "Search",
+              "paginate": {
+                "previous": "<",
+                "next": ">"
+              }
+            },
+            "buttons": [{
+                extend: 'excel',
+                filename: 'Order Report List ('+status+')',
+                exportOptions: {
+                    modifier: {
+                        order: 'index',
+                        page: 'all',
+                        search: 'none'
+                    },
+                    columns: [1,2,3,4,5]
+                }
+            }],
+            "ajax": {
+              "url": "./api/order_reports?start_date="+st_date+"&end_date="+ed_date+"&status="+status,
+              "headers": {"authorization": "Bearer " + token},
+            },
+            "columns": [
+              { "data": "id"},
+              { "data": "orderNumber"},
+              { "data": "customerId.displayName" },
+              { "data": "customerId.email" },
+              { "data": "status" },
+              { "data": "orderDate" },
+              { "data": "actions" },
+            ],
+            "columnDefs": [
+              { targets: 0, render: dataTableIndexRenderer() },
+              { targets: 5, render: dataTableDateTimeRenderer() },
+              { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
+                  ".!{page.entry.url}", "!{page.actions}", 
+                  { detail: "!{app.icons.FLAT_DETAIL}" }
+                )
+              }
+            ]
+        });
+      }
+      $('#export').on('click',function(event){
+        table.button('.buttons-excel').trigger();
+      });
+      $('#btnLoad').on('click', function(event){
+        var date = new Date(),
+        today = [date.getFullYear(), parseInt(date.getMonth())+1, date.getDate()].join("-");
+        
+        var startDate=$('#start_time').val();
+        var endDate=$('#end_time').val();
+        var status=$('#status').val()
+        var st_date=moment(startDate,"DD/MM/YYYY").format("YYYY-MM-DD");
+        var ed_date=moment(endDate,"DD/MM/YYYY").format("YYYY-MM-DD");
+        //- alert(st_date+">>>"+ed_date+">>>>>"+status)
+        if(startDate=='' || endDate==''){
+          tableReload('1900-01-01', today,status);
+        }else{
+          tableReload(st_date, ed_date,status);
+        }
+      });
+      // processing with status
+
+      $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        $(this).attr('data-id', id);
+        $(this).find('#dialogAccept').on('click', function(ev) {
+          var deleteUrl = './api' + "!{page.entry.url}/" + id;
+          handleDelete(deleteUrl, token, function() {
+            $('#example').DataTable().ajax.reload()
+          });
+        });
+      }).on('hide.bs.modal', function (event) {
+        $(this).attr('data-id', '');
+        $(this).find('#dialogAccept').off('click');
+      });
+    });
