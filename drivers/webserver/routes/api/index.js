@@ -28,7 +28,7 @@ const delivery_charges = require('./delivery_charge');
 
 // schema vialidation
 const validateware = require('./../../../../middlewares/validator');
-const studentSchema = require('./../../../../models/students/student-schema');
+const studentSchema = require('../../validations/students/student-schema');
 const { constructOrder, updateStock, verifyStock } = require('../../../../middlewares/cart_to_order')
 
 router
