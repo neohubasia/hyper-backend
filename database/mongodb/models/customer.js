@@ -80,6 +80,7 @@ const makeSchema = new Schema({
       },
       address_type: {
         type: String,
+        default: "home",
         enum: ["home", "work"],
         // required: true,
       },
