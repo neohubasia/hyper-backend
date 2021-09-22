@@ -672,13 +672,13 @@
     "submenu": [
       {
         "menuid": "orderReportSubMenu",
-        "url": "/order-reports",
+        "url": "/order_reports",
         "title": "Order Report",
         "icon": "fa fa-file-invoice",
         "access": false,
         "active": false,
         "list": {
-          "url": "/order-reports",
+          "url": "/order_reports",
           "title": "Order Report List",
           "breadcrumb": [
             {
@@ -688,11 +688,11 @@
           ]
         },
         "entry": {
-          "url": "/order-report",
+          "url": "/order_report",
           "title": "Order Report Detail",
           "breadcrumb": [
             {
-              "url": "/order-reports",
+              "url": "/order_reports",
               "text": "Order Report List"
             },
             {

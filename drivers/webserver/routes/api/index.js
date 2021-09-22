@@ -137,6 +137,7 @@ router
   .delete('/order/:id', orders.delete)
   .delete('/orders', orders.deleteall)
   .post('/order/status', orders.updateStatus)
+  .get('/order_reports',orders.orderReports)
 
 
 router
