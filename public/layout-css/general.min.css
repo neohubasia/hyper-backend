@@ -15,6 +15,69 @@ body {
   box-shadow: 3px 3px 7px rgba(220, 220, 220, 1);
 }
 
+/* Notification Dropdown */
+
+/* CSS used here will be applied after bootstrap.css */
+
+.notifications {
+  margin-left: -50px;
+  width: 260px;
+}
+
+.notifications-count[data-count] {
+  position: absolute;
+  font-weight: bold;
+  font-size: 70%;
+  padding: .55em;
+  margin-top: -13px;
+  margin-left: -5px;
+  line-height: .75em;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  background: #f55;
+}
+
+.notifications-header,
+.notifications-footer {
+  padding: 0 13px;
+  color: #555;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.notifications-wrapper {
+  overflow: auto;
+  max-height: 250px;
+}
+
+.notifications a.content {
+  text-decoration: none;
+}
+
+.notification-item {
+  margin: 5px;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+.notification-item .item-title {
+  padding: 2px 10px;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 550;
+  color: #555;
+}
+
+.notification-item .item-data {
+  padding: 2px 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+}
+
 /* Select 2 */
 
 .select2-selection__rendered {
@@ -64,15 +127,7 @@ body {
   vertical-align: text-bottom;
 }
 
-/* Input style */
-
-/* input[type="radio"] {
-  -ms-transform: scale(1.5);
-  /* IE 9 
-  -webkit-transform: scale(1.5);
-  /* Chrome, Safari, Opera 
-  transform: scale(1.5);
-} */
+/* Input Radio */
 
 input[type="radio"] {
   -ms-transform: scale(1.5);
@@ -142,7 +197,6 @@ input[type="radio"][value="0"]:checked {
 }
 
 .add-img-wrapper {
-  /* color: #007bff; */
   border: 5px dashed #ddd;
   border-radius: 8px;
   background: #eee;

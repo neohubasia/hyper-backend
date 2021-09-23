@@ -82,27 +82,38 @@
 
 /* Dropdown Overide */
 
-.navbar-nav>li>.dropdown-menu {
-  top: 50px;
+.nav-item {
+  background: #f0f0f0;
   border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 3px 3px 5px #bbb;
+  margin: 0 3px;
 }
 
-.navbar-nav>li>.dropdown-menu>a {
+.nav-item>a>span {
+  color: #000;
+}
+
+.nav-item.dropdown>.dropdown-menu {
+  top: 50px;
+  left: -110px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 4px 4px 20px #fff;
+}
+
+.nav-item.dropdown>.dropdown-menu>a {
   padding: 5px 10px;
   margin: 5px auto;
   color: #555;
 }
 
-.navbar-nav>li>.dropdown-menu>a:hover,
-.navbar-nav>li>.dropdown-menu>a:focus {
+.nav-item.dropdown>.dropdown-menu>a:hover,
+.nav-item.dropdown>.dropdown-menu>a:focus {
   color: #000;
   font-weight: 550;
   background-color: #f5f5f5;
 }
 
-.navbar-nav>li>.dropdown-menu>.dropdown-divider {
+.nav-item.dropdown>.dropdown-menu>.dropdown-divider {
   background-color: #f5f5f5;
 }
 
