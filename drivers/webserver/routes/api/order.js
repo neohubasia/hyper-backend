@@ -18,10 +18,10 @@ orders.index = (req, res, next) => {
             })
         });
 }
-orders.orderReports=(req,res,next)=>{
+
+orders.orderReports = (req, res, next) => {
     OrdersDb.reportFilter(req.query)
         .then(data => {
-            console.log(data)
             res.json({
                 status: "SUCCESS",
                 data: data
@@ -35,6 +35,7 @@ orders.orderReports=(req,res,next)=>{
             })
         });
 }
+
 orders.show = (req, res, next) => {
     OrdersDb.findData('id', req.params.id)
         .then(data => {

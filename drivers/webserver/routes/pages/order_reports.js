@@ -10,7 +10,7 @@ let OrdersDb = require('../../../../controllers/order')
 router.get('/order_reports',
   connect.ensureLoggedIn(),
   (req, res, next) => {
-    res.render('pages/order_reports-list', {
+    res.render('pages/order-reports-list', {
       ...menuAccess.getProgram(req.user.role, "reportMenu.orderReportSubMenu.list"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app
@@ -23,7 +23,7 @@ router.get('/order_reports/:id?',
   async (req, res, next) => {
     let data = {};
     data = await OrdersDb.findData('id', req.params.id);
-    res.render('pages/order_reports-list', {
+    res.render('pages/order-reports-list', {
       ...menuAccess.getProgram(req.user.role, "reportMenu.orderReportSubMenu.entry"), // admin may change on req.user => role
       token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,

@@ -75,15 +75,15 @@ let dropAll = () => {
   return Order.remove();
 }
 
-let reportFilter=(dataObj)=>{
+let reportFilter = (dataObj) => {
   return Order.find({
     orderDate: {
-          $gte: dataObj.start_date,
-          $lte: dataObj.end_date
-      },
-    status:dataObj.status
-    }
-    )
+      $gte: dataObj.start_date,
+      $lte: dataObj.end_date
+    },
+    status: dataObj.status
+  }
+  )
     .populate('customerId')
     .populate({
       path: 'orderItem.productId',
