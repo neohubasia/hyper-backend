@@ -1,32 +1,45 @@
 extends ../includes/layout-main
 block content
+  div.modal.fade#FilterDataDialog(role='dialog', aria-labelledby='FilterDataDialog')
+    div.modal-dialog.modal-sm(role='document', style='max-width:730px')
+      div.modal-content
+
+        div.modal-header
+          h4.modal-title Filter Data Table
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+
+        div.form-group.row
+          div.col-sm-6.mb-2
+            div.col-sm-12.mb-2
+              label.control-label(for='start_time') Start Date
+              input.form-control.input-sm.fromdate#start_time(type='text', name='start_time', maxlength="55" editable="false" required)
+            div.col-sm-12.mb-2
+              label.control-label(for='end_time') End Date
+              input.form-control.input-sm.todate#end_time(type='text', name='end_time', maxlength="55" editable="false" required)
+          div.col-sm-6.mb-2
+            div.col-sm-12.mb-2
+              label.control-label(for='status') Status
+              select#status.selectpicker.form-control(name='status',data-size="8" data-live-search="true")
+                //- option(value="" disabled selected)  -- Please Select --
+                option(value="pending" selected) Pending
+                option(value="cancelled") Cancelled
+                option(value="confirmed") Confirmed
+                option(value="completed") Completed
+
+        div.modal-footer.justify-content-md-center
+          button.btn.btn-sm.btn-secondary#btnCancel(type='button', data-dismiss='modal')
+            span.fa.fa-times
+            |  CANCEL
+          button#btnLoad.btn.btn-.btn-primary.btn-sm(type='button', role='button')
+            span.fa.fa-spinner
+            |  LOAD
+
   main.ml-sm-auto.px-md-4(role='main')
 
     include ./../includes/layout-list-header
-    div.form-group.row
-      div.col-sm-6.mb-2
-        div.col-sm-8.offset-sm-2.mb-2
-          label.control-label(for='start_time') Start Date
-          input.form-control.input-sm.fromdate#start_time(type='text', name='start_time', maxlength="55" editable="false" required)
-        div.col-sm-8.offset-sm-2.mb-2
-          label.control-label(for='end_time') End Date
-          input.form-control.input-sm.todate#end_time(type='text', name='end_time', maxlength="55" editable="false" required)
-      div.col-sm-6.mb-2
-        div.col-sm-8.offset-sm-2.mb-2
-          label.control-label(for='status') Status
-          select#status.selectpicker.form-control(name='status',data-size="8" data-live-search="true")
-            //- option(value="" disabled selected)  -- Please Select --
-            option(value="pending" selected) Pending
-            option(value="cancelled") Cancelled
-            option(value="confirmed") Confirmed
-            option(value="completed") Completed
-        div.col-sm-8.offset-sm-2.mt-5.d-flex.justify-content-start
-          button#btnLoad.btn.btn-.btn-primary.btn-sm.m-1(type='submit', role='button')
-            span.fa.fa-spinner
-            |  Load
-          button#export.btn.btn-.btn-success.btn-sm.m-1(type='submit', role='button')
-            span.fa.fa-file-excel
-            |  Export
+    include ./../includes/layout-list-filter
+
     table#example.table(style='width:100%')
       thead
         tr
@@ -38,7 +51,7 @@ block content
           th orderDate
           th
             span.float-right
-      tbody#tbl
+      tbody
   script.
     $(document).ready(function() {
       var token = '!{token}';
@@ -62,18 +75,44 @@ block content
             "next": ">"
           }
         },
-        "buttons": [{
-          extend: 'excel',
-          filename: 'Order Report List',
-          exportOptions: {
-            modifier: {
-              order: 'index',
-              page: 'all',
-              search: 'none'
-            },
-            columns: [1,2,3,4,5]
+        "buttons": [
+          {
+            extend: 'excel',
+            filename: 'Order Report List',
+            exportOptions: {
+              modifier: {
+                order: 'index',
+                page: 'all',
+                search: 'none'
+              },
+              columns: [0,1,2,3,4,5]
+            }
+          },
+          {
+            extend: 'pdf',
+            filename: 'Order Report List',
+            exportOptions: {
+              modifier: {
+                order: 'index',
+                page: 'all',
+                search: 'none'
+              },
+              columns: [0,1,2,3,4,5]
+            }
+          },
+          {
+            extend: 'print',
+            filename: 'Order Report List',
+            exportOptions: {
+              modifier: {
+                order: 'index',
+                page: 'all',
+                search: 'none'
+              },
+              columns: [0,1,2,3,4,5]
+            }
           }
-        }],
+        ],
         "ajax": {
           "url": `./api/order_reports?start_date=${'1900-01-01'}&end_date=${today}&status=${'pending'}`,
           "headers": {"authorization": "Bearer " + token},
@@ -98,15 +137,23 @@ block content
         ]
       });
 
-      $('#export').on('click',function(event){
-        table.button('.buttons-excel').trigger();
-      });
-
       $('#btnLoad').on('click', function(event){
         var startDate = moment($('#start_time').val() || '01-01-1900',"DD/MM/YYYY").format("YYYY-MM-DD");
         var endDate = moment($('#end_time').val(), "DD/MM/YYYY").format("YYYY-MM-DD") || today;
         var status = $('#status').val();
 
         table.ajax.url( `./api/order_reports?start_date=${startDate}&end_date=${(endDate !== "Invalid date") ? endDate : today}&status=${status}` ).load();
+      });
+
+      $('#btnExcel').on('click',function(event){
+        table.button('.buttons-excel').trigger();
+      });
+
+      $('#btnPdf').on('click',function(event){
+        table.button('.buttons-pdf').trigger();
+      });
+
+      $('#btnPrint').on('click',function(event){
+        table.button('.buttons-print').trigger();
       });
     });

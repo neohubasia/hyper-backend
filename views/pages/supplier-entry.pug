@@ -1,6 +1,6 @@
 extends ../includes/layout-main
 block content
-  div.modal.fade#AddUserDialog(tabindex='-1', role='dialog', aria-labelledby='AddPayment')
+  div.modal.fade#AddUserDialog(tabindex='-1', role='dialog', aria-labelledby='AddUserDialog')
     div.modal-dialog.modal-sm(role='document', style='max-width:730px')
       div.modal-content
 
@@ -8,7 +8,7 @@ block content
           h4.modal-title Create User
           button.close(type='button', data-dismiss='modal', aria-label='Close')
             span(aria-hidden='true') &times;
-        
+
         form#userForm(method="post", action=`/api/user/${data.modal.id ? data.modal.id : ''}`)
           div.modal-body
             div.form-group.row 
@@ -35,7 +35,7 @@ block content
                 label.control-label(for='role') Role
               div.col-sm-10
                 select.form-control.input-sm.selectpicker#roleid(name='role' value=`${data.modal.role ? data.modal.role : ''}` data-value=`${data.modal.role ? data.modal.role : ''}` data-live-search="true", data-size="8" required)
- 
+
           div.modal-footer.justify-content-md-center
             button.btn.btn-sm.btn-secondary#dialogUserCancel(type='button', data-dismiss='modal')
               span.fa.fa-times
@@ -75,7 +75,7 @@ block content
             - var townshipid =  data.form.address_info[0].townshipid || { _id: "#" };
             label.control-label(for='city') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" disabled)
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='address') Address
@@ -84,7 +84,7 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='mobile_no') Mobile Phone
             input.form-control.input-sm#mobile_no(type='text', name='address_info[0][mobile_no]' value=data.form.address_info[0].mobile_no disabled)
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='email') Email
@@ -92,7 +92,7 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='website') Website
             input.form-control.input-sm#website(type='text', name='website' value=data.form.website maxlength="55" autocomplete="off" disabled)
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
             - var product_type_id =  data.form.product_type_id || { _id: "#" };
@@ -102,30 +102,30 @@ block content
             - var payment_method_id =  data.form.payment_methods[0].payment_method_id || { _id: "#" };
             label.control-label(for='payment_method') Payment Method
             select.form-control.input-sm.selectpicker#payment_method_id(name='payment_method_id' value=payment_method_id._id data-value=payment_method_id._id, data-live-search="true", data-size="8" disabled)
-                        
+
         div.form-group.row
           div.col-sm-12.mb-2
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description', disabled)= data.form.description
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
-              label.control-label(for='access') User Access
+            label.control-label(for='access') User Access
 
-              if (!data.modal.supplier_id)
-                div.radio.radio-toolbar.row
-                  div.col-sm-6.mb-2.col-xl-3
-                    input#statusAccess.radiobox(type='radio', name='access', value="1" , data-toggle="modal", data-target="#AddUserDialog")
-                    label.ml-1(for='statusAccess') &nbsp; Access
-                  div.col-sm-6.mb-2.col-xl-3
-                    input#statusUnaccess.radiobox(type='radio', name='access', value="0" checked)
-                    label.ml-1(for='statusUnaccess') &nbsp; Unaccess
-              else
-                div.button-bar
-                  button.btn.btn-sm.btn-primary.btn-block#dialogUserCancel(type='button', data-toggle="modal", data-target="#AddUserDialog")
-                    span.fa.fa-pen
-                    |  EDIT USER
-                
+            if (!data.modal.supplier_id)
+              div.radio.radio-toolbar.row
+                div.col-sm-6.mb-2.col-xl-3
+                  input#statusAccess.radiobox(type='radio', name='access', value="1" , data-toggle="modal", data-target="#AddUserDialog")
+                  label.ml-1(for='statusAccess') &nbsp; Access
+                div.col-sm-6.mb-2.col-xl-3
+                  input#statusUnaccess.radiobox(type='radio', name='access', value="0" checked)
+                  label.ml-1(for='statusUnaccess') &nbsp; Unaccess
+            else
+              div.button-bar
+                button.btn.btn-sm.btn-primary.btn-block(type='button', data-toggle="modal", data-target="#AddUserDialog")
+                  span.fa.fa-pen
+                  |  EDIT USER
+
           div.col-sm-6.mb-2
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
@@ -137,7 +137,7 @@ block content
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 
         include ./../includes/layout-entry-btn
-  
+
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
@@ -157,7 +157,7 @@ block content
         $('#AddUserDialog').find('.modal-title').text('Edit User')
         $('#AddUserDialog').find('button[type=submit]').html('<span class="fa fa-save"></span> UPDATE USER')
       }
-      
+
       ajaxLoadOption({
         type: "GET",
         url:"/api/cities",
@@ -224,7 +224,7 @@ block content
           type:$('#userForm').attr('method'),
           data: $('#userForm').serialize(),
           headers: {
-             "authorization": "Bearer " + token,
+            "authorization": "Bearer " + token,
           },
           success: function (data) {
             handleAlert(data, false)

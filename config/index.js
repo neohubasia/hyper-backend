@@ -4,7 +4,7 @@ module.exports = {
   NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
   app: {
-    NAME: "itemplate | admin",
+    NAME: "hyper dashboard",
     FILE: "itemplate-file",
     DESC: "business  solution for general purpose",
     icons: {
