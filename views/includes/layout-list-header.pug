@@ -5,8 +5,7 @@ include ./layout-breadcrumb
         li.breadcrumb-item
           a(href=breadcrumbObj.url) #{breadcrumbObj.text}
 
-div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
-  h3.h3 !{page.list.title}
+include ./layout-list-filter
 
 div.modal.fade#dialogDeleteConfirm(tabindex='-1', role='dialog', aria-labelledby='deleteConfirm')
   div.modal-dialog.modal-sm(role='document')

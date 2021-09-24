@@ -38,7 +38,6 @@ block content
   main.ml-sm-auto.px-md-4(role='main')
 
     include ./../includes/layout-list-header
-    include ./../includes/layout-list-filter
 
     table#example.table(style='width:100%')
       thead
@@ -145,15 +144,45 @@ block content
         table.ajax.url( `./api/order_reports?start_date=${startDate}&end_date=${(endDate !== "Invalid date") ? endDate : today}&status=${status}` ).load();
       });
 
-      $('#btnExcel').on('click',function(event){
+      $('#btnExcel').on('click',function(e){
+        if ( ! table.data().count() ) {
+          swalWarning({
+            position: "top",
+            icon: "warning",
+            title: "Warning Message",
+            text: "No data available in table to export",
+          });
+          return false;
+        }
+
         table.button('.buttons-excel').trigger();
       });
 
-      $('#btnPdf').on('click',function(event){
+      $('#btnPdf').on('click',function(e){
+        if ( ! table.data().count() ) {
+          swalWarning({
+            position: "top",
+            icon: "warning",
+            title: "Warning Message",
+            text: "No data available in table to export",
+          });
+          return false;
+        }
+
         table.button('.buttons-pdf').trigger();
       });
 
-      $('#btnPrint').on('click',function(event){
+      $('#btnPrint').on('click',function(e){
+        if ( ! table.data().count() ) {
+          swalWarning({
+            position: "top",
+            icon: "warning",
+            title: "Warning Message",
+            text: "No data available in table to print",
+          });
+          return false;
+        }
+
         table.button('.buttons-print').trigger();
       });
     });
