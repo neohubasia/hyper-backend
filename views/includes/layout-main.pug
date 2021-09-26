@@ -35,8 +35,9 @@ head
   // Font Awesome
   link(href="/layout-css/lib/font-awesome/css/all.css" rel="stylesheet")
 
-  // Font Feather
+  // General JS
   //- script(src='/layout-js/lib/feather/feather.min.js')
+  script(src='/layout-js/service-client.js')
 
   // Jquery Core
   script(src="/layout-js/lib/jquery.min.js")
@@ -52,6 +53,10 @@ script.
   // Global Variable
   var table, pageEntry;
   var token = '!{token}';
+
+  //- if (Notification.permission != "granted") {
+  //-   Notification.requestPermission(); // request permission to user but not still use
+  //- }
 
   function dataTableDef (args) { return {
     "destroy": true,
@@ -102,7 +107,7 @@ script.
         }
       },
     ]
-  };
+    };
   }
 
 <!-- Layout JS/ Lib -->
