@@ -11,12 +11,12 @@ block content
           div.col-sm-6.mb-2.offset-3
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
-        
+
         div.form-group.row
           div.col-sm-6.mb-2.offset-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description')= data.description 
-        
+
         div.form-group.row
           div.col-sm-6.mb-2.offset-3
             label.control-label(for='status') Status
@@ -33,8 +33,6 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
-
       var status = "!{data.status}";
       if (status && status == "false")
         $('#statusInactive').attr("checked", "checked");
@@ -53,15 +51,5 @@ block content
             console.log(data);
           },
         });
-      });
-
-      //- ajaxLoadOption({
-      //-   type: "GET",
-      //-   url:"/api/cities",
-      //-   selectId: "#cityid",
-      //-   showKey: "city_mm",
-      //-   filterObj: {},
-      //-   token: token
-      //- });
-
+      });  
     });

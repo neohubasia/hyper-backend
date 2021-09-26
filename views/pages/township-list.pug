@@ -19,23 +19,15 @@ block content
               include ./../includes/layout-list-plus
   script.
     $(document).ready(function() {
-      var token = '!{token}';
+      pageEntry = '!{page.entry.url}';
+
       $.fn.dataTable.ext.errMode = 'none';
-      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-secondary m-1'; 
-      
-      var table = $('#example').on('error.dt', function(e, settings, techNote, message) {
-          console.log('DataTable Error: ', message);
-          alert('Read data is failed!');
-        }).DataTable({
-          "autoWidth": true,
-          "pagingType": "full_numbers",
-          "language": {
-            "searchPlaceholder": "Search",
-            "paginate": {
-              "previous": "<",
-              "next": ">"
-            }
-          },
+      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-light m-1'; 
+
+      table = $('#example').on('error.dt', function(e, settings, techNote, message) {
+        console.log('DataTable Error: ', message);
+        alert('Read data is failed!');
+        }).DataTable({ ...dataTableDef({ expFileName: "!{page.list.title}" }),
           "ajax": {
             "url": "./api" + '!{page.list.url}',
             "headers": {"authorization": "Bearer " + token},
@@ -57,25 +49,10 @@ block content
             { targets: 5, render: dataTableActiveRenderer() },
             { targets: 6, render: dataTableDateTimeRenderer() },
             { targets: 7, orderable: false, render: dataTableActionsRenderer(
-                ".!{page.entry.url}", "!{page.actions}", 
-                { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
+              ".!{page.entry.url}", "!{page.actions}", 
+              { edit: "!{app.icons.FLAT_EDIT}", delete: "!{app.icons.FLAT_DELETE}" }
               )
             }
           ]
-      });
-
-      $('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        $(this).attr('data-id', id);
-        $(this).find('#dialogAccept').on('click', function(ev) {
-          var deleteUrl = './api' + "!{page.entry.url}/" + id;
-          handleDelete(deleteUrl, token, function() {
-            $('#example').DataTable().ajax.reload()
-          });
-        });
-      }).on('hide.bs.modal', function (event) {
-        $(this).attr('data-id', '');
-        $(this).find('#dialogAccept').off('click');
       });
     });

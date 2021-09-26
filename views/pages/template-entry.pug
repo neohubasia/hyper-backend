@@ -10,7 +10,7 @@ block content
             label.control-label(for='name') Name
           div.col-sm-4.mb-2
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required )
-          
+
           div.col-sm-2.mb-2
             label.control-label(for='type') Type
           div.col-sm-4.mb-2
@@ -36,7 +36,7 @@ block content
               div.col-sm-6.mb-2.col-xl-4
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-                
+
         hr.hr.my.mb-4
 
         div.form-group.row
@@ -44,21 +44,20 @@ block content
             label.control-label(for='template') Template
           div.col-sm-10.mb-2
             textarea.form-control.input-sm#template(rows= 7 name='template')= data.template
-        
-        
+
+
 
         include ./../includes/layout-entry-btn
 
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
       var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
-      
+
       //for froala plugins
       new FroalaEditor('#template')
-      
+
       // for adctive inactive
       var status = "!{data.status}";
       if (status && status == "false")
@@ -85,5 +84,4 @@ block content
           },
         });
       });
-
     });

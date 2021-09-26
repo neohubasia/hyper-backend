@@ -52,8 +52,8 @@
 #sidebar-wrapper .list-group {
   width: 15rem;
   margin-top: 5px;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 92vh;
+  max-height: 92vh;
   overflow-y: scroll;
 }
 

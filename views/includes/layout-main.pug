@@ -48,6 +48,63 @@ head
     .container-fluid
       block content
 
+script.
+  // Global Variable
+  var table, pageEntry;
+  var token = '!{token}';
+
+  function dataTableDef (args) { return {
+    "destroy": true,
+    "autoWidth": true,
+    "pagingType": "full_numbers",
+    "language": {
+      "searchPlaceholder": "Search",
+      "paginate": {
+        "previous": "<",
+        "next": ">"
+      }
+    },
+    "buttons": [
+      {
+        extend: 'excel',
+        filename: args.expFileName,
+        exportOptions: {
+          modifier: {
+            order: 'index',
+            page: 'all',
+            search: 'none'
+          },
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'pdf',
+        filename: args.expFileName,
+        exportOptions: {
+          modifier: {
+            order: 'index',
+            page: 'all',
+            search: 'none'
+          },
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'print',
+        filename: args.expFileName,
+        exportOptions: {
+          modifier: {
+            order: 'index',
+            page: 'all',
+            search: 'none'
+          },
+          columns: ':visible'
+        }
+      },
+    ]
+  };
+  }
+
 <!-- Layout JS/ Lib -->
 script(src='/layout-js/lib/moment/moment.js')
 script(src='/layout-js/lib/select2/select2.full.min.js')
@@ -82,7 +139,7 @@ script.
     $("#wrapper").toggleClass("toggled");
   });
 
-  document.getElementById("username").innerText = ' !{user.username}';
+  //- document.getElementById("username").innerText = ' !{user.username}';
 
   //- const req = new XMLHttpRequest();
   //- req.open("GET", "http://localhost:7878/getuser", true);

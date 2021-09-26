@@ -1,20 +1,17 @@
-div.p-1.mb-4
+div.p-1.mb-3
   div#tableButton.d-flex
-    div.list-header.mr-auto
-      h4 !{page.list.title}
+    block extend-btns
 
-    .btn-group.btn-group-sm.mx-2(role='group' aria-label='Basic example')
-      button#btnFilter.btn.btn-light(type='button', role='button' data-toggle="modal", data-target="#FilterDataDialog")
-        span.text-warning.fa.fa-filter
-        |  Filter
+      div.list-header.mr-auto(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis")
+        h4 !{page.list.title}
 
-    .btn-group.btn-group-sm(role='group' aria-label='Basic example')
-      button#btnExcel.btn.btn-light(type='button', role='button')
-        span.text-success.fa.fa-file-excel
-        |  Export to Excel
-      button#btnPdf.btn.btn-light(type='button', role='button')
-        span.text-danger.fa.fa-file-pdf
-        |  Export to PDF
-      button#btnPrint.btn.btn-light(type='button', role='button')
-        span.text-primary.fa.fa-print
-        |  Direct Print
+      .btn-group.btn-group-sm(role='group' aria-label='Basic example')
+        button#btnExcel.btn.btn-light(type='button', role='button')
+          span.text-success.fa.fa-file-excel
+          |  Export to Excel
+        button#btnPdf.btn.btn-light(type='button', role='button')
+          span.text-danger.fa.fa-file-pdf
+          |  Export to PDF
+        button#btnPrint.btn.btn-light(type='button', role='button')
+          span.text-primary.fa.fa-print
+          |  Direct Print

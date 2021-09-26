@@ -8,7 +8,7 @@ block content
       block inputs
         div.form-group.d-none 
           div.row.remove-img-list
-        
+
         div.form-group  
           div.row.img-list
             .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
@@ -26,7 +26,7 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='title') Title
             input.form-control.input-sm#title(type='text', name='title', value=data.title, maxlength="55" required autofocus)
-          
+
           div.col-sm-6.mb-2
             label.control-label(for='no_of_image') No. of Image
             select#no_of_image.selectpicker.form-control(name='no_of_image', value=data.no_of_image, data-value=data.no_of_image  data-size="8" data-live-search="true" required)
@@ -51,12 +51,6 @@ block content
               option(value="" disabled selected)  -- Please Select --
               option(value="home") Home
               option(value="shop") Shop
-              option(value="shop_details") Shop Details
-              option(value="shop_cart") Shop Cart
-              option(value="checkout") Checkout
-              option(value="blog") Blog
-              option(value="blog_details") Blog Details
-              option(value="contact") Contact
 
         div.form-group.row
           div.col-sm-6.mb-2
@@ -77,10 +71,8 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
       var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
-      $('#alert').hide();
       $('#uploadForm').hide();
 
       var status = "!{data.status}";
@@ -105,12 +97,12 @@ block content
         e.preventDefault()
         maxImageCount =  $('#no_of_image option:selected').val();
       });
-      
+
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
         $("#no_of_image").attr("disabled", false)
-        
+
         $.ajax({
           url: $(this).attr('action'),
           type:$(this).attr('method'),
@@ -126,20 +118,16 @@ block content
       });
 
       $('#add-image').on('click', function() {
-        //- $(this).css('background-color', '#fff');
         var imgCount  = $(".img-list").children().length || 0;
 
-        if (imgCount -1 <  maxImageCount)  {
-          $('#file-input').trigger('click');
-        }
-        else {
-          swalWarning({
+        (imgCount -1 <  maxImageCount)  
+          ? $('#file-input').trigger('click')
+          : swalWarning({
             position: "top",
             icon: "warning",
             title: "Warning Message",
             text: "The specified number of images has been reached",
           });
-        }
       });
 
       $('#file-input').on('change', function(e) {
@@ -179,5 +167,4 @@ block content
         if (imgCount - 2 < $("#no_of_image").val())
           $("#no_of_image").attr("disabled", false)
       });
-
     });

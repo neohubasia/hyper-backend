@@ -23,10 +23,10 @@ block content
 
             - var imageSrc = data.company_logo || "";
             if imageSrc
-                .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
-                  input.uploaded-files(type="hidden", name="company_logo", value=`${imageSrc}`)
-                  img.m-1.img.img-thumbnail(src=`${imageSrc}`, alt="", srcset="" width="360" height="360")
-                  button.btn.remove-file(type="button") Remove
+              .col-xs-6.col-sm-6.col-md-6.col-lg-2.item.d-flex.justify-content-center.img-container
+                input.uploaded-files(type="hidden", name="company_logo", value=`${imageSrc}`)
+                img.m-1.img.img-thumbnail(src=`${imageSrc}`, alt="", srcset="" width="360" height="360")
+                button.btn.remove-file(type="button") Remove
 
         div.form-group.row
           div.col-sm-4.mb-2
@@ -38,7 +38,7 @@ block content
           div.col-sm-4.mb-2
             label.control-label(for='email') Email
             input.form-control.input-sm#email(type='text', name='email', value=data.email, maxlength="55" required)     
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='primary_mobile') Primary Mobile
@@ -47,12 +47,12 @@ block content
             label.control-label(for='secondary_mobile') Secondary Mobile
             input.form-control.input-sm#secondary_mobile(type='text', name='secondary_mobile', value=data.secondary_mobile, maxlength="55" required)
 
-        
+
         div.form-group.row
           div.col-sm-12.mb-2
             label.control-label(for='address') Address
             textarea.form-control.input-sm#address(name='address')= data.address
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -73,7 +73,6 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
       var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
 
@@ -98,14 +97,11 @@ block content
       });
 
       $('#add-image').on('click', function() {
-        //- $(this).css('background-color', '#fff');
-
         var imgCount  = $(".img-list").children().length || 0;
 
-        if (imgCount -1 <  maxImageCount) 
-          $('#file-input').trigger('click');
-        else
-          swalWarning({
+        (imgCount -1 <  maxImageCount)  
+          ? $('#file-input').trigger('click')
+          : swalWarning({
             position: "top",
             icon: "warning",
             title: "Warning Message",
@@ -119,7 +115,7 @@ block content
           $('#uploadForm').submit();
         }
       });
-      
+
       // multi/part  form submit
       $('#uploadForm').submit(function (e) {
         e.preventDefault();
@@ -134,7 +130,6 @@ block content
         $('#file-input').val(null);
       });
 
-
       $(document).on('click', '.remove-file', function () {
         // remove element
         var backupSrc = $(this).closest('div').find('img.img').attr('src');
@@ -143,5 +138,4 @@ block content
         $(".remove-img-list").append(makeInput);
         $(this).parent().remove();
       });
-
     });

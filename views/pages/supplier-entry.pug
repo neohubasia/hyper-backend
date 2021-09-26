@@ -141,7 +141,6 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
       //- var supplierId = '!{user.supplier_id}';                // to process login user supplierId all pages
       var supplierId = '!{data.modal.supplier_id}';
 
@@ -254,5 +253,4 @@ block content
           $('.input-group-text i').removeClass( "fa-eye" );
         }
       });
-
     });

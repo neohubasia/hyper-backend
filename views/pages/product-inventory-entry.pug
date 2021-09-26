@@ -21,13 +21,13 @@ block content
             - var weight_id =  data.weight_id || { _id: "#" };
             label.control-label(for='weight_id') Weight
             select.form-control.input-sm.selectpicker#weight_id(name='weight_id' value=weight_id._id data-value=weight_id._id, data-live-search="true", data-size="8" required)
-          
+
           div.col-md-6.mb-2
             - var package_id =  data.package_id || { _id: "#" };
             label.control-label(for='package_id') Package
             select.form-control.input-sm.selectpicker#package_id(name='package_id' value=package_id._id data-value=package_id._id, data-live-search="true", data-size="8" required)
 
-        
+
         div.form-group.row
           div.col-md-6.mb-2
             - var supplier_id =  data.supplier_id || { _id: user.supplier_id };
@@ -64,7 +64,6 @@ block content
     $(document).ready(function() {
       var editMode = $("input[name='id']").val();
       var supplierId = '!{user.supplier_id}';
-      var token = '!{token}';
 
       var status = "!{data.active}";
       if (status && status == "false")
@@ -104,7 +103,6 @@ block content
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
-
         $.ajax({
           url: $(this).attr('action'),
           type:$(this).attr('method'),
@@ -118,5 +116,4 @@ block content
           },
         });
       });
-
     });

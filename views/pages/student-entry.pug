@@ -40,7 +40,7 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='age') Age
             input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
-      
+
         div.form-group.row
           div.col-sm-6.mb-2
             - var cityid =  data.cityid || { _id: "#" };
@@ -50,7 +50,7 @@ block content
             - var townshipid =  data.townshipid || { _id: "#" };
             label.control-label(for='township') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
-      
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='grade') Grade
@@ -71,7 +71,6 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
       var maxImageCount  = 5;
       var editMode = $("input[name='id']").val();
 
@@ -110,7 +109,7 @@ block content
       $('#cityid').on('change', function() {
         // get value to filter
         var cityid = $(this).val() || // get value [new entry]
-                     $(this).data('value'); // get value [edit entry]
+          $(this).data('value'); // get value [edit entry]
         if(cityid) {
           ajaxLoadOption({
             type: "GET",
@@ -124,14 +123,11 @@ block content
       });
 
       $('#add-image').on('click', function() {
-        //- $(this).css('background-color', '#fff');
-
         var imgCount  = $(".img-list").children().length || 0;
 
-        if (imgCount -1 <  maxImageCount) 
-          $('#file-input').trigger('click');
-        else
-          swalWarning({
+        (imgCount -1 <  maxImageCount)  
+          ? $('#file-input').trigger('click')
+          : swalWarning({
             position: "top",
             icon: "warning",
             title: "Warning Message",
@@ -145,7 +141,7 @@ block content
           $('#uploadForm').submit();
         }
       });
-      
+
       // multi/part  form submit
       $('#uploadForm').submit(function (e) {
         e.preventDefault();
@@ -160,7 +156,6 @@ block content
         $('#file-input').val(null);
       });
 
-
       $(document).on('click', '.remove-file', function () {
         // remove element
         var backupSrc = $(this).closest('div').find('img.img').attr('src');
@@ -169,5 +164,4 @@ block content
         $(".remove-img-list").append(makeInput);
         $(this).parent().remove();
       });
-
     });
