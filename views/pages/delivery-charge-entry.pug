@@ -8,12 +8,12 @@ block content
 
         div.form-group.row
           div.col-sm-4.mb-2
-            - var townshipid =  data.townshipid || { _id: "#" };
+            - var townshipid =  data.townshipid || { _id: "" };
             label.control-label(for='townshipid') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
 
           div.col-sm-4.mb-2
-            - var companyid =  data.companyid || { _id: "#" };
+            - var companyid =  data.companyid || { _id: "" };
             label.control-label(for='companyid') Company Name
             select.form-control.input-sm.selectpicker#companyid(name='companyid' value=companyid._id data-value=companyid._id, data-live-search="true", data-size="8" required)
 

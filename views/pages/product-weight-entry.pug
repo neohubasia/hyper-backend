@@ -7,17 +7,17 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-6.mb-2.offset-3
+          div.col-sm-6.offset-sm-3.mb-2
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
 
         div.form-group.row
-          div.col-sm-6.mb-2.offset-3
+          div.col-sm-6.offset-sm-3.mb-2
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description')= data.description 
 
         div.form-group.row
-          div.col-sm-6.mb-2.offset-3
+          div.col-sm-6.offset-sm-3.mb-2
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
               div.col-sm-6.mb-2.col-xl-3

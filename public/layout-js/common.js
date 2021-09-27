@@ -122,7 +122,6 @@ $(".list-group .list-group-item-menu").on("click", function () {
   $(this).addClass("active");
 });
 
-$('.selectpicker').select2();
 
 $('[data-hide="alert"]').on("click", function () {
   $(this)

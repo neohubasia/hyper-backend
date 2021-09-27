@@ -32,11 +32,11 @@ block content
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required)
           div.col-sm-4.mb-2
-            - var category_id =  data.category_id || { _id: "#" };
+            - var category_id =  data.category_id || { _id: "" };
             label.control-label(for='category') Category
             select.form-control.selectpicker#category_id(name='category_id' value=category_id._id data-value=category_id._id, data-live-search="true", data-size="8" required)
           div.col-sm-4.mb-2
-            - var inventory_id =  data.inventory_id || { _id: "#" };
+            - var inventory_id =  data.inventory_id || { _id: "" };
             label.control-label(for='inventory') Inventory
             select.form-control.selectpicker#inventory_id(name='inventory_id' value=inventory_id._id data-value=inventory_id._id, data-live-search="true", data-size="8" required)
 
@@ -51,9 +51,10 @@ block content
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='price') Price
-            input.form-control.input-sm#price(type='text', name='price' , value=data.price autocomplete="off" required)
+            input.form-control.input-sm#price(type='number' name='price' role="number" min='1' max='1000000' onkeyup="if(parseInt(this.value)>1000000){ this.value =1000000; return false; }" value=data.price autocomplete="off" required)
+            small.text-warning Amount (1-1000000)
           div.col-sm-6.mb-2
-            - var discount_id =  data.discount_id || { _id: "#" };
+            - var discount_id =  data.discount_id || { _id: "" };
             label.control-label(for='discount') Discount
             select.form-control.selectpicker#discount_id(name='discount_id' value=discount_id._id data-value=discount_id._id, data-live-search="true", data-size="8")
 

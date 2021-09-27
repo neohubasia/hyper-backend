@@ -43,11 +43,11 @@ block content
 
         div.form-group.row
           div.col-sm-6.mb-2
-            - var cityid =  data.cityid || { _id: "#" };
+            - var cityid =  data.cityid || { _id: "" };
             label.control-label(for='city') City
             select.form-control.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
           div.col-sm-6.mb-2
-            - var townshipid =  data.townshipid || { _id: "#" };
+            - var townshipid =  data.townshipid || { _id: "" };
             label.control-label(for='township') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
 

@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
     //     run().catch(error => console.log(error));
     // }, 5000);
 
-    run().catch(error => console.log(error));
+    if (!true) run().catch(error => console.log(error));
 }
 
 async function run() {
