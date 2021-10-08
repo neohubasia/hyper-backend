@@ -1,0 +1,17 @@
+div.p-1.mb-3
+  div#tableButton.d-flex
+    block extend-btns
+
+      div.list-header.mr-auto(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis")
+        h4 !{page.list.title}
+
+      .btn-group.btn-group-sm(role='group' aria-label='Basic example')
+        button#btnExcel.btn.btn-light(type='button', role='button')
+          span.text-success.fa.fa-file-excel
+          |  Export Excel
+        button#btnPdf.btn.btn-light(type='button', role='button')
+          span.text-danger.fa.fa-file-pdf
+          |  Export PDF
+        button#btnPrint.btn.btn-light(type='button', role='button')
+          span.text-primary.fa.fa-print
+          |  Direct Print

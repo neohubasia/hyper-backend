@@ -15,11 +15,11 @@ block content
           div.col-sm-4.mb-2
             label.control-label(for='acc_name') Acccount Name
             input.form-control.input-sm#acc_name(type='text', name='acc_name', value=data.acc_name, maxlength="55" required )
-          
+
           div.col-sm-4.mb-2
             label.control-label(for='organization') Organization
             input.form-control.input-sm#organization(type='text', name='organization', value=data.organization, maxlength="55" required )
-          
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='payment_method') Payment Method
@@ -38,7 +38,7 @@ block content
               option(value="yoma") YOMA
               option(value="kbz_pay") KBZ Pay
               option(value="wave_money") Wave Money
-                  
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -59,7 +59,6 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
       var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
 
@@ -90,5 +89,4 @@ block content
           },
         });
       });
-
     });

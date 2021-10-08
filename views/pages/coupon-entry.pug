@@ -41,7 +41,7 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='expire_time') Expire Time
             input.form-control.input-sm.todate#expire_time(type='text', name='expire_time', value=data.expire_time, maxlength="55" editable="false" required)
-        
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -61,9 +61,8 @@ block content
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var editMode = $("input[name='id']").val();
-      var token = '!{token}';
       var maxDiscount = 10000;
+      var editMode = $("input[name='id']").val();
 
       var status = "!{data.active}";
       if (status && status == "false")
@@ -79,10 +78,10 @@ block content
 
       $("#discount_amount").on("keyup",  function(e) {
         var discount_type = $('#discount_type').val()
-                            || $('#discount_type').data('value');
+          || $('#discount_type').data('value');
 
         (discount_type == "percent") ? maxDiscount = 100 :  maxDiscount = 10000;  
-        
+
         $('#discount_type').attr("max", maxDiscount)
 
         if(parseInt(this.value) > maxDiscount){
@@ -106,5 +105,4 @@ block content
           },
         });
       });
-
     });

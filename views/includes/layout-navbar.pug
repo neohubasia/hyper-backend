@@ -1,44 +1,63 @@
-nav(class="navbar navbar-expand-md fixed-top bg-light border-bottom")
+nav(class="navbar fixed-top bg-white border-bottom shadow-sm ")
   button.btn#menu-toggle
     img(src="/images/auth/it-logo-transparent.png", alt="IT" width="30" height="30")
-    //- span.data-feather(data-feather='grid')
-  h4.p-1.m-1 !{app.NAME}
-  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-    span.fa.fa-bars
-  #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.ml-auto.mt-md-0.mt-3.p-md-0.p-3
-      li.nav-item
-        style.
-          .noti-count[data-count]{
-              position: absolute;
-              font-weight: bold;
-              font-size: 55%;
-              padding: .55em;
-              line-height: .75em;
-              border-radius: 999px;
-              text-align: center;
-              color: #ffffff;
-              background: #f55;
-              min-width: 1.3em;
-          }
-        a.nav-link(href='#')
-          span.fa.fa-bell
-          span.noti-count(data-count='20') 20
-            span.sr-only
-      li.nav-item.ml-md-3
-        a.nav-link(href='#')
-          span.fa.fa-user
-          span#username 
+  h4.d-none.d-md-block.p-1.m-1 !{app.NAME}
+  .user-nav-items.d-flex.align-items-end
+    .nav-item
+      a.nav-link(href='#')
+        span.fa.fa-user
+        span#username  !{user.username}
+        span.sr-only
+
+    .nav-item.dropdown
+      a.nav-link#notiDropdown(href='#' role='button' data-toggle='dropdown' aria-expanded='false')
+        span.fa.fa-bell
+        span.notifications-count(data-count='') 9+
           span.sr-only
-      li.nav-item.dropdown
-        a#navbarDropdown.nav-link(href='#' role='button' data-toggle='dropdown' aria-expanded='false')
-          span.fa.fa-caret-down
-          span.d-md-none &nbsp; More actions
-        .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdown')
-          a.dropdown-item(href=(user.supplier_id ? `/supplier/${user.supplier_id}` : `/user/${user._id}`)) 
-            span.fa.fa-pen
-            | &nbsp; Edit Profile
-          .dropdown-divider
-          a.dropdown-item(href='/logout') 
-            span.fa.fa-sign-out-alt
-            | &nbsp; Logout
+      .dropdown-menu.notifications(role='menu' aria-labelledby='notiDropdown')
+        .notifications-header.d-flex.justify-content-between
+          div Notifications
+          div View All &nbsp;
+            span.fa.fa-arrow-right
+        .dropdown-divider
+        .notifications-wrapper
+          a.content(href='#')
+            .notification-item
+              h4.item-title New Order &bull; day ago
+              p.item-data Confirm or Cancell this order 
+          a.content(href='#')
+            .notification-item
+              h4.item-title New Order &bull; day ago
+              p.item-data Confirm or Cancell this order 
+          a.content(href='#')
+            .notification-item
+              h4.item-title New Supplier &bull; day ago
+              p.item-data Confirm or Cancell this order 
+          a.content(href='#')
+            .notification-item
+              h4.item-title New Supplier &bull; day ago
+              p.item-data Confirm or Cancell this order 
+          a.content(href='#')
+            .notification-item
+              h4.item-title New Supplier &bull; day ago
+              p.item-data Confirm or Cancell this order 
+          a.content(href='#')
+            .notification-item
+              h4.item-title New Supplier &bull; day ago
+              p.item-data Confirm or Cancell this order 
+        .dropdown-divider
+        .notifications-footer.d-flex.justify-content-between
+          div View All &nbsp;
+            span.fa.fa-arrow-right
+
+    .nav-item.dropdown
+      a.nav-link#navbarDropdown(href='#' role='button' data-toggle='dropdown' aria-expanded='false')
+        span.fa.fa-caret-down
+      .dropdown-menu(aria-labelledby='navbarDropdown')
+        a.dropdown-item(href=(user.supplier_id ? `/supplier/${user.supplier_id}` : `/user/${user._id}`)) 
+          span.fa.fa-pen
+          | &nbsp; Edit Profile
+        .dropdown-divider
+        a.dropdown-item(href='/logout') 
+          span.fa.fa-sign-out-alt
+          | &nbsp; Logout

@@ -1,31 +1,31 @@
 #sidebar-wrapper
-    .sidebar-heading
-    .list-group.list-group-flush
-        if program && program.length > 0
-            each programObj in program
-                if programObj.access == true
-                    - var subMenuLength = programObj.submenu.length;
-                    if !(subMenuLength > 0)
-                        - var isActive = (programObj.active == true) ? "active" : undefined;
+  .sidebar-heading
+  .list-group.list-group-flush
+    if program && program.length > 0
+      each programObj in program
+        if programObj.access == true
+          - var subMenuLength = programObj.submenu.length;
+          if !(subMenuLength > 0)
+            - var isActive = (programObj.active == true) ? "active" : undefined;
 
-                        a.list-group-item.list-group-item-action.list-group-item-menu(href=programObj.url, class=isActive)
-                            span(class=programObj.icon style="width: 20px;")
-                            span.pl-1  #{programObj.title}
-                        span.sr-only (current)
-                    else
-                        - var iconType = (programObj.active == true) ? "fa fa-minus" : "fa fa-plus";
-                        - var isShow = (programObj.active == true) ? "show" : undefined;
-                        
-                        a.list-group-item.list-group-item-action.collapsed(href='#'+programObj.menuid data-toggle='collapse' data-target='#'+programObj.menuid)
-                            span(class=programObj.icon style="width: 20px;")
-                            span.pl-1  #{programObj.title}
-                            span.mt-1.float-right(class=iconType)
-                        div.collapse(aria-expanded='false'  class=isShow id=programObj.menuid)
-                            each subMenuObj in programObj.submenu
-                                - var isActive = (subMenuObj.active == true) ? "active" : undefined;
-                                if subMenuObj.access == true
-                                    ul.flex-column.nav
-                                        li.nav-item(id=subMenuObj.menuid)
-                                            a.list-group-item.list-group-item-action.list-group-item-menu(href=subMenuObj.url class=isActive)
-                                                span(class=subMenuObj.icon style="width: 20px;")
-                                                span.pl-1  #{subMenuObj.title}
+            a.list-group-item.list-group-item-action.list-group-item-menu(href=programObj.url, class=isActive)
+              span(class=programObj.icon style="width: 20px;")
+              span.pl-1  #{programObj.title}
+            span.sr-only (current)
+          else
+            - var iconType = (programObj.active == true) ? "fa fa-minus" : "fa fa-plus";
+            - var isShow = (programObj.active == true) ? "show" : undefined;
+
+            a.list-group-item.list-group-item-action.collapse(href='#'+programObj.menuid data-toggle='collapse' data-target='#'+programObj.menuid)
+              span(class=programObj.icon style="width: 20px;")
+              span.pl-1  #{programObj.title}
+              span.mt-1.float-right(class=iconType)
+            div.collapse(aria-expanded='false'  class=isShow id=programObj.menuid)
+              each subMenuObj in programObj.submenu
+                - var isActive = (subMenuObj.active == true) ? "active" : undefined;
+                if subMenuObj.access == true
+                  ul.flex-column.nav
+                    li.nav-item(id=subMenuObj.menuid)
+                      a.list-group-item.list-group-item-action.list-group-item-menu(href=subMenuObj.url class=isActive)
+                        span(class=subMenuObj.icon style="width: 20px;")
+                        span.pl-1  #{subMenuObj.title}

@@ -17,7 +17,7 @@ block content
               option(value="" disabled selected)  -- Please Select --
               option(value="percent")  Percent
               option(value="amount") Amount
-            
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='discount_amount') Discount (Percent/Amount)
@@ -50,7 +50,6 @@ block content
       var editMode = $("input[name='id']").val();
       var supplierId = '!{user.supplier_id}';
       var maxDiscount = 10000;
-      var token = '!{token}';
 
       var status = "!{data.active}";
       if (status && status == "false")
@@ -67,10 +66,10 @@ block content
 
       $("#discount_amount").on("keyup",  function(e) {
         var discount_type = $('#discount_type').val()
-                            || $('#discount_type').data('value');
+          || $('#discount_type').data('value');
 
         (discount_type == "percent") ? maxDiscount = 100 :  maxDiscount = 10000;  
-        
+
         $('#discount_type').attr("max", maxDiscount)
 
         if (parseInt(this.value) > maxDiscount){
@@ -89,7 +88,6 @@ block content
 
       $('#entryForm').submit(function (e) {
         e.preventDefault();
-
         $.ajax({
           url: $(this).attr('action'),
           type:$(this).attr('method'),

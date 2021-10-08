@@ -52,8 +52,8 @@
 #sidebar-wrapper .list-group {
   width: 15rem;
   margin-top: 5px;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 92vh;
+  max-height: 92vh;
   overflow-y: scroll;
 }
 
@@ -80,30 +80,48 @@
   }
 }
 
-/* Dropdown Overide */
+/* Nav-Item & Dropdown Overide */
 
-.navbar-nav>li>.dropdown-menu {
-  top: 50px;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 3px 3px 5px #bbb;
+.list-group .list-group-item.active {
+  border: none;
+  color: #fdfdfd;
+  background: #005bff;
+  border-top: 3px solid #ffc105;
 }
 
-.navbar-nav>li>.dropdown-menu>a {
+.user-nav-items>.nav-item {
+  background: #f0f0f0;
+  border-radius: 5px;
+  margin: 0 3px;
+}
+
+.user-nav-items>.nav-item>a {
+  color: #495057;
+}
+
+.nav-item.dropdown>.dropdown-menu {
+  top: 50px;
+  left: -110px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 4px 4px 20px #fff;
+}
+
+.nav-item.dropdown>.dropdown-menu>a {
   padding: 5px 10px;
   margin: 5px auto;
   color: #555;
 }
 
-.navbar-nav>li>.dropdown-menu>a:hover,
-.navbar-nav>li>.dropdown-menu>a:focus {
+.nav-item.dropdown>.dropdown-menu>a:hover,
+.nav-item.dropdown>.dropdown-menu>a:focus {
   color: #000;
   font-weight: 550;
-  background-color: #f5f5f5;
+  background-color: #f0f0f0;
 }
 
-.navbar-nav>li>.dropdown-menu>.dropdown-divider {
-  background-color: #f5f5f5;
+.nav-item.dropdown>.dropdown-menu>.dropdown-divider {
+  background-color: #f0f0f0;
 }
 
 /* Card Counter */

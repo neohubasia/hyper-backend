@@ -112,6 +112,8 @@ $(function () {
     (eleIcon.classList.contains("fa-plus"))
       ? eleIcon.classList.replace("fa-plus", "fa-minus")
       : eleIcon.classList.replace("fa-minus", "fa-plus");
+
+    // $('.list-group .collapse').removeClass('show');
   });
 });
 
@@ -120,7 +122,6 @@ $(".list-group .list-group-item-menu").on("click", function () {
   $(this).addClass("active");
 });
 
-$('.selectpicker').select2();
 
 $('[data-hide="alert"]').on("click", function () {
   $(this)
@@ -271,12 +272,11 @@ $("input.date").datepicker({
   autoclose: true,
   todayHighlight: true,
   orientation: "bottom"
-})
-  .on("hide", function (e) {
-    if (typeof e.date == "undefined" && $(this).val() == "") {
-      $(this).val(window.date.format(nowDate, "DD/MM/YYYY"));
-    }
-  });
+}).on("hide", function (e) {
+  if (typeof e.date == "undefined" && $(this).val() == "") {
+    $(this).val(window.date.format(nowDate, "DD/MM/YYYY"));
+  }
+});
 
 $('input.fromdate').datepicker({
   format: "dd/mm/yyyy",
@@ -308,6 +308,63 @@ $('input.todate').datepicker({
 
 $('.selectpicker').select2({ width: "100%" });
 
+$('#btnExcel').on('click', function (e) {
+  if (!table.data().count()) {
+    swalWarning({
+      position: "top",
+      icon: "warning",
+      title: "Warning Message",
+      text: "No data available in table to export",
+    });
+    return false;
+  }
+
+  table.button('.buttons-excel').trigger();
+});
+
+$('#btnPdf').on('click', function (e) {
+  if (!table.data().count()) {
+    swalWarning({
+      position: "top",
+      icon: "warning",
+      title: "Warning Message",
+      text: "No data available in table to export",
+    });
+    return false;
+  }
+
+  table.button('.buttons-pdf').trigger();
+});
+
+$('#btnPrint').on('click', function (e) {
+  if (!table.data().count()) {
+    swalWarning({
+      position: "top",
+      icon: "warning",
+      title: "Warning Message",
+      text: "No data available in table to print",
+    });
+    return false;
+  }
+
+  table.button('.buttons-print').trigger();
+});
+
+$('#dialogDeleteConfirm').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var id = button.data('id');
+  $(this).attr('data-id', id);
+  $(this).find('#dialogAccept').on('click', function (ev) {
+    var deleteUrl = './api' + pageEntry + "/" + id;
+    handleDelete(deleteUrl, token, function () {
+      table.ajax.reload()
+    });
+  });
+}).on('hide.bs.modal', function (event) {
+  $(this).attr('data-id', '');
+  $(this).find('#dialogAccept').off('click');
+});
+
 function handleDelete(url, token, cb) {
   $.ajax({
     url: url,
@@ -317,13 +374,9 @@ function handleDelete(url, token, cb) {
       if (typeof data !== "undefined" && data.status == "SUCCESS") {
         $("#alertDeleteError").hide();
         $("#alertDeleteSuccess").show();
-        if (typeof cb === "function") {
-          cb();
-        }
+        if (typeof cb === "function") { cb(); }
       }
       else if (typeof data !== "undefined" && data.status == "FAIL") {
-        /* if (data.message)
-          $("#delErrorMsg").html(data.message) */
         $("#alertDeleteSuccess").hide();
         $("#alertDeleteError").show();
       }
@@ -404,18 +457,14 @@ function ajaxUploadForm(args) {
     processData: false,
     data: new FormData(_this),
     success: function (data) {
-      console.log(data);
-      //- handleAlert(data, false);
       if (data.status == "SUCCESS") {
         var setSrc = data.data.path.replace("public", "");
-        var makeImage = `
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
-                <input class="uploaded-files" type="hidden" name=${imgName} value=${setSrc} />
-                <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
-                <button type="button" class="btn remove-file">Remove</button>
-              </div>`;
-        //- alert($(".img-list").children().length);
-        $(imgParentDiv).append(makeImage)
+        $(imgParentDiv).append(`
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 item d-flex justify-content-center img-container">
+            <input class="uploaded-files" type="hidden" name=${imgName} value=${setSrc} />
+            <img class="m-1 img img-thumbnail" src=${setSrc} alt="" srcset="" width="360" height="360"/>
+            <button type="button" class="btn remove-file">Remove</button>
+          </div>`);
       }
     },
     error: function (data) {

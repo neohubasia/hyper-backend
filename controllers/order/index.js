@@ -5,7 +5,8 @@ let {
   addData,
   updateData,
   deleteData,
-  dropAll
+  dropAll,
+  reportFilter
 }
   // = require('./memory/index') // switch out db as required
   = require('./mongod/index')
@@ -19,7 +20,8 @@ let exportDb = {
   addData,
   updateData,
   deleteData,
-  dropAll
+  dropAll,
+  reportFilter
 };
 
 module.exports = exportDb;

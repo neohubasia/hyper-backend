@@ -18,6 +18,7 @@ const { tokenRouter } = require('./middlewares/generator');
 const authRouter = require('./drivers/webserver/routes/auth');
 const apiRouter = require('./drivers/webserver/routes/api');
 const customerRouter = require('./drivers/webserver/routes/c_api')
+const webpushRouter = require('./drivers/webserver/routes/wp_api')
 const fileRouter = require('./drivers/webserver/routes/files');
 
 const UserDetails = require('./database/mongodb/models/user');
@@ -29,7 +30,7 @@ var routeModules = [];
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(cors());
+// app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -60,8 +61,8 @@ app.use(authRouter);
 
 // connect to api routes
 app.use('/api', _jwt.checkToken, apiRouter);
-
 app.use('/c-api', _jwt.checkToken, customerRouter)
+app.use('/wp-api', webpushRouter)
 
 // connet to file routes 
 app.use('/file', fileRouter)

@@ -21,7 +21,7 @@ block content
         //-   div.col-sm-12
         //-     label.control-label(for='role') Role
         //-     select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8")
-      
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='role') Role
@@ -43,19 +43,24 @@ block content
   script(src='/layout-js/lib/check-force/check-force.min.js')
   script.
     $(document).ready(function() {
-      var token = '!{token}';
-      var getFrm = $('#entryForm');
-
       var active = "!{data.active}";
       if (active && active == "false")
         $('#statusInactive').attr("checked", "checked");
 
-      getFrm.submit(function (e) {
+      ajaxLoadOption({
+        type: "GET",
+        url:"/api/user-roles",
+        selectId: "#roleid",
+        filterObj: {},
+        token: token
+      });
+
+      $('#entryForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
-          type: getFrm.attr('method'),
-          url: getFrm.attr('action'),
-          data: getFrm.serialize(),
+          type: $(this).attr('method'),
+          url: $(this).attr('action'),
+          data: $(this).serialize(),
           success: function (data) {
             console.log(data);
             handleAlert(data);
@@ -65,14 +70,6 @@ block content
             console.log(data);
           },
         });
-      });
-
-      ajaxLoadOption({
-        type: "GET",
-        url:"/api/user-roles",
-        selectId: "#roleid",
-        filterObj: {},
-        token: token
       });
 
       $(".input-group-append").on('click', function(event) {

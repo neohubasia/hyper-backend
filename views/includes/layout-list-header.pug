@@ -5,44 +5,6 @@ include ./layout-breadcrumb
         li.breadcrumb-item
           a(href=breadcrumbObj.url) #{breadcrumbObj.text}
 
-div.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-3
-  h3.h3 !{page.list.title}
+include ./layout-list-alert
 
-div.modal.fade#dialogDeleteConfirm(tabindex='-1', role='dialog', aria-labelledby='deleteConfirm')
-  div.modal-dialog.modal-sm(role='document')
-    div.modal-content
-      div.modal-header
-        h5.modal-title 
-          i.fa.fa-check-circle
-          |  Comfirm
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') &times;
-      div.modal-body
-        p Are you sure to delete this?
-      div.modal-footer.justify-content-md-center
-        button.btn.btn-sm.btn-secondary#dialogCancel(type='button', data-dismiss='modal')
-          span.fa.fa-times
-          |  CANCEL
-        button.btn.btn-sm.btn-danger#dialogAccept(type='button', data-dismiss='modal')
-          span.fa.fa-trash-alt
-          |  DELETE
-
-
-div.alert.alert-success.alert-dismissible#alertDeleteSuccess(role='alert' style="display:none;")
-  strong Success:
-  span#delSuccessMsg  Delete Successful.
-  button.close(type='button', data-hide='alert', aria-label='Close')
-    span(aria-hidden='true') &times;
-
-
-div.alert.alert-danger.alert-dismissible#alertDeleteError(role='alert' style="display:none;")
-  strong Error:
-  span#delErrorMsg  Delete Unsuccessful.
-  button.close(type='button', data-hide='alert', aria-label='Close')
-    span(aria-hidden='true') &times;
-
-div.alert.alert-dismissible#alert(role='alert' style="display:none;")
-  strong.alert-title#alertTitle 
-  span#alertMessage
-  button.close(type='button', data-hide='alert', aria-label='Close')
-    span(aria-hidden='true') &times;
+include ./layout-list-filter

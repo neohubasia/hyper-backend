@@ -8,19 +8,19 @@ block content
 
         div.form-group.row
           div.col-sm-4.mb-2
-            - var townshipid =  data.townshipid || { _id: "#" };
+            - var townshipid =  data.townshipid || { _id: "" };
             label.control-label(for='townshipid') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
 
           div.col-sm-4.mb-2
-            - var companyid =  data.companyid || { _id: "#" };
+            - var companyid =  data.companyid || { _id: "" };
             label.control-label(for='companyid') Company Name
             select.form-control.input-sm.selectpicker#companyid(name='companyid' value=companyid._id data-value=companyid._id, data-live-search="true", data-size="8" required)
-        
+
           div.col-sm-4.mb-2
             label.control-label(for='charge') Charge
             input.form-control.input-sm#charge(type='number', name='charge', role='number', min='1' max='10000' onkeyup="if(parseInt(this.value)>10000){ this.value =10000; return false; }" value=data.charge required)
-          
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -34,14 +34,12 @@ block content
               div.col-sm-6.mb-2.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-  
+
         include ./../includes/layout-entry-btn
-  
+
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
-
       var status = "!{data.status}";
       if (status && status == "false")
         $('#statusInactive').attr("checked", "checked");
@@ -55,7 +53,7 @@ block content
         token: token
       });
 
-       ajaxLoadOption({
+      ajaxLoadOption({
         type: "GET",
         url:"/api/delivery-companies",
         selectId: "#companyid",
@@ -64,7 +62,6 @@ block content
         token: token
       });
 
-    
       $('#entryForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
@@ -80,5 +77,4 @@ block content
           },
         });
       });
-
     });

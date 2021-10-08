@@ -35,8 +35,9 @@ head
   // Font Awesome
   link(href="/layout-css/lib/font-awesome/css/all.css" rel="stylesheet")
 
-  // Font Feather
+  // General JS
   //- script(src='/layout-js/lib/feather/feather.min.js')
+  script(src='/layout-js/service-client.js')
 
   // Jquery Core
   script(src="/layout-js/lib/jquery.min.js")
@@ -48,6 +49,67 @@ head
     .container-fluid
       block content
 
+script.
+  // Global Variable
+  var table, pageEntry;
+  var token = '!{token}';
+
+  //- if (Notification.permission != "granted") {
+  //-   Notification.requestPermission(); // request permission to user but not still use
+  //- }
+
+  function dataTableDef (args) { return {
+    "destroy": true,
+    "autoWidth": true,
+    "pagingType": "full_numbers",
+    "language": {
+      "searchPlaceholder": "Search",
+      "paginate": {
+        "previous": "<",
+        "next": ">"
+      }
+    },
+    "buttons": [
+      {
+        extend: 'excel',
+        filename: args.expFileName,
+        exportOptions: {
+          modifier: {
+            order: 'index',
+            page: 'all',
+            search: 'none'
+          },
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'pdf',
+        filename: args.expFileName,
+        exportOptions: {
+          modifier: {
+            order: 'index',
+            page: 'all',
+            search: 'none'
+          },
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'print',
+        filename: args.expFileName,
+        exportOptions: {
+          modifier: {
+            order: 'index',
+            page: 'all',
+            search: 'none'
+          },
+          columns: ':visible'
+        }
+      },
+    ]
+    };
+  }
+
 <!-- Layout JS/ Lib -->
 script(src='/layout-js/lib/moment/moment.js')
 script(src='/layout-js/lib/select2/select2.full.min.js')
@@ -58,7 +120,13 @@ script(src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.p
 script(src='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js' integrity='sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==' crossorigin='anonymous' referrerpolicy='no-referrer')
 
 <!-- Data Table JS -->
-script(src="/layout-js/lib/data-table/jquery.dataTables.min.js")
+script(src="/layout-js/lib/data-table/jquery.datatables.min.js")
+script(src="/layout-js/lib/data-table/datatables.buttons.min.js")
+script(src="/layout-js/lib/data-table/buttons.html5.min.js")
+script(src="/layout-js/lib/data-table/buttons.print.min.js")
+script(src="/layout-js/lib/data-table/pdfmake.min.js")
+script(src="/layout-js/lib/data-table/jszip.min.js")
+script(src="/layout-js/lib/data-table/vfs_fonts.js")
 
 <!-- Datetime JS -->
 script(src="/layout-js/lib/datepicker/bootstrap-datepicker.min.js")
@@ -76,7 +144,7 @@ script.
     $("#wrapper").toggleClass("toggled");
   });
 
-  document.getElementById("username").innerText = ' !{user.username}';
+  //- document.getElementById("username").innerText = ' !{user.username}';
 
   //- const req = new XMLHttpRequest();
   //- req.open("GET", "http://localhost:7878/getuser", true);

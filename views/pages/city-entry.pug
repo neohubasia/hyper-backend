@@ -21,7 +21,7 @@ block content
           div.col-sm-6.mb-2
             label.control-label(for='unit') Unit
             input.form-control.input-sm#unit(type='text', name='unit' value=data.unit maxlength="55" autocomplete="off" required)
-          
+
         div.form-group.row
           div.col-sm-6.mb-2
             label.control-label(for='description') Description
@@ -35,19 +35,16 @@ block content
               div.col-sm-6.mb-2.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
-  
+
         include ./../includes/layout-entry-btn
-  
+
     form#postSuccessForm(method='GET', action=page.list.url)
   script.
     $(document).ready(function() {
-      var token = '!{token}';
-
       var status = "!{data.status}";
       if (status && status == "false")
         $('#statusInactive').attr("checked", "checked");
 
-    
       $('#entryForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
@@ -63,5 +60,4 @@ block content
           },
         });
       });
-
     });

@@ -1,0 +1,102 @@
+extends ../includes/layout-main
+block content
+  div.modal.fade#FilterDataDialog(role='dialog', aria-labelledby='FilterDataDialog')
+    div.modal-dialog.modal-sm(role='document', style='max-width:730px')
+      div.modal-content
+
+        div.modal-header
+          h4.modal-title Filter Data Table
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+
+        div.form-group.row
+          div.col-sm-6.mb-2
+            div.col-sm-12.mb-2
+              label.control-label(for='start_time') Start Date
+              input.form-control.input-sm.fromdate#start_time(type='text', name='start_time', maxlength="55" editable="false" required)
+            div.col-sm-12.mb-2
+              label.control-label(for='end_time') End Date
+              input.form-control.input-sm.todate#end_time(type='text', name='end_time', maxlength="55" editable="false" required)
+          div.col-sm-6.mb-2
+            div.col-sm-12.mb-2
+              label.control-label(for='status') Status
+              select#status.selectpicker.form-control(name='status',data-size="8" data-live-search="true")
+                //- option(value="" disabled selected)  -- Please Select --
+                option(value="pending" selected) Pending
+                option(value="cancelled") Cancelled
+                option(value="confirmed") Confirmed
+                option(value="completed") Completed
+
+        div.modal-footer.justify-content-md-center
+          button.btn.btn-sm.btn-secondary#btnCancel(type='button', data-dismiss='modal')
+            span.fa.fa-times
+            |  CANCEL
+          button#btnLoad.btn.btn-.btn-primary.btn-sm(type='button', role='button')
+            span.fa.fa-spinner
+            |  LOAD
+
+  main.ml-sm-auto.px-md-4(role='main')
+
+    include ./../includes/layout-list-header
+      block append filter
+        .btn-group.btn-group-sm.mx-2(role='group' aria-label='Basic example')
+          button#btnFilter.btn.btn-light(type='button', role='button' data-toggle="modal", data-target="#FilterDataDialog")
+            span.text-warning.fa.fa-filter
+            |  Filter
+
+    table#example.table(style='width:100%')
+      thead
+        tr
+          th #
+          th Order Code
+          th Customer
+          th Email
+          th Status
+          th orderDate
+          th
+            span.float-right
+      tbody
+  script.
+    $(document).ready(function() {
+      var today = moment().format('YYYY-MM-DD');
+      pageEntry = '!{page.entry.url}';
+
+      $.fn.dataTable.ext.errMode = 'none';
+      $.fn.dataTable.ext.classes.sPageButton = 'btn btn-sm btn-light m-1'; 
+
+      table = $('#example').on('error.dt', function(e, settings, techNote, message) {
+        console.log('DataTable Error: ', message);
+        alert('Read data is failed!');
+      }).DataTable({ ...dataTableDef({ expFileName: "!{page.list.title}" }),
+        "ajax": {
+          "url": `./api/order_reports?start_date=${'1900-01-01'}&end_date=${today}&status=${'pending'}`,
+          "headers": {"authorization": "Bearer " + token},
+        },
+        "columns": [
+          { "data": "id"},
+          { "data": "orderNumber"},
+          { "data": "customerId.displayName" },
+          { "data": "customerId.email" },
+          { "data": "status" },
+          { "data": "orderDate" },
+          { "data": "actions" },
+        ],
+        "columnDefs": [
+          { targets: 0, render: dataTableIndexRenderer() },
+          { targets: 5, render: dataTableDateTimeRenderer() },
+          { targets: 6, orderable: false, render: dataTableDetailActionsRenderer(
+            ".!{page.entry.url}", "!{page.actions}", 
+            { detail: "!{app.icons.FLAT_DETAIL}" }
+            ),
+          }
+        ]
+      });
+
+      $('#btnLoad').on('click', function(event){
+        var startDate = moment($('#start_time').val() || '01-01-1900',"DD/MM/YYYY").format("YYYY-MM-DD");
+        var endDate = moment($('#end_time').val(), "DD/MM/YYYY").format("YYYY-MM-DD");
+        var status = $('#status').val();
+
+        table.ajax.url( `./api/order_reports?start_date=${startDate}&end_date=${(endDate !== "Invalid date") ? endDate : today}&status=${status}` ).load();
+      });
+    });
