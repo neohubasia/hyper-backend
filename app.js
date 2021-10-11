@@ -20,7 +20,7 @@ const apiRouter = require('./drivers/webserver/routes/api');
 const customerRouter = require('./drivers/webserver/routes/c_api')
 const webpushRouter = require('./drivers/webserver/routes/wp_api')
 const fileRouter = require('./drivers/webserver/routes/files');
-
+const imageupload = require('./drivers/webserver/routes/froalaupload/imageupload.js');
 const UserDetails = require('./database/mongodb/models/user');
 
 const app = express();
@@ -34,6 +34,24 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// for forala imageupload 
+app.use(express.static(__dirname + "/"));
+app.post("/image_upload", function (req, res) {
+  imageupload(req, function(err, data) {
+ 
+    if (err) {
+      return res.status(404).end(JSON.stringify(err));
+    }
+ 
+    res.send(data);
+  });
+});
+var filesDir = path.join("public","uploads","froalaimage");
+ 
+if (!fs.existsSync(filesDir)){
+  fs.mkdirSync(filesDir);
+}
+
 app.use(cookieParser());
 app.use(expressSession);
 

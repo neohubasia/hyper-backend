@@ -50,13 +50,19 @@ block content
         include ./../includes/layout-entry-btn
 
     form#postSuccessForm(method='GET', action=page.list.url)
+  
   script.
     $(document).ready(function() {
       var maxImageCount  = 1;
       var editMode = $("input[name='id']").val();
 
       //for froala plugins
-      new FroalaEditor('#template')
+      new FroalaEditor('#template', {
+        imageUploadURL: 'image_upload',
+        imageUploadParams: {
+          id: 'my_editor'
+        }
+      })
 
       // for adctive inactive
       var status = "!{data.status}";
