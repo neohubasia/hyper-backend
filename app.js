@@ -20,7 +20,9 @@ const apiRouter = require('./drivers/webserver/routes/api');
 const customerRouter = require('./drivers/webserver/routes/c_api')
 const webpushRouter = require('./drivers/webserver/routes/wp_api')
 const fileRouter = require('./drivers/webserver/routes/files');
-
+const imageupload = require('./drivers/webserver/routes/froalaupload/imageupload.js');
+const videoupload = require('./drivers/webserver/routes/froalaupload/videoupload.js');
+const fileupload = require('./drivers/webserver/routes/froalaupload/fileupload.js');
 const UserDetails = require('./database/mongodb/models/user');
 
 const app = express();
@@ -34,6 +36,55 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// for forala imageupload 
+app.use(express.static(__dirname + "/"));
+app.post("/image_upload", function (req, res) {
+  imageupload(req, function(err, data) {
+ 
+    if (err) {
+      return res.status(404).end(JSON.stringify(err));
+    }
+ 
+    res.send(data);
+  });
+});
+var imageDir = path.join("public","uploads","froalaimage");
+if (!fs.existsSync(imageDir)){
+  fs.mkdirSync(imageDir);
+}
+// for forala video
+app.post("/video_upload", function (req, res) {
+  videoupload(req, function(err, data) {
+ 
+    if (err) {
+      return res.status(404).end(JSON.stringify(err));
+    }
+ 
+    res.send(data);
+  });
+});
+var videoDir = path.join("public","uploads","froalavideo");
+if (!fs.existsSync(videoDir)){
+  fs.mkdirSync(videoDir);
+}
+// for froala fileupload
+
+app.post("/file_upload", function (req, res) {
+  fileupload(req, function(err, data) {
+ 
+    if (err) {
+      return res.status(404).end(JSON.stringify(err));
+    }
+ 
+    res.send(data);
+  });
+});
+var fileDir = path.join("public","uploads","froalafile");
+if (!fs.existsSync(fileDir)){
+  fs.mkdirSync(fileDir);
+}
+
+
 app.use(cookieParser());
 app.use(expressSession);
 
