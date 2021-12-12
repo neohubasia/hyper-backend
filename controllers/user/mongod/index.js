@@ -1,62 +1,59 @@
-let User = require('../../../database/mongodb/models/user');
-let serialize = require('./serializer'); // serializer custom to db
+let User = require("../../../database/mongodb/models/user");
+let serialize = require("./serializer"); // serializer custom to db
 
 let listUsers = () => {
-  return User.find({})
-    .then(serialize);
-}
+  return User.find({}).then(serialize);
+};
 
 let findUser = (prop, val) => {
-  if (prop === 'id')
-    prop = '_id'
-  return User.find({ [prop]: val })
-    .then(resp => {
-      return serialize(resp[0])
-    });
-}
+  if (prop === "id") prop = "_id";
+  return User.find({ [prop]: val }).then((resp) => {
+    return serialize(resp[0]);
+  });
+};
 
 let findUserBy = (params) => {
-  return User.find(params)
-    .then(serialize)
-}
+  return User.find(params).then(serialize);
+};
 
 let addUser = (userInfo) => {
-  return User.register({
-    username: userInfo.username,
-    supplier_id: userInfo.supplier_id,
-    role: userInfo.role,
-    active: true,
-  }, userInfo.password)
-    .then(serialize);
-}
+  return User.register(
+    {
+      username: userInfo.username,
+      supplier_id: userInfo.supplier_id,
+      role: userInfo.role,
+      active: true,
+    },
+    userInfo.password
+  ).then(serialize);
+};
 
 let updateUser = async (id, userInfo) => {
   const newpassword = userInfo.password;
-  delete (userInfo.password);
-  return User.findByIdAndUpdate(id, userInfo)
-    .then(async resp => {
-      await resp.setPassword(newpassword);
-      const updatedUser = await resp.save();
-      return serialize(updatedUser);
-    });
-}
+  delete userInfo.password;
+  return User.findByIdAndUpdate(id, userInfo).then(async (resp) => {
+    await resp.setPassword(newpassword);
+    const updatedUser = await resp.save();
+    return serialize(updatedUser);
+  });
+};
 
 let deleteUser = (id) => {
   return User.findByIdAndDelete(id)
-    .then(resp => {
+    .then((resp) => {
       return {
         id: resp._id.toString(),
-        status: 'SUCCESS',
-        message: 'Delete Successful'
-      }
+        status: "SUCCESS",
+        message: "Delete Successful",
+      };
     })
-    .catch(err => {
+    .catch((err) => {
       return {
-        status: 'FAIL',
-        message: 'Delete Unsuccessful'
-      }
-    })
-}
+        status: "FAIL",
+        message: "Delete Unsuccessful",
+      };
+    });
+};
 
 module.exports = {
   listUsers,
@@ -64,5 +61,5 @@ module.exports = {
   findUserBy,
   addUser,
   updateUser,
-  deleteUser
+  deleteUser,
 };

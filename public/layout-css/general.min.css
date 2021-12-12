@@ -7,7 +7,11 @@
 }
 
 .card {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(225, 225, 225, 0.1));
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1),
+    rgba(225, 225, 225, 0.1)
+  );
   box-shadow: 3px 3px 7px rgba(220, 220, 220, 1);
 }
 
@@ -24,10 +28,10 @@
   position: absolute;
   font-weight: bold;
   font-size: 70%;
-  padding: .55em;
+  padding: 0.55em;
   margin-top: -13px;
   margin-left: -5px;
-  line-height: .75em;
+  line-height: 0.75em;
   border-radius: 10px;
   text-align: center;
   color: #ffffff;
@@ -76,15 +80,15 @@
 
 /* Table Overide */
 
-table>thead>tr>th,
-table.dataTable>thead>tr>th {
+table > thead > tr > th,
+table.dataTable > thead > tr > th {
   font-size: 16px;
   font-weight: normal;
   color: #111;
 }
 
-table>tbody>tr>td,
-table.dataTable>tbody>tr>td {
+table > tbody > tr > td,
+table.dataTable > tbody > tr > td {
   font-size: 14px;
   font-weight: normal;
   color: #333;
@@ -162,7 +166,6 @@ input[type="radio"] {
   border: 1.5px solid #ddd;
   background-color: #fff;
   border-radius: 50%;
-
 }
 
 /* appearance for checked radiobutton */

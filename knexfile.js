@@ -1,4 +1,4 @@
-let config = require('./config/index');
+let config = require("./config/index");
 // In terminal open psql and create a new database. Then include the name of the database and your username and password in the development details below
 // Run the following terminal command
 // $ psql
@@ -7,36 +7,36 @@ let config = require('./config/index');
 // # \q
 module.exports = {
   development: {
-    client: 'pg',
+    client: "pg",
     connection: {
-      host: 'localhost',
-      user: 'root',
+      host: "localhost",
+      user: "root",
       password: null,
-      database: 'clean_node',
-      port: 5432
+      database: "clean_node",
+      port: 5432,
     },
     migrations: {
-      directory: __dirname + '/db/pg/migrations'
+      directory: __dirname + "/db/pg/migrations",
     },
     seeds: {
-      directory: __dirname + '/db/pg/seeds/development'
-    }
+      directory: __dirname + "/db/pg/seeds/development",
+    },
   },
   production: {
-    client: 'pg',
+    client: "pg",
     connection: {
       host: config.pg.HOST,
       user: config.pg.USER,
       password: config.pg.PASSWORD,
       database: config.pg.DATABASE,
       port: config.pg.PORT,
-      ssl: true
+      ssl: true,
     },
     migrations: {
-      directory: __dirname + '/db/pg/migrations'
+      directory: __dirname + "/db/pg/migrations",
     },
     seeds: {
-      directory: __dirname + '/db/pg/seeds/production'
-    }
-  }
+      directory: __dirname + "/db/pg/seeds/production",
+    },
+  },
 };

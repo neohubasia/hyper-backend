@@ -1,24 +1,24 @@
 const students = [
   {
     serial: 1,
-    name: 'howie',
+    name: "howie",
     age: 12,
     year: 3,
-    prefect: true
+    prefect: true,
   },
   {
     serial: 2,
-    name: 'felix',
+    name: "felix",
     age: 9,
     year: 4,
-    prefect: false
+    prefect: false,
   },
   {
     serial: 3,
-    name: 'hela',
+    name: "hela",
     age: 16,
     year: 5,
-    prefect: false
+    prefect: false,
   },
 ];
 

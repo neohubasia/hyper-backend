@@ -4,10 +4,8 @@ let {
   findUserBy,
   addUser,
   updateUser,
-  deleteUser
-}
-  = require('./mongod/index')
-
+  deleteUser,
+} = require("./mongod/index");
 
 let exportDb = {
   listUsers,
@@ -15,7 +13,7 @@ let exportDb = {
   findUserBy,
   addUser,
   updateUser,
-  deleteUser
+  deleteUser,
 };
 
 module.exports = exportDb;

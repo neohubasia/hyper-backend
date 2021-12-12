@@ -3,9 +3,10 @@
 My version of a basic clean node architecture.
 
 Directory:
+
 ```bash
 ==========================================================================================================
-models                    // create new entity by validating payload and returning new read only object 
+models                    // create new entity by validating payload and returning new read only object
   L student
     L index.js            // dependency inject schema/ validation library
     L index.test.js       // tests makeStudent()
@@ -21,8 +22,8 @@ models                    // create new entity by validating payload and returni
 
 db                        // db connection and adapter
   L memory                // in memory JSON
-    L students.js         
-    L teachers.js         
+    L students.js
+    L teachers.js
   L mongodb               // mongodb alternative
     L connection.js       // connection library
     L seeds               // seed library
@@ -31,7 +32,7 @@ db                        // db connection and adapter
       L student.js        // models specific to mongodb. this is different to our business logic models which handle tests and validation
 ============================================================================================================
 data-access               // think of it as our internal ORM (logic for our use-cases lies here)
-  L students-db           
+  L students-db
     L index.js            // other controllers and drivers rely on this API (findStudent, listStudents, addStudent)
     L memory              // in memory
       L index.js          // expose the memory implementation of findStudent, listStudents, addStudents

@@ -1,108 +1,106 @@
-let DiscountsDb = require('../../../../controllers/discount');
+let DiscountsDb = require("../../../../controllers/discount");
 
-let discounts = module.exports = {};
+let discounts = (module.exports = {});
 
 discounts.index = (req, res, next) => {
   delete req.query._;
 
   DiscountsDb.listData(req.query)
-    .then(data => {
+    .then((data) => {
       res.json({
         status: "SUCCESS",
-        data: data
+        data: data,
       });
     })
-    .catch(err => {
-      console.log(`Error ${err}`)
+    .catch((err) => {
+      console.log(`Error ${err}`);
       res.json({
         status: "FAIL",
-        data: err
-      })
+        data: err,
+      });
     });
-}
-
+};
 
 discounts.show = (req, res, next) => {
-  DiscountsDb.findData('id', req.params.id)
-    .then(data => {
+  DiscountsDb.findData("id", req.params.id)
+    .then((data) => {
       res.json({
         status: "SUCCESS",
-        data: data
+        data: data,
       });
     })
-    .catch(err => {
-      console.log(`Error ${err}`)
+    .catch((err) => {
+      console.log(`Error ${err}`);
       res.json({
         status: "FAIL",
-        data: err
-      })
+        data: err,
+      });
     });
-}
+};
 
 discounts.showby = (req, res, next) => {
-
   DiscountsDb.findDataBy(req.query)
-    .then(data => {
+    .then((data) => {
       res.json({
         status: "SUCCESS",
-        data: data
+        data: data,
       });
     })
-    .catch(err => {
-      console.log(`Error ${err}`)
+    .catch((err) => {
+      console.log(`Error ${err}`);
       res.json({
         status: "FAIL",
-        data: err
-      })
+        data: err,
+      });
     });
-}
+};
 
 discounts.create = (req, res, next) => {
   DiscountsDb.addData(req.body)
-    .then(data => {
+    .then((data) => {
       res.json({
         status: "SUCCESS",
-        data: data
+        data: data,
       });
     })
-    .catch(err => {
-      console.log(`Error ${err}`)
+    .catch((err) => {
+      console.log(`Error ${err}`);
       res.json({
         status: "FAIL",
-        data: err
-      })
+        data: err,
+      });
     });
-}
+};
 
 discounts.update = (req, res, next) => {
   DiscountsDb.updateData(req.params.id, req.body)
-    .then(data => {
+    .then((data) => {
       res.json({
         status: "SUCCESS",
-        data: data
+        data: data,
       });
     })
-    .catch(err => {
-      console.log(`Error ${err}`)
+    .catch((err) => {
+      console.log(`Error ${err}`);
       res.json({
         status: "FAIL",
-        data: err
-      })
+        data: err,
+      });
     });
-}
+};
 
 discounts.delete = (req, res, next) => {
   DiscountsDb.deleteData(req.params.id)
-    .then(data => {
-      res.send(data)
+    .then((data) => {
+      res.send(data);
     })
     .catch(next);
-}
+};
 
 discounts.deleteall = (req, res, next) => {
   DiscountsDb.dropAll()
-    .then(data => {
-      res.send(data)
+    .then((data) => {
+      res.send(data);
     })
     .catch(next);
-}
+};

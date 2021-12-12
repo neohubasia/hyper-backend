@@ -1,23 +1,22 @@
-const { async } = require('validate.js');
-let Cart = require('../../../database/mongodb/models/cart');
-let serialize = require('./serializer'); // serializer custom to db
+const { async } = require("validate.js");
+let Cart = require("../../../database/mongodb/models/cart");
+let serialize = require("./serializer"); // serializer custom to db
 
 let listData = () => {
   return Cart.find()
-    .populate('customerId')
-    .populate('productId')
+    .populate("customerId")
+    .populate("productId")
     .then(serialize);
-}
+};
 
 let findData = async (prop, val) => {
-  if (prop === 'id')
-    prop = '_id'
+  if (prop === "id") prop = "_id";
   return Cart.find({ [prop]: val })
-    .populate('productId')
-    .then(resp => {
-      return serialize(resp[0])
+    .populate("productId")
+    .then((resp) => {
+      return serialize(resp[0]);
     });
-}
+};
 
 let findDataBy = (params) => {
   return Cart.find(params)
@@ -28,34 +27,40 @@ let findDataBy = (params) => {
       populate: {
         path: "discount_id",
         model: "discount",
-        select: "name discount_type discount_amount"
-      }
+        select: "name discount_type discount_amount",
+      },
     })
     .then(serialize);
-}
+};
 
 let addData = async (dataObj) => {
-  const customerId = dataObj.customerId
-  const productId = dataObj.productId
-  const quantity = dataObj.quantity
-  var checkCart = await Cart.find({ customerId: customerId, productId: productId })
+  const customerId = dataObj.customerId;
+  const productId = dataObj.productId;
+  const quantity = dataObj.quantity;
+  var checkCart = await Cart.find({
+    customerId: customerId,
+    productId: productId,
+  });
 
   if (checkCart[0]) {
-    var up_quantity = checkCart[0].quantity + parseInt(quantity)
-    return Cart.findOneAndUpdate({ productId, customerId }, { quantity: up_quantity }, { new: true }).then(serialize);
-  }
-  else {
-    const cart = await new Cart({ customerId, productId, quantity })
+    var up_quantity = checkCart[0].quantity + parseInt(quantity);
+    return Cart.findOneAndUpdate(
+      { productId, customerId },
+      { quantity: up_quantity },
+      { new: true }
+    ).then(serialize);
+  } else {
+    const cart = await new Cart({ customerId, productId, quantity });
     return cart.save().then(serialize);
   }
-}
+};
 
 let updateData = (id, dataObj) => {
-  return Cart.findByIdAndUpdate(id, dataObj)
-    .then(serialize);
-}
+  return Cart.findByIdAndUpdate(id, dataObj).then(serialize);
+};
 
-let updateMany = (params, data) => { // not to serialize
+let updateMany = (params, data) => {
+  // not to serialize
   try {
     data.data.forEach(async (item) => {
       const updateCart = await Cart.findOneAndUpdate(
@@ -64,54 +69,54 @@ let updateMany = (params, data) => { // not to serialize
       );
     });
     return {
-      status: 'SUCCESS',
-      message: 'Successful Cart Updated'
-    }
+      status: "SUCCESS",
+      message: "Successful Cart Updated",
+    };
   } catch (error) {
     return {
-      status: 'FAIL',
-      message: error
-    }
+      status: "FAIL",
+      message: error,
+    };
   }
-}
+};
 
 let deleteData = (customerId) => {
   return Cart.deleteMany({ customerId })
-    .then(resp => {
+    .then((resp) => {
       return {
         id: resp._id.toString(),
-        status: 'SUCCESS',
-        message: 'Delete Successful'
-      }
+        status: "SUCCESS",
+        message: "Delete Successful",
+      };
     })
-    .catch(err => {
+    .catch((err) => {
       return {
-        status: 'FAIL',
-        message: 'Delete Unsuccessful'
-      }
-    })
-}
+        status: "FAIL",
+        message: "Delete Unsuccessful",
+      };
+    });
+};
 
 let deleteDataBy = (params) => {
   return Cart.findOneAndRemove(params)
-    .then(resp => {
+    .then((resp) => {
       return {
         id: resp._id.toString(),
-        status: 'SUCCESS',
-        message: 'Delete Successful'
-      }
+        status: "SUCCESS",
+        message: "Delete Successful",
+      };
     })
-    .catch(err => {
+    .catch((err) => {
       return {
-        status: 'FAIL',
-        message: 'Delete Unsuccessful'
-      }
-    })
-}
+        status: "FAIL",
+        message: "Delete Unsuccessful",
+      };
+    });
+};
 
 let dropAll = () => {
   return Cart.remove();
-}
+};
 
 module.exports = {
   listData,
@@ -122,6 +127,5 @@ module.exports = {
   updateMany,
   deleteData,
   deleteDataBy,
-  dropAll
+  dropAll,
 };
-

@@ -5,12 +5,11 @@ let {
   addData,
   updateData,
   deleteData,
-  dropAll
-}
-  // = require('./memory/index') // switch out db as required
-  = require('./mongod/index')
+  dropAll,
+} = require("./mongod/index");
+// = require('./memory/index')
 // = require('./pg/index')
-
+// switch out db as required
 
 let inventoryDb = {
   listData,
@@ -19,7 +18,7 @@ let inventoryDb = {
   addData,
   updateData,
   deleteData,
-  dropAll
+  dropAll,
 };
 
 module.exports = inventoryDb;

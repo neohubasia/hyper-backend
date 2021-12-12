@@ -1,51 +1,59 @@
-let knex = require('../../../db/pg/knex');
+let knex = require("../../../db/pg/knex");
 
 let listData = () => {
-  return knex.raw(`SELECT * FROM students;`).then(data => data.rows);
-}
+  return knex.raw(`SELECT * FROM students;`).then((data) => data.rows);
+};
 
 let findData = (prop, val) => {
-  return knex.raw(`
+  return knex
+    .raw(
+      `
     SELECT * FROM students WHERE ${prop}= '${val}'
-  `)
-  .then(data => data.rows[0]);
-}
+  `
+    )
+    .then((data) => data.rows[0]);
+};
 
 let findDataBy = (prop, val) => {
-  return knex.raw(`
+  return knex
+    .raw(
+      `
     SELECT * FROM students WHERE ${prop}= '${val}'
-  `)
-  .then(data => data.rows);
-}
+  `
+    )
+    .then((data) => data.rows);
+};
 
 let addData = (studentInfo) => {
-  return knex('students').insert(studentInfo).returning('*')
-  .then(result => result[0]);
-}
+  return knex("students")
+    .insert(studentInfo)
+    .returning("*")
+    .then((result) => result[0]);
+};
 
 let deleteData = (id) => {
-  return knex('students')
-    .where('id', id)
+  return knex("students")
+    .where("id", id)
     .del()
-    .then(resp => {
-      if(resp == 1) {
+    .then((resp) => {
+      if (resp == 1) {
         return {
           id,
-          status: 'success'
-        }
+          status: "success",
+        };
       }
       return {
-        status: 'fail'
-      }
+        status: "fail",
+      };
     });
-}
+};
 
 let dropAll = () => {
   return knex.raw(`
     DELETE FROM students;
     ALTER SEQUENCE students_id_seq RESTART WITH 1;
   `);
-}
+};
 
 module.exports = {
   listData,
@@ -53,5 +61,5 @@ module.exports = {
   findDataBy,
   addData,
   deleteData,
-  dropAll
+  dropAll,
 };

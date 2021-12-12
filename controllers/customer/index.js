@@ -3,18 +3,16 @@ let {
   findData,
   findDataBy,
   addData,
-  updateData
+  updateData,
   //deleteData
-}
-  = require('./mongod/index')
-
+} = require("./mongod/index");
 
 let exportDb = {
   listData,
   findData,
   findDataBy,
   addData,
-  updateData
+  updateData,
   //deleteData
 };
 

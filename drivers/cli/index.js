@@ -1,5 +1,5 @@
-let args = require('yargs-parser')(process.argv.slice(2));
-let studentsDb = require('../../controllers/students/index');
+let args = require("yargs-parser")(process.argv.slice(2));
+let studentsDb = require("../../controllers/students/index");
 
 let printHelp = function () {
   console.log(`
@@ -8,7 +8,7 @@ let printHelp = function () {
     --show   find student by {ID}
     --help   print help
   `);
-}
+};
 
 let valid = args.index || args.show;
 
@@ -18,15 +18,15 @@ if (args.help || !valid) {
 }
 
 if (args.index) {
-  studentsDb.listStudents().then(data => {
+  studentsDb.listStudents().then((data) => {
     console.log(data);
     process.exit(1);
-  })
+  });
 }
 
 if (args.show) {
-  studentsDb.findStudent('id', args.show).then(data => {
+  studentsDb.findStudent("id", args.show).then((data) => {
     console.log(data);
     process.exit(1);
-  })
+  });
 }

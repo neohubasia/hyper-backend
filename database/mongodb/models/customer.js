@@ -1,38 +1,39 @@
-const mongoose = require('../connection');
-const SchemaPlugin = require('./helpers/schema-plugin');
-const passportLocalMongoose = require('passport-local-mongoose');
+const mongoose = require("../connection");
+const SchemaPlugin = require("./helpers/schema-plugin");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const Schema = mongoose.Schema;
 const makeSchema = new Schema({
   first_name: {
     type: String,
-    required: true
+    required: true,
   },
   last_name: {
     type: String,
-    default: ""
+    default: "",
   },
   displayName: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     unique: true,
     required: true,
     dropDups: true,
-    match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+    match:
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
   },
   password: String,
   customer_type: {
     type: String,
     enum: ["normal", "premium"],
-    default: 'normal'
+    default: "normal",
   },
   account_type: {
     type: String,
-    enum: ['itemplate', 'facebook', 'gmail'],
-    default: 'itemplate'
+    enum: ["itemplate", "facebook", "gmail"],
+    default: "itemplate",
   },
   oauth_profile: {
     refId: String,
@@ -40,7 +41,8 @@ const makeSchema = new Schema({
     email: {
       type: String,
       // required: true,
-      match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+      match:
+        /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
     },
   },
   address: [
@@ -65,11 +67,11 @@ const makeSchema = new Schema({
       },
       cityid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "city"
+        ref: "city",
       },
       townshipid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "township"
+        ref: "township",
       },
       address: {
         type: String,
@@ -84,17 +86,18 @@ const makeSchema = new Schema({
         enum: ["home", "work"],
         // required: true,
       },
-    }
+    },
   ],
   active: {
-    type: Boolean, default: false
+    type: Boolean,
+    default: false,
   },
   created_at: { type: Date },
-  updated_at: { type: Date }
+  updated_at: { type: Date },
 });
 
 makeSchema.plugin(SchemaPlugin);
-const Customer = mongoose.model('customer', makeSchema);
+const Customer = mongoose.model("customer", makeSchema);
 
 // User.register({username:'admin', active: false}, 'min');
 // just create first action

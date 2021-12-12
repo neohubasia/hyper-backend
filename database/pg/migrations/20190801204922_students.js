@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.raw(`
     CREATE TABLE Students (
       id serial PRIMARY KEY,
@@ -10,7 +10,7 @@ exports.up = function(knex) {
   `);
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.raw(`
     DROP TABLE Students;
   `);

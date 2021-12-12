@@ -1,22 +1,22 @@
 {
-    "admin (access all)": "*",
-    "supplier (read, write)": {
-        "menu": [
-            "dashMenu",
-            "registerMenu",
-            "catalogMenu",
-            "orderMenu",
-            "reportMenu"
-        ],
-        "submenu": [
-            "customerSubMenu,1,0,0",
-            "supplierSubMenu,1,1,0",
-            "productInventorySubMenu,1,1,0",
-            "discountSubMenu,1,1,0",
-            "productSubMenu,1,1,0",
-            "cartSubMenu,1,1,0",
-            "orderSubMenu,1,1,0",
-            "orderReportSubMenu,1,1,0"
-        ]
-    }
+  "admin (access all)": "*",
+  "supplier (read, write)": {
+    "menu": [
+      "dashMenu",
+      "registerMenu",
+      "catalogMenu",
+      "orderMenu",
+      "reportMenu"
+    ],
+    "submenu": [
+      "customerSubMenu,1,0,0",
+      "supplierSubMenu,1,1,0",
+      "productInventorySubMenu,1,1,0",
+      "discountSubMenu,1,1,0",
+      "productSubMenu,1,1,0",
+      "cartSubMenu,1,1,0",
+      "orderSubMenu,1,1,0",
+      "orderReportSubMenu,1,1,0"
+    ]
+  }
 }

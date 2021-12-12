@@ -6,12 +6,11 @@ let {
   updateData,
   deleteData,
   dropAll,
-  reportFilter
-}
-  // = require('./memory/index') // switch out db as required
-  = require('./mongod/index')
+  reportFilter,
+} = require("./mongod/index");
+// = require('./memory/index')
 // = require('./pg/index')
-
+// switch out db as required
 
 let exportDb = {
   listData,
@@ -21,7 +20,7 @@ let exportDb = {
   updateData,
   deleteData,
   dropAll,
-  reportFilter
+  reportFilter,
 };
 
 module.exports = exportDb;

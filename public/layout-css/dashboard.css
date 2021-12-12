@@ -89,17 +89,17 @@
   border-top: 3px solid #ffc105;
 }
 
-.user-nav-items>.nav-item {
+.user-nav-items > .nav-item {
   background: #f0f0f0;
   border-radius: 5px;
   margin: 0 3px;
 }
 
-.user-nav-items>.nav-item>a {
+.user-nav-items > .nav-item > a {
   color: #495057;
 }
 
-.nav-item.dropdown>.dropdown-menu {
+.nav-item.dropdown > .dropdown-menu {
   top: 50px;
   left: -110px;
   border-radius: 5px;
@@ -107,20 +107,20 @@
   box-shadow: 4px 4px 20px #fff;
 }
 
-.nav-item.dropdown>.dropdown-menu>a {
+.nav-item.dropdown > .dropdown-menu > a {
   padding: 5px 10px;
   margin: 5px auto;
   color: #555;
 }
 
-.nav-item.dropdown>.dropdown-menu>a:hover,
-.nav-item.dropdown>.dropdown-menu>a:focus {
+.nav-item.dropdown > .dropdown-menu > a:hover,
+.nav-item.dropdown > .dropdown-menu > a:focus {
   color: #000;
   font-weight: 550;
   background-color: #f0f0f0;
 }
 
-.nav-item.dropdown>.dropdown-menu>.dropdown-divider {
+.nav-item.dropdown > .dropdown-menu > .dropdown-divider {
   background-color: #f0f0f0;
 }
 
@@ -133,33 +133,33 @@
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 2px 2px 10px #bbb;
-  transition: .3s linear all;
+  transition: 0.3s linear all;
 }
 
 .card-counter:hover {
   cursor: pointer;
   box-shadow: 4px 4px 20px #fff;
-  transition: .3s linear all;
+  transition: 0.3s linear all;
 }
 
 .card-counter.primary {
-  background-color: #22A7F0;
-  color: #FFF;
+  background-color: #22a7f0;
+  color: #fff;
 }
 
 .card-counter.purple {
-  background-color: #875F9A;
-  color: #FFF;
+  background-color: #875f9a;
+  color: #fff;
 }
 
 .card-counter.success {
-  background-color: #2ABB9B;
-  color: #FFF;
+  background-color: #2abb9b;
+  color: #fff;
 }
 
 .card-counter.info {
   background-color: #15a5b5;
-  color: #FFF;
+  color: #fff;
 }
 
 .card-counter i {

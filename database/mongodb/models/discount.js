@@ -1,22 +1,22 @@
-const mongoose = require('../connection');
-const SchemaPlugin = require('./helpers/schema-plugin');
+const mongoose = require("../connection");
+const SchemaPlugin = require("./helpers/schema-plugin");
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-    name: String,
-    description: String,
-    discount_amount: Number,
-    discount_type: {
-        type: String,
-        enum: ["percent", "amount", "other"]
-    },
-    supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
-    active: { type: Boolean, default: true },
-    created_at: { type: Date },
-    updated_at: { type: Date },
+  name: String,
+  description: String,
+  discount_amount: Number,
+  discount_type: {
+    type: String,
+    enum: ["percent", "amount", "other"],
+  },
+  supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
+  active: { type: Boolean, default: true },
+  created_at: { type: Date },
+  updated_at: { type: Date },
 });
 
 makeSchema.plugin(SchemaPlugin);
-let Discount = mongoose.model('discount', makeSchema);
+let Discount = mongoose.model("discount", makeSchema);
 
 module.exports = Discount;

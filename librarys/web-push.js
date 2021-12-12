@@ -1,5 +1,5 @@
-require('dotenv').config();
-const webpush = require('web-push');
+require("dotenv").config();
+const webpush = require("web-push");
 
 // VAPID keys should be generated only once.
 // const vapidKeys = webpush.generateVAPIDKeys();
@@ -7,9 +7,9 @@ const webpush = require('web-push');
 // webpush.setGCMAPIKey('AAAAL8Qj1Qk:APA91bFsviSbOcr22B3-3V4tJoN0gqrYQI-lPVb-QCcO153f8bmM85cfyHrMcfKXeUIbeuVUIdUyEIsIV2-QYrhAXUhuKjke4sgpbsvJNk6EyWFFd08-zfaS4NdKbi1tS8qMMXmoEsJr');
 
 webpush.setVapidDetails(
-    'mailto:waiphyo.dev@gmail.com',
-    process.env.PUBLIC_VAPID_KEY,
-    process.env.PRIVATE_VAPID_KEY
+  "mailto:waiphyo.dev@gmail.com",
+  process.env.PUBLIC_VAPID_KEY,
+  process.env.PRIVATE_VAPID_KEY
 );
 
 module.exports = webpush;

@@ -1,286 +1,244 @@
 {
-	"info": {
-		"_postman_id": "b3ec5074-d9b8-497e-91e1-72d7a1dc0bfd",
-		"name": "Itemplate ECommerce",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Cart",
-			"item": [
-				{
-					"name": "Add To Cart",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk5NTI4MDgsImV4cCI6MTYzMDAzOTIwOH0.AE8RXl722AHzmaMmeegIMmSlNa8z_vcl3yIrt_PeRno",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"612494f9656a72680c5186ce\",\r\n    \"customerId\":\"612476d4ef660845d44a1987\",\r\n    \"quantity\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:7878/api/cart",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"api",
-								"cart"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get cart by customer",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk4NjA4OTMsImV4cCI6MTYyOTk0NzI5M30.FttHor9UsFDwT6AlOsxH_HZu1GFMQFXWzy7aTHjVMN4",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"61249cff09389749d4ad481e\",\r\n    \"quantity\": 2,\r\n    \"name\": \"Project two\",\r\n    \"price\": 2000000,\r\n    \"discount\":\"10\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:7878/api/cart",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"api",
-								"cart"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Order",
-			"item": [
-				{
-					"name": "Order Create",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk5NTI4MDgsImV4cCI6MTYzMDAzOTIwOH0.AE8RXl722AHzmaMmeegIMmSlNa8z_vcl3yIrt_PeRno",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"customerId\":\"612476d4ef660845d44a1987\",\r\n    \"address\":\"Yangon\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:7878/api/order",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"api",
-								"order"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Orders By Customer Id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk5NTI4MDgsImV4cCI6MTYzMDAzOTIwOH0.AE8RXl722AHzmaMmeegIMmSlNa8z_vcl3yIrt_PeRno",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:7878/api/order/612476d4ef660845d44a1987",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"api",
-								"order",
-								"612476d4ef660845d44a1987"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Customer",
-			"item": [
-				{
-					"name": "customer login and generate token",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk3NzUzMjMsImV4cCI6MTYyOTg2MTcyM30.AOO-lJmWw2nLjR3Mtdco6DyVkZrqsu70jdx90RFG5cM",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{   \r\n    \"password\":\"yelwin123\",\r\n    \"email\":\"yelwin@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:7878/c_api/customer_login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"c_api",
-								"customer_login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "customer signup",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk3NzUzMjMsImV4cCI6MTYyOTg2MTcyM30.AOO-lJmWw2nLjR3Mtdco6DyVkZrqsu70jdx90RFG5cM",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{   \r\n    \"username\":\"yelwin\",\r\n    \"password\":\"yelwin123\",\r\n    \"email\":\"yelwin@gmail.com\",\r\n    \"first_name\":\"Ye\",\r\n    \"last_name\":\"Lwin\",\r\n    \"telephone\":\"09969954250\",\r\n    \"customer_type\":\"normal\",\r\n    \"address\":\"Yangon\",\r\n    \"account_type\":\"actype\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:7878/c_api/customer_signup",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"c_api",
-								"customer_signup"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Customer By Id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjg3MTFkNDNhYzBhMzlkYzExNDY3MyIsImlhdCI6MTYzMDA1NDMzNiwiZXhwIjoxNjMwMTQwNzM2fQ.GxZyWYNMDBMPmWojluiHUMju_V6N7ehbwgppwIVNtZc",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:7878/c_api/customer/6128711d43ac0a39dc114673",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"c_api",
-								"customer",
-								"6128711d43ac0a39dc114673"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Product",
-			"item": [
-				{
-					"name": "Get All Products",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjg3MTFkNDNhYzBhMzlkYzExNDY3MyIsImlhdCI6MTYzMDEyMDg1MCwiZXhwIjoxNjMwMjA3MjUwfQ.CCoLLeZW3lqxIp1ZIEgau1A0GGXE3zwpKPwvlPliqho",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:7878/api/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "7878",
-							"path": [
-								"api",
-								"products"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "b3ec5074-d9b8-497e-91e1-72d7a1dc0bfd",
+    "name": "Itemplate ECommerce",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Add To Cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk5NTI4MDgsImV4cCI6MTYzMDAzOTIwOH0.AE8RXl722AHzmaMmeegIMmSlNa8z_vcl3yIrt_PeRno",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": \"612494f9656a72680c5186ce\",\r\n    \"customerId\":\"612476d4ef660845d44a1987\",\r\n    \"quantity\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7878/api/cart",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["api", "cart"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get cart by customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk4NjA4OTMsImV4cCI6MTYyOTk0NzI5M30.FttHor9UsFDwT6AlOsxH_HZu1GFMQFXWzy7aTHjVMN4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": \"61249cff09389749d4ad481e\",\r\n    \"quantity\": 2,\r\n    \"name\": \"Project two\",\r\n    \"price\": 2000000,\r\n    \"discount\":\"10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7878/api/cart",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["api", "cart"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Order Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk5NTI4MDgsImV4cCI6MTYzMDAzOTIwOH0.AE8RXl722AHzmaMmeegIMmSlNa8z_vcl3yIrt_PeRno",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"customerId\":\"612476d4ef660845d44a1987\",\r\n    \"address\":\"Yangon\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7878/api/order",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["api", "order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Orders By Customer Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk5NTI4MDgsImV4cCI6MTYzMDAzOTIwOH0.AE8RXl722AHzmaMmeegIMmSlNa8z_vcl3yIrt_PeRno",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:7878/api/order/612476d4ef660845d44a1987",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["api", "order", "612476d4ef660845d44a1987"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "item": [
+        {
+          "name": "customer login and generate token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk3NzUzMjMsImV4cCI6MTYyOTg2MTcyM30.AOO-lJmWw2nLjR3Mtdco6DyVkZrqsu70jdx90RFG5cM",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{   \r\n    \"password\":\"yelwin123\",\r\n    \"email\":\"yelwin@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7878/c_api/customer_login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["c_api", "customer_login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "customer signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik4zT1hVQkwxU04wVDYzM0siLCJpYXQiOjE2Mjk3NzUzMjMsImV4cCI6MTYyOTg2MTcyM30.AOO-lJmWw2nLjR3Mtdco6DyVkZrqsu70jdx90RFG5cM",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{   \r\n    \"username\":\"yelwin\",\r\n    \"password\":\"yelwin123\",\r\n    \"email\":\"yelwin@gmail.com\",\r\n    \"first_name\":\"Ye\",\r\n    \"last_name\":\"Lwin\",\r\n    \"telephone\":\"09969954250\",\r\n    \"customer_type\":\"normal\",\r\n    \"address\":\"Yangon\",\r\n    \"account_type\":\"actype\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7878/c_api/customer_signup",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["c_api", "customer_signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customer By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjg3MTFkNDNhYzBhMzlkYzExNDY3MyIsImlhdCI6MTYzMDA1NDMzNiwiZXhwIjoxNjMwMTQwNzM2fQ.GxZyWYNMDBMPmWojluiHUMju_V6N7ehbwgppwIVNtZc",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:7878/c_api/customer/6128711d43ac0a39dc114673",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["c_api", "customer", "6128711d43ac0a39dc114673"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjg3MTFkNDNhYzBhMzlkYzExNDY3MyIsImlhdCI6MTYzMDEyMDg1MCwiZXhwIjoxNjMwMjA3MjUwfQ.CCoLLeZW3lqxIp1ZIEgau1A0GGXE3zwpKPwvlPliqho",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:7878/api/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7878",
+              "path": ["api", "products"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

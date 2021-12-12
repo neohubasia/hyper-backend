@@ -1,15 +1,13 @@
 .login-div {
   margin: 0 auto;
   width: 300px;
-  font-family: 'Lato',
-    sans-serif;
+  font-family: "Lato", sans-serif;
   /* height: 500px; */
   padding: 33px;
   margin-top: 7.5%;
   border-radius: 15px;
   background: #f5f5f5;
-  box-shadow: 5px 5px 10px #ddd,
-    -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px #ddd, -5px -5px 10px #fff;
 }
 
 .logo {
@@ -21,14 +19,9 @@
   border-radius: 50%;
   padding: 5px;
   box-shadow:
-    /* logo shadow */
-    0px 0px 2px #ccc,
-    /* offset */
-    0px 0px 0px 5px #ddd,
-    /*bottom right */
-    5px 5px 10px #eee,
-    /* top left */
-    -8px -8px 15px #fff;
+    /* logo shadow */ 0px 0px 2px #ccc,
+    /* offset */ 0px 0px 0px 5px #ddd, /*bottom right */ 5px 5px 10px #eee,
+    /* top left */ -8px -8px 15px #fff;
 }
 
 .title {
@@ -65,8 +58,7 @@
 .password {
   margin-bottom: 30px;
   border-radius: 10px;
-  box-shadow: inset 5px 5px 5px #bbb,
-    inset -5px -5px 5px #fff;
+  box-shadow: inset 5px 5px 5px #bbb, inset -5px -5px 5px #fff;
 }
 
 .fields svg {
@@ -86,8 +78,7 @@
   color: #fff;
   text-align: center;
   background: #005bff;
-  box-shadow: 3px 3px 8px #bbb,
-    -3px -3px 8px #fff;
+  box-shadow: 3px 3px 8px #bbb, -3px -3px 8px #fff;
   transition: 0.5s;
 }
 
