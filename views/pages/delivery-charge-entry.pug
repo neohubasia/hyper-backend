@@ -21,17 +21,16 @@ block content
             label.control-label(for='charge') Charge
             input.form-control.input-sm#charge(type='number', name='charge', role='number', min='1' max='10000' onkeyup="if(parseInt(this.value)>10000){ this.value =10000; return false; }" value=data.charge required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description',)= data.description 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='status', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

@@ -8,37 +8,35 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='discount_type') Discount Type
             select#discount_type.selectpicker.form-control(name='discount_type', value=data.discount_type, data-value=data.discount_type  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
               option(value="percent")  Percent
               option(value="amount") Amount
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='discount_amount') Discount (Percent/Amount)
             input.form-control.input-sm#discount_amount(type='number', name='discount_amount', role="number" min='1' max='10000' value=data.discount_amount required)
             small.text-warning Percent (1-100), Amount (1-10000)
-          div.col-md-6.mb-2
+          div.col-sm-6.mb-3
             - var supplier_id =  data.supplier_id || { _id: user.supplier_id };
             label.control-label(for='supplier_id') Supplier
             select.form-control.input-sm.selectpicker#supplier_id(name='supplier_id' value=supplier_id._id data-value=supplier_id._id, data-live-search="true", data-size="8" disabled=(supplier_id._id ? true : false) required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description',)= data.description 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='active') Active
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='active', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='active', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

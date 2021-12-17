@@ -8,51 +8,48 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='code') Code
             input.form-control.input-sm#code(type='text', name='code', value=data.code, maxlength="55" autocomplete="off" required autofocus)
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='discount_type') Discount Type
             select#discount_type.selectpicker.form-control(name='discount_type', value=data.discount_type, data-value=data.discount_type  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
               option(value="percent")  Percent
               option(value="amount") Amount
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='customer_type') Customer Type
             select#customer_type.selectpicker.form-control(name='customer_type', value=data.customer_type, data-value=data.customer_type  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
               option(value="normal")  Normal
               option(value="premium") Premium
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='discount_amount') Discount (Percent/Amount)
             input.form-control.input-sm#discount_amount(type='number', name='discount_amount', role="number" min='1' max='10000' value=data.discount_amount required)
             small.text-warning Percent (1-100), Amount (1-10000)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='no_of_limits') No. of Limit
             input.form-control.input-sm#no_of_limits(type='number', name='no_of_limits', role="number" min='1' max='10000' onkeyup="if(parseInt(this.value)>10000){ this.value =10000; return false; }" value=data.no_of_limits required)
             small.text-warning Limit (1-10000)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='start_time') Start Time
             input.form-control.input-sm.fromdate#start_time(type='text', name='start_time', value=data.start_time, maxlength="55" editable="false" required)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='expire_time') Expire Time
             input.form-control.input-sm.todate#expire_time(type='text', name='expire_time', value=data.expire_time, maxlength="55" editable="false" required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description',)= data.description 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='active') Active
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='active', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='active', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

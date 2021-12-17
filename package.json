@@ -48,6 +48,7 @@
     "passport-local-mongoose": "^6.0.1",
     "pg": "^7.12.0",
     "pug": "2.0.0-beta11",
+    "sha1": "^1.1.1",
     "validate.js": "^0.13.1",
     "web-push": "^3.4.5",
     "yargs-parser": "^13.1.1"

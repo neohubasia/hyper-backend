@@ -7,29 +7,27 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='displayName') Name
             input.form-control.input-sm#displayName(type='text', name='displayName', value=data.displayName, maxlength="55" autocomplete="off" disabled)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='email') Email
             input.form-control.input-sm#email(type='text', name='email' value=data.email maxlength="55" autocomplete="off" disabled)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='customer_type') Customer Level
             input.form-control.input-sm#customer_type(type='text', name='customer_type', value=data.customer_type, maxlength="55" autocomplete="off" required)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='account_type') Registration From
             input.form-control.input-sm#account_type(type='text', name='account_type' value=data.account_type maxlength="55" autocomplete="off" disabled)
-
-        div.form-group.row
-          div.col-sm-6.mb-2
+            
+          div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='active', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='active', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

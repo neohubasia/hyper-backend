@@ -34,35 +34,33 @@ block content
                   button.btn.remove-file(type="button") Remove
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required autofocus)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='age') Age
             input.form-control.input-sm#age(type='number', name='age', role='number', min='16' max='120' onkeyup="if(parseInt(this.value)>120){ this.value =120; return false; }" value=data.age autocomplete="off" required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             - var cityid =  data.cityid || { _id: "" };
             label.control-label(for='city') City
             select.form-control.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             - var townshipid =  data.townshipid || { _id: "" };
             label.control-label(for='township') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='grade') Grade
             input.form-control.input-sm#grade(type='number', name='grade', role='number', min='1' max='11' onkeyup="if(parseInt(this.value)>11){ this.value =11; return false; }" value=data.grade autocomplete="off" required)
             //- input.form-control.input-sm.date(type='text', name='prefect', role="date" autocomplete="off")
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='prefect') Prefect
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#prefectActive.radiobox(type='radio', name='prefect', value="1" checked)
                 label.ml-1(for='prefectActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#prefectInactive.radiobox(type='radio', name='prefect', value="0")
                 label.ml-1(for='prefectInactive') &nbsp; Inactive
 

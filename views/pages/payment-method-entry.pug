@@ -8,20 +8,19 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='name') Acccount No.
             input.form-control.input-sm#name(type='text', name='acc_number', value=data.acc_number, maxlength="55" required autofocus)
 
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='acc_name') Acccount Name
             input.form-control.input-sm#acc_name(type='text', name='acc_name', value=data.acc_name, maxlength="55" required )
 
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='organization') Organization
             input.form-control.input-sm#organization(type='text', name='organization', value=data.organization, maxlength="55" required )
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='payment_method') Payment Method
             select#payment_method.selectpicker.form-control(name='payment_method', value=data.payment_method, data-value=data.payment_method data-size="8" data-live-search="true" required)
               option(value="" disabled)  -- Please Select --
@@ -29,7 +28,7 @@ block content
               option(value="wallet") Wallet
               option(value="other") Other
 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='payment_name') Payment Name
             select#payment_name.selectpicker.form-control(name='payment_name', value=data.payment_name, data-value=data.payment_name data-size="8" data-live-search="true" required)
               option(value="" disabled)  -- Please Select --
@@ -39,18 +38,16 @@ block content
               option(value="kbz_pay") KBZ Pay
               option(value="wave_money") Wave Money
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description')= data.description
-
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='status', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

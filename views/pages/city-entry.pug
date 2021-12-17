@@ -7,32 +7,30 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='city_mm') City (MM)
             input.form-control.input-sm#city_mm(type='text', name='city_mm', value=data.city_mm, maxlength="55" autocomplete="off" required autofocus)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='city_en') City (EN)
             input.form-control.input-sm#city_en(type='text', name='city_en' value=data.city_en maxlength="55" autocomplete="off" required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='code') Code
             input.form-control.input-sm#code(type='text', name='code', value=data.code, maxlength="55" autocomplete="off" required)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='unit') Unit
             input.form-control.input-sm#unit(type='text', name='unit' value=data.unit maxlength="55" autocomplete="off" required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description',)= data.description 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='status', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

@@ -23,11 +23,11 @@ block content
                   button.btn.remove-file(type="button") Remove
 
         div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='title') Title
             input.form-control.input-sm#title(type='text', name='title', value=data.title, maxlength="55" required autofocus)
 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='no_of_image') No. of Image
             select#no_of_image.selectpicker.form-control(name='no_of_image', value=data.no_of_image, data-value=data.no_of_image  data-size="8" data-live-search="true" required)
               option(value="" disabled)  -- Please Select --
@@ -36,8 +36,7 @@ block content
               option(value="3") 3
               option(value="4") 4
 
-        div.form-group.row  
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='image_size') Image Size
             select#image_size.selectpicker.form-control(name='image_size', value=data.image_size, data-value=data.image_size  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
@@ -45,24 +44,23 @@ block content
               option(value="870x420") 870x420
               option(value="570x270") 570x270
 
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='page_name') Page Name
             select#page_name.selectpicker.form-control(name='page_name', value=data.page_name, data-value=data.page_name  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
               option(value="home") Home
               option(value="shop") Shop
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description')= data.description
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='status', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 

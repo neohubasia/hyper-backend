@@ -28,47 +28,44 @@ block content
                   button.btn.remove-file(type="button") Remove
 
         div.form-group.row
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" required)
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             - var category_id =  data.category_id || { _id: "" };
             label.control-label(for='category') Category
             select.form-control.selectpicker#category_id(name='category_id' value=category_id._id data-value=category_id._id, data-live-search="true", data-size="8" required)
-          div.col-sm-4.mb-2
+          div.col-sm-4.mb-3
             - var inventory_id =  data.inventory_id || { _id: "" };
             label.control-label(for='inventory') Inventory
             select.form-control.selectpicker#inventory_id(name='inventory_id' value=inventory_id._id data-value=inventory_id._id, data-live-search="true", data-size="8" required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='features') Features
             input.form-control.input-sm#features(type='text', name='features', value=data.features, data-role="tagsinput")
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='code') Code
             input.form-control.input-sm#code(type='text', name='sku', value=data.sku required)
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='price') Price
             input.form-control.input-sm#price(type='number' name='price' role="number" min='1' max='1000000' onkeyup="if(parseInt(this.value)>1000000){ this.value =1000000; return false; }" value=data.price autocomplete="off" required)
             small.text-warning Amount (1-1000000)
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             - var discount_id =  data.discount_id || { _id: "" };
             label.control-label(for='discount') Discount
             select.form-control.selectpicker#discount_id(name='discount_id' value=discount_id._id data-value=discount_id._id, data-live-search="true", data-size="8")
 
-        div.form-group.row
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='description') Description
             textarea.form-control.input-sm#description(name='description', autofocus)= data.description
-          div.col-sm-6.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusActive.radiobox(type='radio', name='status', value="1" checked)
                 label.ml-1(for='statusActive') &nbsp; Active
-              div.col-sm-6.mb-2.col-xl-3
+              div.col-sm-6.mb-3.col-xl-3
                 input#statusInactive.radiobox(type='radio', name='status', value="0")
                 label.ml-1(for='statusInactive') &nbsp; Inactive
 
