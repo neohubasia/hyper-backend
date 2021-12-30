@@ -15,14 +15,14 @@ const expressSession = require("express-session")({
 const _jwt = require("./middlewares/jwt");
 const { tokenRouter } = require("./middlewares/generator");
 
-const authRouter = require("./drivers/webserver/routes/auth");
-const apiRouter = require("./drivers/webserver/routes/api");
-const customerRouter = require("./drivers/webserver/routes/c_api");
-const webpushRouter = require("./drivers/webserver/routes/wp_api");
-const fileRouter = require("./drivers/webserver/routes/files");
-const imageupload = require("./drivers/webserver/routes/froalaupload/imageupload.js");
-const videoupload = require("./drivers/webserver/routes/froalaupload/videoupload.js");
-const fileupload = require("./drivers/webserver/routes/froalaupload/fileupload.js");
+const authRouter = require("./drivers/web/routes/auth");
+const apiRouter = require("./drivers/web/routes/api");
+const customerRouter = require("./drivers/web/routes/c_api");
+const webpushRouter = require("./drivers/web/routes/wp_api");
+const fileRouter = require("./drivers/web/routes/files");
+const imageupload = require("./drivers/web/routes/froalaupload/imageupload.js");
+const videoupload = require("./drivers/web/routes/froalaupload/videoupload.js");
+const fileupload = require("./drivers/web/routes/froalaupload/fileupload.js");
 const UserDetails = require("./database/mongodb/models/user");
 
 const app = express();
@@ -96,13 +96,10 @@ app.use(function (req, res, next) {
 
 app.use(express.static(path.join(__dirname, "public")));
 
-fs.readdirSync(__dirname + "/drivers/webserver/routes/pages").forEach(function (
+fs.readdirSync(__dirname + "/drivers/web/routes/pages").forEach(function (
   name
 ) {
-  var obj = require(path.join(
-    __dirname,
-    "/drivers/webserver/routes/pages/" + name
-  ));
+  var obj = require(path.join(__dirname, "/drivers/web/routes/pages/" + name));
   routeModules.push(obj);
 });
 
