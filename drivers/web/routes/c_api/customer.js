@@ -1,7 +1,7 @@
-let customersDb = require("../../../../controllers/customer");
-let Customer = require("../../../../database/mongodb/models/customer");
 let bcrypt = require("bcrypt");
 let jwt = require("jsonwebtoken");
+let customersDb = require("../../../../controllers/customer");
+let Customer = require("../../../../database/mongodb/models/customer");
 let config = require("../../../../config/index");
 let customers = (module.exports = {});
 

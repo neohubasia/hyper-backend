@@ -27,9 +27,9 @@ function isFileValid(filename, mimetype) {
   );
 }
 
-function fileupload(req, callback) {
+function uploadFile(req, callback) {
   // The route on which the file is saved.
-  var fileRoute = "/public/uploads/froalafile/";
+  var fileRoute = "/public/uploads/froala-file/";
 
   // Server side file path on which the file is saved.
   var saveToPath = null;
@@ -116,4 +116,4 @@ function fileupload(req, callback) {
   return req.pipe(busboy);
 }
 
-module.exports = fileupload;
+module.exports = uploadFile;
