@@ -3,15 +3,27 @@ const SchemaPlugin = require("./helpers/schema-plugin");
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-  name: String,
-  description: String,
-  discount_amount: Number,
+  name: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  discount_amount: {
+    type: Number,
+  },
   discount_type: {
     type: String,
     enum: ["percent", "amount", "other"],
   },
-  supplier_id: { type: mongoose.Schema.Types.ObjectId, ref: "supplier" },
-  active: { type: Boolean, default: true },
+  supplier_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "supplier",
+  },
+  active: {
+    type: Boolean,
+    default: true,
+  },
   created_at: { type: Date },
   updated_at: { type: Date },
 });

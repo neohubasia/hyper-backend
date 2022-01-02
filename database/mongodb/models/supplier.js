@@ -3,16 +3,34 @@ const SchemaPlugin = require("./helpers/schema-plugin");
 
 let Schema = mongoose.Schema;
 let makeSchema = new Schema({
-  company_logo: { type: String },
-  company_name: { type: String },
-  contact_name: { type: String },
+  company_logo: {
+    type: String,
+  },
+  company_name: {
+    type: String,
+  },
+  contact_name: {
+    type: String,
+  },
   address_info: [
     {
-      address: { type: String },
-      townshipid: { type: mongoose.Schema.Types.ObjectId, ref: "township" },
-      cityid: { type: mongoose.Schema.Types.ObjectId, ref: "city" },
-      postal_code: { type: Number },
-      mobile_no: { type: String },
+      address: {
+        type: String,
+      },
+      townshipid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "township",
+      },
+      cityid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "city",
+      },
+      postal_code: {
+        type: Number,
+      },
+      mobile_no: {
+        type: String,
+      },
       email: {
         type: String,
         match:
@@ -20,7 +38,9 @@ let makeSchema = new Schema({
       },
     },
   ],
-  website: { type: String },
+  website: {
+    type: String,
+  },
   payment_methods: [
     {
       payment_method_id: {
@@ -33,10 +53,21 @@ let makeSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "product_category",
   },
-  feature: { type: Boolean, default: true },
-  access: { type: Boolean, default: false },
-  status: { type: Boolean, default: true },
-  description: { type: String },
+  feature: {
+    type: Boolean,
+    default: true,
+  },
+  access: {
+    type: Boolean,
+    default: false,
+  },
+  status: {
+    type: Boolean,
+    default: true,
+  },
+  description: {
+    type: String,
+  },
   created_at: { type: Date },
   updated_at: { type: Date },
 });

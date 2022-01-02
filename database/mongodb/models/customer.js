@@ -24,7 +24,9 @@ const makeSchema = new Schema({
     match:
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
   },
-  password: String,
+  password: {
+    type: String,
+  },
   customer_type: {
     type: String,
     enum: ["normal", "premium"],

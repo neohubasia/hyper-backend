@@ -1,3 +1,4 @@
+const { isNumber } = require("validate.js");
 const mongoose = require("../connection");
 const SchemaPlugin = require("./helpers/schema-plugin");
 
@@ -11,9 +12,16 @@ let makeSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "delivery_company",
   },
-  charge: Number,
-  description: String,
-  status: { type: Boolean, default: true },
+  charge: {
+    type: Number,
+  },
+  description: {
+    type: String,
+  },
+  status: {
+    type: Boolean,
+    default: true,
+  },
   created_at: { type: Date },
   updated_at: { type: Date },
 });

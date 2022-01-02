@@ -43,7 +43,11 @@ customers.login = (req, res, next) => {
     var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
 
     if (!passwordIsValid) {
-      return res.send({ status: 401, auth: false, token: null });
+      return res.send({
+        status: 401,
+        auth: false,
+        token: null,
+      });
     }
 
     //if password valid jwt need to produce token with our secrep
