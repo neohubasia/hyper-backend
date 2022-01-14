@@ -36,7 +36,7 @@ cities.show = (req, res, next) => {
     });
 };
 
-cities.showby = (req, res, next) => {
+cities.showBy = (req, res, next) => {
   CitiesDb.findDataBy(req.query)
     .then((data) => {
       res.json({

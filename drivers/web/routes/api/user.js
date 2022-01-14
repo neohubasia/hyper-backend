@@ -36,7 +36,7 @@ users.show = (req, res, next) => {
     });
 };
 
-users.showby = (req, res, next) => {
+users.showBy = (req, res, next) => {
   UsersDb.findUserBy(req.query)
     .then((data) => {
       res.json({

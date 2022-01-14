@@ -36,7 +36,7 @@ customers.show = (req, res, next) => {
     });
 };
 
-customers.showby = (req, res, next) => {
+customers.showBy = (req, res, next) => {
   // let obj = [];
   // Object.keys(req.query).map(function(i){
   //   obj.push({ prop: i, val: req.query[i]});

@@ -36,7 +36,7 @@ payment_methods.show = (req, res, next) => {
     });
 };
 
-payment_methods.showby = (req, res, next) => {
+payment_methods.showBy = (req, res, next) => {
   PaymentMethodsDb.findDataBy(req.query)
     .then((data) => {
       res.json({

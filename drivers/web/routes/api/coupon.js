@@ -36,7 +36,7 @@ coupons.show = (req, res, next) => {
     });
 };
 
-coupons.showby = (req, res, next) => {
+coupons.showBy = (req, res, next) => {
   CouponsDb.findDataBy(req.query)
     .then((data) => {
       res.json({

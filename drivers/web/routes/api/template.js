@@ -36,7 +36,7 @@ templates.show = (req, res, next) => {
     });
 };
 
-templates.showby = (req, res, next) => {
+templates.showBy = (req, res, next) => {
   TemplatesDb.findDataBy(req.query)
     .then((data) => {
       res.json({

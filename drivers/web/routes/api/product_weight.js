@@ -36,7 +36,7 @@ product_weights.show = (req, res, next) => {
     });
 };
 
-product_weights.showby = (req, res, next) => {
+product_weights.showBy = (req, res, next) => {
   ProductWeightsDb.findDataBy(req.query)
     .then((data) => {
       res.json({

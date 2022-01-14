@@ -36,7 +36,7 @@ delivery_companies.show = (req, res, next) => {
     });
 };
 
-delivery_companies.showby = (req, res, next) => {
+delivery_companies.showBy = (req, res, next) => {
   DeliveryCompaniesDb.findDataBy(req.query)
     .then((data) => {
       res.json({

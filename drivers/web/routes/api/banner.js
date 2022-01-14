@@ -36,7 +36,7 @@ banners.show = (req, res, next) => {
     });
 };
 
-banners.showby = (req, res, next) => {
+banners.showBy = (req, res, next) => {
   // let obj = [];
   // Object.keys(req.query).map(function(i){
   //   obj.push({ prop: i, val: req.query[i]});

@@ -38,7 +38,7 @@ suppliers.show = (req, res, next) => {
     });
 };
 
-suppliers.showby = (req, res, next) => {
+suppliers.showBy = (req, res, next) => {
   // let obj = [];
   // Object.keys(req.query).map(function(i){
   //   obj.push({ prop: i, val: req.query[i]});

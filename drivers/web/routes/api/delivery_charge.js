@@ -36,7 +36,7 @@ delivery_charges.show = (req, res, next) => {
     });
 };
 
-delivery_charges.showby = (req, res, next) => {
+delivery_charges.showBy = (req, res, next) => {
   DeliveryChargesDb.findDataBy(req.query)
     .then((data) => {
       res.json({

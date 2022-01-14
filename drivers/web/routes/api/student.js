@@ -36,7 +36,7 @@ students.show = (req, res, next) => {
     });
 };
 
-students.showby = (req, res, next) => {
+students.showBy = (req, res, next) => {
   StudentsDb.findDataBy(req.query)
     .then((data) => {
       res.json({

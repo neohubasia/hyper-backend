@@ -36,7 +36,7 @@ product_packages.show = (req, res, next) => {
     });
 };
 
-product_packages.showby = (req, res, next) => {
+product_packages.showBy = (req, res, next) => {
   ProductPacksDb.findDataBy(req.query)
     .then((data) => {
       res.json({

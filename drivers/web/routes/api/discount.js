@@ -38,7 +38,7 @@ discounts.show = (req, res, next) => {
     });
 };
 
-discounts.showby = (req, res, next) => {
+discounts.showBy = (req, res, next) => {
   DiscountsDb.findDataBy(req.query)
     .then((data) => {
       res.json({

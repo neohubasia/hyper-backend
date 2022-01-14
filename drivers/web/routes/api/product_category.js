@@ -36,7 +36,7 @@ product_categories.show = (req, res, next) => {
     });
 };
 
-product_categories.showby = (req, res, next) => {
+product_categories.showBy = (req, res, next) => {
   ProductCategoriesDb.findDataBy(req.query)
     .then((data) => {
       res.json({

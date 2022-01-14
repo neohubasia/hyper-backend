@@ -53,7 +53,7 @@ orders.show = (req, res, next) => {
     });
 };
 
-orders.showby = (req, res, next) => {
+orders.showBy = (req, res, next) => {
   OrdersDb.findDataBy(req.query)
     .then((data) => {
       res.json({

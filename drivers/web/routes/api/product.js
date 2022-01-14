@@ -38,7 +38,7 @@ products.show = (req, res, next) => {
     });
 };
 
-products.showby = (req, res, next) => {
+products.showBy = (req, res, next) => {
   ProductsDb.findDataBy(req.query)
     .then((data) => {
       res.json({

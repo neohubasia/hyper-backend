@@ -36,7 +36,7 @@ townships.show = (req, res, next) => {
     });
 };
 
-townships.showby = (req, res, next) => {
+townships.showBy = (req, res, next) => {
   TownshipsDb.findDataBy(req.query)
     .then((data) => {
       res.json({
