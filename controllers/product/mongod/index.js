@@ -71,8 +71,6 @@ let findDataBy = (params) => {
     filter["discount_id"] = { $ne: null };
   }
 
-  console.log("Edit Param ", filter, sort, skip, limit);
-
   return Product.find(filter)
     .sort(sort)
     .skip(skip)
