@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 const menuAccess = require("../../../../librarys/menu-access");
 let ProductsDb = require("../../../../controllers/product");
 let DiscountsDb = require("../../../../controllers/discount");
@@ -12,7 +12,7 @@ const crypto = require("crypto");
 router.get("/products", connect.ensureLoggedIn(), (req, res, next) => {
   res.render("pages/product-list", {
     ...menuAccess.getProgram(req.user.role, "catalogMenu.productSubMenu.list"), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -26,7 +26,7 @@ router
         req.user.role,
         "catalogMenu.productSubMenu.entry"
       ), // admin may change on req.user => role
-      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      token: generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data,
     });

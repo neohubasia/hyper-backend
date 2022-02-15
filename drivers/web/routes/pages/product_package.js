@@ -4,7 +4,7 @@ const fs = require("fs");
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
 const menuAccess = require("../../../../librarys/menu-access");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 let ProductPacksDb = require("../../../../controllers/product_package");
 
 router.get("/product_packages", connect.ensureLoggedIn(), (req, res, next) => {
@@ -13,7 +13,7 @@ router.get("/product_packages", connect.ensureLoggedIn(), (req, res, next) => {
       req.user.role,
       "catalogMenu.productPackSubMenu.list"
     ), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -32,7 +32,7 @@ router
           req.user.role,
           "catalogMenu.productPackSubMenu.entry"
         ), // admin may change on req.user => role
-        token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+        token: generateTokenSign(config.jwt.credential.USERNAME),
         app: config.app,
         data: data,
       });

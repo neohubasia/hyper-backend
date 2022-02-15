@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 const menuAccess = require("../../../../librarys/menu-access");
 let UsersDb = require("../../../../controllers/user");
 
@@ -18,7 +18,7 @@ router.get("/getuser", connect.ensureLoggedIn(), (req, res, next) => {
 router.get("/users", connect.ensureLoggedIn(), (req, res, next) => {
   res.render("pages/user-list", {
     ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.list"), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -30,7 +30,7 @@ router
 
     res.render("pages/user-entry", {
       ...menuAccess.getProgram(req.user.role, "adminMenu.userSubMenu.entry"), // admin may change on req.user => role
-      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      token: generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data,
     });

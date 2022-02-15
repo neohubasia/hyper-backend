@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 const menuAccess = require("../../../../librarys/menu-access");
 let PaymentMethodsDb = require("../../../../controllers/payment_method");
 
@@ -13,7 +13,7 @@ router.get("/payment_methods", connect.ensureLoggedIn(), (req, res, next) => {
       req.user.role,
       "generalMenu.paymentMethodSubMenu.list"
     ), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -32,7 +32,7 @@ router
           req.user.role,
           "generalMenu.paymentMethodSubMenu.entry"
         ), // admin may change on req.user => role
-        token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+        token: generateTokenSign(config.jwt.credential.USERNAME),
         app: config.app,
         data: data,
       });

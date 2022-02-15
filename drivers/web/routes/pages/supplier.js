@@ -3,7 +3,7 @@ const router = express.Router();
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
 const { isEmptyArray } = require("../../../../librarys/utilities");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 const menuAccess = require("../../../../librarys/menu-access");
 let SuppliersDb = require("../../../../controllers/supplier");
 let UsersDb = require("../../../../controllers/user");
@@ -14,7 +14,7 @@ router.get("/suppliers", connect.ensureLoggedIn(), (req, res, next) => {
       req.user.role,
       "registerMenu.supplierSubMenu.list"
     ), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -37,7 +37,7 @@ router
         req.user.role,
         "registerMenu.supplierSubMenu.entry"
       ), // admin may change on req.user => role
-      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      token: generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data,
     });

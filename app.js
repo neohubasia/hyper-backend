@@ -11,8 +11,8 @@ const expressSession = require("express-session")({
   saveUninitialized: true,
 });
 
-const _jwt = require("./middlewares/jwt");
-const { tokenRouter } = require("./middlewares/generator");
+const _jwt = require("./middlewares/jwt-check");
+const { tokenRouter } = require("./middlewares/jwt-generate");
 
 const authRouter = require("./drivers/web/routes/auth");
 const apiRouter = require("./drivers/web/routes/api");

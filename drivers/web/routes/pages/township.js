@@ -3,14 +3,14 @@ const router = express.Router();
 const fs = require("fs");
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 const menuAccess = require("../../../../librarys/menu-access");
 let TownshipsDb = require("../../../../controllers/township");
 
 router.get("/townships", connect.ensureLoggedIn(), (req, res, next) => {
   res.render("pages/township-list", {
     ...menuAccess.getProgram(req.user.role, "generalMenu.townshipSubMenu.list"), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -25,7 +25,7 @@ router
         req.user.role,
         "generalMenu.townshipSubMenu.entry"
       ), // admin may change on req.user => role
-      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      token: generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data,
     });

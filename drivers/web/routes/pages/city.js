@@ -3,14 +3,14 @@ const router = express.Router();
 const fs = require("fs");
 const connect = require("connect-ensure-login");
 const config = require("../../../../config/index");
-const { Handlers } = require("../../../../middlewares/generator");
+const { generateTokenSign } = require("../../../../middlewares/jwt-generate");
 const menuAccess = require("../../../../librarys/menu-access");
 let CitiesDb = require("../../../../controllers/city");
 
 router.get("/cities", connect.ensureLoggedIn(), (req, res, next) => {
   res.render("pages/city-list", {
     ...menuAccess.getProgram(req.user.role, "generalMenu.citySubMenu.list"), // admin may change on req.user => role
-    token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+    token: generateTokenSign(config.jwt.credential.USERNAME),
     app: config.app,
   });
 });
@@ -22,7 +22,7 @@ router
 
     res.render("pages/city-entry", {
       ...menuAccess.getProgram(req.user.role, "generalMenu.citySubMenu.entry"), // admin may change on req.user => role
-      token: Handlers.generateTokenSign(config.jwt.credential.USERNAME),
+      token: generateTokenSign(config.jwt.credential.USERNAME),
       app: config.app,
       data: data,
     });
