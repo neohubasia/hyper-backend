@@ -85,8 +85,7 @@
 .list-group .list-group-item.active {
   border: none;
   color: #fdfdfd;
-  background: #005bff;
-  border-top: 3px solid #ffc105;
+  background: #ff0000;
 }
 
 .user-nav-items > .nav-item {
