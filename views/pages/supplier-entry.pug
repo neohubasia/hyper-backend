@@ -62,6 +62,7 @@ block content
           div.col-sm-6.mb-3
             label.control-label(for='company_name') Company Name
             input.form-control.input-sm#company_name(type='text', name='company_name', value=data.form.company_name, maxlength="55" autocomplete="off" disabled)
+          
           div.col-sm-6.mb-3
             label.control-label(for='contact_name') Contact Name
             input.form-control.input-sm#contact_name(type='text', name='contact_name' value=data.form.contact_name maxlength="55" autocomplete="off" disabled)
@@ -70,6 +71,7 @@ block content
             - var cityid =  data.form.address_info[0].cityid || { _id: "" };
             label.control-label(for='city') City
             select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" disabled)
+          
           div.col-sm-6.mb-3
             - var townshipid =  data.form.address_info[0].townshipid || { _id: "" };
             label.control-label(for='city') Township
@@ -78,6 +80,7 @@ block content
           div.col-sm-6.mb-3
             label.control-label(for='address') Address
             textarea.form-control.input-sm#address(name='address_info[0][address]' rows="1" disabled)= data.form.address_info[0].address
+          
           div.col-sm-6.mb-3
             label.control-label(for='mobile_no') Mobile Phone
             input.form-control.input-sm#mobile_no(type='text', name='address_info[0][mobile_no]' value=data.form.address_info[0].mobile_no disabled)
@@ -85,6 +88,7 @@ block content
           div.col-sm-6.mb-3
             label.control-label(for='email') Email
             input.form-control.input-sm#email(type='text', name='address_info[0][email]', value=data.form.address_info[0].email, disabled)
+          
           div.col-sm-6.mb-3
             label.control-label(for='website') Website
             input.form-control.input-sm#website(type='text', name='website' value=data.form.website maxlength="55" autocomplete="off" disabled)
@@ -93,17 +97,18 @@ block content
             - var product_type_id =  data.form.product_type_id || { _id: "" };
             label.control-label(for='product_type_id') Product Type
             select.form-control.input-sm.selectpicker#product_type_id(name='product_type_id' value=product_type_id._id data-value=product_type_id._id, data-live-search="true", data-size="8" disabled)
+          
           div.col-sm-6.mb-3
             - var payment_method_id =  data.form.payment_methods[0].payment_method_id || { _id: "" };
             label.control-label(for='payment_method') Payment Method
             select.form-control.input-sm.selectpicker#payment_method_id(name='payment_method_id' value=payment_method_id._id data-value=payment_method_id._id, data-live-search="true", data-size="8" disabled)
 
-          div.col-sm-12.mb-2
+          div.col-sm-12.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description', disabled)= data.form.description
+            textarea.form-control.input-sm#description(name='description', rows=1 disabled)= data.form.description
+          
           div.col-sm-6.mb-3
             label.control-label(for='access') User Access
-
             if (!data.modal.supplier_id)
               div.radio.radio-toolbar.row
                 div.col-sm-6.mb-3.col-xl-3

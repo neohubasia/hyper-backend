@@ -11,6 +11,7 @@ block content
           div.col-sm-6.mb-3
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
+          
           div.col-sm-6.mb-3
             label.control-label(for='discount_type') Discount Type
             select#discount_type.selectpicker.form-control(name='discount_type', value=data.discount_type, data-value=data.discount_type  data-size="8" data-live-search="true" required)
@@ -22,6 +23,7 @@ block content
             label.control-label(for='discount_amount') Discount (Percent/Amount)
             input.form-control.input-sm#discount_amount(type='number', name='discount_amount', role="number" min='1' max='10000' value=data.discount_amount required)
             small.text-warning Percent (1-100), Amount (1-10000)
+          
           div.col-sm-6.mb-3
             - var supplier_id =  data.supplier_id || { _id: user.supplier_id };
             label.control-label(for='supplier_id') Supplier
@@ -29,7 +31,8 @@ block content
 
           div.col-sm-6.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description',)= data.description 
+            textarea.form-control.input-sm#description(name='description' rows=1)= data.description 
+          
           div.col-sm-6.mb-3
             label.control-label(for='active') Active
             div.radio.radio-toolbar.row

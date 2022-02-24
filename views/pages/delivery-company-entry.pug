@@ -29,29 +29,33 @@ block content
                 button.btn.remove-file(type="button") Remove
 
         div.form-group.row
-          div.col-sm-4.mb-3
+          div.col-sm-6.mb-3
             label.control-label(for='company_name') Company Name
             input.form-control.input-sm#company_name(type='text', name='company_name', value=data.company_name, maxlength="110" required autofocus)
-          div.col-sm-4.mb-3
+          
+          div.col-sm-6.mb-3
             label.control-label(for='contact_name') Contact Name
             input.form-control.input-sm#contact_name(type='text', name='contact_name', value=data.contact_name, maxlength="110" required)
-          div.col-sm-4.mb-3
-            label.control-label(for='email') Email
-            input.form-control.input-sm#email(type='text', name='email', value=data.email, maxlength="55" required)     
-
+           
           div.col-sm-6.mb-3
             label.control-label(for='primary_mobile') Primary Mobile
             input.form-control.input-sm#primary_mobile(type='text', name='primary_mobile', value=data.primary_mobile, maxlength="55" required)
+          
           div.col-sm-6.mb-3
             label.control-label(for='secondary_mobile') Secondary Mobile
             input.form-control.input-sm#secondary_mobile(type='text', name='secondary_mobile', value=data.secondary_mobile, maxlength="55" required)
 
-          div.col-sm-12.mb-2
+          div.col-sm-6.mb-3
+            label.control-label(for='email') Email
+            input.form-control.input-sm#email(type='text', name='email', value=data.email, maxlength="55" required)     
+          
+          div.col-sm-6.mb-2
             label.control-label(for='address') Address
-            textarea.form-control.input-sm#address(name='address')= data.address
+            textarea.form-control.input-sm#address(name='address' rows=1)= data.address
+          
           div.col-sm-6.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description')= data.description
+            textarea.form-control.input-sm#description(name='description' rows=1)= data.description
 
           div.col-sm-6.mb-3
             label.control-label(for='status') Status

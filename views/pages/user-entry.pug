@@ -9,6 +9,7 @@ block content
           div.col-sm-6.mb-3
             label.control-label(for='username') Username
             input.form-control.input-sm#username(type='text', name='username', value=data.username, maxlength="55" autocomplete="off" required autofocus)
+          
           div.col-sm-6.mb-3
             label.control-label(for='password') Password
             div.input-group
@@ -16,15 +17,11 @@ block content
               div.input-group-append
                 div.input-group-text
                   i.fa.fa-eye-slash(aria-hidden='true')
-
-          //- div.form-group.row
-          //-   div.col-sm-12
-          //-     label.control-label(for='role') Role
-          //-     select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8")
   
           div.col-sm-6.mb-3
             label.control-label(for='role') Role
             select.form-control.input-sm.selectpicker#roleid(name='role' value=data.role data-value=data.role, data-live-search="true", data-size="8" required)
+          
           div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row

@@ -24,7 +24,7 @@ block content
           div.col-sm-2.mb-3
             label.control-label(for='description') Description
           div.col-sm-4.mb-3
-            textarea.form-control.input-sm#description(name='description')= data.description
+            textarea.form-control.input-sm#description(name='description' rows=1)= data.description
           
           div.col-sm-2.mb-3
             label.control-label(for='status') Status
@@ -43,9 +43,7 @@ block content
           div.col-sm-2.mb-2
             label.control-label(for='template') Template
           div.col-sm-10.mb-2
-            textarea.form-control.input-sm#template(rows= 7 name='template')= data.template
-
-
+            textarea.form-control.input-sm#template(name='template' rows=1)= data.template
 
         include ./../includes/layout-entry-btn
 

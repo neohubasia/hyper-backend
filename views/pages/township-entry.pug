@@ -11,6 +11,7 @@ block content
           div.col-sm-6.mb-3
             label.control-label(for='township_mm') Township (MM)
             input.form-control.input-sm#township_mm(type='text', name='township_mm', value=data.township_mm, maxlength="55" autocomplete="off" required autofocus)
+          
           div.col-sm-6.mb-3
             label.control-label(for='township_en') Township (EN)
             input.form-control.input-sm#township_en(type='text', name='township_en' value=data.township_en maxlength="55" autocomplete="off")
@@ -19,13 +20,15 @@ block content
             - var cityid =  data.cityid || { _id: "" };
             label.control-label(for='city') City
             select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" required)
+          
           div.col-sm-6.mb-3
             label.control-label(for='code') Code
             input.form-control.input-sm#code(type='text', name='code', value=data.code, maxlength="55" autocomplete="off" )
 
           div.col-sm-6.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description',)= data.description 
+            textarea.form-control.input-sm#description(name='description' rows=1)= data.description 
+          
           div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row

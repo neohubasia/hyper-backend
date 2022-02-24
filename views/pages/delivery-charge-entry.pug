@@ -7,23 +7,24 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-sm-4.mb-2
+          div.col-sm-6.mb-3
             - var townshipid =  data.townshipid || { _id: "" };
             label.control-label(for='townshipid') Township
             select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" required)
 
-          div.col-sm-4.mb-2
+          div.col-sm-6.mb-3
             - var companyid =  data.companyid || { _id: "" };
             label.control-label(for='companyid') Company Name
             select.form-control.input-sm.selectpicker#companyid(name='companyid' value=companyid._id data-value=companyid._id, data-live-search="true", data-size="8" required)
 
-          div.col-sm-4.mb-2
+          div.col-sm-6.mb-3
             label.control-label(for='charge') Charge
             input.form-control.input-sm#charge(type='number', name='charge', role='number', min='1' max='10000' onkeyup="if(parseInt(this.value)>10000){ this.value =10000; return false; }" value=data.charge required)
 
           div.col-sm-6.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description',)= data.description 
+            textarea.form-control.input-sm#description(name='description' rows=1)= data.description 
+          
           div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row

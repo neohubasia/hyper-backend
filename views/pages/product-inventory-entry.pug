@@ -8,31 +8,31 @@ block content
       block inputs
 
         div.form-group.row
-          div.col-md-6.mb-2
+          div.col-md-6.mb-3
             label.control-label(for='name') Name
             input.form-control.input-sm#name(type='text', name='name', value=data.name, maxlength="55" autocomplete="off" required autofocus)
 
-          div.col-md-6.mb-2
+          div.col-md-6.mb-3
             label.control-label(for='quantity') Quantity
             input.form-control.input-sm#quantity(type='number', name='quantity', role='number', min='1' max='1000000' onkeyup="if(parseInt(this.value)>1000000){ this.value =1000000; return false; }" value=data.quantity, autocomplete="off" required)
             small.text-warning Quantity (1-1000000)
 
-          div.col-md-6.mb-2
+          div.col-md-6.mb-3
             - var weight_id =  data.weight_id || { _id: "" };
             label.control-label(for='weight_id') Weight
             select.form-control.input-sm.selectpicker#weight_id(name='weight_id' value=weight_id._id data-value=weight_id._id, data-live-search="true", data-size="8" required)
 
-          div.col-md-6.mb-2
+          div.col-md-6.mb-3
             - var package_id =  data.package_id || { _id: "" };
             label.control-label(for='package_id') Package
             select.form-control.input-sm.selectpicker#package_id(name='package_id' value=package_id._id data-value=package_id._id, data-live-search="true", data-size="8" required)
 
-          div.col-md-6.mb-2
+          div.col-md-6.mb-3
             - var supplier_id =  data.supplier_id || { _id: user.supplier_id };
             label.control-label(for='supplier_id') Supplier
             select.form-control.input-sm.selectpicker#supplier_id(name='supplier_id' value=supplier_id.  id data-value=supplier_id._id, data-live-search="true", data-size="8"  disabled=(supplier_id._id ? true : false) required)
 
-          div.col-md-6.mb-2
+          div.col-md-6.mb-3
             label.control-label(for='inventory_type') Inventory Type
             select#inventory_type.selectpicker.form-control(name='inventory_type', value=data.inventory_type, data-value=data.inventory_type  data-size="8" data-live-search="true" required)
               option(value="" disabled selected)  -- Please Select --
@@ -43,7 +43,8 @@ block content
 
           div.col-sm-6.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description',)= data.description 
+            textarea.form-control.input-sm#description(name='description' rows=1)= data.description 
+          
           div.col-sm-6.mb-3
             label.control-label(for='status') Status
             div.radio.radio-toolbar.row
