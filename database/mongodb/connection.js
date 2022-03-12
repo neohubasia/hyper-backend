@@ -9,22 +9,16 @@ mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
-// Set environment variables
-let env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
+const username = config.mongo.MONGO_USER;
+const password = config.mongo.MONGO_PW;
+const connect_urls = {
+  production: `mongodb://${username}:${password}@159.65.140.255:27017/itemplate_backend_uat?authSource=admin`,
+  development: `mongodb://localhost:27017/elearn_backend_uat`,
+};
 
-if (env === "production") {
-  // Using mongoose to connect to MLAB database (Create new database single node free and create new user and set name and password)
-  const username = config.mongo.MONGO_USER;
-  const password = config.mongo.MONGO_PW;
-  mongoose.connect(
-    `mongodb+srv://${username}:${password}@cluster.ofvxk.mongodb.net/elearn_backend_uat?retryWrites=true&w=majority`
-  );
-} else {
-  mongoose.connect("mongodb://localhost:27017/elearn_backend_uat"),
-    {
-      useMongoClient: true,
-    };
-}
+// Create connection
+mongoose.connect(connect_urls[env]);
 
 // Signal connection
 mongoose.connection
