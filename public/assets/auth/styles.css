@@ -99,7 +99,7 @@ body {
   color: #fff;
   text-align: center;
   text-transform: capitalize;
-  background: #ff0000;
+  background: #15a5b5;
   /* box-shadow: 
       3px 3px 3px #777,
       -3px -3px 3px #777; */
@@ -107,11 +107,11 @@ body {
 }
 
 .signin-button:hover {
-  background: #ff0000;
+  background: #15a5b5;
 }
 
 .signin-button:active {
-  background: #ff0000;
+  background: #15a5b5;
 }
 
 .link {
@@ -126,7 +126,7 @@ body {
 }
 
 .link a span {
-  color: #ff0000;
+  color: #15a5b5;
 }
 
 #error-message {
