@@ -1,4 +1,4 @@
-require("dotenv").config();
+const config = require("../config/index");
 const webpush = require("web-push");
 
 // VAPID keys should be generated only once.
@@ -8,8 +8,8 @@ const webpush = require("web-push");
 
 webpush.setVapidDetails(
   "mailto:waiphyo.dev@gmail.com",
-  process.env.PUBLIC_VAPID_KEY,
-  process.env.PRIVATE_VAPID_KEY
+  config.app.PUBLIC_VAPID_KEY,
+  config.app.PRIVATE_VAPID_KEY
 );
 
 module.exports = webpush;

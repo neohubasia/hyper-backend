@@ -9,12 +9,17 @@ mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
-const env = process.env.NODE_ENV;
-const username = config.mongo.MONGO_USER;
-const password = config.mongo.MONGO_PW;
+// Set environment variables
+const env = config.NODE_ENV;
+const host = config.mongo.MONGO_HOST;
+const port = config.mongo.MONGO_PORT;
+const user = config.mongo.MONGO_USER;
+const pass = config.mongo.MONGO_PASS;
+const database = config.app.DATABASE;
+
 const connect_urls = {
-  production: `mongodb://${username}:${password}@159.65.140.255:27017/itemplate_backend_uat?authSource=admin`,
-  development: `mongodb://localhost:27017/elearn_backend_uat`,
+  production: `mongodb://${user}:${pass}@${host}:${port}/${database}?authSource=admin`,
+  development: `mongodb://${host}:${port}/${database}`,
 };
 
 // Create connection

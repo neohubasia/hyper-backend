@@ -1,11 +1,12 @@
 require("dotenv").config();
 
 module.exports = {
+  HOST: process.env.APP_HOST,
+  PORT: process.env.APP_PORT,
   NODE_ENV: process.env.NODE_ENV,
-  PORT: process.env.PORT,
   app: {
     NAME: "hyper | dashboard",
-    FILE: "itemplate-file",
+    FILE: "hyper-market-file",
     DESC: "business  solution for general purpose",
     icons: {
       FLAT_PLUS: "/images/icons/flat-plus.svg",
@@ -13,17 +14,15 @@ module.exports = {
       FLAT_DELETE: "/images/icons/flat-delete.svg",
       FLAT_DETAIL: "/images/icons/flat-detail.svg",
     },
+    DATABASE: process.env.DATABASE_NAME,
+    PUBLIC_VAPID_KEY: process.env.PUBLIC_VAPID_KEY,
+    PRIVATE_VAPID_KEY: process.env.PRIVATE_VAPID_KEY,
   },
   mongo: {
+    MONGO_HOST: process.env.MONGO_HOST,
+    MONGO_PORT: process.env.MONGO_PORT,
     MONGO_USER: process.env.MONGO_USER,
-    MONGO_PW: process.env.MONGO_PW,
-  },
-  pg: {
-    HOST: process.env.PG_HOST,
-    USER: process.env.PG_USER,
-    DATABASE: process.env.PG_DATABASE,
-    PASSWORD: process.env.PG_PASSWORD,
-    PORT: process.env.PG_PORT,
+    MONGO_PASS: process.env.MONGO_PASS,
   },
   jwt: {
     TEXT: "9E0HU8L48",
