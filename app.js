@@ -5,10 +5,14 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const logger = require("morgan");
-const expressSession = require("express-session")({
-  secret: "secret",
-  resave: false,
-  saveUninitialized: true,
+
+// cookie session
+const cookieSession = require("cookie-session");
+const cookieConfig = cookieSession({
+  name: "session",
+  keys: ["8y93rb@ck3nd"],
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
 });
 
 const _jwt = require("./middlewares/jwt-check");
@@ -35,9 +39,9 @@ app.set("view engine", "pug");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// for forala uploadImage
 app.use(express.static(__dirname + "/"));
 
+// for forala image
 app.post("/image_upload", function (req, res) {
   uploadImage(req, function (err, data) {
     if (err) {
@@ -47,7 +51,7 @@ app.post("/image_upload", function (req, res) {
   });
 });
 
-var imageDir = path.join("public", "uploads", "froalaimage");
+const imageDir = path.join("public", "uploads", "froalaimage");
 if (!fs.existsSync(imageDir)) {
   fs.mkdirSync(imageDir);
 }
@@ -62,12 +66,12 @@ app.post("/video_upload", function (req, res) {
   });
 });
 
-var videoDir = path.join("public", "uploads", "froalavideo");
+const videoDir = path.join("public", "uploads", "froalavideo");
 if (!fs.existsSync(videoDir)) {
   fs.mkdirSync(videoDir);
 }
 
-// for froala uploadFile
+// for froala file
 app.post("/file_upload", function (req, res) {
   uploadFile(req, function (err, data) {
     if (err) {
@@ -83,7 +87,7 @@ if (!fs.existsSync(fileDir)) {
 }
 
 app.use(cookieParser());
-app.use(expressSession);
+app.use(cookieConfig);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -138,11 +142,6 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-
-  // res.json({
-  //   "status": "ERR",
-  //   "message": err
-  // })
   res.sendFile("./views/404/index.html", { root: __dirname });
 });
 
