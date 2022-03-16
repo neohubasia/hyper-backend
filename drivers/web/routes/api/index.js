@@ -1,35 +1,42 @@
 const express = require("express");
 const router = express.Router();
 
-// api routing
+// dev routing
 const dev = require("./develop");
-const users = require("./user");
+
+// setup routing
 const cities = require("./city");
+const banners = require("./banner");
+const townships = require("./township");
+const templates = require("./template");
+
+// user routing
+const users = require("./user");
+const customers = require("./customer");
+const suppliers = require("./supplier");
+const userRoles = require("./user-role");
+
+// order routing
 const carts = require("./cart");
 const orders = require("./order");
 const coupons = require("./coupon");
-const banners = require("./banner");
-const customers = require("./customer");
-const suppliers = require("./supplier");
-const townships = require("./township");
-const userRoles = require("./user-role");
-const students = require("./student");
 const discounts = require("./discount");
+
+// catalog routing
 const products = require("./product");
-const templates = require("./template");
 const product_cat = require("./product_category");
 const product_inv = require("./product_inventory");
 const payment_methods = require("./payment_method");
 const product_packages = require("./product_package");
 const product_weights = require("./product_weight");
+
+// delivery routing
 const delivery_companies = require("./delivery_company");
 const delivery_charges = require("./delivery_charge");
 
-// schema vialidation
-const validateware = require("./../../../../middlewares/validator");
-const studentSchema = require("../../validations/students/student-schema");
+//  middleware order
 const {
-  constructOrder,
+  makeOrder,
   updateStock,
   verifyStock,
 } = require("../../../../middlewares/cart_to_order");
@@ -70,15 +77,6 @@ router
   .post("/coupon/:id", coupons.update)
   .delete("/coupon/:id", coupons.delete)
   .delete("/coupons", coupons.deleteall);
-
-router
-  .get("/students", students.index)
-  .get("/student/:id", students.show)
-  .get("/student", students.showBy)
-  .post("/student", validateware(studentSchema), students.create)
-  .post("/student/:id", validateware(studentSchema), students.update)
-  .delete("/student/:id", students.delete)
-  .delete("/students", students.deleteall);
 
 router
   .get("/product_categories", product_cat.index)
@@ -129,7 +127,7 @@ router
 router
   .post(
     "/order",
-    constructOrder,
+    makeOrder,
     verifyStock,
     updateStock,
     carts.delete,

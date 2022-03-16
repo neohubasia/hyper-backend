@@ -14,14 +14,9 @@
   "api": {
     "postman": "https://documenter.getpostman.com/view/10018411/TVCcXV3L"
   },
-  "repository": {
-    "type": "github",
-    "url": "https://github.com/waiphyo285/itemplate.git"
-  },
-  "bugs": "https://github.com/waiphyo285/itemplate/issues",
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./drivers/webserver/server.js",
+    "dev": "nodemon ./bin/www",
     "test": "mocha './**/*.spec.js' --exit"
   },
   "dependencies": {

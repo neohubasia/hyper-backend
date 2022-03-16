@@ -3,7 +3,7 @@ const Product = require("../database/mongodb/models/product");
 const Discount = require("../database/mongodb/models/discount");
 const Inventory = require("../database/mongodb/models/product_inventory");
 
-const constructOrder = function (req, res, next) {
+const makeOrder = function (req, res, next) {
   req.body.orderNumber = generateOrderId();
   const customerId = req.body.customerId;
   let total = 0,
@@ -157,7 +157,7 @@ const generateOrderId = () => {
 };
 
 module.exports = {
-  constructOrder,
+  makeOrder,
   verifyStock,
   updateStock,
 };
