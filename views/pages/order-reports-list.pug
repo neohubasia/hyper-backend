@@ -1,7 +1,7 @@
 extends ../includes/layout-main
 block content
   div.modal.fade#FilterDataDialog(role='dialog', aria-labelledby='FilterDataDialog')
-    div.modal-dialog.modal-sm(role='document', style='max-width:730px')
+    div.modal-dialog.modal-dialog-centered.modal-md(role='document', style='max-width:730px')
       div.modal-content
 
         div.modal-header
@@ -28,8 +28,7 @@ block content
                 option(value="completed") Completed
 
         div.modal-footer.justify-content-md-center
-          button.btn.btn-sm.btn-secondary#btnCancel(type='button', data-dismiss='modal')
-            span.fa.fa-times
+          button.btn.btn-sm.btn-light#btnCancel(type='button', data-dismiss='modal')
             |  CANCEL
           button#btnLoad.btn.btn-.btn-primary.btn-sm(type='button', role='button')
             span.fa.fa-spinner

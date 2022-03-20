@@ -1,17 +1,17 @@
 div.modal.fade#dialogDeleteConfirm(tabindex='-1', role='dialog', aria-labelledby='deleteConfirm')
-  div.modal-dialog.modal-sm(role='document')
+  div.modal-dialog.modal-dialog-centered.modal-md(role='document')
     div.modal-content
       div.modal-header
         h5.modal-title 
-          i.fa.fa-check-circle
-          |  Comfirm
+          |  Confirm Message
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') &times;
       div.modal-body
-        p Are you sure to delete this?
+        h1.text-center
+          span.fa.fa-times.text-danger
+        p.text-center You will lost this permanently. Are you sure to delete?
       div.modal-footer.justify-content-md-center
-        button.btn.btn-sm.btn-secondary#dialogCancel(type='button', data-dismiss='modal')
-          span.fa.fa-times
+        button.btn.btn-sm.btn-light#dialogCancel(type='button', data-dismiss='modal')
           |  CANCEL
         button.btn.btn-sm.btn-danger#dialogAccept(type='button', data-dismiss='modal')
           span.fa.fa-trash-alt

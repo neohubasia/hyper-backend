@@ -1,7 +1,7 @@
 extends ../includes/layout-main
 block content
   div.modal.fade#AddUserDialog(tabindex='-1', role='dialog', aria-labelledby='AddUserDialog')
-    div.modal-dialog.modal-sm(role='document', style='max-width:730px')
+    div.modal-dialog.modal-dialog-centered.modal-md(role='document', style='max-width:730px')
       div.modal-content
 
         div.modal-header
@@ -37,8 +37,7 @@ block content
                 select.form-control.input-sm.selectpicker#roleid(name='role' value=`${data.modal.role ? data.modal.role : ''}` data-value=`${data.modal.role ? data.modal.role : ''}` data-live-search="true", data-size="8" required)
 
           div.modal-footer.justify-content-md-center
-            button.btn.btn-sm.btn-secondary#dialogUserCancel(type='button', data-dismiss='modal')
-              span.fa.fa-times
+            button.btn.btn-sm.btn-light#dialogUserCancel(type='button', data-dismiss='modal')
               |  CANCEL
             button.btn.btn-sm.btn-primary#dialogUserAccept(type='submit', data-dismiss='modal')
               span.fa.fa-save
