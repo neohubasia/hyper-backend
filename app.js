@@ -1,7 +1,7 @@
-const createError = require("http-errors");
-const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const express = require("express");
+const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const logger = require("morgan");
@@ -23,9 +23,11 @@ const apiRouter = require("./drivers/web/routes/api");
 const customerRouter = require("./drivers/web/routes/c_api");
 const webpushRouter = require("./drivers/web/routes/wp_api");
 const fileRouter = require("./drivers/web/routes/files");
+
 const uploadImage = require("./drivers/web/routes/files/froala/upload-image.js");
 const uploadVideo = require("./drivers/web/routes/files/froala/upload-video.js");
 const uploadFile = require("./drivers/web/routes/files/froala/upload-file.js");
+
 const UserModel = require("./database/mongodb/models/user");
 
 const app = express();
