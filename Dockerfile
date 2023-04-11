@@ -21,4 +21,4 @@ COPY . /usr/src/app
 EXPOSE 7878
 
 #command to run within the container
-CMD ['node', './bin/www']
+CMD ['node', 'app.js']
