@@ -29,8 +29,14 @@ makeSchema.plugin(SchemaPlugin);
 makeSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("user", makeSchema);
 
-// User.register({username:'admin', active: false}, 'min');
 // just create first action
-// node ../path/user.js
+// User.register(
+//   {
+//     username: "minmin",
+//     role: "admin (access all)",
+//     active: false,
+//   },
+//   "minmin"
+// );
 
 module.exports = User;

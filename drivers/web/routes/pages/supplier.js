@@ -46,7 +46,7 @@ router
     let db,
       status = "FAIL";
 
-    if (!req.body.id) {
+    if (!req.body.id || req.body.id == "undefined") {
       // insert data
       db = SuppliersDb.addData(req.body);
     } else {

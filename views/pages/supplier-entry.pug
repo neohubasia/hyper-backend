@@ -60,51 +60,73 @@ block content
         div.form-group.row
           div.col-sm-6.mb-3
             label.control-label(for='company_name') Company Name
-            input.form-control.input-sm#company_name(type='text', name='company_name', value=data.form.company_name, maxlength="55" autocomplete="off" disabled)
+            input.form-control.input-sm#company_name(type='text', name='company_name', value=data.form.company_name, maxlength="55" autocomplete="off" )
           
           div.col-sm-6.mb-3
             label.control-label(for='contact_name') Contact Name
-            input.form-control.input-sm#contact_name(type='text', name='contact_name' value=data.form.contact_name maxlength="55" autocomplete="off" disabled)
+            input.form-control.input-sm#contact_name(type='text', name='contact_name' value=data.form.contact_name maxlength="55" autocomplete="off" )
 
           div.col-sm-6.mb-3
-            - var cityid =  data.form.address_info[0].cityid || { _id: "" };
+            - var cityid =  { _id: "" };
+            - if (data.form && data.form.address_info && data.form.address_info[0] && data.form.address_info[0].cityid) {
+              - cityid = data.form.address_info[0].cityid;
+            - }
             label.control-label(for='city') City
-            select.form-control.input-sm.selectpicker#cityid(name='cityid' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8" disabled)
+            select.form-control.input-sm.selectpicker#cityid(name='address_info[0][cityid]' value=cityid._id data-value=cityid._id, data-live-search="true", data-size="8")
           
           div.col-sm-6.mb-3
-            - var townshipid =  data.form.address_info[0].townshipid || { _id: "" };
+            - var townshipid =  { _id: "" };
+            - if (data.form && data.form.address_info && data.form.address_info[0] && data.form.address_info[0].townshipid) {
+              - townshipid = data.form.address_info[0].townshipid;
+            - }
             label.control-label(for='city') Township
-            select.form-control.input-sm.selectpicker#townshipid(name='townshipid' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" disabled)
+            select.form-control.input-sm.selectpicker#townshipid(name='address_info[0][townshipid]' value=townshipid._id data-value=townshipid._id, data-live-search="true", data-size="8" )
 
           div.col-sm-6.mb-3
+            - var address =  "";
+            - if (data.form && data.form.address_info && data.form.address_info[0] && data.form.address_info[0].address) {
+              - address = data.form.address_info[0].address;
+            - }
             label.control-label(for='address') Address
-            textarea.form-control.input-sm#address(name='address_info[0][address]' rows="1" disabled)= data.form.address_info[0].address
+            textarea.form-control.input-sm#address(name='address_info[0][address]' rows="1" )= address
           
           div.col-sm-6.mb-3
+            - var mobile_no =  "";
+            - if (data.form && data.form.address_info && data.form.address_info[0] && data.form.address_info[0].mobile_no) {
+              - mobile_no = data.form.address_info[0].mobile_no;
+            - }
             label.control-label(for='mobile_no') Mobile Phone
-            input.form-control.input-sm#mobile_no(type='text', name='address_info[0][mobile_no]' value=data.form.address_info[0].mobile_no disabled)
+            input.form-control.input-sm#mobile_no(type='text', name='address_info[0][mobile_no]' value=mobile_no )
 
           div.col-sm-6.mb-3
+            - var email =  "";
+            - if (data.form && data.form.address_info && data.form.address_info[0] && data.form.address_info[0].email) {
+              - email = data.form.address_info[0].email;
+            - }
             label.control-label(for='email') Email
-            input.form-control.input-sm#email(type='text', name='address_info[0][email]', value=data.form.address_info[0].email, disabled)
+            input.form-control.input-sm#email(type='text', name='address_info[0][email]', value=email, )
           
           div.col-sm-6.mb-3
             label.control-label(for='website') Website
-            input.form-control.input-sm#website(type='text', name='website' value=data.form.website maxlength="55" autocomplete="off" disabled)
+            input.form-control.input-sm#website(type='text', name='website' value=data.form.website maxlength="55" autocomplete="off" )
 
           div.col-sm-6.mb-3
             - var product_type_id =  data.form.product_type_id || { _id: "" };
             label.control-label(for='product_type_id') Product Type
-            select.form-control.input-sm.selectpicker#product_type_id(name='product_type_id' value=product_type_id._id data-value=product_type_id._id, data-live-search="true", data-size="8" disabled)
+            select.form-control.input-sm.selectpicker#product_type_id(name='product_type_id' value=product_type_id._id data-value=product_type_id._id, data-live-search="true", data-size="8" )
           
           div.col-sm-6.mb-3
-            - var payment_method_id =  data.form.payment_methods[0].payment_method_id || { _id: "" };
+            - var payment_method_id = { _id: "" };
+            - var payment_method_id =  "";
+            - if (data.form && data.form.payment_methods && data.form.payment_methods[0] && data.form.payment_methods[0].payment_method_id) {
+              - payment_method_id = data.form.payment_methods[0].payment_method_id;
+            - }
             label.control-label(for='payment_method') Payment Method
-            select.form-control.input-sm.selectpicker#payment_method_id(name='payment_method_id' value=payment_method_id._id data-value=payment_method_id._id, data-live-search="true", data-size="8" disabled)
+            select.form-control.input-sm.selectpicker#payment_method_id(name='payment_methods[0][payment_method_id]' value=payment_method_id._id data-value=payment_method_id._id, data-live-search="true", data-size="8" )
 
           div.col-sm-12.mb-3
             label.control-label(for='description') Description
-            textarea.form-control.input-sm#description(name='description', rows=1 disabled)= data.form.description
+            textarea.form-control.input-sm#description(name='description', rows=1)= data.form.description
           
           div.col-sm-6.mb-3
             label.control-label(for='access') User Access
